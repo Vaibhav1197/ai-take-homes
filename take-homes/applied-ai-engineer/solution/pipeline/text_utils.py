@@ -38,6 +38,14 @@ _IMPACT_NOUNS = (
     "associates", "customers",
 )
 
+# Hedge/filler words that commonly precede a number in real customer speech
+# ("about twenty users", "a dozen customers", "roughly sixty seven drivers").
+# Skipped rather than treated as parse failures -- see _word_group_to_number.
+_IMPACT_HEDGE_WORDS = frozenset({
+    "a", "an", "about", "roughly", "approximately", "nearly", "around",
+    "almost", "over", "some", "just", "at", "least",
+})
+
 
 def normalize_whitespace(text: str) -> str:
     return " ".join(text.split()).strip()
@@ -62,6 +70,8 @@ def _word_group_to_number(phrase: str) -> Optional[int]:
     if phrase.isdigit():
         return int(phrase)
     parts = [p for p in re.split(r"[\s-]+", phrase) if p and p != "and"]
+    while parts and parts[0] in _IMPACT_HEDGE_WORDS:
+        parts = parts[1:]
     if not parts:
         return None
     total = 0
@@ -92,8 +102,11 @@ _IMPACT_WINDOW_RE = re.compile(
 
 def extract_max_impact_count(text_lower: str) -> Optional[int]:
     """Best-effort extraction of an affected-population size, e.g. '31
-    members', 'thirty-one members', 'two thousand seasonal store associates'.
-    Used only as a severity *nudge* -- never the sole basis for a decision.
+    members', 'thirty-one members', 'two thousand seasonal store associates',
+    'about twenty users', 'a dozen customers' (leading hedge words like
+    "about"/"roughly"/"a" are skipped, not treated as a parse failure --
+    real customer speech almost always hedges a headcount). Used only as a
+    severity *nudge* -- never the sole basis for a decision.
     """
 
     best: Optional[int] = None
