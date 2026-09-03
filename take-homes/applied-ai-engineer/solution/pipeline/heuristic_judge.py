@@ -44,6 +44,7 @@ from .keywords import (
     RETRACTION_PHRASES,
     SECURITY_OR_DATA_LOSS_PHRASES,
     SHIPPED_PHRASES,
+    SOFT_BUG_KEYWORDS,
     TOPIC_BREAK_MARKERS,
     VAGUE_PHRASES,
 )
@@ -95,6 +96,21 @@ def _retraction_hits(text_l: str) -> list[str]:
     if _RETRACTION_NEGATION_RE.search(text_l):
         hits = [h for h in hits if h not in ("don't file", "do not file")]
     return hits
+
+
+def _classify_signal_type(bug_hits: list[str], feat_hits: list[str]) -> str:
+    """bug vs feature, weighted so SOFT_BUG_KEYWORDS can't single-handedly
+    outvote a genuine feature ask. Customers routinely motivate a feature
+    request by describing what's wrong with today's manual process ("it's
+    error-prone", "someone gets the wrong role") -- that pain-point framing
+    uses bug-flavored words while the ask itself is unambiguously a feature
+    (call-003's SAML role mapping, call-013's LMS webhook both did exactly
+    this and were misclassified as "bug" before this carve-out). Words that
+    almost always mean an actual software defect regardless of context
+    ("crash", "404", "duplicate", "stuck", ...) still count at full weight.
+    """
+    strong_bug_hits = [h for h in bug_hits if h not in SOFT_BUG_KEYWORDS]
+    return "bug" if len(strong_bug_hits) >= len(feat_hits) else "feature"
 
 
 def _segment_blocks(turns: tuple[Turn, ...]) -> list[tuple[int, int]]:
@@ -360,7 +376,7 @@ class HeuristicJudge:
         if cosmetic_hits and has_factual_defect:
             flags.append("cosmetic-factual-low-severity")
 
-        signal_type = "bug" if len(bug_hits) >= len(feat_hits) else "feature"
+        signal_type = _classify_signal_type(bug_hits, feat_hits)
         if ext_turns:
             primary_turn = max(ext_turns, key=_turn_signal_score)
         else:

@@ -130,6 +130,17 @@ BUG_KEYWORDS = (
     "typo", "misspell", "empty results",
 )
 
+# Ambiguous bug words that can describe a flawed MANUAL process or general
+# human-error risk just as easily as an actual software defect -- e.g. "wrong
+# role", "error-prone", "fails the control" all show up while a customer
+# motivates a FEATURE request by describing the pain of today's manual
+# workaround (see call-003's SAML role-mapping ask, call-013's LMS webhook
+# ask). Excluded from the bug-vs-feature tie-break in heuristic_judge.py so
+# that pain-point framing doesn't get miscounted as "a bug was reported" --
+# but these still count normally everywhere else (suppression checks,
+# keyword_hits, raw_score).
+SOFT_BUG_KEYWORDS = frozenset({"fails", "failing", "failure", "error", "wrong"})
+
 FEATURE_KEYWORDS = (
     "feature request", "would be great if", "would love", "wish", "can you add",
     "could you add", "ability to", "able to", "want to be able", "request for",

@@ -5,6 +5,7 @@ its own.
 """
 from __future__ import annotations
 
+import math
 import re
 from typing import Optional
 
@@ -109,3 +110,91 @@ def jaccard_similarity(a_tokens: set[str], b_tokens: set[str]) -> float:
     intersection = len(a_tokens & b_tokens)
     union = len(a_tokens | b_tokens)
     return intersection / union if union else 0.0
+
+
+def term_frequencies(tokens: list[str]) -> dict[str, float]:
+    """Raw term-count vector for one document's tokens."""
+    counts: dict[str, float] = {}
+    for t in tokens:
+        counts[t] = counts.get(t, 0.0) + 1.0
+    return counts
+
+
+def cosine_similarity(a: dict[str, float], b: dict[str, float]) -> float:
+    """Cosine similarity between two sparse weight vectors (e.g. TF-IDF)."""
+    if not a or not b:
+        return 0.0
+    common = set(a) & set(b)
+    if not common:
+        return 0.0
+    dot = sum(a[t] * b[t] for t in common)
+    norm_a = math.sqrt(sum(v * v for v in a.values()))
+    norm_b = math.sqrt(sum(v * v for v in b.values()))
+    if norm_a == 0.0 or norm_b == 0.0:
+        return 0.0
+    return dot / (norm_a * norm_b)
+
+
+class TfidfIndex:
+    """A tiny, dependency-free TF-IDF index over a small, fixed corpus.
+
+    Built for the dedup stage: `existing_issues.json` plus issues filed
+    earlier in the same run is on the order of dozens of documents, so a
+    from-scratch stdlib implementation (rather than pulling in numpy/
+    scikit-learn) is simpler to audit, has zero supply-chain surface, and is
+    plenty fast at this scale. Re-fit is cheap (`add_document` just
+    recomputes idf), which lets the dedup pool grow as new issues are
+    registered mid-run without a second dependency.
+    """
+
+    def __init__(self, documents: Optional[list[str]] = None):
+        self._doc_tokens: list[list[str]] = []
+        for doc in documents or []:
+            self._doc_tokens.append(significant_tokens(doc))
+        self._idf: dict[str, float] = {}
+        self._default_idf: float = 1.0
+        self._doc_vectors: list[dict[str, float]] = []
+        self._refit()
+
+    def add_document(self, text: str) -> int:
+        """Append a document to the corpus and return its index. Triggers a
+        full idf recompute -- fine at this corpus size (dozens, not millions)."""
+        self._doc_tokens.append(significant_tokens(text))
+        self._refit()
+        return len(self._doc_tokens) - 1
+
+    def _refit(self) -> None:
+        n_docs = len(self._doc_tokens)
+        doc_freq: dict[str, int] = {}
+        for tokens in self._doc_tokens:
+            for t in set(tokens):
+                doc_freq[t] = doc_freq.get(t, 0) + 1
+        # Smoothed idf (add-one on both numerator and denominator) so a term
+        # in every document still gets a small positive weight instead of 0.
+        self._idf = {
+            t: math.log((1 + n_docs) / (1 + df)) + 1.0 for t, df in doc_freq.items()
+        }
+        # Unseen terms (only in a query, never in the corpus) are treated as
+        # maximally rare/distinctive -- the same value a term with df=0 would get.
+        self._default_idf = math.log((1 + n_docs) / 1) + 1.0
+        self._doc_vectors = [self._vectorize(tokens) for tokens in self._doc_tokens]
+
+    def _vectorize(self, tokens: list[str]) -> dict[str, float]:
+        tf = term_frequencies(tokens)
+        return {t: freq * self._idf.get(t, self._default_idf) for t, freq in tf.items()}
+
+    def vectorize_query(self, text: str) -> dict[str, float]:
+        """Vectorize free text against the fitted corpus (does not mutate the index)."""
+        return self._vectorize(significant_tokens(text))
+
+    def best_match(self, query_text: str) -> tuple[Optional[int], float]:
+        """Index and cosine similarity of the best-matching document, or
+        (None, 0.0) if the corpus is empty or nothing overlaps at all."""
+        qvec = self.vectorize_query(query_text)
+        best_idx: Optional[int] = None
+        best_sim = 0.0
+        for i, dvec in enumerate(self._doc_vectors):
+            sim = cosine_similarity(qvec, dvec)
+            if sim > best_sim:
+                best_idx, best_sim = i, sim
+        return best_idx, best_sim
