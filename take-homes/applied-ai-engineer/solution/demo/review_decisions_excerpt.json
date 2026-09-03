@@ -1,0 +1,34 @@
+{
+  "call-051#9#bug": {
+    "action": "file-new",
+    "call_id": "call-051",
+    "decision": "approved",
+    "note": "High confidence, P1: SSO outage affecting 60-70 staff, root-caused by the customer to their own expired IdP certificate but still worth a ticket to track detection/alerting improvements on our side. Approve as-is.",
+    "priority": "P1",
+    "summary": "So Tuesday morning we had a wave of people unable to log in through SSO. Maybe sixty, seventy..."
+  },
+  "call-004#23#bug": {
+    "action": "corroborate",
+    "call_id": "call-004",
+    "decision": "approved",
+    "note": "Matches PROJ-101 (UTC-vs-workspace-timezone report bug) -- symptom, magnitude (consistent 7h shift), and duration all line up. Attach as another affected account.",
+    "priority": "P3",
+    "summary": "Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same..."
+  },
+  "call-011#41#bug": {
+    "action": "file-new",
+    "call_id": "call-011",
+    "decision": "approved",
+    "note": "Concrete, well-evidenced: apostrophe in name truncates the profile-link URL at the email templating layer, 404s, confirmed pattern across 31 affected members. Clear repro, easy to hand to engineering as-is.",
+    "priority": "P3",
+    "summary": "It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full..."
+  },
+  "call-011#33#bug": {
+    "action": "file-new-low",
+    "call_id": "call-011",
+    "decision": "rejected",
+    "note": "Not a separate issue -- this is Sofia's 'okay, the actual bug...' lead-in to the SAME apostrophe/404 report filed above as call-011#41#bug. The judge splits it into its own low-content candidate because the substantive report lands 8 turns later (just past the clustering gap); known limitation, see WRITEUP.md. Rejecting rather than filing a near-empty duplicate ticket.",
+    "priority": "P3",
+    "summary": "That's the only sane response, and it's what I expected from you. Okay \u2014 the actual bug. This..."
+  }
+}
