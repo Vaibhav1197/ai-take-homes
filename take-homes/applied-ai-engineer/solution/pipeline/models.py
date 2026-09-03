@@ -90,10 +90,11 @@ class Candidate:
     keyword_hits: list[str] = field(default_factory=list)
     raw_score: float = 0.0
     flags: list[str] = field(default_factory=list)
-    impact_notes: list[str] = field(default_factory=list)
     provisional_priority: str = "P3"
     draft_title: str = ""
-    draft_description: str = ""
+    suppressed: bool = False
+    suppression_reason: str = ""
+    needs_human_priority_call: bool = False
 
 
 @dataclass
