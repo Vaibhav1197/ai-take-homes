@@ -21,7 +21,14 @@ guarantees actually live:
    processed before it is durably recorded; re-running the batch resumes
    roughly where it left off instead of redoing (or losing) prior work.
    `os.replace` is atomic on both POSIX and Windows, so a crash mid-write
-   never leaves a half-written, corrupt ledger on disk.
+   never leaves a half-written, corrupt ledger on disk. On Windows the
+   replace is wrapped with a short bounded retry (`_replace_with_retry`) to
+   absorb the transient `PermissionError` that AV/indexer/cloud-sync
+   processes occasionally cause by briefly holding the destination file
+   open right after a write -- observed directly during a full 140-call
+   run; without the retry this looked like a "partial failure" on a
+   perfectly fine transcript, which is exactly the failure mode this
+   module exists to prevent.
 
 3. **Cross-run dedup pool seeding.** `filed_issues()` reconstructs
    `ExistingIssue` records for everything this pipeline has actually filed
@@ -42,6 +49,7 @@ from __future__ import annotations
 import json
 import os
 import tempfile
+import time
 from pathlib import Path
 from typing import Any, Optional
 
@@ -50,6 +58,33 @@ from .models import Candidate, ExistingIssue
 _STATE_VERSION = 1
 
 DEFAULT_STATE_PATH = Path(__file__).resolve().parent.parent / "state" / "pipeline_state.json"
+
+# os.replace() is atomic on both POSIX and Windows, but on Windows it can
+# transiently raise PermissionError (WinError 5) if another process --
+# antivirus real-time scanning, the search indexer, cloud-sync -- briefly
+# holds an open handle on the destination right after it's (re)written.
+# Observed empirically: ~1-3 times per 140-call run, on essentially random
+# calls, always clearing within milliseconds. Nothing in this codebase holds
+# a competing handle (the temp file's own handle is closed before replace is
+# attempted), so this is not a real conflict -- a short bounded retry is the
+# standard mitigation rather than letting a transient OS race surface as a
+# pipeline failure that aborts an otherwise-fine call.
+_REPLACE_RETRIES = 6
+_REPLACE_RETRY_DELAY_S = 0.05
+
+
+def _replace_with_retry(src: str, dst: Path) -> None:
+    last_error: Optional[PermissionError] = None
+    for attempt in range(_REPLACE_RETRIES):
+        try:
+            os.replace(src, dst)
+            return
+        except PermissionError as exc:
+            last_error = exc
+            if attempt < _REPLACE_RETRIES - 1:
+                time.sleep(_REPLACE_RETRY_DELAY_S)
+    assert last_error is not None
+    raise last_error
 
 
 def candidate_key(candidate: Candidate) -> str:
@@ -93,7 +128,7 @@ class StateStore:
                 json.dump(payload, fh, indent=2, sort_keys=True)
                 fh.flush()
                 os.fsync(fh.fileno())
-            os.replace(tmp_name, self.path)  # atomic on POSIX and Windows
+            _replace_with_retry(tmp_name, self.path)
         except BaseException:
             if os.path.exists(tmp_name):
                 os.remove(tmp_name)

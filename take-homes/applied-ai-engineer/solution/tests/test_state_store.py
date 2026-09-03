@@ -5,6 +5,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from solution.pipeline.models import Candidate
 from solution.pipeline.state_store import StateStore, candidate_key
@@ -150,6 +151,41 @@ class TestStateStore(unittest.TestCase):
         store.upsert("k2", status="approved")
         siblings = list(self.path.parent.iterdir())
         self.assertEqual(siblings, [self.path])
+
+    def test_transient_permission_error_on_replace_is_retried(self) -> None:
+        """Windows can transiently raise PermissionError from os.replace()
+        (AV/indexer/cloud-sync briefly holding the destination open) --
+        observed directly during a full 140-call run. upsert() must survive
+        a couple of transient failures rather than surfacing them as a
+        pipeline failure."""
+        store = StateStore(self.path)
+        real_replace = __import__("os").replace
+        calls = {"n": 0}
+
+        def flaky_replace(src, dst):
+            calls["n"] += 1
+            if calls["n"] <= 2:
+                raise PermissionError(5, "Access is denied")
+            return real_replace(src, dst)
+
+        with patch("solution.pipeline.state_store.os.replace", side_effect=flaky_replace), \
+             patch("solution.pipeline.state_store._REPLACE_RETRY_DELAY_S", 0):
+            store.upsert("k1", status="queued")  # must not raise
+
+        self.assertEqual(calls["n"], 3)
+        self.assertEqual(store.get("k1"), {"status": "queued"})
+
+    def test_permission_error_raised_after_exhausting_retries(self) -> None:
+        store = StateStore(self.path)
+        with patch(
+            "solution.pipeline.state_store.os.replace",
+            side_effect=PermissionError(5, "Access is denied"),
+        ), patch("solution.pipeline.state_store._REPLACE_RETRY_DELAY_S", 0):
+            with self.assertRaises(PermissionError):
+                store.upsert("k1", status="queued")
+        # Temp file must be cleaned up even after exhausting retries.
+        siblings = list(self.path.parent.iterdir())
+        self.assertEqual(siblings, [])
 
 
 if __name__ == "__main__":
