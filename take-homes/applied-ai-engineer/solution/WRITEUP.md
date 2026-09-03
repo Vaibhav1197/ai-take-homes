@@ -1,5 +1,7 @@
 # Write-up: The June Tapes
 
+**Time spent:** `[fill in — the assignment asks for this and I have no reliable way to estimate your actual wall-clock time on my end; see the git commit history/timestamps for a rough proxy]`.
+
 ## What I built and the key design decisions
 
 A pipeline over BetterBark's 140 call transcripts: **ingest → judge → de-dup → human review gate → apply**.
