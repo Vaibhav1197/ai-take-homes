@@ -120,6 +120,20 @@ def _segment_blocks(turns: tuple[Turn, ...]) -> list[tuple[int, int]]:
     so the previous block ends the turn before it. Falls back to one block
     covering the whole call when no markers are present. This is an outer
     fence only -- see module docstring.
+
+    Only EXTERNAL turns are checked. Found via the eval harness (call-008):
+    TOPIC_BREAK_MARKERS includes wrap-up prompts like "anything else..." /
+    "while I have you" that the INTERNAL rep routinely says when closing out
+    a topic ("Anything else while I have you, or is that the two?"). If the
+    customer's very next turn is just a short confirmation ("That's the two.
+    Fix the crashing app before the typo, in case that needed saying") --
+    itself still about the topic just discussed, not a new one -- treating
+    the rep's question as a fence stranded that confirmation in its own
+    block, split off from the report it was closing out, and it surfaced as
+    a second, low-content, spurious candidate for the same issue. A customer
+    actually introducing a new topic ("one more thing", "actually, unrelated
+    but...") is a much stronger signal than the rep merely asking whether
+    there's more.
     """
     if not turns:
         return []
@@ -127,7 +141,7 @@ def _segment_blocks(turns: tuple[Turn, ...]) -> list[tuple[int, int]]:
     for i, t in enumerate(turns):
         if i == 0:
             continue
-        if find_matches(t.text.lower(), TOPIC_BREAK_MARKERS) and i != boundaries[-1]:
+        if t.speaker is Speaker.EXTERNAL and find_matches(t.text.lower(), TOPIC_BREAK_MARKERS) and i != boundaries[-1]:
             boundaries.append(i)
     boundaries.append(len(turns))
     return [(boundaries[k], boundaries[k + 1] - 1) for k in range(len(boundaries) - 1)]
