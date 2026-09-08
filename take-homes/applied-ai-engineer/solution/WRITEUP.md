@@ -1,6 +1,6 @@
 # Write-up: The June Tapes
 
-**Time spent:** `[fill in — the assignment asks for this and I have no reliable way to estimate your actual wall-clock time on my end; see the git commit history/timestamps for a rough proxy]`.
+**Time spent:** ~4 hours (per the commit history on `solution/Vaibhav1197`: first commit 2026-09-03 14:44, last 2026-09-03 18:44), somewhat over the suggested 2-3 hours given the added depth of the eval harness, the second (LLM) judge, and the demo walkthrough.
 
 ## What I built and the key design decisions
 
