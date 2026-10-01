@@ -20,6 +20,7 @@ what this catches, and what would slip through.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import shutil
@@ -41,6 +42,19 @@ DEV_CALL_IDS = [f"call-{i:03d}" for i in range(1, 16)]
 # LABEL itself on, not just the system's output under test. See WRITEUP.md.
 PRECISION_THRESHOLD = 0.85
 RECALL_THRESHOLD = 0.85
+ALL_QUEUE_PRECISION_THRESHOLD = 0.85
+
+ISSUE_EVIDENCE_PATTERNS = {
+    "call-001": (r"280", r"412"),
+    "call-003": (r"saml|idp", r"group", r"role"),
+    "call-006": (r"search", r"stale|ten.minute|10.minute|old (?:name|team)"),
+    "call-008": (r"betterbrak|typo|misspell",),
+    "call-010:Feature": (r"audit", r"api|endpoint|siem"),
+    "call-010:Bug": (r"idp|azure", r"loop|bounce"),
+    "call-011": (r"apostrophe|o.bri|404|truncat", r"link|url|profile"),
+    "call-013": (r"webhook|event", r"complet|lms|cornerstone"),
+    "call-014": (r"deactivat|inactiv", r"blank|white screen"),
+}
 
 _ACTIONABLE_LABEL_ACTIONS = frozenset({"file-new", "file-new-low", "corroborate"})
 _SAME_TICKET_RE = re.compile(r"same ticket as (call-\d+)")
@@ -129,6 +143,13 @@ def _match_call(
                 continue
             if action_class == "file-new" and entry.get("issue_type") != label.get("type"):
                 continue
+            if action_class == "file-new":
+                patterns = ISSUE_EVIDENCE_PATTERNS.get(
+                    f"{call_id}:{label.get('type')}", ISSUE_EVIDENCE_PATTERNS.get(call_id, ())
+                )
+                evidence = entry.get("description", "")
+                if not patterns or not all(re.search(pattern, evidence, re.IGNORECASE) for pattern in patterns):
+                    continue
             if action_class == "corroborate":
                 expected_target = label.get("_resolved_target", label.get("target"))
                 if expected_target and entry.get("matched_key") != expected_target:
@@ -146,19 +167,7 @@ def _match_call(
 
 @dataclass
 class EvalRunOutcome:
-    """One eval pass's produced decisions and derived metrics.
-
-    Precision is computed on the CONFIDENT tier only (file-new, corroborate)
-    -- an unmatched `file-new-low` is deliberately not held to the same bar.
-    `file-new-low` exists specifically to cast a slightly wider net for
-    cheap human review (see orchestrator.py's `_build_decision`) rather than
-    silently drop a borderline signal; penalizing it as a false positive at
-    the same weight as a confident miss would mask the very tier the design
-    is supposed to make safe to be generous with. Recall is computed over
-    ALL actionable labels regardless of tier, because a missed issue is a
-    missed issue no matter how it would have been filed. Every unmatched
-    item (both tiers) is still reported for transparency -- see WRITEUP.md.
-    """
+    """Report both tiers; all unmatched queue items count against the all-queue gate."""
 
     entries_by_call: dict[str, list[dict[str, Any]]] = field(default_factory=dict)
     true_positives: int = 0
@@ -167,6 +176,8 @@ class EvalRunOutcome:
     unmatched_low_confidence: list[tuple[str, dict[str, Any]]] = field(default_factory=list)
     unmatched_expected: list[tuple[str, dict[str, Any]]] = field(default_factory=list)
     hard_case_results: list[tuple[str, bool, str]] = field(default_factory=list)
+    calls_processed: int = 0
+    calls_failed: int = 0
 
     @property
     def false_positives(self) -> int:
@@ -174,8 +185,11 @@ class EvalRunOutcome:
 
     @property
     def precision(self) -> float:
-        denom = self.true_positives + self.false_positives
-        return self.true_positives / denom if denom else 1.0
+        confident_count = sum(
+            entry.get("action") != "file-new-low"
+            for entries in self.entries_by_call.values() for entry in entries
+        )
+        return (confident_count - self.false_positives) / confident_count if confident_count else 1.0
 
     @property
     def recall(self) -> float:
@@ -183,8 +197,13 @@ class EvalRunOutcome:
         return self.true_positives / denom if denom else 1.0
 
     @property
+    def all_queue_precision(self) -> float:
+        count = sum(len(entries) for entries in self.entries_by_call.values())
+        return self.true_positives / count if count else 1.0
+
+    @property
     def f1(self) -> float:
-        p, r = self.precision, self.recall
+        p, r = self.all_queue_precision, self.recall
         return (2 * p * r / (p + r)) if (p + r) else 0.0
 
     @property
@@ -195,8 +214,11 @@ class EvalRunOutcome:
     def passed(self) -> bool:
         return (
             self.precision >= PRECISION_THRESHOLD
+            and self.all_queue_precision >= ALL_QUEUE_PRECISION_THRESHOLD
             and self.recall >= RECALL_THRESHOLD
             and self.hard_cases_passed
+            and self.calls_processed == len(DEV_CALL_IDS)
+            and self.calls_failed == 0
         )
 
     def fingerprint(self) -> tuple:
@@ -205,7 +227,7 @@ class EvalRunOutcome:
         rows = []
         for call_id, entries in self.entries_by_call.items():
             for e in entries:
-                rows.append((call_id, e.get("action"), e.get("issue_type"), e.get("matched_key")))
+                rows.append((call_id, json.dumps(e, sort_keys=True)))
         return tuple(sorted(rows))
 
 
@@ -225,7 +247,7 @@ def _run_hard_cases(entries_by_call: dict[str, list[dict[str, Any]]]) -> list[tu
     c005 = actionable("call-005")
     check(
         "call-005: injection produces no ticket, genuine webhook report still surfaces",
-        any(e.get("action") == "corroborate" and e.get("matched_key") == "PROJ-087" for e in c005),
+        len(c005) == 1 and all(e.get("action") == "corroborate" and e.get("matched_key") == "PROJ-087" for e in c005),
         f"produced={[(e.get('action'), e.get('matched_key')) for e in c005]}",
     )
 
@@ -257,7 +279,7 @@ def _run_hard_cases(entries_by_call: dict[str, list[dict[str, Any]]]) -> list[tu
     c013 = actionable("call-013")
     check(
         "call-013: LMS webhook ask is Feature; already-shipped CSV export files no ticket",
-        any(_entry_action_class(e) == "file-new" and e.get("issue_type") == "Feature" for e in c013),
+        len(c013) == 1 and all(_entry_action_class(e) == "file-new" and e.get("issue_type") == "Feature" for e in c013),
         f"produced={[(e.get('action'), e.get('issue_type')) for e in c013]}",
     )
 
@@ -281,17 +303,20 @@ def _run_hard_cases(entries_by_call: dict[str, list[dict[str, Any]]]) -> list[tu
     c011 = actionable("call-011")
     check(
         "call-011: profile-link 404 bug files; embedded email instruction produces no extra ticket",
-        any(_entry_action_class(e) == "file-new" and e.get("issue_type") == "Bug" for e in c011),
+        len(c011) == 1 and all(_entry_action_class(e) == "file-new" and e.get("issue_type") == "Bug" for e in c011),
         f"produced={[(e.get('action'), e.get('issue_type')) for e in c011]}",
     )
 
+    for call_id in ("call-002", "call-009"):
+        check(f"{call_id}: retracted/vague reports produce no queue items",
+              not actionable(call_id), f"produced={actionable(call_id)}")
     return results
 
 
 def _run_once(cfg: Config) -> EvalRunOutcome:
     with tempfile.TemporaryDirectory(prefix="june_tapes_eval_") as tmp:
         scratch_cfg = _build_scratch_config(cfg, Path(tmp))
-        orchestrator.run_review(scratch_cfg)
+        summary = orchestrator.run_review(scratch_cfg)
         store = StateStore(scratch_cfg.state_path)
         all_entries = store.all_entries()
 
@@ -305,7 +330,8 @@ def _run_once(cfg: Config) -> EvalRunOutcome:
     labels_by_call = json.loads(json.dumps(labels_by_call))  # deep copy: _resolve mutates in place
     _resolve_cross_call_targets(labels_by_call, entries_by_call)
 
-    outcome = EvalRunOutcome(entries_by_call=entries_by_call)
+    outcome = EvalRunOutcome(entries_by_call=entries_by_call,
+                             calls_processed=summary.calls_processed, calls_failed=summary.calls_failed)
     for call_id in DEV_CALL_IDS:
         tp, unmatched_produced, unmatched_expected = _match_call(
             call_id, labels_by_call.get(call_id, []), entries_by_call.get(call_id, [])
@@ -324,12 +350,11 @@ def _run_once(cfg: Config) -> EvalRunOutcome:
 def _print_report(outcomes: list[EvalRunOutcome], verbose: bool) -> bool:
     final = outcomes[-1]
     print(f"Dev-set eval: {len(DEV_CALL_IDS)} calls (labeled dev set, data/dev_labels.json)")
-    print(f"  precision={final.precision:.2f}  recall={final.recall:.2f}  f1={final.f1:.2f}  "
-          f"(TP={final.true_positives} FP={final.false_positives} FN={final.false_negatives})")
-    print(f"  thresholds: precision>={PRECISION_THRESHOLD:.2f}, recall>={RECALL_THRESHOLD:.2f} "
-          "(precision counts only confident file-new/corroborate misses -- see EvalRunOutcome docstring)")
-    print(f"  + {len(final.unmatched_low_confidence)} unlabeled file-new-low item(s): deliberately wider net for "
-          "human review, not counted against precision")
+    print("  confident_precision=%.3f all_queue_precision=%.3f recall=%.3f all_queue_f1=%.3f" % (
+        final.precision, final.all_queue_precision, final.recall, final.f1))
+    print("  TP=%d confident_FP=%d low_FP=%d FN=%d" % (
+        final.true_positives, final.false_positives, len(final.unmatched_low_confidence), final.false_negatives))
+    print("  Both precision tiers and recall must be >= 0.85; low-confidence errors count in the all-queue gate.")
     print()
     print("Named hard cases:")
     for name, ok, detail in final.hard_case_results:
@@ -359,21 +384,80 @@ def _print_report(outcomes: list[EvalRunOutcome], verbose: bool) -> bool:
         if not stable:
             print("  WARNING: decisions differed between runs -- see WRITEUP.md for what this would mean for a non-deterministic judge.")
 
-    verdict = final.passed and stable
+    verdict = all(outcome.passed for outcome in outcomes) and stable and len(outcomes) >= 2
     print()
     print(f"VERDICT: {'PASS' if verdict else 'FAIL'}")
     return verdict
 
 
+def build_report(cfg: Config, outcomes: list[EvalRunOutcome]) -> dict[str, Any]:
+    labels = _load_dev_labels(cfg.dev_labels_path)
+    correct_entry = next((entry for entry in outcomes[-1].entries_by_call.get("call-011", [])
+                          if entry.get("issue_type") == "Bug"), None)
+    bad_label = {"action": "file-new", "type": "Feature", "summary": "Injected incorrect type; original label remains Bug."}
+    control = _match_call("call-011", [bad_label], [correct_entry] if correct_entry else [])
+    runs = []
+    for outcome in outcomes:
+        all_count = sum(len(entries) for entries in outcome.entries_by_call.values())
+        low_count = sum(entry.get("action") == "file-new-low"
+                        for entries in outcome.entries_by_call.values() for entry in entries)
+        confident_count = all_count - low_count
+        runs.append({
+            "calls_processed": outcome.calls_processed, "calls_failed": outcome.calls_failed,
+            "expected_issues": outcome.true_positives + outcome.false_negatives,
+            "all_queue": {"predicted": all_count, "tp": outcome.true_positives,
+                          "fp": all_count - outcome.true_positives, "fn": outcome.false_negatives,
+                          "precision": outcome.all_queue_precision, "recall": outcome.recall, "f1": outcome.f1},
+            "confident": {"predicted": confident_count, "tp": confident_count - outcome.false_positives,
+                          "fp": outcome.false_positives, "precision": outcome.precision},
+            "file_new_low": {"predicted": low_count, "tp": low_count - len(outcome.unmatched_low_confidence),
+                             "fp": len(outcome.unmatched_low_confidence)},
+            "hard_cases": [{"name": name, "passed": passed, "detail": detail}
+                           for name, passed, detail in outcome.hard_case_results],
+            "false_positives": [{"call_id": call_id, "entry": entry}
+                                for call_id, entry in outcome.unmatched_confident + outcome.unmatched_low_confidence],
+            "false_negatives": [{"call_id": call_id, "label": label} for call_id, label in outcome.unmatched_expected],
+            "decisions": outcome.entries_by_call,
+            "fingerprint": hashlib.sha256(json.dumps(outcome.fingerprint()).encode()).hexdigest(),
+            "passed": outcome.passed,
+        })
+    stable = len({run["fingerprint"] for run in runs}) == 1
+    input_paths = [cfg.dev_labels_path, cfg.existing_issues_path] + [cfg.transcripts_dir / f"{call_id}.md" for call_id in DEV_CALL_IDS]
+    return {
+        "schema_version": 1, "scope": "15 labeled development calls; tuned on this set, NOT holdout accuracy",
+        "judge": cfg.judge, "similarity_threshold": cfg.similarity_threshold,
+        "label_counts": {"calls": len(DEV_CALL_IDS), "all_labels": sum(map(len, labels.values())),
+                         "actionable": sum(label["action"] in _ACTIONABLE_LABEL_ACTIONS for group in labels.values() for label in group)},
+        "input_sha256": {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in input_paths},
+        "diagnostic_control": {"synthetic_bad_label": bad_label, "original_label": labels["call-011"][0],
+                       "actual_entry": correct_entry, "matched": control[0], "extra": len(control[1]), "missing": len(control[2]),
+                       "interpretation": "An injected Feature label contradicts the verbatim broken-link/404 evidence and original Bug label. Flag annotation review; do not silently relabel or count as a pass. No real supplied label error is established."},
+        "rules": {"confident_precision_min": PRECISION_THRESHOLD, "all_queue_precision_min": ALL_QUEUE_PRECISION_THRESHOLD,
+                  "recall_min": RECALL_THRESHOLD, "file_new_low": "Every unmatched item is an FP in all_queue; every missed actionable label is an FN.",
+                  "matching": "One-to-one action/type + curated symptom regex for new issues; exact target for corroboration. Manual review still required; lexical anchors are not semantic ground truth.",
+                  "required": "All calls succeed, every hard case and every run passes, >=2 independent fresh-state runs have identical complete decisions."},
+        "evidence_patterns": ISSUE_EVIDENCE_PATTERNS,
+        "runs": runs, "stability": {"runs": len(runs), "identical": stable,
+                                    "diverged_runs": sum(run["fingerprint"] != runs[0]["fingerprint"] for run in runs[1:])},
+        "passed": len(runs) >= 2 and stable and all(run["passed"] for run in runs),
+    }
+
+
 def main(argv: Optional[list[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="Run the dev-set eval (calls 1-15) against dev_labels.json.")
-    parser.add_argument("--repeat", type=int, default=1, help="Re-run the eval N times to check decision stability.")
+    parser.add_argument("--repeat", type=int, default=2, help="Re-run the eval N times; passing requires at least two runs.")
+    parser.add_argument("--output", type=Path, help="Write machine-readable metrics, decisions, disagreements and input hashes.")
     parser.add_argument("--verbose", action="store_true", help="Print full detail even for calls that already passed.")
     args = parser.parse_args(argv)
+    if args.repeat < 1:
+        parser.error("--repeat must be positive")
 
     cfg = load_config()
     outcomes = [_run_once(cfg) for _ in range(max(1, args.repeat))]
     passed = _print_report(outcomes, args.verbose)
+    if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(json.dumps(build_report(cfg, outcomes), indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return 0 if passed else 1
 
 

@@ -4,17 +4,26 @@ Turns BetterBark's call transcripts into de-duplicated, human-reviewed Jira/Slac
 
 Python 3.11+, standard library only (no third-party dependencies, no `pip install` needed).
 
+For the resubmission evidence, start with [EVAL.md](EVAL.md) and [artifacts/README.md](artifacts/README.md). The original reported precision and 183-item demo are superseded by the measured revision there.
+
+**Not yet passing semantic acceptance:** a bounded repair improved the heuristic judge (verified against a 5-call audit and a now-tuned 24-call sample), but a second, fresh 24-call sample that had zero influence on the repair still finds 6 true positives, 9 false positives and 5 misses. The corpus command exits 1 despite processing all 140 calls successfully. See [EVAL.md](EVAL.md#bounded-repair-and-a-second-fresh-validation-round) and [combined verdict](artifacts/acceptance.json).
+
 ## Quickstart
 
 From the `take-homes/applied-ai-engineer/` folder:
 
 ```
-py -m unittest discover -s solution/tests   # 170 tests
-py -m solution.eval.run_eval --repeat 5     # eval against data/dev_labels.json
+py -m unittest discover -s solution/tests   # 209 tests
+py -m solution.eval.run_eval --repeat 2 --output solution/eval/results.json
+py -m solution.eval.run_corpus --demo-decisions solution/demo/review_decisions_excerpt.json
+py -m solution.eval.run_holdout evaluate --assessment-dir solution/eval/holdout_round2 --repeat 2 --output solution/artifacts/holdout.json
 py -m solution review                       # ingest + judge + de-dup -> queue for human review
 #   ... edit solution/state/review_decisions.json: "pending" -> "approved" / "rejected" ...
 py -m solution apply                        # act on approved decisions -> stubs/outbox/*.jsonl
+py -m solution monitor --expected-calls 140 --max-age-seconds 3600
 ```
+
+On macOS/Linux, use `python3` instead of `py`. Check out the submission branch, not the fork's unchanged `main`. Evidence commands use isolated temporary state; `review`/`apply` use the normal configured state. `monitor` returns 1 on alerts (the measured low-confidence backlog currently warrants a warning). A scheduler must run it independently and notify an operator on nonzero exit. Set freshness and expected coverage to the actual schedule.
 
 `py -m solution review` is safe to re-run any time (including on a schedule): already-decided or already-filed candidates are skipped, never re-queued or re-filed.
 
@@ -39,9 +48,14 @@ solution/
     config.py              # env-driven Config (12-factor: config lives in the environment)
   cli.py / __main__.py     # `py -m solution {review,apply}`
   eval/run_eval.py          # precision/recall/F1 + named hard cases + --repeat stability check
-  tests/                    # 170 unit tests, one file per pipeline module
+  eval/run_corpus.py        # full-run artifacts and fail-closed semantic acceptance
+  eval/run_holdout.py       # freeze, seal and score a source-annotated sample
+  eval/holdout/             # protocol, sample, annotations and seal
+  tests/                    # 200 unit and integration tests
   demo/                     # a curated, real excerpt of one review -> apply run (see demo/README.md)
-  state/                    # generated ledger + logs (gitignored, run-specific -- see demo/ instead)
+  artifacts/                # full-corpus outputs, per-call coverage, rerun and alert evidence
+  EVAL.md                   # denominators, gates, two-run results and audit limits
+  state/                    # normal runtime ledger + logs (gitignored)
   WRITEUP.md
   README.md                 # this file
 ```
@@ -69,4 +83,4 @@ Overriding paths is mainly how the eval runs against a scratch ledger without ev
 ## Notes
 
 - `solution/state/*` and `stubs/outbox/*.jsonl` are gitignored: they're run-specific (timestamps, machine-local paths), not source. [`solution/demo/`](demo/README.md) is a small, real, checked-in excerpt of one full run so the human-review gate and its outputs are inspectable without re-running anything.
-- No CI is configured for this take-home; run the unit suite and the eval locally (`py -m unittest discover -s solution/tests` and `py -m solution.eval.run_eval --repeat 5`) before every commit — that was the actual workflow used to build this, see the git history.
+- No CI or scheduler is deployed. Run the suite, two-run eval and full-corpus evidence command before resubmitting. Tests include real temporary filesystem integration; no API credentials are required for the default judge.

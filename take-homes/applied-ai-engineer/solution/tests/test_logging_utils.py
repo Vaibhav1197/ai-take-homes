@@ -4,12 +4,42 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from solution.pipeline.logging_utils import EventLogger
+from solution.pipeline.logging_utils import EventLogger, assess_health
 
 
 class TestEventLogger(unittest.TestCase):
+    def test_stale_completed_run_still_alerts(self) -> None:
+        old = (datetime.now(timezone.utc) - timedelta(hours=2)).isoformat()
+        events = [{"event": "run_review_started", "run_id": "run", "ts": old, "calls_discovered": 140},
+                  {"event": "run_review_completed", "run_id": "run", "ts": old, "calls_processed": 140,
+                   "calls_failed": 0, "candidates_found": 217}]
+        self.assertIn("STALE_REVIEW", {alert["code"] for alert in assess_health(events)["alerts"]})
+
+    def test_missing_and_stalled_runs_alert(self) -> None:
+        self.assertEqual(assess_health([])["alerts"][0]["code"], "NO_REVIEW_RUN")
+        old = (datetime.now(timezone.utc) - timedelta(hours=2)).isoformat()
+        events = [{"event": "run_review_started", "run_id": "run", "ts": old, "calls_discovered": 140}]
+        self.assertIn("STALLED_REVIEW", {alert["code"] for alert in assess_health(events)["alerts"]})
+
+    def test_bad_completed_run_exposes_counts(self) -> None:
+        now = datetime.now(timezone.utc).isoformat()
+        events = [{"event": "run_review_started", "run_id": "run", "ts": now, "calls_discovered": 139},
+                  {"event": "run_review_completed", "run_id": "run", "ts": now, "calls_processed": 138,
+                   "calls_failed": 1, "candidates_found": 0, "queue_by_action": {"file-new-low": 9, "file-new": 1}}]
+        codes = {alert["code"] for alert in assess_health(events, baseline_candidates_per_call=1)["alerts"]}
+        self.assertTrue({"INPUT_COVERAGE", "INCOMPLETE_BATCH", "CALL_FAILURES", "ZERO_CANDIDATES",
+                         "CANDIDATE_RATE_DRIFT", "LOW_CONFIDENCE_BACKLOG"}.issubset(codes))
+
+    def test_no_new_queue_on_rerun_is_not_a_silent_stop(self) -> None:
+        now = datetime.now(timezone.utc).isoformat()
+        events = [{"event": "run_review_started", "run_id": "run", "ts": now, "calls_discovered": 140},
+                  {"event": "run_review_completed", "run_id": "run", "ts": now, "calls_processed": 140,
+                   "calls_failed": 0, "candidates_found": 200, "queued_for_review": 0}]
+        self.assertTrue(assess_health(events)["healthy"])
+
     def setUp(self) -> None:
         self._tmpdir = tempfile.TemporaryDirectory()
         self.addCleanup(self._tmpdir.cleanup)

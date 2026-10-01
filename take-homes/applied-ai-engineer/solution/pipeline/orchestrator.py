@@ -31,7 +31,9 @@ Reliability guarantees implemented here:
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from collections import Counter
 from pathlib import Path
+from time import monotonic
 from typing import Optional
 
 from stubs import jira_stub, slack_stub
@@ -53,6 +55,7 @@ _FILE_NEW_ACTIONS = frozenset({Action.FILE_NEW.value, Action.FILE_NEW_LOW.value}
 
 @dataclass
 class ReviewRunSummary:
+    calls_discovered: int = 0
     calls_processed: int = 0
     calls_failed: int = 0
     candidates_found: int = 0
@@ -60,7 +63,10 @@ class ReviewRunSummary:
     not_actionable: int = 0
     collapsed_duplicates: int = 0
     skipped_already_processed: int = 0
+    already_queued: int = 0
     queued_for_review: int = 0
+    queue_by_action: dict[str, int] = field(default_factory=dict)
+    duration_seconds: float = 0.0
 
 
 @dataclass
@@ -166,28 +172,35 @@ def _reseed_pending_entries(store: StateStore, dedup: Deduplicator) -> None:
 
 def run_review(cfg: Optional[Config] = None) -> ReviewRunSummary:
     cfg = cfg or load_config()
-    store = StateStore(cfg.state_path)
     logger = EventLogger(cfg.log_path)
+    started = monotonic()
+    paths = list(iter_transcript_paths(cfg.transcripts_dir))
+    logger.emit("run_review_started", judge=cfg.judge, calls_discovered=len(paths),
+                similarity_threshold=cfg.similarity_threshold)
+    store = StateStore(cfg.state_path)
     judge = _make_judge(cfg)
 
     base_issues = load_existing_issues(cfg.existing_issues_path)
     dedup = Deduplicator(base_issues + store.filed_issues(), similarity_threshold=cfg.similarity_threshold)
     _reseed_pending_entries(store, dedup)
 
-    summary = ReviewRunSummary()
-    logger.emit("run_review_started", judge=cfg.judge)
+    summary = ReviewRunSummary(calls_discovered=len(paths))
 
-    for path in iter_transcript_paths(cfg.transcripts_dir):
+    for path in paths:
+        before = {name: value for name, value in summary.__dict__.items() if isinstance(value, int)}
+        logger.emit("call_started", call_id=path.stem)
         try:
             transcript = parse_transcript(path)
-        except TranscriptParseError as exc:
+        except (TranscriptParseError, OSError, UnicodeError) as exc:
             summary.calls_failed += 1
-            logger.emit("call_parse_failed", path=str(path), error=str(exc))
+            logger.emit("call_parse_failed", call_id=path.stem, error=str(exc))
             continue
 
         try:
             _process_call_for_review(transcript, judge, dedup, store, logger, summary)
             summary.calls_processed += 1
+            logger.emit("call_completed", call_id=transcript.call_id,
+                        **{name: getattr(summary, name) - value for name, value in before.items()})
         except Exception as exc:  # noqa: BLE001 -- partial-failure isolation boundary
             summary.calls_failed += 1
             logger.emit("call_failed", call_id=transcript.call_id, error=str(exc))
@@ -197,6 +210,8 @@ def run_review(cfg: Optional[Config] = None) -> ReviewRunSummary:
     write_review_queue_markdown(queued, cfg.review_queue_path)
     sync_review_decisions(queued, cfg.review_decisions_path)
 
+    summary.queue_by_action = dict(Counter(entry["action"] for entry in queued.values()))
+    summary.duration_seconds = round(monotonic() - started, 3)
     logger.emit("run_review_completed", **summary.__dict__)
     return summary
 
@@ -231,6 +246,7 @@ def _process_call_for_review(
             )
             continue
         if existing is not None and existing.get("status") == "queued":
+            summary.already_queued += 1
             if existing.get("matched_key"):
                 seen_targets_this_call.add(existing["matched_key"])
             continue  # already queued (this run's reseed, or a prior review pass); nothing new to do
@@ -287,6 +303,8 @@ def run_apply(cfg: Optional[Config] = None) -> ApplyRunSummary:
     pending_key_map: dict[str, str] = {}
 
     all_entries = store.all_entries()
+    pending_key_map.update({entry["matched_key"]: entry["issue_key"] for entry in all_entries.values()
+                            if entry.get("issue_key") and str(entry.get("matched_key", "")).startswith(PENDING_KEY_PREFIX)})
 
     # Pass 1: file every approved new ticket first, building up
     # pending-key -> real-key so pass 2's corroborations (which may point at
@@ -306,13 +324,16 @@ def run_apply(cfg: Optional[Config] = None) -> ApplyRunSummary:
         try:
             transcript = parse_transcript(_transcript_path(cfg, entry["call_id"]))
             decision = _rehydrate_decision(entry, key)
-            record = jira_stub.create_issue(build_jira_payload(decision, transcript))
-            real_key = record["key"]
+            real_key = entry.get("issue_key")
+            if not real_key:
+                record = jira_stub.create_issue(build_jira_payload(decision, transcript))
+                real_key = record["key"]
+                store.upsert(key, issue_key=real_key, delivery_phase="jira_created")
             if str(entry.get("matched_key", "")).startswith(PENDING_KEY_PREFIX):
                 pending_key_map[entry["matched_key"]] = real_key
             slack_stub.post_message(build_slack_payload(decision, transcript, issue_key=real_key))
             store.upsert(
-                key, status="filed", issue_key=real_key, issue_type=entry.get("issue_type"),
+                key, status="filed", delivery_phase="complete", issue_key=real_key, issue_type=entry.get("issue_type"),
                 summary=entry.get("summary"), description=entry.get("description"),
                 reported_by_accounts=[entry["account"]] if entry.get("account") else [],
             )
@@ -338,6 +359,8 @@ def run_apply(cfg: Optional[Config] = None) -> ApplyRunSummary:
         try:
             matched_key = str(entry.get("matched_key", ""))
             real_key = pending_key_map.get(matched_key, matched_key)
+            if real_key.startswith(PENDING_KEY_PREFIX):
+                raise ValueError("Corroboration depends on a new ticket that has not been filed yet")
             transcript = parse_transcript(_transcript_path(cfg, entry["call_id"]))
             decision = _rehydrate_decision(entry, key)
             slack_stub.post_message(build_slack_payload(decision, transcript, issue_key=real_key))

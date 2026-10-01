@@ -1,0 +1,248 @@
+{
+  "annotation_source": "GitHub Copilot source inspection, 2026-10-01; requires human confirmation. Not the evaluator's private labels.",
+  "cases": [
+    {
+      "actual": [
+        {
+          "account": "Stallard Freight",
+          "action": "corroborate",
+          "call_id": "call-020",
+          "confidence": 0.204,
+          "description": "[EXTERNAL] Roy: Appreciate it. I'm the guy who gets the \"the app doesn't work\" tickets internally, so I'd rather talk to someone technical than play telephone.\n[EXTERNAL] Roy: Just me. Our ops manager wanted to be here but there's a load stuck at a weigh station, so he's dealing with that. Trucking, everything's on fire somewhere.\n[EXTERNAL] Roy: I'll describe. Half these phones aren't in front of me anyway, they're out on the road. I'm going off what drivers told me and a couple I looked at yesterday.\n[EXTERNAL] Roy: Okay. So Stallard's a trucking outfit \u2014 dispatchers, drivers, yard crew. A big chunk of our people are on Android because that's what the company phones are. The rest are iPhone, mostly the office folks.\n[EXTERNAL] Roy: Starting about \u2014 I want to say ten days ago? \u2014 I've had a wave of drivers telling me the app won't open on their phones. And when I say won't open, I mean it opens and immediately closes. Tap the icon, splash screen flashes, gone. Back to the home screen.\n[EXTERNAL] Roy: Right. It doesn't even get to the login. You never see a login screen. Splash, then poof.\n[EXTERNAL] Roy: That's the pattern I noticed. It's the Android users. My office people on iPhones aren't complaining. I use an iPhone myself and mine's totally fine, which is why it took me a bit to take the drivers seriously, honestly. I couldn't reproduce it on my own phone.",
+          "issue_type": "Bug",
+          "matched_key": "PROJ-110",
+          "priority": "P3",
+          "rationale": "matches tracked PROJ-110 (similarity=0.20)",
+          "status": "queued",
+          "summary": "Appreciate it. I'm the guy who gets the \"the app doesn't work\" tickets internally, so I'd rather...",
+          "turn_span": [
+            0,
+            14
+          ]
+        }
+      ],
+      "call_id": "call-020",
+      "expected": [
+        {
+          "action": "corroborate",
+          "issue_type": "Bug",
+          "matched_key": "PROJ-110",
+          "patterns": [
+            "android",
+            "open|crash"
+          ]
+        }
+      ],
+      "extra": [],
+      "missing": [],
+      "passed": true,
+      "reason": "Android crash after update is already tracked. Holding updates is a follow-up, not a second new bug.",
+      "source_quotes": [
+        {
+          "speaker": "EXTERNAL",
+          "text": "Starting about \u2014 I want to say ten days ago? \u2014 I've had a wave of drivers telling me the app won't open on their phones. And when I say won't open, I mean it opens and immediately closes. Tap the icon, splash screen flashes, gone. Back to the home screen.",
+          "turn": 9
+        },
+        {
+          "speaker": "EXTERNAL",
+          "text": "That lines up, yeah. I had one driver, Danny, who's sharp \u2014 he told me it was \"totally fine until the phone updated it, now it won't even open.\" And he tried the usual stuff. Cleared cache, restarted the phone, nothing.",
+          "turn": 17
+        }
+      ],
+      "source_sha256": "9322588c6825b808145f52893db650801f9294dd862ea787595e63c8ae7be03f",
+      "turns": [
+        9,
+        17
+      ]
+    },
+    {
+      "actual": [
+        {
+          "account": "Palmetto Hotels",
+          "action": "corroborate",
+          "call_id": "call-040",
+          "confidence": 0.367,
+          "description": "[EXTERNAL] Wesley: No, not randomly, that's the thing. It's specific. They update their phone \u2014 you know how Apple pushes those iOS updates, and everyone eventually taps \"install tonight\" \u2014 and then the next time they open the BetterBark app, they've been logged out. It makes them sign in all over again.\n[EXTERNAL] Wesley: After the phone's operating system updates. That's the pattern. The app was fine, they update iOS overnight, they open the app in the morning, and boom \u2014 logged out, back to the login screen, gotta re-enter everything.\n[EXTERNAL] Wesley: Multiple. I'd say I've heard it from at least six or seven GMs across different properties, all iPhone users, all after an OS update. My deputy at the beach property flagged it first and then once I asked around, others said \"oh yeah, that happens to me too.\"\n[EXTERNAL] Wesley: I haven't heard it from the Android folks. It's specifically the iPhone people, specifically after the OS update. And to be fair \u2014 logging back in isn't the end of the world. It's not like they lose data or can't get in. It's just friction, and for a population this busy and this reluctant, friction is the enemy. Every extra step is an excuse to not bother.",
+          "issue_type": "Bug",
+          "matched_key": "PROJ-160",
+          "priority": "P2",
+          "rationale": "matches tracked PROJ-160 (similarity=0.37)",
+          "status": "queued",
+          "summary": "No, not randomly, that's the thing. It's specific. They update their phone \u2014 you know how Apple...",
+          "turn_span": [
+            26,
+            34
+          ]
+        }
+      ],
+      "call_id": "call-040",
+      "expected": [
+        {
+          "action": "corroborate",
+          "issue_type": "Bug",
+          "matched_key": "PROJ-160",
+          "patterns": [
+            "ios|iphone",
+            "logged out|sign"
+          ]
+        }
+      ],
+      "extra": [],
+      "missing": [],
+      "passed": true,
+      "reason": "Repeatable logout after iOS update matches PROJ-160; no queue output is a true miss, not vague dissatisfaction.",
+      "source_quotes": [
+        {
+          "speaker": "EXTERNAL",
+          "text": "No, not randomly, that's the thing. It's specific. They update their phone \u2014 you know how Apple pushes those iOS updates, and everyone eventually taps \"install tonight\" \u2014 and then the next time they open the BetterBark app, they've been logged out. It makes them sign in all over again.",
+          "turn": 27
+        },
+        {
+          "speaker": "EXTERNAL",
+          "text": "After the phone's operating system updates. That's the pattern. The app was fine, they update iOS overnight, they open the app in the morning, and boom \u2014 logged out, back to the login screen, gotta re-enter everything.",
+          "turn": 29
+        }
+      ],
+      "source_sha256": "aef7447182addbb9c54643fe7d26b9f87ac0b643e7b2bad7d0c7c094cf92a1d5",
+      "turns": [
+        27,
+        29
+      ]
+    },
+    {
+      "actual": [
+        {
+          "account": "Granite Peak Outfitters",
+          "action": "file-new",
+          "call_id": "call-080",
+          "confidence": 0.75,
+          "description": "[EXTERNAL] Fiona Delacroix: Two to three hours, and it's error-prone. If Wes moves someone between departments and I don't catch it, my allocation's wrong and a department gets over- or under-charged.\n[EXTERNAL] Wes Hartland: Which then lands on me, because the department head emails asking why their coaching bill went up.\n[EXTERNAL] Fiona Delacroix: Honestly? If the invoice itself broke out the cost by department. So instead of one line \"600 seats, X dollars,\" it'd say \"retail: 200 seats, this much; warehouse: 150 seats, this much; corporate; guiding; each on its own line.\"\n[EXTERNAL] Fiona Delacroix: Yes. That's it precisely. Then I just forward each line to the right cost center and I'm done. No manual apportioning, no spreadsheet cross-referencing.\n[EXTERNAL] Fiona Delacroix: Right \u2014 Wes already tags everyone to a department in your system for the org chart. That data exists. It just doesn't flow to the invoice.\n[EXTERNAL] Wes Hartland: That's the frustrating part. The department structure is already in there. It's just not connected to billing.",
+          "issue_type": "Feature",
+          "matched_key": "PENDING:40",
+          "priority": "P2",
+          "rationale": "no existing Feature issue matched above threshold (best similarity=0.10)",
+          "status": "queued",
+          "summary": "Two to three hours, and it's error-prone. If Wes moves someone between departments and I don't...",
+          "turn_span": [
+            25,
+            34
+          ]
+        }
+      ],
+      "call_id": "call-080",
+      "expected": [
+        {
+          "action": "file-new",
+          "issue_type": "Feature",
+          "patterns": [
+            "invoice",
+            "department|cost center"
+          ]
+        }
+      ],
+      "extra": [],
+      "missing": [],
+      "passed": true,
+      "reason": "Explicit per-department invoice split requires product work; distinguish from a support-only billing question and shipped CSV workaround.",
+      "source_quotes": [
+        {
+          "speaker": "EXTERNAL",
+          "text": "Honestly? If the invoice itself broke out the cost by department. So instead of one line \"600 seats, X dollars,\" it'd say \"retail: 200 seats, this much; warehouse: 150 seats, this much; corporate; guiding; each on its own line.\"",
+          "turn": 29
+        },
+        {
+          "speaker": "EXTERNAL",
+          "text": "Right \u2014 Wes already tags everyone to a department in your system for the org chart. That data exists. It just doesn't flow to the invoice.",
+          "turn": 33
+        }
+      ],
+      "source_sha256": "1e6110101d4005f966b1f1cef69fa3160352cdfb3f99320b4e6719c6d9415b8f",
+      "turns": [
+        29,
+        33
+      ]
+    },
+    {
+      "actual": [
+        {
+          "account": "Elmswood Care",
+          "action": "file-new",
+          "call_id": "call-100",
+          "confidence": 1.0,
+          "description": "[EXTERNAL] Renata: Right. Agenda from my side: usage numbers, a member data question that's been bugging me, and then I have a scheduling thing for next quarter's onboarding wave.\n[EXTERNAL] Renata: Ten as of two weeks ago. We took over the Fernbrook facility, so that's a tenth. About four-forty if you count them, though they're barely onboarded.\n[EXTERNAL] Renata: Thank you, though \"congratulations\" and \"condolences\" are about equally appropriate. It came with a lot of problems. But that's a different call.\n[EXTERNAL] Renata: Folding in. Same policies, same team structure. My ops person handled the member imports herself, she's gotten good at it. Which actually is a decent segue into the thing that's bugging me, so let me just get into it.\n[EXTERNAL] Renata: So care facilities have this rhythm where people leave and come back. A nurse goes on maternity leave, or somebody takes a seasonal job elsewhere and then comes crawling back when it doesn't work out, or a caregiver moves to be near family and then moves back. It's constant. So we deactivate people when they leave and reactivate them when they return, rather than deleting and recreating, because recreating loses all their history and it's a pain.\n[EXTERNAL] Renata: Right, that's what I thought, and that's why this is bugging me. Because it turns out it does NOT fully preserve it. Or at least not the part that matters to the person.\n[EXTERNAL] Renata: Okay. We had a caregiver \u2014 I'll call her by role, a shift lead at our Millbrook site \u2014 who left last fall, was deactivated, came back in April, and we reactivated her. She'd done a solid chunk of coaching before she left, maybe eight or nine sessions, and she'd taken notes on them. Her own session notes, the ones the member writes for themselves after a session. She came back, got reactivated, logged in, and her notes from before she left were just... gone. Not visible to her. Blank history where there used to be nine sessions of her own reflections.\n[EXTERNAL] Renata: Correct. From my admin view, actually, I can see that she had those sessions \u2014 the session count is right, the history shows the sessions happened. But when SHE logs in and goes to her own notes, the pre-deactivation notes aren't there. It's like reactivation gave her a fresh notebook and locked the old one in a drawer she can't open.\n[EXTERNAL] Renata: That's exactly how she framed it, actually, and she was upset. She said, \"I wrote things in those notes I wanted to come back to \u2014 goals I set myself, things my coach said that landed \u2014 and now I feel like I'm starting over.\" For someone in a job as emotionally heavy as caregiving, having your own reflection history vanish is not nothing.\n[EXTERNAL] Renata: That's the part that made me put it on today's agenda instead of just filing a helpdesk ticket. I went and checked. We've reactivated eleven people this year across all sites. I had my ops person spot-check with three of them who were willing \u2014 asked them to look at whether their pre-leave notes were visible. All three: same thing. History shows the sessions existed, but the notes they wrote before deactivation are not accessible to them post-reactivation. So it's not a fluke with one account. It's what reactivation does.\n[EXTERNAL] Renata: Yes. That's the exact shape of it. And I want to stress \u2014 this isn't a \"nice to have someday.\" These are people we're actively trying to retain by welcoming them back warmly, and the tool is quietly telling them \"your past doesn't count anymore.\" That undercuts the whole reactivation-over-recreation strategy you all recommend.\n[EXTERNAL] Renata: Thank you. And in the meantime \u2014 is there any way to get those notes back for her manually? The shift lead specifically. She's the one who raised it and I'd love to be able to go back to her and say \"found them.\"\n[EXTERNAL] Renata: That's fair, and honestly I appreciate you not just saying \"sure, no problem.\" I've been burned by that. \"Real answer, not a guess\" works for me.\n[EXTERNAL] Renata: Good question. Of the eleven, I'd say eight had done coaching before they left. The other three were newer \u2014 deactivated before they ever really engaged, so there's nothing for them to lose. So the exposed population is really those eight.",
+          "issue_type": "Bug",
+          "matched_key": "PENDING:53",
+          "priority": "P2",
+          "rationale": "no existing Bug issue matched above threshold (best similarity=0.13)",
+          "status": "queued",
+          "summary": "Thank you. And in the meantime \u2014 is there any way to get those notes back for her manually? The...",
+          "turn_span": [
+            8,
+            36
+          ]
+        }
+      ],
+      "call_id": "call-100",
+      "expected": [
+        {
+          "action": "file-new",
+          "issue_type": "Bug",
+          "patterns": [
+            "notes",
+            "reactivat|deactivat"
+          ]
+        }
+      ],
+      "extra": [],
+      "missing": [],
+      "passed": true,
+      "reason": "Existing personal notes disappear after reactivation; manual restoration is a workaround, not an independent Feature.",
+      "source_quotes": [
+        {
+          "speaker": "EXTERNAL",
+          "text": "Okay. We had a caregiver \u2014 I'll call her by role, a shift lead at our Millbrook site \u2014 who left last fall, was deactivated, came back in April, and we reactivated her. She'd done a solid chunk of coaching before she left, maybe eight or nine sessions, and she'd taken notes on them. Her own session notes, the ones the member writes for themselves after a session. She came back, got reactivated, logged in, and her notes from before she left were just... gone. Not visible to her. Blank history where there used to be nine sessions of her own reflections.",
+          "turn": 21
+        },
+        {
+          "speaker": "EXTERNAL",
+          "text": "That's the part that made me put it on today's agenda instead of just filing a helpdesk ticket. I went and checked. We've reactivated eleven people this year across all sites. I had my ops person spot-check with three of them who were willing \u2014 asked them to look at whether their pre-leave notes were visible. All three: same thing. History shows the sessions existed, but the notes they wrote before deactivation are not accessible to them post-reactivation. So it's not a fluke with one account. It's what reactivation does.",
+          "turn": 27
+        }
+      ],
+      "source_sha256": "b959b28879a265d445782a91ce73d06e90ff59faefedea477c93bde385880af7",
+      "turns": [
+        21,
+        27
+      ]
+    },
+    {
+      "actual": [],
+      "call_id": "call-140",
+      "expected": [],
+      "extra": [],
+      "missing": [],
+      "passed": true,
+      "reason": "Hypothetical breakage explicitly denies a defect. Store-level filtering already exists; enablement does not require a ticket.",
+      "source_quotes": [
+        {
+          "speaker": "EXTERNAL",
+          "text": "Genuinely, no. It's been smooth. My people use it, the reports work, nobody escalates anything to me about it, which in my world is the definition of success. If it were broken I would absolutely tell you \u2014 I'm not a \"grin and bear it\" person. But there's nothing to tell.",
+          "turn": 32
+        },
+        {
+          "speaker": "EXTERNAL",
+          "text": "Will do. Take care!",
+          "turn": 60
+        }
+      ],
+      "source_sha256": "91f797e950688cabbd1c56e03358e97427527f8b733c80c2ec187312b7685fe1",
+      "turns": [
+        32,
+        60,
+        61
+      ]
+    }
+  ],
+  "passed": true,
+  "sampling": "Five calls selected before reading: 020, 040, 080, 100, 140. Failures were then used for regression development; these five are no longer untouched holdout."
+}

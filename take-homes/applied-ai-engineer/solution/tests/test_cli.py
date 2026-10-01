@@ -32,6 +32,17 @@ def _make_cfg() -> Config:
 
 
 class TestCliDispatch(unittest.TestCase):
+    def test_failed_review_exits_nonzero(self) -> None:
+        with patch.object(cli, "load_config", return_value=_make_cfg()), \
+             patch.object(cli, "run_review", return_value=ReviewRunSummary(calls_processed=2, calls_failed=1)), \
+             redirect_stdout(io.StringIO()):
+            self.assertEqual(cli.main(["review"]), 1)
+
+    def test_monitor_no_log_exits_nonzero(self) -> None:
+        with patch.object(cli, "load_config", return_value=_make_cfg()), \
+             patch.object(cli.EventLogger, "read_all", return_value=[]), redirect_stdout(io.StringIO()):
+            self.assertEqual(cli.main(["monitor"]), 1)
+
     def test_review_command_calls_run_review_and_prints_summary(self) -> None:
         cfg = _make_cfg()
         summary = ReviewRunSummary(calls_processed=3, queued_for_review=2)

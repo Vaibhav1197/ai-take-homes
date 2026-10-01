@@ -52,7 +52,7 @@ def write_review_queue_markdown(entries: dict[str, dict[str, Any]], path: Path) 
         lines.append("")
         for key, entry in ordered:
             lines.extend(_render_entry(key, entry))
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 
 def _render_entry(key: str, entry: dict[str, Any]) -> list[str]:
@@ -66,7 +66,8 @@ def _render_entry(key: str, entry: dict[str, Any]) -> list[str]:
         f"## [{priority}] {entry.get('summary', '(no title)')}",
         "",
         f"- key: `{key}`",
-        f"- call: {call_id} ({account})",
+        f"- call: [{call_id}](../../transcripts/{call_id}.md) ({account})",
+        f"- source turns (zero-based, inclusive): {entry.get('turn_span', 'n/a')}",
         f"- action: **{action}**"
         + (f" -> matches `{entry['matched_key']}`" if entry.get("matched_key") else ""),
         f"- issue type: {entry.get('issue_type', 'n/a')}",

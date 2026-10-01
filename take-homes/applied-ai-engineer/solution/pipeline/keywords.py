@@ -48,6 +48,7 @@ RETRACTION_PHRASES = (
     "i'm not asking", "im not asking", "don't worry about it", "forget i said",
     "more of a preference", "it's fine honestly", "my eyes",
     "a me problem", "don't you dare file", "spare product that one", "not going to pretend it's a bug",
+    "disguised as a complaint",
 )
 
 # Common idiom ("that's a feature, not a bug") that contains the literal
@@ -78,7 +79,7 @@ RESOLVED_ON_CALL_PHRASES = (
     "root cause was", "false alarm", "resolved itself", "non-issue",
     "that solved it", "already resolved", "clock skew", "already attributed",
     "you're already attached", "youre already attached",
-    "no need to re-report",
+    "no need to re-report", "behaving correctly", "exactly what it should",
 )
 
 SHIPPED_PHRASES = (
@@ -128,6 +129,8 @@ BUG_KEYWORDS = (
     "freeze", "freezes", "hangs", "stale", "delayed", "delay", "expires early",
     "logs out", "redirect loop", "loop", "glitch", "defect", "malfunction",
     "typo", "misspell", "empty results",
+    "locked out", "vanish", "vanishes", "disappear", "disappears", "disappearing",
+    "expired", "didn't update", "doesn't update", "won't update", "error message",
 )
 
 # Ambiguous bug words that can describe a flawed MANUAL process or general
@@ -150,6 +153,7 @@ FEATURE_KEYWORDS = (
     "automatic", "auto-assign", "integration with", "support for",
     "would benefit from", "put it on the list", "idempotency key", "idempotency keys",
     "webhook", "programmatic access", "api endpoint", "what i need is",
+    "would give a lot for", "no bulk", "proactive alert", "want the problems to find me",
 )
 
 # --- Business-impact / severity signals. -----------------------------------

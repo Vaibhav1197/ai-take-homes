@@ -1,31 +1,16 @@
-# Review queue (excerpt)
+# Review queue
 
-This is a 4-item excerpt of the real 183-item queue produced by
-`py -m solution review` against the full 140-transcript corpus, in the exact
-format a reviewer sees. See [`README.md`](README.md) for why these 4 were
-picked and what was decided.
-
-## [P1] So Tuesday morning we had a wave of people unable to log in through SSO. Maybe sixty, seventy...
-
-- key: `call-051#9#bug`
-- call: call-051 (Vantage Credit Union)
-- action: **file-new** -> matches `PENDING:60`
-- issue type: Bug
-- confidence: 1.00
-- rationale: no existing Bug issue matched above threshold (best similarity=0.11)
-- evidence: "[EXTERNAL] Nadia: No stragglers. I checked Wednesday morning specifically for anyone still failing and it was clean across the board. Everyone who'd been affected was back in.
-[EXTERNAL] Nadia: So Tuesday morning we had a wave of people unable to log in through SSO. Maybe sixty, seventy staff. They'd hit the login button, get bounced, and land on an error. My phone lit up. I opened the urgent ticket with you because from where I sat it looked like your SSO was down.
-[EXTERNAL] Nadia: It went to me realizing, about two hours in, that it wasn't you at all. It was us. Our identity provider certificate expired.
-[EXTERNAL] Nadia: The signing certificate. It had a renewal date I had in a spreadsheet somewhere that I absolutely did not look at. It lapsed overnight, and once it lapsed, the assertions our IdP was sending were signed with an expired cert, so your side correctly refused them. From our users' perspective, "BetterBark login is broken." From reality's perspective, our cert was dead and your platform did exactly what it should have."
+3 item(s) awaiting a decision. Edit `review_decisions.json` (pending -> approved/rejected), then re-run `apply`.
 
 ## [P3] Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same...
 
 - key: `call-004#23#bug`
-- call: call-004 (Cedar Grove Schools)
+- call: [call-004](../../transcripts/call-004.md) (Cedar Grove Schools)
+- source turns (zero-based, inclusive): [22, 28]
 - action: **corroborate** -> matches `PROJ-101`
 - issue type: Bug
-- confidence: 0.28
-- rationale: matches tracked PROJ-101 (similarity=0.28)
+- confidence: 0.27
+- rationale: matches tracked PROJ-101 (similarity=0.27)
 - evidence: "[EXTERNAL] Will: Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same way. My directors read the weekly numbers against the school day — like, "how many sessions happened during the workday versus after" — so when the timestamps don't line up with reality, they think the data itself is wrong. And then I get three confused emails asking why sessions are happening at midnight.
 [EXTERNAL] Will: That would explain the exact seven-hour thing. It's not random, it's a consistent shift.
 [EXTERNAL] Will: Whatever gets it fixed. It's been going on at least a month — I honestly assumed it was on purpose at first, like some setting I'd missed, until a director pushed back hard enough that I went looking."
@@ -33,8 +18,9 @@ picked and what was decided.
 ## [P3] It cuts off right at the apostrophe. So Maria O'Brien's profile link — it should be her full...
 
 - key: `call-011#41#bug`
-- call: call-011 (Brightpath Insurance)
-- action: **file-new** -> matches `PENDING:13`
+- call: [call-011](../../transcripts/call-011.md) (Brightpath Insurance)
+- source turns (zero-based, inclusive): [38, 48]
+- action: **file-new** -> matches `PENDING:7`
 - issue type: Bug
 - confidence: 0.75
 - rationale: no existing Bug issue matched above threshold (best similarity=0.09)
@@ -44,13 +30,23 @@ picked and what was decided.
 [EXTERNAL] Sofia: I test things the way I reconcile benefits — one variable at a time until the pattern confesses. Old habit.
 [EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes — every notification, every time, for all thirty-one."
 
-## [P3] That's the only sane response, and it's what I expected from you. Okay — the actual bug. This...
+## [P4] That's the two. Fix the crashing app before the typo, in case that needed saying.
 
-- key: `call-011#33#bug`
-- call: call-011 (Brightpath Insurance)
-- action: **file-new-low** -> matches `PENDING:12`
+- key: `call-008#57#bug`
+- call: [call-008](../../transcripts/call-008.md) (Northwind Logistics)
+- source turns (zero-based, inclusive): [42, 64]
+- action: **file-new** -> matches `PENDING:4`
 - issue type: Bug
-- confidence: 0.25
-- rationale: no existing Bug issue matched above threshold (best similarity=0.09)
-- evidence: "[EXTERNAL] Sofia: That's the only sane response, and it's what I expected from you. Okay — the actual bug. This one's real and it's irritating my members.
-[EXTERNAL] Sofia: Take your time. I appreciate a person who doesn't let two things blur into one."
+- confidence: 1.00
+- rationale: no existing Bug issue matched above threshold (best similarity=0.12)
+- evidence: "[EXTERNAL] Marcus: She noticed the confirmation emails your system sends have "BetterBrak" — B-E-T-T-E-R-B-R-A-K — in the footer. Your own company name, misspelled, right there in the email footer. BetterBrak.
+[EXTERNAL] Marcus: Oh yes. BetterBrak. Every confirmation email, apparently.
+[EXTERNAL] Marcus: Every one. And she called it, quote, "a P0 brand catastrophe" and said she's, quote, "genuinely alarmed." She used the word alarmed. About a typo. I told her I'd relay it with a straight face and I am now doing that, and I want you to know that face is costing me a great deal.
+[EXTERNAL] Marcus: She will be pleased to hear she's not wrong. She lives for that.
+[EXTERNAL] Marcus: That's exactly the energy I was hoping for. She'll be told it was escalated with maximum urgency. You and I will know the truth. Everyone gets to keep their dignity.
+[EXTERNAL] Marcus: Perfect. Send her a thank-you and she'll be insufferable for a week, but a happy insufferable.
+[EXTERNAL] Marcus: Same one. She has a genuine gift for finding the one wrong letter on anything with our name near it. In fairness it's a useful gift, I just wish it came with a volume knob.
+[EXTERNAL] Marcus: That's the two. Fix the crashing app before the typo, in case that needed saying.
+[EXTERNAL] Marcus: Send them. My comms director will want the typo one framed and mounted.
+[EXTERNAL] Marcus: And then some. Go onboard your cornfield hires is basically my whole July.
+[EXTERNAL] Marcus: The cornfield calls. Thanks, Sam."

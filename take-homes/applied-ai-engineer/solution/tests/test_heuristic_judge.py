@@ -152,6 +152,44 @@ class TestCluster(unittest.TestCase):
 
 
 class TestFindCandidatesEndToEnd(unittest.TestCase):
+    def test_logout_and_conditional_feature_wording(self) -> None:
+        for text, expected_type in (("After an OS update we are logged out of the app.", "bug"),
+                                    ("If our dashboard showed counts per region, that would save two hours.", "feature")):
+            candidates = HeuristicJudge().find_candidates(_transcript([(EXT, "Jamie", text)]))
+            self.assertEqual(len(candidates), 1)
+            self.assertFalse(candidates[0].suppressed)
+            self.assertEqual(candidates[0].signal_type, expected_type)
+
+    def test_hypothetical_breakage_does_not_queue_bug(self) -> None:
+        candidates = HeuristicJudge().find_candidates(_transcript([(EXT, "Jamie", "The app works. If it were broken I would tell you.")]))
+        self.assertFalse(any(not candidate.suppressed for candidate in candidates))
+
+    def test_workaround_followup_is_not_a_separate_request(self) -> None:
+        turns = [(EXT, "Jamie", "The app crashes when opening a session.")]
+        turns.extend([(INT, "Riley", "Let me check the details.")] * 10)
+        turns.append((EXT, "Jamie", "One more thing, should we hold off on updates for the crashing phones?"))
+        candidates = HeuristicJudge().find_candidates(_transcript(turns))
+        self.assertEqual(sum(not candidate.suppressed for candidate in candidates), 1)
+        self.assertIn("followup-workaround", candidates[-1].flags)
+
+    def test_ambiguous_small_talk_is_suppressed(self) -> None:
+        for text in ("The training seems to have stuck.", "If the factory is quiet, something is wrong.",
+                     "Thanks for the webhook update, see you next quarter.", "Look at me being a good bug reporter.",
+                     "The office printer is broken again.", "I would love to visit the lake this summer."):
+            with self.subTest(text=text):
+                candidates = HeuristicJudge().find_candidates(_transcript([(EXT, "Jamie", text)]))
+                self.assertTrue(candidates)
+                self.assertTrue(all(candidate.suppressed for candidate in candidates))
+
+    def test_ambiguous_keyword_with_concrete_symptom_is_retained(self) -> None:
+        for text in ("The page is stuck every time I open it.", "The report shows the wrong count.",
+                     "The timestamps are shifted and the data itself is wrong.",
+                     "I would love calendar sync for our sessions.", "The profile link is broken.",
+                     "Could you add a webhook for completions?"):
+            with self.subTest(text=text):
+                candidates = HeuristicJudge().find_candidates(_transcript([(EXT, "Jamie", text)]))
+                self.assertTrue(any(not candidate.suppressed for candidate in candidates))
+
     def test_no_external_participant_yields_no_candidates(self) -> None:
         t = _transcript([(INT, "Riley", "internal sync, nothing customer-facing")])
         self.assertEqual(HeuristicJudge().find_candidates(t), [])
@@ -212,6 +250,92 @@ class TestFindCandidatesEndToEnd(unittest.TestCase):
         signal_types = {c.signal_type: c for c in candidates}
         self.assertTrue(signal_types["bug"].suppressed)
         self.assertFalse(signal_types["feature"].suppressed)
+
+
+class TestGeneralizationFixes(unittest.TestCase):
+    """Regression tests for a 2026-10-01 bounded repair, each grounded in the
+    exact source quote that exposed the gap on a frozen 24-call assessment
+    (see EVAL.md). Keep these even if the specific call is re-annotated."""
+
+    def test_ambiguous_hit_with_generic_noun_alone_is_not_enough(self) -> None:
+        """call-009 / call-005 regressions caught while fixing call-085:
+        broadening the product-noun gate to "bug"/"wrong"/"stuck"/"loop"/
+        "webhook" must not let a bare mention next to any generic noun pass."""
+        for text in ("Time, page, screenshot. Look at me, being a good bug reporter.",
+                     "Reports come in fine, SSO's stable. The webhook thing was the only thing anyone's raised."):
+            with self.subTest(text=text):
+                candidates = HeuristicJudge().find_candidates(_transcript([(EXT, "Jamie", text)]))
+                self.assertTrue(all(candidate.suppressed for candidate in candidates))
+
+    def test_ambiguous_bug_hit_with_integration_noun_is_retained(self) -> None:
+        """call-085: "it's been bugging people" + "notification emails" in the
+        same turn is concrete enough once a real integration noun is nearby."""
+        text = "It's been bugging a bunch of our people. The notification emails open a browser login instead of the app."
+        candidates = HeuristicJudge().find_candidates(_transcript([(EXT, "Jamie", text)]))
+        self.assertTrue(any(not candidate.suppressed for candidate in candidates))
+
+    def test_negated_bug_words_do_not_create_a_candidate(self) -> None:
+        """call-074 / call-076: "nothing broken" and "not like anything
+        freezes or errors" must not be read as bug reports."""
+        for text in ("Nothing broken. The report I run works, it's just manual.",
+                     "It's not like anything freezes or errors. It just feels heavier."):
+            with self.subTest(text=text):
+                candidates = HeuristicJudge().find_candidates(_transcript([(EXT, "Jamie", text)]))
+                self.assertTrue(all(candidate.suppressed for candidate in candidates))
+
+    def test_compliment_disguised_as_complaint_is_suppressed(self) -> None:
+        """call-087: an explicit "that's a compliment, not a complaint"
+        framing must not file a feature request."""
+        text = "If anything the app is almost too clean, one of my managers wished it would nag her more. That's a compliment disguised as a complaint."
+        candidates = HeuristicJudge().find_candidates(_transcript([(EXT, "Jamie", text)]))
+        self.assertTrue(all(candidate.suppressed for candidate in candidates))
+
+    def test_delivery_question_about_an_earlier_issue_is_not_a_new_request(self) -> None:
+        """call-101: asking whether an already-reported fix "will apply
+        automatically or need an app update" is a follow-up, not a new ask."""
+        turns = [(EXT, "Jamie", "The app crashes when opening a session.")]
+        turns.extend([(INT, "Riley", "Let me check the details.")] * 10)
+        turns.append((EXT, "Jamie", "One more thing -- when the fix comes, will it apply automatically or will we need to update the app?"))
+        candidates = HeuristicJudge().find_candidates(_transcript(turns))
+        self.assertEqual(sum(not candidate.suppressed for candidate in candidates), 1)
+        self.assertIn("followup-delivery-question", candidates[-1].flags)
+
+    def test_missing_bulk_action_and_aggregate_wellbeing_requests_are_retained(self) -> None:
+        """call-060/call-088/call-119: "no bulk reassign"/"no bulk option" is
+        a distinct missing-capability idiom, same for call-069's "I would
+        give a lot for an anonymized, aggregate, org-level read"."""
+        for text in ("There's no way to do that one at a time. I even checked the admin bulk-actions menu, but there's no bulk reassign.",
+                     "I would give a lot for an anonymized, aggregate, org-level trend report."):
+            with self.subTest(text=text):
+                candidates = HeuristicJudge().find_candidates(_transcript([(EXT, "Jamie", text)]))
+                self.assertTrue(any(not candidate.suppressed for candidate in candidates))
+
+    def test_locked_out_and_vanishing_filters_are_retained(self) -> None:
+        """call-088 ("hard-locked out at exactly 24 hours") and call-112
+        ("every time they hit back, the filters vanish") were previously
+        invisible to the judge: no keyword matched at all."""
+        for text in ("Our users get hard-locked out at exactly 24 hours and cannot self-recover.",
+                     "Every time they hit back, the coach-search filters vanish and reset to the full list."):
+            with self.subTest(text=text):
+                candidates = HeuristicJudge().find_candidates(_transcript([(EXT, "Jamie", text)]))
+                self.assertTrue(any(not candidate.suppressed for candidate in candidates))
+
+    def test_vanish_without_a_product_noun_is_suppressed(self) -> None:
+        """call-098: "a grant can appear or vanish" is a funding remark, not
+        a product bug -- "vanish" must stay gated behind a product noun."""
+        text = "Our funding does swing with the school-year cycles. A grant can appear or vanish and reshape our whole budget."
+        candidates = HeuristicJudge().find_candidates(_transcript([(EXT, "Jamie", text)]))
+        self.assertTrue(all(candidate.suppressed for candidate in candidates))
+
+    def test_expired_link_requires_a_nearby_product_noun(self) -> None:
+        """call-115 (expired verification link) is retained; call-051's
+        resolved "expired certificate" incident must stay suppressed."""
+        retained = HeuristicJudge().find_candidates(_transcript(
+            [(EXT, "Jamie", "They click the verification link and get a page saying the link had expired, within a minute of receiving it.")]))
+        self.assertTrue(any(not candidate.suppressed for candidate in retained))
+        suppressed = HeuristicJudge().find_candidates(_transcript(
+            [(EXT, "Jamie", "Our identity provider certificate expired overnight. That's the system behaving correctly, not a bug.")]))
+        self.assertTrue(all(candidate.suppressed for candidate in suppressed))
 
 
 if __name__ == "__main__":

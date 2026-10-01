@@ -1,64 +1,63 @@
 # Write-up: The June Tapes
 
-**Time spent:** ~4 hours (per the commit history on `solution/Vaibhav1197`: first commit 2026-09-03 14:44, last 2026-09-03 18:44), somewhat over the suggested 2-3 hours given the added depth of the eval harness, the second (LLM) judge, and the demo walkthrough.
+**Time spent:** Initial implementation approximately 4 hours, estimated from author timestamps, not a time log. Additional remediation on 2026-10-01 was not separately time-tracked. This exceeded the suggested timebox.
+
+**Start here:** [EVAL.md](EVAL.md) contains denominators, acceptance rules, two-run numbers and known limits. [artifacts/README.md](artifacts/README.md) maps the full-corpus evidence. [README.md](README.md) has configuration and usage.
+
+**Current acceptance fails:** a bounded repair raised round-1 (now tuned-on) recall from 28.6% to 85.7%, but a second, fresh 24-call sample untouched by the repair still finds 6 matches, 9 extras and 5 misses (54.5% recall, 40.0% precision). Processing success and green dev tests do not establish generalization.
+
+From `take-homes/applied-ai-engineer/`, with Python 3.11+ (stdlib only):
+
+```sh
+python -m unittest discover -s solution/tests -q
+python -m solution.eval.run_eval --repeat 2 --output solution/eval/results.json
+python -m solution.eval.run_corpus --demo-decisions solution/demo/review_decisions_excerpt.json
+```
+
+On Windows use `py` instead of `python` if needed. These evidence commands use temporary state and isolated local stub outboxes; they do not approve or change the normal runtime queue.
 
 ## What I built and the key design decisions
 
 A pipeline over BetterBark's 140 call transcripts: **ingest → judge → de-dup → human review gate → apply**.
 
-- `pipeline/ingest.py` parses `[EXTERNAL]`/`[INTERNAL]`-tagged transcripts into typed `Turn`/`Transcript` records.
-- `pipeline/heuristic_judge.py` (the shipped default `IssueJudge`) finds candidate bugs/features via two-level segmentation: coarse "topic blocks" on discourse markers ("one more thing", "second thing", ...) as an outer fence, then proximity-clustering of keyword-bearing turns *within* a block. This lets one call surface several distinct issues and scopes suppression checks (retracted / already-fixed / hearsay / prompt-injection) to the right few turns instead of the whole call.
-- `pipeline/dedup.py` matches candidates against `data/existing_issues.json` with hand-rolled TF-IDF + cosine similarity (stdlib only) — no embeddings API, deterministic, fast enough at this corpus size.
-- `pipeline/state_store.py` is a durable, atomically-written ledger and the single source of idempotency truth (detail below).
-- `pipeline/review.py` renders a human-readable `review_queue.md` and a `review_decisions.json` a reviewer edits (`pending` → `approved`/`rejected`); `pipeline/payloads.py` + `stubs/` only ever fire for `approved` decisions.
-- The decision vocabulary mirrors `data/dev_labels.json` exactly: `file-new` / `file-new-low` / `corroborate` / `none`. `file-new-low` is a deliberately wider net for cheap human review, not a confident final call — and the eval (below) treats it that way too.
-- The judge is pluggable behind one `Protocol` (`judge_base.py`): `HeuristicJudge` (default) and `LLMJudge` (env-gated via `PIPELINE_JUDGE=llm` + `OPENAI_API_KEY`, stdlib `urllib` only) both implement `find_candidates(transcript) -> list[Candidate]`; `orchestrator.py` cannot tell them apart.
+Typed speaker-aware ingestion feeds a pluggable judge. External topic fences and nearby signal clusters scope suppression locally. TF-IDF/cosine dedup uses **0.20** against existing, filed and pending issues, with same-call duplicate collapse. A durable ledger records `file-new`, `file-new-low`, `corroborate` and `none`. Reviewers edit `pending` to `approved`/`rejected`; only approved items reach Jira/Slack stubs.
 
 ## Where AI is, and isn't, in the pipeline
 
-No LLM call sits on the default hot path. The shipped judge is deterministic keyword/pattern matching over verbatim transcript text, chosen because: it's fully reproducible (a flaky judge makes "does the eval pass" unanswerable); it's auditable (`keywords.py` is a plain-English list a reviewer can read to see exactly why a call was flagged); it has zero cost/latency/network dependency; and the labeled dev set is small and pattern-shaped enough that rules tuned against it generalize reasonably (numbers below). The raw transcript is always the source of truth — snippets that reach Jira/Slack are verbatim quotes, never a paraphrase, regardless of which judge produced the turn span.
-
-`LLMJudge` is fully built and unit-tested as a real, equal alternative (`pipeline/llm_judge.py`), off by default. Even there, priority is *not* delegated to the model: it reuses the same deterministic `estimate_priority()` the heuristic judge uses, so "never inflate priority from a customer's own dramatic framing" is a judge-independent guarantee rather than something that needs re-prompting-for and re-verifying per judge.
-
-AI (GitHub Copilot, agentic) wrote essentially all of this code under my direction — full disclosure below.
+The deterministic default was repaired after root-causing exact source quotes: added vocabulary for previously invisible reports, a consistent product-noun gate, negated-bug-word stripping, and narrow follow-up/recap suppression (see EVAL.md). Re-scored on the same tuned sample, recall rose from 28.6% to 85.7%. A second, fresh 24-call sample with zero influence on the repair still shows real gaps: 54.5% recall, 40.0% precision. The remaining failures are mostly the same bug reported in different words (keyword matching doesn't generalize across paraphrase) and recap turns misread as new asks. Five earlier audits and 24 round-1 calls are now regression data; 71 calls remain fully unassessed. The optional `LLMJudge` shares the interface and priority calculation but is not live-tested. Transcript quotes remain the evidence with either judge.
 
 ## The hardest engineering problem (not the hardest prompt)
 
-Building the eval harness surfaced a real, generalizable bug in the segmentation logic, in two parts:
-
-1. **call-008**: one typo report was being split into two low-content candidates. Root cause, found by reading the raw transcript turn-by-turn: the topic-block segmenter treated *any* turn matching a discourse marker ("anything else", "while I have you") as a new-topic fence — including the **internal rep's own wrap-up question**, not just a customer introducing a new topic. Fix: only external-speaker turns can open a new block. Verified with the full unit suite (no regressions) and the eval (precision 0.56 → 0.58 from this fix alone).
-2. **call-011**: a separate, genuine gap in proximity clustering (8 turns, one past the merge threshold). I tried the obvious global fix — widen `_CLUSTER_MAX_GAP` from 6 to 8 — and it worked for call-011, but the eval caught a *worse* regression: call-010's Azure AD bug then wrongly merged into the unrelated PROJ-064 (Okta) tracked issue, an explicit hard requirement. **I reverted the change** and left call-011's split as a documented, understood limitation rather than trading one false positive for a worse one. The human-review gate is the correct backstop for exactly this case — demonstrated live in `solution/demo/`.
-
-The engineering lesson, not a prompting one: a promising-looking global parameter fix has to be measured against a fixed regression harness before being trusted, and being willing to reject your own fix is part of the job.
+Segmentation must suppress chatter without merging distinct issues. An external-speaker fence fixed call-008; a gap increase from 6 to 8 was reverted after confusing Azure AD with Okta. This revision exposed mixed-tier precision and positive-only hard cases: the stricter baseline found 10 extras among 24 predictions. Grounding rules removed those extras. An initial filter lost the genuine timezone report; a regression test drove the repair. Original labels remain unchanged, and before/after artifacts preserve the failures.
 
 ## Idempotency, safe re-runs, and partial failure
 
-Every candidate gets a stable key, `f"{call_id}#{primary_turn_index}#{signal_type}"` (`state_store.candidate_key`) — anchored to *content*, not judge wording, so it survives a future non-deterministic judge shifting a window boundary by a turn. The ledger (`solution/state/pipeline_state.json`) is the *only* source of "have I already dealt with this" truth: the Jira/Slack stubs are deliberately naive and don't de-duplicate themselves (by their own docstrings), so re-running the pipeline can never re-file or re-notify anything already recorded. Every state transition is an atomic temp-file-then-`os.replace` rewrite, so a crash mid-batch leaves everything-before-it durably intact, not corrupted.
+Keys use `call_id#primary_turn_index#signal_type`. They require stable transcript identity and primary turns; they are not semantic hashes or guaranteed stable across different judges. One writer per ledger is assumed.
 
-Both `run_review` and `run_apply` wrap each transcript/decision in its own `try/except`: one bad transcript or one bad decision is logged (`call_failed` / `apply_failed`) and skipped, the rest of the batch still completes. On Windows, `os.replace` intermittently raised a transient `PermissionError` under rapid repeated writes (AV/indexer briefly holding a handle) — found empirically on a full 140-call run, fixed with a short bounded retry rather than letting a transient OS race look like a pipeline failure. Verified idempotency directly, not just in unit tests: running the full 140-transcript corpus twice back-to-back reports 219 candidates found on the fresh run and **0 newly queued, everything "already processed"** on the immediate re-run.
+State uses a flushed/fsynced temporary file and atomic `os.replace`. On Windows, replacement retries `PermissionError` up to six attempts, 50ms apart, then raises; temporary files are cleaned up. Antivirus/indexer interference was a suspected cause, not proven. Failures are isolated per call/decision and exposed through counts and nonzero CLI exits.
+
+Jira success is now persisted before Slack is attempted, so an ordinary Slack failure/retry reuses the ticket. Pending targets resolve across apply batches; unresolved targets fail closed. Tests cover both. **Not exactly-once delivery:** a crash between a remote side effect and its local checkpoint can still duplicate a ticket or notification. Production needs sink idempotency/reconciliation and a transactional outbox.
 
 ## What the eval catches, what would slip through, and reliability across repeated runs
 
-`solution/eval/run_eval.py` replays the **real** `orchestrator.run_review()` (not a reimplementation) against calls 1–15 vs. `data/dev_labels.json`, so the eval and production can never drift apart. Current numbers: **precision = 0.93, recall = 1.00, F1 = 0.97** (TP=14, FP=1, FN=0) on the confident tier (`file-new`/`corroborate`); recall covers *all* labels regardless of tier. Pass/fail definition: precision ≥ 0.85 and recall ≥ 0.85, **and** all 8 named hard cases pass (independent reports of one bug merging; genuinely distinct bugs that share vocabulary staying apart; Bug-vs-Feature classification; already-shipped suppression; prompt-injection resistance; internal-only calls producing zero tickets; priority not inflating from customer drama), **and** `--repeat N` produces an identical decision fingerprint across runs.
+Two fresh dev runs each produced **TP=14, FP=0, FN=0** and passed ten hard cases. A fresh, untouched 24-call sample instead gives **40.0% precision, 54.5% recall and 84.6% negative-call accuracy** twice (identical runs), below preregistered 0.85 gates. Low-confidence extras count as false positives. The corpus command now fails on failed, missing or stale semantic evidence, and the fresh sample is now the default gate — the earlier tuned sample is correctly locked out of re-certification by its own integrity seal. Source/label/evaluator hashes prevent silent changes; unfavorable results are retained. Lexical matching has a measured generalization ceiling (the same bug, reworded, was still missed); same-agent annotation requires human calibration. [EVAL.md](EVAL.md) gives the protocol and disagreements.
 
-What would slip through: the one documented call-011-style clustering-gap case above; keyword-homonym misses inherent to a rule-based judge; and, by design, some `file-new-low` noise reaching human review rather than being silently dropped — that tier is deliberately a wide net, so the review gate, not the judge, is its real precision backstop. Reliability across repeated runs: the heuristic judge is deterministic, so `--repeat 5` always produces an identical fingerprint (verified). Swap in a probabilistic judge (`LLMJudge`, temperature 0 but not bit-guaranteed) and the *same* harness immediately shows instability as a diverged fingerprint — that's the intended mechanism for measuring a model judge's flake rate (e.g. nightly `--repeat 5–10`, alert on divergence).
+`python -m solution monitor` checks correlated run/call counts, freshness, failures, candidate-rate drift and review noise, emitting JSON and nonzero exit on alerts. An external scheduler must invoke it. Current health is **warning**: the low-confidence share of the queue is above the 25% limit. Source-backed call-040 miss evidence and a synthetic wrong-label control distinguish system errors from annotation-review questions without altering supplied labels.
 
 ## How I validated it actually works
 
-170 unit tests (pure, fast, stdlib `unittest`, no real network/filesystem/clock) across every module. The eval above, against real labeled data. The full 140-transcript corpus run twice back-to-back to confirm idempotency empirically, not just in isolated unit tests. And a real end-to-end pass through the human gate: I reviewed and decided a representative slice of the actual review queue (approve a `file-new`, approve a `corroborate`, reject a `file-new-low`) and ran `apply` for real, then inspected the resulting Jira/Slack stub payloads — curated in `solution/demo/` since `solution/state/` and `stubs/outbox/*.jsonl` are gitignored, run-specific artifacts.
+**209 tests** passed, including temporary filesystem integration and mocked failures. Full run: **140 processed, 0 failed, 228 candidates, 128 suppressed, 6 collapsed, 94 queued** (42 new, 30 low-confidence new, 22 corroborations). Rerun: **0 newly queued**, identical ledger and review decisions. [Clean-source verification](artifacts/validation.json) checks reproducibility, not semantic acceptance.
+
+The [demo](demo/README.md) simulates approvals: 1 ticket, 1 corroboration, 1 rejection; second apply adds no records. Pending items never write. It is not human sign-off. Source-linked queue entries include verbatim evidence; estimated review time is 45-90 seconds each, not a measured usability result.
 
 ## AI-tool disclosure
 
-Tool: **GitHub Copilot, agentic mode** (Claude Sonnet-class model), for this entire solution — pipeline code, tests, eval harness, and this write-up.
+Tool: **GitHub Copilot, agentic mode**, for implementation, tests, eval, source inspection, generated evidence and documentation.
 
-**Seams — wrote vs. delegated:** I set every design decision (heuristic-first judge with an `LLMJudge` alternative behind one interface, two-level segmentation, ledger-based idempotency, the tiered confident/low-confidence eval metric, the human-gate file formats) and directed the build step by step; the agent authored the actual code and tests against those decisions. Nothing was accepted un-verified — every change was checked against the unit suite, the eval, or a real end-to-end run before moving on.
+**Ownership:** I supplied the assignment and hiring feedback and delegated implementation and investigation to Copilot. Copilot authored remediation, five regression annotations and 24 source-first annotations. These and demo decisions require my review; I do not claim to have personally designed every rule or manually reviewed the full corpus.
 
-**A concrete rejected case:** the `_CLUSTER_MAX_GAP` 6→8 experiment above. The agent proposed and implemented it as a fix for call-011; it looked reasonable in isolation and passed a quick read-through, but measurably regressed a named hard case once run against the eval (call-010 wrongly merging into PROJ-064). I rejected it and reverted, keeping the narrower, correctly-scoped fix plus an honestly documented limitation instead.
-
-**Where AI got it wrong initially:** the original topic-block segmenter (also agent-written, earlier in the build) had the call-008 speaker-blindness bug through 156 passing unit tests — those tests checked segmentation in isolation with contrived examples, not against a real, labeled, end-to-end call. Only a real eval against real transcripts surfaced it. The lesson I'm taking forward: a large green unit-test suite is necessary but not sufficient; it doesn't substitute for an eval against real data.
+**Rejected output:** The gap-widening experiment was reverted; the broad suppression proposal required a narrower repair after dropping the timezone report. Inflated precision and unqualified generalization/exactly-once claims were corrected. Tests and preserved artifacts, not agent assurances, support acceptance.
 
 ## What I'd do with another day, and what I deliberately left out
 
-Left out: a click-through review UI over `review_queue.md`/`review_decisions.json` — markdown + JSON is fast enough for this scope, but a real reviewer would want one, since "keep the review fast" was an explicit design goal. `LLMJudge` is built and unit-tested but has no live-network test against a real API by design (no network in unit tests) and hasn't been run against the eval yet.
-
-With another day: (1) run `LLMJudge` through the same eval harness side-by-side with the heuristic judge for a real, apples-to-apples precision/recall comparison; (2) replace the global `_CLUSTER_MAX_GAP` with a more surgical, per-call post-hoc merge pass that compares nearby candidates' content directly, closing the call-011-style gap without risking the call-010-style regression; (3) hand-spot-check a slice of the 125-call holdout to catch error classes the 15-call dev set doesn't represent; (4) the review UI above.
+Next: independently adjudicate labels, improve contextual extraction and compare the real LLM judge, then validate on fresh data without recycling inspected failures as holdout. Delivery reconciliation and review UX follow. No passing private-holdout, production-readiness or unattended-filing claim is warranted: the default judge's failures are now measured, not merely suspected.

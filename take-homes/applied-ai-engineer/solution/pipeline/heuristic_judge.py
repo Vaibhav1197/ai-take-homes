@@ -55,6 +55,15 @@ _QUOTE_RE = re.compile(r"[\"'\u2018\u2019\u201c\u201d][^\"'\u2018\u2019\u201c\u2
 _DIGIT_RE = re.compile(r"\d")
 _BUG_IDIOM_NEGATION_RE = re.compile("|".join(BUG_IDIOM_NEGATION_PATTERNS))
 _RETRACTION_NEGATION_RE = re.compile("|".join(RETRACTION_NEGATION_PATTERNS))
+# Direct negations of a bug word ("nothing broken", "not ... broken", "not
+# like anything freezes or errors") that would otherwise still count as a hit
+# via plain substring matching. Narrow and quote-grounded, not a general
+# negation parser -- see heuristic_judge tests for the exact source lines.
+_BUG_HIT_NEGATION_RE = re.compile(
+    r"\bnothing broken\b"
+    r"|\bnot\s+(?:a\s+)?[\"'\u2018\u2019\u201c\u201d]?\s*it'?s\s+broken\b"
+    r"|\bnot\s+like\s+anything\s+(?:freezes?|errors?|crash(?:es|ing)?)(?:\s+or\s+(?:freezes?|errors?|crash(?:es|ing)?))?\b"
+)
 
 _TITLE_MAX_LEN = 100
 _CLUSTER_MAX_GAP = 6  # signal turns within this many turns of each other merge into one candidate
@@ -79,9 +88,20 @@ def _bug_keyword_hits(text_l: str) -> list[str]:
     opposite of a bug report. Seen twice in the sample transcripts (call-004,
     call-010) as a red herring unrelated to the actual issue being discussed.
     """
+    text_l = re.sub(r"\bif (?:it|this|that|the app) (?:were|was) broken\b", "", text_l)
+    text_l = _BUG_HIT_NEGATION_RE.sub("", text_l)
     hits = find_matches(text_l, BUG_KEYWORDS)
+    if re.search(r"\b(?:logged|signed) out\b", text_l):
+        hits.append("logs out")
     if "bug" in hits and _BUG_IDIOM_NEGATION_RE.search(text_l):
         hits = [h for h in hits if h != "bug"]
+    return hits
+
+
+def _feature_keyword_hits(text: str) -> list[str]:
+    hits = find_matches(text, FEATURE_KEYWORDS)
+    if re.search(r"\bif (?:the|our|your)\b[^.!?]{0,65}\b(?:could|included|showed|broke out|supported)\b", text):
+        hits.append("conditional feature request")
     return hits
 
 
@@ -159,7 +179,7 @@ def _signal_indices(turns: tuple[Turn, ...], start: int, end: int) -> tuple[list
         if t.speaker is not Speaker.EXTERNAL:
             continue
         text_l = t.text.lower()
-        has_bug_or_feature = bool(_bug_keyword_hits(text_l)) or bool(find_matches(text_l, FEATURE_KEYWORDS))
+        has_bug_or_feature = bool(_bug_keyword_hits(text_l)) or bool(_feature_keyword_hits(text_l))
         if has_bug_or_feature:
             signal.append(i)
         elif find_matches(text_l, INJECTION_PHRASES):
@@ -211,7 +231,41 @@ def _has_factual_defect(ext_text_l: str) -> bool:
 
 def _turn_signal_score(turn: Turn) -> int:
     text_l = turn.text.lower()
-    return len(_bug_keyword_hits(text_l)) + len(find_matches(text_l, FEATURE_KEYWORDS))
+    return len(_bug_keyword_hits(text_l)) + len(_feature_keyword_hits(text_l))
+
+
+def _has_product_signal(text: str) -> bool:
+    ambiguous = {"bug", "wrong", "stuck", "loop", "webhook", "broken", "error", "failure", "fails", "failing",
+                 "would love", "wish", "able to", "would be great if", "on the roadmap", "automatic",
+                 "requesting", "we'd like", "we would like", "support for", "ability to",
+                 "vanish", "vanishes", "disappear", "disappears", "disappearing", "expired"}
+    hits = set(_bug_keyword_hits(text) + _feature_keyword_hits(text))
+    if hits - ambiguous or re.search(r"\b(?:can|could|would) you (?:please )?(?:add|build|support|send|expose)\b", text):
+        return True
+    if not hits:
+        return False
+    product = r"(?:app|screen|page|login|export|report|button|link|email|dashboard|search|upload|session|value|count|data|timestamp|import|calendar|filter|token)s?"
+    # "webhook" deliberately excluded from this list: it is itself one of the
+    # ambiguous hit words, so including it here let a bare "webhook" mention
+    # satisfy its own gate with no other concrete symptom (call-004-style
+    # small talk: "thanks for the webhook update, see you next quarter").
+    integration = r"\b(?:api|saml|sso|calendar|integration|sync|notification|roster|role)\b"
+    structural = bool(
+        re.search(rf"\b{product}\b[^.!?]{{0,45}}\b(?:is|are|gets?|returns?|shows?)\b[^.!?]{{0,20}}\b(?:wrong|stuck|loop)\b", text)
+        or re.search(rf"\bwrong\s+{product}\b", text)
+        or re.search(r"\b(?:login|redirect)\s+loop\b", text)
+    )
+    if hits - {"bug", "wrong", "stuck", "loop", "webhook"}:
+        return bool(re.search(rf"\b{product}\b", text) or re.search(integration, text) or structural)
+    if hits - {"webhook"}:
+        # at least one of "bug"/"wrong"/"stuck"/"loop" (maybe with "webhook"
+        # too): a real integration noun is a stronger-than-generic signal.
+        return bool(re.search(integration, text) or structural)
+    # ONLY "webhook" hit, nothing else: this alone is too easy to say in
+    # passing ("I know your webhook payloads well" while describing one's own
+    # job, call-130) -- require the tight structural phrasing, same as before
+    # this change, with no integration-noun fallback.
+    return structural
 
 
 def _build_snippet(ext_turns: list[Turn]) -> str:
@@ -301,6 +355,35 @@ class HeuristicJudge:
                     continue  # already surfaced as part of a nearby bug/feature candidate
                 candidates.append(self._build_candidate(transcript, turns, lo, hi, injection_only=True))
 
+        prior_issue = False
+        for candidate in candidates:
+            primary_text = turns[candidate.primary_turn_index].text.lower()
+            followup = re.search(r"\bshould (?:i|we)\b[^.!?]{0,90}\bhold off\b", primary_text)
+            manual_restore = "in the meantime" in primary_text and "manually" in primary_text
+            delivery_question = (
+                re.search(r"\bfix\b[^.!?]{0,60}\b(?:come|comes|arrive|arrives|ship|ships|land|lands)\b", primary_text)
+                or "apply automatically" in primary_text
+            )
+            wrapup_recap = re.search(
+                r"\bonly thing\b[^.!?]{0,20}\b(?:anyone|anybody|we'?ve|i'?ve)\b[^.!?]{0,20}\b(?:raised|mentioned|flagged|reported)\b",
+                primary_text,
+            )
+            if prior_issue and not candidate.suppressed and (followup or manual_restore or delivery_question or wrapup_recap):
+                candidate.suppressed = True
+                is_workaround = bool(followup or manual_restore)
+                candidate.flags.append(
+                    "followup-workaround" if is_workaround else
+                    "followup-delivery-question" if delivery_question else
+                    "followup-wrapup-recap"
+                )
+                candidate.suppression_reason = (
+                    "follow-up workaround for an earlier issue in this call; not a separate product request"
+                    if is_workaround else
+                    "question about delivery/rollout mechanism for an earlier issue in this call; not a separate request"
+                    if delivery_question else
+                    "wrap-up recap confirming an earlier issue was the only one raised; not a separate product request"
+                )
+            prior_issue = prior_issue or not candidate.suppressed
         return candidates
 
     def _build_candidate(
@@ -326,7 +409,7 @@ class HeuristicJudge:
         narrow_full_text_l = " ".join(t.text for t in narrow_window_turns).lower()
 
         bug_hits = _bug_keyword_hits(ext_text_l)
-        feat_hits = find_matches(ext_text_l, FEATURE_KEYWORDS)
+        feat_hits = _feature_keyword_hits(ext_text_l)
 
         flags: list[str] = []
         suppressed = False
@@ -386,6 +469,11 @@ class HeuristicJudge:
             flags.append("injection-adjacent")
             suppressed = True
             reason = "no genuine bug/feature content in this span; flagged only due to nearby injection-style phrasing"
+
+        if not suppressed and not any(_has_product_signal(turn.text.lower()) for turn in ext_turns):
+            flags.append("insufficient-product-signal")
+            suppressed = True
+            reason = "isolated ambiguous keyword without a concrete product symptom or feature request"
 
         if cosmetic_hits and has_factual_defect:
             flags.append("cosmetic-factual-low-severity")

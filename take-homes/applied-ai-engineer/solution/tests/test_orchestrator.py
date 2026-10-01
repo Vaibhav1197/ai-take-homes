@@ -17,6 +17,7 @@ from solution.pipeline.config import Config
 from solution.pipeline.models import Candidate, Transcript
 from solution.pipeline.review import load_review_decisions
 from solution.pipeline.state_store import StateStore, candidate_key
+from solution.eval.run_corpus import generate_evidence
 
 _TRANSCRIPT_TEMPLATE = """# Call \u2014 {account} \u00d7 BetterBark \u00b7 Support
 Date: 2026-06-01 \u00b7 Call ID: {call_id}
@@ -130,6 +131,21 @@ class OrchestratorTestBase(unittest.TestCase):
 
 
 class TestRunReview(OrchestratorTestBase):
+    def test_corpus_evidence_accounts_for_empty_calls_and_rerun(self) -> None:
+        _write_transcript(self.transcripts_dir, "call-001")
+        _write_transcript(self.transcripts_dir, "call-002")
+        self.cfg.dev_labels_path.write_text('{"labels": {}}', encoding="utf-8")
+        candidate = _make_candidate("call-001", "Acme Corp")
+        original_jira_path = orchestrator.jira_stub._JIRA_LOG
+        with patch.object(orchestrator, "_make_judge", return_value=_FakeJudge({"call-001": [candidate]})):
+            report = generate_evidence(self.cfg, Path(self._tmp.name) / "artifacts", expected_calls=2)
+        self.assertTrue(report["passed"])
+        self.assertEqual(len(report["per_call"]), 2)
+        self.assertEqual(report["second_review"]["already_queued"], 1)
+        self.assertEqual(report["pending_outbox_counts"], {"jira": 0, "slack": 0})
+        self.assertEqual(orchestrator.jira_stub._JIRA_LOG, original_jira_path)
+        self.assertFalse(self.cfg.state_path.exists())
+
     def test_file_new_candidate_gets_queued(self) -> None:
         _write_transcript(self.transcripts_dir, "call-001")
         candidate = _make_candidate("call-001", "Acme Corp")
@@ -212,6 +228,44 @@ class TestRunReview(OrchestratorTestBase):
 
 
 class TestRunApply(OrchestratorTestBase):
+    def test_slack_failure_retry_reuses_persisted_jira_key(self) -> None:
+        _write_transcript(self.transcripts_dir, "call-001")
+        candidate = _make_candidate("call-001", "Acme Corp")
+        self._run_review_with({"call-001": [candidate]})
+        self._approve(candidate_key(candidate))
+        with patch.object(self.fake_slack, "post_message", side_effect=RuntimeError("notification unavailable")):
+            self.assertEqual(self._run_apply().failed, 1)
+        self.assertEqual(self._run_apply().filed, 1)
+        self.assertEqual(len(self.fake_jira.calls), 1)
+        self.assertEqual(len(self.fake_slack.calls), 1)
+        self.assertEqual(self._run_apply().filed, 0)
+
+    def test_corroboration_approved_later_uses_persisted_target(self) -> None:
+        for call_id in ("call-001", "call-002"):
+            _write_transcript(self.transcripts_dir, call_id)
+        first = _make_candidate("call-001", "Acme Corp")
+        second = _make_candidate("call-002", "Globex Inc")
+        self._run_review_with({"call-001": [first], "call-002": [second]})
+        self._approve(candidate_key(second))
+        self.assertEqual(self._run_apply().failed, 1)
+        self.assertEqual(len(self.fake_slack.calls), 0)
+        self._approve(candidate_key(first))
+        self._run_apply()
+        self.assertTrue(all("PENDING:" not in payload["text"] for payload in self.fake_slack.calls))
+
+    def test_corroboration_after_successful_prior_batch_uses_real_key(self) -> None:
+        for call_id in ("call-001", "call-002"):
+            _write_transcript(self.transcripts_dir, call_id)
+        first = _make_candidate("call-001", "Acme Corp")
+        second = _make_candidate("call-002", "Globex Inc")
+        self._run_review_with({"call-001": [first], "call-002": [second]})
+        self._approve(candidate_key(first))
+        self.assertEqual(self._run_apply().filed, 1)
+        self._approve(candidate_key(second))
+        self.assertEqual(self._run_apply().corroborated, 1)
+        self.assertIn("PROJ-9001", self.fake_slack.calls[-1]["text"])
+        self.assertEqual(len(self.fake_jira.calls), 1)
+
     def test_approved_file_new_creates_ticket_and_notifies(self) -> None:
         _write_transcript(self.transcripts_dir, "call-001")
         candidate = _make_candidate("call-001", "Acme Corp")
