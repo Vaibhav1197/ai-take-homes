@@ -1,0 +1,5 @@
+{
+  "error": "Frozen pipeline changed; this assessment cannot certify a newly tuned version",
+  "passed": false,
+  "scope": "Assessment invalid or missing; cannot certify semantic quality"
+}

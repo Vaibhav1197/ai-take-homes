@@ -1,0 +1,194 @@
+{
+  "counts": {
+    "approved": 2,
+    "rejected": 1,
+    "skipped": 0
+  },
+  "decisions": {
+    "call-004#23#bug": {
+      "action": "corroborate",
+      "call_id": "call-004",
+      "decision": "approved",
+      "elapsed_seconds": 0.0,
+      "note": "Agent-reviewed demonstration only, not human sign-off. Scheduled reports have a consistent seven-hour shift: matches PROJ-101. Attach this account without filing another ticket.",
+      "priority": "P3",
+      "proposal_sha256": "09f45b9d27d770f74c66d7984398f9902305f71687d6f246c2a90e5f4f992c03",
+      "reviewed_at": "2026-10-02T07:20:54.030788+00:00",
+      "reviewer": "GitHub Copilot (automated simulation)",
+      "summary": "Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same..."
+    },
+    "call-008#57#bug": {
+      "action": "file-new",
+      "call_id": "call-008",
+      "decision": "rejected",
+      "elapsed_seconds": 0.0,
+      "note": "Agent-reviewed demonstration only, not human sign-off. Real low-severity email typo; defer to a batched cosmetic change instead of filing a standalone ticket. This rejection demonstrates review policy, not a false-positive label.",
+      "priority": "P4",
+      "proposal_sha256": "1603c0a995b12f680ecf99820eb45d9dd830e69f84cd5f795c719e2e639279d3",
+      "reviewed_at": "2026-10-02T07:20:54.066897+00:00",
+      "reviewer": "GitHub Copilot (automated simulation)",
+      "summary": "That's the two. Fix the crashing app before the typo, in case that needed saying."
+    },
+    "call-011#41#bug": {
+      "action": "file-new",
+      "call_id": "call-011",
+      "decision": "approved",
+      "elapsed_seconds": 0.0,
+      "note": "Agent-reviewed demonstration only, not human sign-off. Apostrophes truncate profile URLs, producing repeatable 404s for 31 members; approve the new Bug.",
+      "priority": "P3",
+      "proposal_sha256": "981273d041eb5820bc5418f38b14c0243fa1af6cc0ff96fbbf14f0e820876431",
+      "reviewed_at": "2026-10-02T07:20:54.050419+00:00",
+      "reviewer": "GitHub Copilot (automated simulation)",
+      "summary": "It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full..."
+    }
+  },
+  "human_signoff": false,
+  "simulation": true,
+  "timing_scope": "Measured automated input latency, NOT human review speed",
+  "views": [
+    {
+      "account": "Cedar Grove Schools",
+      "action": "corroborate",
+      "confidence": 0.271,
+      "dedup": {
+        "issue": {
+          "created": "2026-05-18",
+          "description": "Customers on non-UTC workspaces report that scheduled report timestamps are several hours off. Affects the emailed PDF and the in-app schedule view.",
+          "key": "PROJ-101",
+          "reported_by_accounts": [
+            "Meridian Health"
+          ],
+          "status": "In Progress",
+          "summary": "Scheduled reports display times in UTC instead of the workspace timezone",
+          "type": "Bug"
+        },
+        "rationale": "matches tracked PROJ-101 (similarity=0.27)",
+        "similarity": 0.271288,
+        "target": "PROJ-101",
+        "threshold": 0.2
+      },
+      "jira_preview": null,
+      "key": "call-004#23#bug",
+      "priority": "P3",
+      "proposal_sha256": "09f45b9d27d770f74c66d7984398f9902305f71687d6f246c2a90e5f4f992c03",
+      "slack_preview": {
+        "channel": "@priya.nair",
+        "source": {
+          "action": "corroborate",
+          "call_id": "call-004",
+          "issue_key": "PROJ-101"
+        },
+        "text": ":link: *Cedar Grove Schools* (call call-004) reported the same issue tracked as *PROJ-101*: \"[EXTERNAL] Will: Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same way. My directors read the weekly numbers against the school day \u2014 like, \"how many sessions happened during the workday versus after\" \u2014 so when the timestamps don't line up with reality, they think the data itself is wrong. And then I get three confused emails asking why sessions are happening at midnight.\n[EXTERNAL] Will: That would explain the exact seven-hour thing. It's not random, it's a consistent shift.\n[EXTERNAL] Will: Whatever gets it fixed. It's been going on at least a month \u2014 I honestly assumed it was on purpose at first, like some setting I'd missed, until a director pushed back hard enough that I went looking.\"\nNo new ticket filed -- added as a corroborating source on PROJ-101. cc Priya Nair"
+      },
+      "source": {
+        "path": "C:\\Users\\vaibhav9\\test\\take-homes\\applied-ai-engineer\\transcripts\\call-004.md",
+        "quote": "[EXTERNAL] Will: Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same way. My directors read the weekly numbers against the school day \u2014 like, \"how many sessions happened during the workday versus after\" \u2014 so when the timestamps don't line up with reality, they think the data itself is wrong. And then I get three confused emails asking why sessions are happening at midnight.\n[EXTERNAL] Will: That would explain the exact seven-hour thing. It's not random, it's a consistent shift.\n[EXTERNAL] Will: Whatever gets it fixed. It's been going on at least a month \u2014 I honestly assumed it was on purpose at first, like some setting I'd missed, until a director pushed back hard enough that I went looking.",
+        "turn_span": [
+          22,
+          28
+        ]
+      },
+      "title": "Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same..."
+    },
+    {
+      "account": "Brightpath Insurance",
+      "action": "file-new",
+      "confidence": 0.75,
+      "dedup": {
+        "issue": null,
+        "rationale": "no existing Bug issue matched above threshold (best similarity=0.09)",
+        "similarity": 0.088509,
+        "target": null,
+        "threshold": 0.2
+      },
+      "jira_preview": {
+        "description": "Reported by: Brightpath Insurance (call call-011, 2026-06-21)\n\n\"[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.\"\n\nTranscript: C:\\Users\\vaibhav9\\test\\take-homes\\applied-ai-engineer\\transcripts\\call-011.md#turns=38-48\nJudge rationale: no existing Bug issue matched above threshold (best similarity=0.09)",
+        "priority": "P3",
+        "project": "PROJ",
+        "source": {
+          "account": "Brightpath Insurance",
+          "call_id": "call-011",
+          "snippet": "[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.",
+          "transcript_ref": "C:\\Users\\vaibhav9\\test\\take-homes\\applied-ai-engineer\\transcripts\\call-011.md#turns=38-48",
+          "turn_span": [
+            38,
+            48
+          ]
+        },
+        "summary": "It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full...",
+        "type": "Bug"
+      },
+      "key": "call-011#41#bug",
+      "priority": "P3",
+      "proposal_sha256": "981273d041eb5820bc5418f38b14c0243fa1af6cc0ff96fbbf14f0e820876431",
+      "slack_preview": {
+        "channel": "@priya.nair",
+        "source": {
+          "action": "file-new",
+          "call_id": "call-011",
+          "issue_key": "PENDING:7"
+        },
+        "text": ":memo: New Bug filed from *Brightpath Insurance* (call call-011, priority P3): It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full...\n> \"[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.\"\nJira: PENDING:7 -- cc Priya Nair"
+      },
+      "source": {
+        "path": "C:\\Users\\vaibhav9\\test\\take-homes\\applied-ai-engineer\\transcripts\\call-011.md",
+        "quote": "[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.",
+        "turn_span": [
+          38,
+          48
+        ]
+      },
+      "title": "It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full..."
+    },
+    {
+      "account": "Northwind Logistics",
+      "action": "file-new",
+      "confidence": 1.0,
+      "dedup": {
+        "issue": null,
+        "rationale": "no existing Bug issue matched above threshold (best similarity=0.12)",
+        "similarity": 0.116423,
+        "target": null,
+        "threshold": 0.2
+      },
+      "jira_preview": {
+        "description": "Reported by: Northwind Logistics (call call-008, 2026-06-19)\n\n\"[EXTERNAL] Marcus: She noticed the confirmation emails your system sends have \"BetterBrak\" \u2014 B-E-T-T-E-R-B-R-A-K \u2014 in the footer. Your own company name, misspelled, right there in the email footer. BetterBrak.\n[EXTERNAL] Marcus: Oh yes. BetterBrak. Every confirmation email, apparently.\n[EXTERNAL] Marcus: Every one. And she called it, quote, \"a P0 brand catastrophe\" and said she's, quote, \"genuinely alarmed.\" She used the word alarmed. About a typo. I told her I'd relay it with a straight face and I am now doing that, and I want you to know that face is costing me a great deal.\n[EXTERNAL] Marcus: She will be pleased to hear she's not wrong. She lives for that.\n[EXTERNAL] Marcus: That's exactly the energy I was hoping for. She'll be told it was escalated with maximum urgency. You and I will know the truth. Everyone gets to keep their dignity.\n[EXTERNAL] Marcus: Perfect. Send her a thank-you and she'll be insufferable for a week, but a happy insufferable.\n[EXTERNAL] Marcus: Same one. She has a genuine gift for finding the one wrong letter on anything with our name near it. In fairness it's a useful gift, I just wish it came with a volume knob.\n[EXTERNAL] Marcus: That's the two. Fix the crashing app before the typo, in case that needed saying.\n[EXTERNAL] Marcus: Send them. My comms director will want the typo one framed and mounted.\n[EXTERNAL] Marcus: And then some. Go onboard your cornfield hires is basically my whole July.\n[EXTERNAL] Marcus: The cornfield calls. Thanks, Sam.\"\n\nTranscript: C:\\Users\\vaibhav9\\test\\take-homes\\applied-ai-engineer\\transcripts\\call-008.md#turns=42-64\nJudge rationale: no existing Bug issue matched above threshold (best similarity=0.12)",
+        "priority": "P4",
+        "project": "PROJ",
+        "source": {
+          "account": "Northwind Logistics",
+          "call_id": "call-008",
+          "snippet": "[EXTERNAL] Marcus: She noticed the confirmation emails your system sends have \"BetterBrak\" \u2014 B-E-T-T-E-R-B-R-A-K \u2014 in the footer. Your own company name, misspelled, right there in the email footer. BetterBrak.\n[EXTERNAL] Marcus: Oh yes. BetterBrak. Every confirmation email, apparently.\n[EXTERNAL] Marcus: Every one. And she called it, quote, \"a P0 brand catastrophe\" and said she's, quote, \"genuinely alarmed.\" She used the word alarmed. About a typo. I told her I'd relay it with a straight face and I am now doing that, and I want you to know that face is costing me a great deal.\n[EXTERNAL] Marcus: She will be pleased to hear she's not wrong. She lives for that.\n[EXTERNAL] Marcus: That's exactly the energy I was hoping for. She'll be told it was escalated with maximum urgency. You and I will know the truth. Everyone gets to keep their dignity.\n[EXTERNAL] Marcus: Perfect. Send her a thank-you and she'll be insufferable for a week, but a happy insufferable.\n[EXTERNAL] Marcus: Same one. She has a genuine gift for finding the one wrong letter on anything with our name near it. In fairness it's a useful gift, I just wish it came with a volume knob.\n[EXTERNAL] Marcus: That's the two. Fix the crashing app before the typo, in case that needed saying.\n[EXTERNAL] Marcus: Send them. My comms director will want the typo one framed and mounted.\n[EXTERNAL] Marcus: And then some. Go onboard your cornfield hires is basically my whole July.\n[EXTERNAL] Marcus: The cornfield calls. Thanks, Sam.",
+          "transcript_ref": "C:\\Users\\vaibhav9\\test\\take-homes\\applied-ai-engineer\\transcripts\\call-008.md#turns=42-64",
+          "turn_span": [
+            42,
+            64
+          ]
+        },
+        "summary": "That's the two. Fix the crashing app before the typo, in case that needed saying.",
+        "type": "Bug"
+      },
+      "key": "call-008#57#bug",
+      "priority": "P4",
+      "proposal_sha256": "1603c0a995b12f680ecf99820eb45d9dd830e69f84cd5f795c719e2e639279d3",
+      "slack_preview": {
+        "channel": "@sam.oduya",
+        "source": {
+          "action": "file-new",
+          "call_id": "call-008",
+          "issue_key": "PENDING:4"
+        },
+        "text": ":memo: New Bug filed from *Northwind Logistics* (call call-008, priority P4): That's the two. Fix the crashing app before the typo, in case that needed saying.\n> \"[EXTERNAL] Marcus: She noticed the confirmation emails your system sends have \"BetterBrak\" \u2014 B-E-T-T-E-R-B-R-A-K \u2014 in the footer. Your own company name, misspelled, right there in the email footer. BetterBrak.\n[EXTERNAL] Marcus: Oh yes. BetterBrak. Every confirmation email, apparently.\n[EXTERNAL] Marcus: Every one. And she called it, quote, \"a P0 brand catastrophe\" and said she's, quote, \"genuinely alarmed.\" She used the word alarmed. About a typo. I told her I'd relay it with a straight face and I am now doing that, and I want you to know that face is costing me a great deal.\n[EXTERNAL] Marcus: She will be pleased to hear she's not wrong. She lives for that.\n[EXTERNAL] Marcus: That's exactly the energy I was hoping for. She'll be told it was escalated with maximum urgency. You and I will know the truth. Everyone gets to keep their dignity.\n[EXTERNAL] Marcus: Perfect. Send her a thank-you and she'll be insufferable for a week, but a happy insufferable.\n[EXTERNAL] Marcus: Same one. She has a genuine gift for finding the one wrong letter on anything with our name near it. In fairness it's a useful gift, I just wish it came with a volume knob.\n[EXTERNAL] Marcus: That's the two. Fix the crashing app before the typo, in case that needed saying.\n[EXTERNAL] Marcus: Send them. My comms director will want the typo one framed and mounted.\n[EXTERNAL] Marcus: And then some. Go onboard your cornfield hires is basically my whole July.\n[EXTERNAL] Marcus: The cornfield calls. Thanks, Sam.\"\nJira: PENDING:4 -- cc Sam Oduya"
+      },
+      "source": {
+        "path": "C:\\Users\\vaibhav9\\test\\take-homes\\applied-ai-engineer\\transcripts\\call-008.md",
+        "quote": "[EXTERNAL] Marcus: She noticed the confirmation emails your system sends have \"BetterBrak\" \u2014 B-E-T-T-E-R-B-R-A-K \u2014 in the footer. Your own company name, misspelled, right there in the email footer. BetterBrak.\n[EXTERNAL] Marcus: Oh yes. BetterBrak. Every confirmation email, apparently.\n[EXTERNAL] Marcus: Every one. And she called it, quote, \"a P0 brand catastrophe\" and said she's, quote, \"genuinely alarmed.\" She used the word alarmed. About a typo. I told her I'd relay it with a straight face and I am now doing that, and I want you to know that face is costing me a great deal.\n[EXTERNAL] Marcus: She will be pleased to hear she's not wrong. She lives for that.\n[EXTERNAL] Marcus: That's exactly the energy I was hoping for. She'll be told it was escalated with maximum urgency. You and I will know the truth. Everyone gets to keep their dignity.\n[EXTERNAL] Marcus: Perfect. Send her a thank-you and she'll be insufferable for a week, but a happy insufferable.\n[EXTERNAL] Marcus: Same one. She has a genuine gift for finding the one wrong letter on anything with our name near it. In fairness it's a useful gift, I just wish it came with a volume knob.\n[EXTERNAL] Marcus: That's the two. Fix the crashing app before the typo, in case that needed saying.\n[EXTERNAL] Marcus: Send them. My comms director will want the typo one framed and mounted.\n[EXTERNAL] Marcus: And then some. Go onboard your cornfield hires is basically my whole July.\n[EXTERNAL] Marcus: The cornfield calls. Thanks, Sam.",
+        "turn_span": [
+          42,
+          64
+        ]
+      },
+      "title": "That's the two. Fix the crashing app before the typo, in case that needed saying."
+    }
+  ]
+}

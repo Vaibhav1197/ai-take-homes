@@ -229,7 +229,7 @@ def run_review(cfg: Optional[Config] = None) -> ReviewRunSummary:
             continue
 
     queued = queued_entries(store.all_entries())
-    write_review_queue_markdown(queued, cfg.review_queue_path)
+    write_review_queue_markdown(queued, cfg.review_queue_path, transcripts_dir=cfg.transcripts_dir)
     sync_review_decisions(queued, cfg.review_decisions_path)
 
     summary.queue_by_action = dict(Counter(entry["action"] for entry in queued.values()))

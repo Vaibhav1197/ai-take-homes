@@ -236,7 +236,8 @@ def generate_evidence(cfg: Config, output: Path, expected_calls: int = 140,
         _write_json(output / "decisions.json", before)
         _write_json(output / "audit.json", audit_entries(before, cfg))
         _write_json(output / "alert_examples.json", probes)
-        shutil.copy2(scratch_cfg.review_queue_path, output / "review_queue.md")
+        write_review_queue_markdown({key: entry for key, entry in before.items() if entry.get("status") == "queued"},
+                        output / "review_queue.md", transcripts_dir=cfg.transcripts_dir)
         shutil.copy2(scratch_cfg.review_decisions_path, output / "review_decisions.json")
         shutil.copy2(scratch_cfg.log_path, output / "events.jsonl")
     return report

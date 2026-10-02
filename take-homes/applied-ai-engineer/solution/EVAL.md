@@ -1,6 +1,27 @@
 # Evaluation and resubmission evidence
 
-**Current acceptance: FAIL.** Full-corpus execution is reproducible. A bounded repair measurably improved generalization, but a fresh, never-tuned-on 24-call sample still fails the 0.85 gates (40.0% precision, 54.5% recall). The corpus CLI exits 1 when semantic evidence fails, is missing, or is stale. [acceptance.json](artifacts/acceptance.json) is the combined automated verdict; coverage alone is not acceptance.
+## Current Revision: 2026-10-02
+
+**Acceptance remains FAIL.** [Current evidence](artifacts/resubmission/README.md)
+includes 225 passing tests, two passing dev runs, full 140-call coverage, the
+actual simulated triage workflow, sink-checkpoint fault tests, and historical
+sample regression runs. Round 2 remains TP=6/FP=9/FN=5 in both fresh-state runs:
+40.0% precision and 54.5% recall. No extraction-quality improvement is claimed.
+
+Both previously inspected samples are now explicitly regression data. Use
+`run_holdout regression` to compare current code against unchanged historical
+labels. Normal `evaluate` and corpus acceptance still reject stale source seals;
+do not reseal inspected samples to present them as fresh. Local-model inference
+and independent human annotation remain blocked/pending. The detailed error
+breakdown and reproducible commands are in the current evidence index.
+
+## Historical Snapshot: 2026-10-01
+
+The sections below preserve the earlier measurements and protocol. References
+to a fresh sample, 209 tests, no review interface, or unreconciled checkpoint
+windows describe that revision, not the current implementation.
+
+**Historical acceptance: FAIL.** Full-corpus execution is reproducible, but the then-fresh 24-call sample failed the 0.85 gates (40.0% precision, 54.5% recall). [Historical acceptance.json](artifacts/acceptance.json) is retained unchanged; coverage alone is not acceptance.
 
 ## Scope and acceptance
 

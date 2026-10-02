@@ -1,17 +1,17 @@
 # Write-up: The June Tapes
 
-**Time spent:** Initial implementation approximately 4 hours, estimated from author timestamps, not a time log. Additional remediation on 2026-10-01 was not separately time-tracked. This exceeded the suggested timebox.
+**Time spent:** Initial implementation approximately 4 hours, estimated from author timestamps, not a time log. Additional remediation on 2026-10-01 and 2026-10-02 was not separately time-tracked. This exceeded the suggested timebox.
 
-**Start here:** [EVAL.md](EVAL.md) contains denominators, acceptance rules, two-run numbers and known limits. [artifacts/README.md](artifacts/README.md) maps the full-corpus evidence. [README.md](README.md) has configuration and usage.
+**Start here:** [Current evidence](artifacts/resubmission/README.md) maps the 2026-10-02 changes, measured results and blockers. [EVAL.md](EVAL.md) preserves the evaluation history. [README.md](README.md) has configuration and usage.
 
-**Current acceptance fails:** a bounded repair raised round-1 (now tuned-on) recall from 28.6% to 85.7%, but a second, fresh 24-call sample untouched by the repair still finds 6 matches, 9 extras and 5 misses (54.5% recall, 40.0% precision). Processing success and green dev tests do not establish generalization.
+**Current acceptance fails:** the previously fresh second sample still finds 6 matches, 9 extras and 5 misses (54.5% recall, 40.0% precision) in two current regression runs. Review UX and delivery reliability are improved; semantic extraction is not yet improved. Neither green tests nor a desired panel score changes this result.
 
 From `take-homes/applied-ai-engineer/`, with Python 3.11+ (stdlib only):
 
 ```sh
 python -m unittest discover -s solution/tests -q
-python -m solution.eval.run_eval --repeat 2 --output solution/eval/results.json
-python -m solution.eval.run_corpus --demo-decisions solution/demo/review_decisions_excerpt.json
+python -m solution.eval.run_eval --repeat 2 --output solution/artifacts/resubmission/dev_eval.json
+python -m solution.eval.run_corpus --output-dir solution/artifacts/resubmission --demo-decisions solution/demo/review_decisions_excerpt.json
 ```
 
 On Windows use `py` instead of `python` if needed. These evidence commands use temporary state and isolated local stub outboxes; they do not approve or change the normal runtime queue.
@@ -20,11 +20,17 @@ On Windows use `py` instead of `python` if needed. These evidence commands use t
 
 A pipeline over BetterBark's 140 call transcripts: **ingest → judge → de-dup → human review gate → apply**.
 
-Typed speaker-aware ingestion feeds a pluggable judge. External topic fences and nearby signal clusters scope suppression locally. TF-IDF/cosine dedup uses **0.20** against existing, filed and pending issues, with same-call duplicate collapse. A durable ledger records `file-new`, `file-new-low`, `corroborate` and `none`. Reviewers edit `pending` to `approved`/`rejected`; only approved items reach Jira/Slack stubs.
+Typed speaker-aware ingestion feeds a pluggable judge. External topic fences and nearby signal clusters scope suppression locally. TF-IDF/cosine dedup uses **0.20** against existing, filed and pending issues, with same-call duplicate collapse. A durable ledger records `file-new`, `file-new-low`, `corroborate` and `none`.
+
+`triage --reviewer Vaibhav` shows source quotes and turns, priority, the matched issue and similarity, and Jira/Slack payload previews. Approve/reject/skip/quit require no JSON editing; rejection requires a reason. Atomic decisions record identity, UTC time, elapsed seconds and a proposal hash. Changed hash-bound approvals cannot be applied. Review never calls sinks; `apply` remains separate. Legacy manual decisions lack these audit guarantees.
+
+Concrete dedup evidence: call-004 says, **"That would explain the exact seven-hour thing. It's not random, it's a consistent shift."** It matches timezone issue **PROJ-101 at 0.271288**, above 0.20. The [review session](artifacts/resubmission/review_session.json) shows the existing issue, no Jira creation preview, and a corroboration notification.
 
 ## Where AI is, and isn't, in the pipeline
 
-The deterministic default was repaired after root-causing exact source quotes: added vocabulary for previously invisible reports, a consistent product-noun gate, negated-bug-word stripping, and narrow follow-up/recap suppression (see EVAL.md). Re-scored on the same tuned sample, recall rose from 28.6% to 85.7%. A second, fresh 24-call sample with zero influence on the repair still shows real gaps: 54.5% recall, 40.0% precision. The remaining failures are mostly the same bug reported in different words (keyword matching doesn't generalize across paraphrase) and recap turns misread as new asks. Five earlier audits and 24 round-1 calls are now regression data; 71 calls remain fully unassessed. The optional `LLMJudge` shares the interface and priority calculation but is not live-tested. Transcript quotes remain the evidence with either judge.
+The deterministic default still has a measured paraphrase/recap ceiling. Historical repairs and failures are retained in EVAL.md; neither thresholds nor labels were changed to improve the reported score. Both inspected samples are now regression data; 71 calls remain unassessed, explicitly listed in the coverage inventory.
+
+The semantic alternative reads the whole call, returns source-turn citations and re-quotes original external speech. Priority stays deterministic. Invalid types, spans, nonfinite confidence and truncated responses now fail visibly instead of silently losing issues. No automatic heuristic fallback hides model failure. A no-key localhost endpoint is supported. Research selected Qwen3-4B-Instruct-2507 Q4_K_M; its download matched the publisher hash, but Windows security blocked the portable runtime. No protection was bypassed; no inference or quality improvement is claimed.
 
 ## The hardest engineering problem (not the hardest prompt)
 
@@ -36,28 +42,28 @@ Keys use `call_id#primary_turn_index#signal_type`. They require stable transcrip
 
 State uses a flushed/fsynced temporary file and atomic `os.replace`. On Windows, replacement retries `PermissionError` up to six attempts, 50ms apart, then raises; temporary files are cleaned up. Antivirus/indexer interference was a suspected cause, not proven. Failures are isolated per call/decision and exposed through counts and nonzero CLI exits.
 
-Jira success is now persisted before Slack is attempted, so an ordinary Slack failure/retry reuses the ticket. Pending targets resolve across apply batches; unresolved targets fail closed. Tests cover both. **Not exactly-once delivery:** a crash between a remote side effect and its local checkpoint can still duplicate a ticket or notification. Production needs sink idempotency/reconciliation and a transactional outbox.
+Jira success is persisted before Slack. Stable per-sink delivery IDs and payload hashes now reconcile retained stub receipts before retries. Tests inject failures after Jira and Slack writes but before checkpoints: retries leave one record in each sink. Conflicting or malformed receipts fail closed. Pending targets resolve across batches; unresolved targets cannot notify. This is single-writer reconciliation with readable, retained local receipts, not a claim of remote exactly-once delivery. Production needs provider idempotency/search, durable outbox intents, bounded retry and a dead-letter queue; concurrent writers, lost receipts and power-loss durability remain outside the stub guarantee.
 
 ## What the eval catches, what would slip through, and reliability across repeated runs
 
-Two fresh dev runs each produced **TP=14, FP=0, FN=0** and passed ten hard cases. A fresh, untouched 24-call sample instead gives **40.0% precision, 54.5% recall and 84.6% negative-call accuracy** twice (identical runs), below preregistered 0.85 gates. Low-confidence extras count as false positives. The corpus command now fails on failed, missing or stale semantic evidence, and the fresh sample is now the default gate — the earlier tuned sample is correctly locked out of re-certification by its own integrity seal. Source/label/evaluator hashes prevent silent changes; unfavorable results are retained. Lexical matching has a measured generalization ceiling (the same bug, reworded, was still missed); same-agent annotation requires human calibration. [EVAL.md](EVAL.md) gives the protocol and disagreements.
+Two fresh dev runs each produced **TP=14, FP=0, FN=0**, ten hard cases passed. Current round-2 regression gives **40.0% precision, 54.5% recall, 84.6% negative-call accuracy** twice, below preregistered 0.85 gates. Every low-confidence extra counts as an FP. The explicit regression mode verifies historical label/input seals but never certifies freshness. Normal acceptance still rejects changed pipeline/evaluator seals; unfavorable results remain committed. Source-first human calibration and a genuinely fresh sample are still required after a model change.
 
-`python -m solution monitor` checks correlated run/call counts, freshness, failures, candidate-rate drift and review noise, emitting JSON and nonzero exit on alerts. An external scheduler must invoke it. Current health is **warning**: the low-confidence share of the queue is above the 25% limit. Source-backed call-040 miss evidence and a synthetic wrong-label control distinguish system errors from annotation-review questions without altering supplied labels.
+`monitor` checks correlated counts, freshness, failures, drift and review noise. An hourly/manual GitHub Actions canary now retains artifacts and maintains an operator-alert issue; it never applies approvals. It is not deployed: this branch was not pushed and fork schedules need activation. Current health remains **warning** at 30/94 low-confidence proposals, above 25%. Source-backed misses and a synthetic wrong-label control distinguish system errors from annotation questions without changing supplied labels.
 
 ## How I validated it actually works
 
-**209 tests** passed, including temporary filesystem integration and mocked failures. Full run: **140 processed, 0 failed, 228 candidates, 128 suppressed, 6 collapsed, 94 queued** (42 new, 30 low-confidence new, 22 corroborations). Rerun: **0 newly queued**, identical ledger and review decisions. [Clean-source verification](artifacts/validation.json) checks reproducibility, not semantic acceptance.
+**225 tests** passed. Full run: **140 processed, 0 failed, 228 candidates, 128 suppressed, 6 collapsed, 94 queued** (42 new, 30 low-confidence new, 22 corroborations). Rerun: **0 newly queued**, identical ledger and review decisions. Current [full-run JSON](artifacts/resubmission/full_run.json) records the hashes and per-call outcomes.
 
-The [demo](demo/README.md) simulates approvals: 1 ticket, 1 corroboration, 1 rejection; second apply adds no records. Pending items never write. It is not human sign-off. Source-linked queue entries include verbatim evidence; estimated review time is 45-90 seconds each, not a measured usability result.
+The [review-session JSON](artifacts/resubmission/review_session.json) exercises actual triage logic: 1 ticket, 1 corroboration, 1 rejection; second apply adds no records. Pending items never write. Its automated elapsed times are **not human review speed** and its decisions are not human sign-off. A real reviewer must complete the timed workflow before any usability claim.
 
 ## AI-tool disclosure
 
 Tool: **GitHub Copilot, agentic mode**, for implementation, tests, eval, source inspection, generated evidence and documentation.
 
-**Ownership:** I supplied the assignment and hiring feedback and delegated implementation and investigation to Copilot. Copilot authored remediation, five regression annotations and 24 source-first annotations. These and demo decisions require my review; I do not claim to have personally designed every rule or manually reviewed the full corpus.
+**Ownership:** I supplied the assignment, hiring feedback and no-paid-API constraint, and delegated investigation, code, tests, annotations and documentation to Copilot. I authorized local commits without pushing and chose to leave model evaluation blocked after Windows security rejected the runtime. I do not claim hand-written implementation or personal adjudication of the corpus. Agent-authored labels and demo decisions still need my review.
 
 **Rejected output:** The gap-widening experiment was reverted; the broad suppression proposal required a narrower repair after dropping the timezone report. Inflated precision and unqualified generalization/exactly-once claims were corrected. Tests and preserved artifacts, not agent assurances, support acceptance.
 
 ## What I'd do with another day, and what I deliberately left out
 
-Next: independently adjudicate labels, improve contextual extraction and compare the real LLM judge, then validate on fresh data without recycling inspected failures as holdout. Delivery reconciliation and review UX follow. No passing private-holdout, production-readiness or unattended-filing claim is warranted: the default judge's failures are now measured, not merely suspected.
+Next: run an approved free local model, compare semantic extraction on dev/regression cases, freeze code, then obtain independent source-first labels on a fresh sample. Human review timing and schedule activation remain pending. The 71 unassessed calls were not bulk-labeled by the same coding agent just to make completeness look higher. No passing private-holdout, production-readiness, guaranteed panel score or unattended-filing claim is warranted.

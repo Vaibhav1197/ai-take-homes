@@ -22,9 +22,11 @@ from __future__ import annotations
 import json
 import hashlib
 import math
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 
 from .state_store import atomic_write_json
 
@@ -67,7 +69,8 @@ def queued_entries(all_entries: dict[str, dict[str, Any]]) -> dict[str, dict[str
     return {k: v for k, v in all_entries.items() if v.get("status") == "queued"}
 
 
-def write_review_queue_markdown(entries: dict[str, dict[str, Any]], path: Path) -> None:
+def write_review_queue_markdown(entries: dict[str, dict[str, Any]], path: Path, *,
+                                transcripts_dir: Path | None = None) -> None:
     """Render `entries` (ledger key -> fields) as a priority-sorted Markdown
     review queue. Overwrites `path` in full every call -- this file is a
     projection of current ledger state, not something to hand-edit."""
@@ -87,11 +90,17 @@ def write_review_queue_markdown(entries: dict[str, dict[str, Any]], path: Path) 
                       "(pending -> approved/rejected), then re-run `apply`.")
         lines.append("")
         for key, entry in ordered:
-            lines.extend(_render_entry(key, entry))
+            source_dir = transcripts_dir or Path(__file__).resolve().parents[2] / "transcripts"
+            source = source_dir / f"{entry.get('call_id', 'unknown-call')}.md"
+            try:
+                reference = quote(Path(os.path.relpath(source, path.parent)).as_posix(), safe="/")
+            except ValueError:
+                reference = source.resolve().as_uri()
+            lines.extend(_render_entry(key, entry, reference))
     path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 
-def _render_entry(key: str, entry: dict[str, Any]) -> list[str]:
+def _render_entry(key: str, entry: dict[str, Any], source_reference: str) -> list[str]:
     action = entry.get("action", "unknown")
     priority = entry.get("priority", "P3")
     account = entry.get("account") or "unknown account"
@@ -102,7 +111,7 @@ def _render_entry(key: str, entry: dict[str, Any]) -> list[str]:
         f"## [{priority}] {entry.get('summary', '(no title)')}",
         "",
         f"- key: `{key}`",
-        f"- call: [{call_id}](../../transcripts/{call_id}.md) ({account})",
+        f"- call: [{call_id}]({source_reference}) ({account})",
         f"- source turns (zero-based, inclusive): {entry.get('turn_span', 'n/a')}",
         f"- action: **{action}**"
         + (f" -> matches `{entry['matched_key']}`" if entry.get("matched_key") else ""),

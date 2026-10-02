@@ -1,4 +1,8 @@
-# Full-run evidence
+# Historical Full-run Evidence
+
+For the 2026-10-02 implementation and freshly generated evidence, start with
+[resubmission/README.md](resubmission/README.md). The files below are preserved
+2026-10-01 snapshots, not certification of the current source tree.
 
 Start with [../EVAL.md](../EVAL.md) for the acceptance rules and measured tables. These are generated outputs from the real pipeline, not hand-written example results.
 

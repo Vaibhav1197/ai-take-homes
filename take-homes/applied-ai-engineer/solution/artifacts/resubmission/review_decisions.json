@@ -1,0 +1,766 @@
+{
+  "call-001#23#bug": {
+    "action": "file-new-low",
+    "call_id": "call-001",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Okay, so, one real thing. The usage dashboard summary is wrong, and it's the kind of wrong that..."
+  },
+  "call-003#31#feature": {
+    "action": "file-new",
+    "call_id": "call-003",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "One at a time. For four hundred users at full rollout, that's not a process, it's a punishment...."
+  },
+  "call-004#23#bug": {
+    "action": "corroborate",
+    "call_id": "call-004",
+    "decision": "approved",
+    "elapsed_seconds": 0.0,
+    "note": "Agent-reviewed demonstration only, not human sign-off. Scheduled reports have a consistent seven-hour shift: matches PROJ-101. Attach this account without filing another ticket.",
+    "priority": "P3",
+    "proposal_sha256": "09f45b9d27d770f74c66d7984398f9902305f71687d6f246c2a90e5f4f992c03",
+    "reviewed_at": "2026-10-02T07:20:54.030788+00:00",
+    "reviewer": "GitHub Copilot (automated simulation)",
+    "summary": "Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same..."
+  },
+  "call-005#33#bug": {
+    "action": "corroborate",
+    "call_id": "call-005",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "We consume your webhooks into our internal data platform \u2014 session events, membership changes,..."
+  },
+  "call-006#11#bug": {
+    "action": "file-new",
+    "call_id": "call-006",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Utterly thankless. Nobody notices when it goes smoothly and everybody notices when someone lands..."
+  },
+  "call-008#13#bug": {
+    "action": "corroborate",
+    "call_id": "call-008",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Real one first. A bunch of our warehouse folks on Android say the app won't open anymore. It..."
+  },
+  "call-008#57#bug": {
+    "action": "file-new",
+    "call_id": "call-008",
+    "decision": "rejected",
+    "elapsed_seconds": 0.0,
+    "note": "Agent-reviewed demonstration only, not human sign-off. Real low-severity email typo; defer to a batched cosmetic change instead of filing a standalone ticket. This rejection demonstrates review policy, not a false-positive label.",
+    "priority": "P4",
+    "proposal_sha256": "1603c0a995b12f680ecf99820eb45d9dd830e69f84cd5f795c719e2e639279d3",
+    "reviewed_at": "2026-10-02T07:20:54.066897+00:00",
+    "reviewer": "GitHub Copilot (automated simulation)",
+    "summary": "That's the two. Fix the crashing app before the typo, in case that needed saying."
+  },
+  "call-010#13#feature": {
+    "action": "file-new",
+    "call_id": "call-010",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Right. Our SOC team needs to pull audit events into our SIEM on a nightly job. Automated,..."
+  },
+  "call-010#23#bug": {
+    "action": "file-new",
+    "call_id": "call-010",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "When one of our users changes their network password \u2014 our regular rotation \u2014 and then hits your..."
+  },
+  "call-011#41#bug": {
+    "action": "file-new",
+    "call_id": "call-011",
+    "decision": "approved",
+    "elapsed_seconds": 0.0,
+    "note": "Agent-reviewed demonstration only, not human sign-off. Apostrophes truncate profile URLs, producing repeatable 404s for 31 members; approve the new Bug.",
+    "priority": "P3",
+    "proposal_sha256": "981273d041eb5820bc5418f38b14c0243fa1af6cc0ff96fbbf14f0e820876431",
+    "reviewed_at": "2026-10-02T07:20:54.050419+00:00",
+    "reviewer": "GitHub Copilot (automated simulation)",
+    "summary": "It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full..."
+  },
+  "call-012#13#bug": {
+    "action": "corroborate",
+    "call_id": "call-012",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Two flavors. One \u2014 search for the new team name right after renaming it, and you get nothing...."
+  },
+  "call-013#39#feature": {
+    "action": "file-new",
+    "call_id": "call-013",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Right. And my integrations guy was specific about what he needs, so let me relay it precisely \u2014..."
+  },
+  "call-014#41#bug": {
+    "action": "file-new",
+    "call_id": "call-014",
+    "decision": "pending",
+    "note": "",
+    "priority": "P1",
+    "summary": "We know of six or seven, all during the May deactivation batch. It's not a huge number. But two..."
+  },
+  "call-015#31#bug": {
+    "action": "corroborate",
+    "call_id": "call-015",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Right. And I want to be careful \u2014 nobody was locked out permanently. Everybody got in..."
+  },
+  "call-017#13#bug": {
+    "action": "file-new-low",
+    "call_id": "call-017",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "That's exactly it. One of my principal investigators told me she \"appreciated that it had a..."
+  },
+  "call-020#1#bug": {
+    "action": "corroborate",
+    "call_id": "call-020",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Appreciate it. I'm the guy who gets the \"the app doesn't work\" tickets internally, so I'd rather..."
+  },
+  "call-021#19#bug": {
+    "action": "file-new",
+    "call_id": "call-021",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Okay. You're in a session, video call with your coach, going along fine. And then somewhere..."
+  },
+  "call-021#49#bug": {
+    "action": "file-new",
+    "call_id": "call-021",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "This is a good QBR. Let me recap so we're aligned: you send the cohort attrition comparison for..."
+  },
+  "call-023#19#bug": {
+    "action": "file-new-low",
+    "call_id": "call-023",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Exactly. And here's why it's a problem and not just a nice-to-have. My CFO wants training..."
+  },
+  "call-023#4#bug": {
+    "action": "file-new-low",
+    "call_id": "call-023",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "And just so it's on the record, the seafaring numbers aren't a program failure, they're a..."
+  },
+  "call-026#23#bug": {
+    "action": "corroborate",
+    "call_id": "call-026",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Right. So when a faculty member books a coaching session, they get a calendar invite that lands..."
+  },
+  "call-028#33#feature": {
+    "action": "file-new",
+    "call_id": "call-028",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "My finger was hovering over send. Okay \u2014 so just to be totally clear, because I want to be able..."
+  },
+  "call-029#25#bug": {
+    "action": "file-new",
+    "call_id": "call-029",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "And then two weeks later people started emailing me saying they never got their welcome email..."
+  },
+  "call-030#19#bug": {
+    "action": "file-new-low",
+    "call_id": "call-030",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "And the coaches have been great. There was one early mismatch \u2014 a manager who wanted someone..."
+  },
+  "call-032#20#bug": {
+    "action": "file-new",
+    "call_id": "call-032",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "That was the intent. And it seems to be working \u2014 a couple of them mentioned it in their..."
+  },
+  "call-032#56#bug": {
+    "action": "file-new-low",
+    "call_id": "call-032",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Genuinely nothing. It just works. My people log in with our SSO, they book their sessions, the..."
+  },
+  "call-034#21#bug": {
+    "action": "file-new",
+    "call_id": "call-034",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "There might be, but nobody uses it. When you've been on the internet for twenty years your thumb..."
+  },
+  "call-034#53#feature": {
+    "action": "file-new",
+    "call_id": "call-034",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Ha. Okay, so what happens next on the filter thing? I want to be able to tell my people..."
+  },
+  "call-035#31#bug": {
+    "action": "corroborate",
+    "call_id": "call-035",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Nothing. \"Something went wrong, please try again.\" So of course people try again. And it fails..."
+  },
+  "call-039#26#bug": {
+    "action": "file-new",
+    "call_id": "call-039",
+    "decision": "pending",
+    "note": "",
+    "priority": "P1",
+    "summary": "Roughly. It depends on whether the new centers open on schedule, which in construction terms..."
+  },
+  "call-040#27#bug": {
+    "action": "corroborate",
+    "call_id": "call-040",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "No, not randomly, that's the thing. It's specific. They update their phone \u2014 you know how Apple..."
+  },
+  "call-044#19#bug": {
+    "action": "file-new-low",
+    "call_id": "call-044",
+    "decision": "pending",
+    "note": "",
+    "priority": "P1",
+    "summary": "The big batches are where it falls apart. Anything over about two hundred at once and the thing..."
+  },
+  "call-048#3#bug": {
+    "action": "file-new",
+    "call_id": "call-048",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "We opened one. The second got delayed because the landlord and our contractor are in a..."
+  },
+  "call-049#21#feature": {
+    "action": "file-new",
+    "call_id": "call-049",
+    "decision": "pending",
+    "note": "",
+    "priority": "P1",
+    "summary": "Exactly that. What I need is API access to the engagement metrics. Active users, session counts,..."
+  },
+  "call-049#37#feature": {
+    "action": "file-new",
+    "call_id": "call-049",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "The impact is that the training benefit becomes measurable in the same breath as everything else..."
+  },
+  "call-052#29#bug": {
+    "action": "file-new",
+    "call_id": "call-052",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "In the picker itself, before booking. That's the root of it. The slots are laid out on the wrong..."
+  },
+  "call-053#38#feature": {
+    "action": "file-new",
+    "call_id": "call-053",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Perfect. If it's already tracked, great, add my voice to it. The idempotency key is the real..."
+  },
+  "call-055#38#bug": {
+    "action": "corroborate",
+    "call_id": "call-055",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "That's it exactly. And it's not that the reset doesn't work \u2014 it does, eventually. The email..."
+  },
+  "call-055#51#bug": {
+    "action": "file-new-low",
+    "call_id": "call-055",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Agreed on both counts \u2014 fix the reset because it's broken, and separately explore SSO because..."
+  },
+  "call-057#23#bug": {
+    "action": "corroborate",
+    "call_id": "call-057",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "The loudest one is about the video sessions. And before you ask \u2014 no, it's not \"the video is..."
+  },
+  "call-057#34#feature": {
+    "action": "file-new-low",
+    "call_id": "call-057",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "I want to say it's newish. I've been doing sessions since March and this only started maybe..."
+  },
+  "call-059#21#feature": {
+    "action": "file-new-low",
+    "call_id": "call-059",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Configuration and logs, specifically. Not the coaching content, not the session notes \u2014 those..."
+  },
+  "call-060#27#feature": {
+    "action": "file-new",
+    "call_id": "call-060",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "There's a big risk angle, and this is the part that actually worries me more than my afternoon...."
+  },
+  "call-063#21#bug": {
+    "action": "file-new",
+    "call_id": "call-063",
+    "decision": "pending",
+    "note": "",
+    "priority": "P4",
+    "summary": "Exactly that. And here's the thing \u2014 it wouldn't just save them time. Right now, because it's..."
+  },
+  "call-067#39#bug": {
+    "action": "file-new",
+    "call_id": "call-067",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Will do. Is there anything I can do in the interim to make the manual process less risky?..."
+  },
+  "call-068#7#bug": {
+    "action": "file-new",
+    "call_id": "call-068",
+    "decision": "pending",
+    "note": "",
+    "priority": "P1",
+    "summary": "Two years of construction delays, but it's open and it's gorgeous. Now I just have to keep it..."
+  },
+  "call-069#21#feature": {
+    "action": "file-new-low",
+    "call_id": "call-069",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "I would give a lot for an anonymized, aggregate, org-level read. Something like: \"program..."
+  },
+  "call-070#17#feature": {
+    "action": "file-new",
+    "call_id": "call-070",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "No, the price was just the opener. The thing that actually stuck was a support claim."
+  },
+  "call-072#28#bug": {
+    "action": "corroborate",
+    "call_id": "call-072",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "That's the thing \u2014 if they come back ten, fifteen minutes later, it's fine. It fixes itself. So..."
+  },
+  "call-074#30#feature": {
+    "action": "corroborate",
+    "call_id": "call-074",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Yes. Exactly that. I don't want to hunt for problems, I want the problems to find me."
+  },
+  "call-075#10#bug": {
+    "action": "file-new",
+    "call_id": "call-075",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Sure. So we've been getting a steady trickle of tickets \u2014 people saying the text code doesn't..."
+  },
+  "call-078#33#bug": {
+    "action": "file-new-low",
+    "call_id": "call-078",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Please do. It's not a crash or anything dramatic, it's just death by a thousand re-clicks."
+  },
+  "call-080#26#feature": {
+    "action": "file-new",
+    "call_id": "call-080",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Two to three hours, and it's error-prone. If Wes moves someone between departments and I don't..."
+  },
+  "call-082#9#bug": {
+    "action": "corroborate",
+    "call_id": "call-082",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "He's not wrong. Anyway \u2014 the problem is what happens after I reschedule a session."
+  },
+  "call-083#42#feature": {
+    "action": "file-new-low",
+    "call_id": "call-083",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "That's genuinely helpful. While I've got you \u2014 is there a way to schedule this report to email..."
+  },
+  "call-083#5#feature": {
+    "action": "file-new-low",
+    "call_id": "call-083",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Newish. I've done a couple cycles but I don't know every corner of the dashboard yet. Which is..."
+  },
+  "call-085#25#bug": {
+    "action": "file-new-low",
+    "call_id": "call-085",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Right, yeah. So this is a little in the weeds but it's been bugging a bunch of our people. When..."
+  },
+  "call-086#22#feature": {
+    "action": "corroborate",
+    "call_id": "call-086",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "And here's the thing. Our whole analytics function runs on a proper BI stack. Everything else..."
+  },
+  "call-088#12#bug": {
+    "action": "file-new-low",
+    "call_id": "call-088",
+    "decision": "pending",
+    "note": "",
+    "priority": "P1",
+    "summary": "Our users get hard-locked out at exactly 24 hours. And I mean exactly. If someone logs in at 9am..."
+  },
+  "call-088#38#feature": {
+    "action": "file-new-low",
+    "call_id": "call-088",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "A bulk unlock would at least make the daily pain survivable while you fix the root cause. Right..."
+  },
+  "call-091#9#bug": {
+    "action": "corroborate",
+    "call_id": "call-091",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "They pick the photo, they hit upload, and after a second it just fails. And the error message is..."
+  },
+  "call-093#28#feature": {
+    "action": "file-new",
+    "call_id": "call-093",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "It's fine as a stopgap. They're already doing it instinctively, I just want to be able to tell..."
+  },
+  "call-093#50#bug": {
+    "action": "file-new-low",
+    "call_id": "call-093",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "I'll take you up on that in a few weeks. Right now the video freeze was the fire."
+  },
+  "call-093#8#bug": {
+    "action": "corroborate",
+    "call_id": "call-093",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Exactly. And what's happening is, during a coaching session in the browser, the video freezes...."
+  },
+  "call-095#27#bug": {
+    "action": "file-new",
+    "call_id": "call-095",
+    "decision": "pending",
+    "note": "",
+    "priority": "P4",
+    "summary": "Yes. An API endpoint to create teams. If I could call an API to create a team when our ops..."
+  },
+  "call-095#57#bug": {
+    "action": "file-new-low",
+    "call_id": "call-095",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Appreciated, Lena. One thing, when you get product's read, can you loop me directly rather than..."
+  },
+  "call-096#25#bug": {
+    "action": "file-new-low",
+    "call_id": "call-096",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "A lot of programs do exactly that, make you feel behind. We tried a meditation app subscription..."
+  },
+  "call-097#26#bug": {
+    "action": "file-new-low",
+    "call_id": "call-097",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "God, no. That's got to be leftover junk from the vendor template. Some placeholder or a broken..."
+  },
+  "call-099#18#bug": {
+    "action": "file-new",
+    "call_id": "call-099",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Right, and that's the tell in hindsight, but in the moment I didn't clock it. Pittsburgh's fine,..."
+  },
+  "call-100#31#bug": {
+    "action": "file-new",
+    "call_id": "call-100",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Thank you. And in the meantime \u2014 is there any way to get those notes back for her manually? The..."
+  },
+  "call-101#27#bug": {
+    "action": "file-new",
+    "call_id": "call-101",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "I am a logistics person. Timezone math is my entire life. We route freight across twelve zones...."
+  },
+  "call-102#40#bug": {
+    "action": "file-new",
+    "call_id": "call-102",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "It holds. The only thing I'd even call a want, not a complaint, is I sometimes wish I could see..."
+  },
+  "call-103#15#bug": {
+    "action": "corroborate",
+    "call_id": "call-103",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Exactly. A wrong-low number could get the budget cut. That's why I'm treating this as urgent and..."
+  },
+  "call-103#5#bug": {
+    "action": "file-new-low",
+    "call_id": "call-103",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Good, because your reports are wrong. And I say that having spent two days trying to prove..."
+  },
+  "call-105#19#bug": {
+    "action": "corroborate",
+    "call_id": "call-105",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Yes. And the times are wrong. All of the times in that report are wrong."
+  },
+  "call-110#35#bug": {
+    "action": "file-new",
+    "call_id": "call-110",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "There's a next tier I'm considering, and it's a bit unusual. Our project managers \u2014 not the..."
+  },
+  "call-111#17#bug": {
+    "action": "file-new-low",
+    "call_id": "call-111",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "And then the email doesn't come. Or rather \u2014 it comes, eventually, but not for like half an..."
+  },
+  "call-111#26#bug": {
+    "action": "file-new-low",
+    "call_id": "call-111",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "It always arrives eventually, in my experience. It's not that they vanish. It's that they're..."
+  },
+  "call-111#36#bug": {
+    "action": "corroborate",
+    "call_id": "call-111",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "That makes sense. So the reset emails are getting stuck in a queue when things are busy and..."
+  },
+  "call-112#18#bug": {
+    "action": "file-new-low",
+    "call_id": "call-112",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Exactly. Every time they hit back, the filters vanish. So if someone wants to compare five..."
+  },
+  "call-114#21#bug": {
+    "action": "file-new",
+    "call_id": "call-114",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "And after those phones updated their OS, the crashes stopped. Completely. I've been sitting on..."
+  },
+  "call-114#35#feature": {
+    "action": "file-new-low",
+    "call_id": "call-114",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Will do. While I've got you \u2014 unrelated \u2014 is there any way to see who's actually logging in..."
+  },
+  "call-114#53#bug": {
+    "action": "file-new",
+    "call_id": "call-114",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "No, that's it now. Crashes gone, export exists, OS policy sorted, life is good."
+  },
+  "call-115#11#bug": {
+    "action": "file-new",
+    "call_id": "call-115",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "A chunk of my new associates were telling me the link didn't work. They'd click it and get a..."
+  },
+  "call-115#33#bug": {
+    "action": "file-new-low",
+    "call_id": "call-115",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "So what do we do? Because I've got another cohort starting in three weeks and I can't have half..."
+  },
+  "call-125#19#bug": {
+    "action": "file-new",
+    "call_id": "call-125",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Roughly. Below it, delivered. Above it, the sender sees \"sent\" but the recipient gets nothing...."
+  },
+  "call-126#21#bug": {
+    "action": "file-new-low",
+    "call_id": "call-126",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "Can I ask \u2014 how did the coach match work for him? Because I was braced for a mismatch. Miguel's..."
+  },
+  "call-128#27#bug": {
+    "action": "corroborate",
+    "call_id": "call-128",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "So our ops-center folks \u2014 the ones on laptops \u2014 have started reporting that during longer..."
+  },
+  "call-128#56#bug": {
+    "action": "file-new-low",
+    "call_id": "call-128",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "I think that's everything. The report timing and the freeze thing were my two."
+  },
+  "call-130#27#bug": {
+    "action": "corroborate",
+    "call_id": "call-130",
+    "decision": "pending",
+    "note": "",
+    "priority": "P2",
+    "summary": "Right now we've built our own dedup layer to catch it, so it's not breaking anything today. But..."
+  },
+  "call-131#20#bug": {
+    "action": "file-new",
+    "call_id": "call-131",
+    "decision": "pending",
+    "note": "",
+    "priority": "P4",
+    "summary": "Exactly. It is wrong. It is grammatically, orthographically wrong. And I cannot overstate how..."
+  },
+  "call-136#19#bug": {
+    "action": "file-new",
+    "call_id": "call-136",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "That's the maddening part. It gives me the most useless error I have ever seen. It says \u2014 let me..."
+  },
+  "call-136#35#bug": {
+    "action": "file-new",
+    "call_id": "call-136",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "I am equal parts relieved and furious. Relieved it works, furious it was a space, and furious..."
+  },
+  "call-136#45#feature": {
+    "action": "file-new-low",
+    "call_id": "call-136",
+    "decision": "pending",
+    "note": "",
+    "priority": "P3",
+    "summary": "While we're at it \u2014 is there any way to validate a file before I commit the import? Like a..."
+  }
+}

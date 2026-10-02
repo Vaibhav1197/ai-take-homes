@@ -29,6 +29,16 @@ class TestQueuedEntries(unittest.TestCase):
 
 
 class TestWriteReviewQueueMarkdown(unittest.TestCase):
+    def test_nested_export_links_resolve_to_actual_source(self) -> None:
+        root = Path(self._tmpdir.name)
+        transcripts = root / "transcripts with spaces"
+        transcripts.mkdir()
+        source = transcripts / "call-001.md"
+        source.write_text("source", encoding="utf-8")
+        output = root / "artifacts" / "nested" / "queue.md"
+        write_review_queue_markdown({"key": {"call_id": "call-001"}}, output, transcripts_dir=transcripts)
+        self.assertIn("../../transcripts%20with%20spaces/call-001.md", output.read_text(encoding="utf-8"))
+
     def setUp(self) -> None:
         self._tmpdir = tempfile.TemporaryDirectory()
         self.addCleanup(self._tmpdir.cleanup)

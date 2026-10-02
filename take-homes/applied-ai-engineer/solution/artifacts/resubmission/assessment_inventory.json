@@ -1,0 +1,713 @@
+{
+  "calls": [
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-001",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-002",
+      "note": "supplied_dev_labels; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-003",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-004",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-005",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-006",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-007",
+      "note": "supplied_dev_labels; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-008",
+      "note": "supplied_dev_labels; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-009",
+      "note": "supplied_dev_labels; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-010",
+      "note": "supplied_dev_labels; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-011",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-012",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-013",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-014",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-015",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-016",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-017",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-018",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-019",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "regression_audit",
+      "call_id": "call-020",
+      "note": "regression_audit; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-021",
+      "note": "unassessed; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-022",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-023",
+      "note": "holdout_round2_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-024",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-025",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-026",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-027",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-028",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-029",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-030",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-031",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-032",
+      "note": "unassessed; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-033",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-034",
+      "note": "holdout_round2_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-035",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-036",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-037",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-038",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-039",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "regression_audit",
+      "call_id": "call-040",
+      "note": "regression_audit; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-041",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-042",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-043",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-044",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-045",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-046",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-047",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-048",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-049",
+      "note": "unassessed; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-050",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "previously_inspected_unannotated",
+      "call_id": "call-051",
+      "note": "previously_inspected_unannotated; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-052",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-053",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-054",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-055",
+      "note": "holdout_round2_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-056",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-057",
+      "note": "holdout_round2_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-058",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-059",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-060",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-061",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-062",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-063",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-064",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-065",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-066",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-067",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-068",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-069",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-070",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-071",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-072",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-073",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-074",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-075",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-076",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-077",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-078",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-079",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "regression_audit",
+      "call_id": "call-080",
+      "note": "regression_audit; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-081",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-082",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-083",
+      "note": "unassessed; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-084",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-085",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-086",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-087",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-088",
+      "note": "holdout_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-089",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-090",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-091",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-092",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-093",
+      "note": "unassessed; call_completed; 3 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-094",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-095",
+      "note": "unassessed; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-096",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-097",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-098",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-099",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "regression_audit",
+      "call_id": "call-100",
+      "note": "regression_audit; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-101",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-102",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-103",
+      "note": "unassessed; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-104",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-105",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-106",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-107",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-108",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-109",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-110",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-111",
+      "note": "unassessed; call_completed; 3 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-112",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-113",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-114",
+      "note": "unassessed; call_completed; 3 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-115",
+      "note": "holdout_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-116",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-117",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-118",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-119",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-120",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-121",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-122",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-123",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-124",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-125",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-126",
+      "note": "unassessed; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-127",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-128",
+      "note": "unassessed; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-129",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-130",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-131",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-132",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-133",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-134",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-135",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-136",
+      "note": "holdout_historical_regression; call_completed; 3 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-137",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-138",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-139",
+      "note": "unassessed; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "regression_audit",
+      "call_id": "call-140",
+      "note": "regression_audit; call_completed; 0 machine proposals, not adjudicated outcomes"
+    }
+  ],
+  "counts": {
+    "holdout_historical_regression": 24,
+    "holdout_round2_historical_regression": 24,
+    "previously_inspected_unannotated": 1,
+    "regression_audit": 5,
+    "supplied_dev_labels": 15,
+    "unassessed": 71
+  },
+  "scope": "Annotation coverage inventory, NOT new adjudication or correctness labels"
+}

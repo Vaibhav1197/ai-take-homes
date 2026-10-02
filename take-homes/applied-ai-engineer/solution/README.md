@@ -4,19 +4,19 @@ Turns BetterBark's call transcripts into de-duplicated, human-reviewed Jira/Slac
 
 Python 3.11+, standard library only (no third-party dependencies, no `pip install` needed).
 
-For the resubmission evidence, start with [EVAL.md](EVAL.md) and [artifacts/README.md](artifacts/README.md). The original reported precision and 183-item demo are superseded by the measured revision there.
+For the latest evidence, start with [artifacts/resubmission/README.md](artifacts/resubmission/README.md). [EVAL.md](EVAL.md) and [artifacts/README.md](artifacts/README.md) retain the earlier evaluation history.
 
-**Not yet passing semantic acceptance:** a bounded repair improved the heuristic judge (verified against a 5-call audit and a now-tuned 24-call sample), but a second, fresh 24-call sample that had zero influence on the repair still finds 6 true positives, 9 false positives and 5 misses. The corpus command exits 1 despite processing all 140 calls successfully. See [EVAL.md](EVAL.md#bounded-repair-and-a-second-fresh-validation-round) and [combined verdict](artifacts/acceptance.json).
+**Not yet passing semantic acceptance:** current regression on the previously fresh second sample still finds 6 true positives, 9 false positives and 5 misses. A free local model path is implemented but inference was blocked by Windows security. The corpus command exits 1 despite processing all 140 calls successfully. See the [current verdict](artifacts/resubmission/acceptance.json); UX and reliability improvements are not evidence of improved generalization.
 
 ## Quickstart
 
 From the `take-homes/applied-ai-engineer/` folder:
 
 ```
-py -m unittest discover -s solution/tests   # 209 tests
-py -m solution.eval.run_eval --repeat 2 --output solution/eval/results.json
-py -m solution.eval.run_corpus --demo-decisions solution/demo/review_decisions_excerpt.json
-py -m solution.eval.run_holdout evaluate --assessment-dir solution/eval/holdout_round2 --repeat 2 --output solution/artifacts/holdout.json
+py -m unittest discover -s solution/tests   # 225 tests
+py -m solution.eval.run_eval --repeat 2 --output solution/artifacts/resubmission/dev_eval.json
+py -m solution.eval.run_corpus --output-dir solution/artifacts/resubmission --demo-decisions solution/demo/review_decisions_excerpt.json
+py -m solution.eval.run_holdout regression --assessment-dir solution/eval/holdout_round2 --repeat 2 --output solution/artifacts/resubmission/regression_round2.json
 py -m solution review                       # ingest + judge + de-dup -> queue for human review
 py -m solution triage --reviewer "Vaibhav"   # inspect source/payloads; approve, reject, skip or quit
 py -m solution apply                        # act on approved decisions -> stubs/outbox/*.jsonl
@@ -60,7 +60,7 @@ solution/
   eval/run_corpus.py        # full-run artifacts and fail-closed semantic acceptance
   eval/run_holdout.py       # freeze, seal and score a source-annotated sample
   eval/holdout/             # protocol, sample, annotations and seal
-  tests/                    # 200 unit and integration tests
+  tests/                    # 225 unit and integration tests
   demo/                     # a curated, real excerpt of one review -> apply run (see demo/README.md)
   artifacts/                # full-corpus outputs, per-call coverage, rerun and alert evidence
   EVAL.md                   # denominators, gates, two-run results and audit limits
@@ -76,8 +76,10 @@ Every path/tunable has a working default (this repo's own `transcripts/`/`data/`
 | Variable | Default | Purpose |
 |---|---|---|
 | `PIPELINE_JUDGE` | `heuristic` | `heuristic` or `llm` — which `IssueJudge` to use |
-| `OPENAI_API_KEY` | *(none)* | required if `PIPELINE_JUDGE=llm` |
+| `OPENAI_API_KEY` | *(none)* | required for remote LLM endpoints; not required for localhost |
 | `PIPELINE_OPENAI_MODEL` | `gpt-4o-mini` | model name passed to `LLMJudge` |
+| `PIPELINE_LLM_API_URL` | `https://api.openai.com/v1/chat/completions` | OpenAI-compatible endpoint; HTTP allowed only on loopback |
+| `PIPELINE_LLM_TIMEOUT_SECONDS` | `60` | positive finite model-call timeout; raise explicitly for slower local inference |
 | `PIPELINE_TRANSCRIPTS_DIR` | `transcripts/` | where to read `call-*.md` from |
 | `PIPELINE_EXISTING_ISSUES` | `data/existing_issues.json` | de-dup seed corpus |
 | `PIPELINE_DEV_LABELS` | `data/dev_labels.json` | used by the eval, not the pipeline itself |
@@ -88,6 +90,13 @@ Every path/tunable has a working default (this repo's own `transcripts/`/`data/`
 | `PIPELINE_LOG_PATH` | `solution/state/events.jsonl` | structured event log |
 
 Overriding paths is mainly how the eval runs against a scratch ledger without ever touching the real one — see `eval/run_eval.py`.
+
+For an approved local runtime, set `PIPELINE_JUDGE=llm`, the actual server model
+name in `PIPELINE_OPENAI_MODEL`, and its complete chat-completions URL in
+`PIPELINE_LLM_API_URL`. No paid key is needed. Use fresh state when comparing
+judges; primary-turn identity can differ. Run dev and regression evaluations
+before freezing a new assessment. No automatic fallback hides model failures.
+The attempted Qwen3 runtime was blocked; see the [research record](artifacts/resubmission/README.md#free-model-research).
 
 ## Notes
 

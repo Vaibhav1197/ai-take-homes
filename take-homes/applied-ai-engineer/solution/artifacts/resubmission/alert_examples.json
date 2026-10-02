@@ -1,0 +1,261 @@
+{
+  "results": {
+    "never_started": {
+      "alerts": [
+        {
+          "code": "NO_REVIEW_RUN",
+          "detail": "No start event; verify scheduler and log path."
+        }
+      ],
+      "healthy": false,
+      "latest_review_run_id": null,
+      "latest_summary": null,
+      "limits": {
+        "baseline_candidates_per_call": null,
+        "expected_calls": 140,
+        "max_age_seconds": 3600,
+        "max_low_fraction": 0.25
+      },
+      "review_state": "missing"
+    },
+    "partial_failure": {
+      "alerts": [
+        {
+          "code": "CALL_FAILURES",
+          "detail": 1
+        },
+        {
+          "code": "INCOMPLETE_BATCH",
+          "detail": {
+            "already_queued": 94,
+            "calls_discovered": 140,
+            "calls_failed": 1,
+            "calls_processed": 140,
+            "candidates_found": 228,
+            "candidates_suppressed": 128,
+            "collapsed_duplicates": 0,
+            "duration_seconds": 0.984,
+            "event": "run_review_completed",
+            "not_actionable": 0,
+            "queue_by_action": {
+              "corroborate": 22,
+              "file-new": 42,
+              "file-new-low": 30
+            },
+            "queued_for_review": 0,
+            "run_id": "f51855b0754f42faa74657bfc7e73590",
+            "skipped_already_processed": 6,
+            "ts": "2026-10-02T07:20:53.960660+00:00"
+          }
+        },
+        {
+          "code": "LOW_CONFIDENCE_BACKLOG",
+          "detail": {
+            "actions": {
+              "corroborate": 22,
+              "file-new": 42,
+              "file-new-low": 30
+            },
+            "max_fraction": 0.25
+          }
+        }
+      ],
+      "healthy": false,
+      "latest_review_run_id": "f51855b0754f42faa74657bfc7e73590",
+      "latest_summary": {
+        "already_queued": 94,
+        "calls_discovered": 140,
+        "calls_failed": 1,
+        "calls_processed": 140,
+        "candidates_found": 228,
+        "candidates_suppressed": 128,
+        "collapsed_duplicates": 0,
+        "duration_seconds": 0.984,
+        "event": "run_review_completed",
+        "not_actionable": 0,
+        "queue_by_action": {
+          "corroborate": 22,
+          "file-new": 42,
+          "file-new-low": 30
+        },
+        "queued_for_review": 0,
+        "run_id": "f51855b0754f42faa74657bfc7e73590",
+        "skipped_already_processed": 6,
+        "ts": "2026-10-02T07:20:53.960660+00:00"
+      },
+      "limits": {
+        "baseline_candidates_per_call": null,
+        "expected_calls": 140,
+        "max_age_seconds": 3600,
+        "max_low_fraction": 0.25
+      },
+      "review_state": "completed"
+    },
+    "review_noise": {
+      "alerts": [
+        {
+          "code": "LOW_CONFIDENCE_BACKLOG",
+          "detail": {
+            "actions": {
+              "file-new": 1,
+              "file-new-low": 9
+            },
+            "max_fraction": 0.25
+          }
+        }
+      ],
+      "healthy": false,
+      "latest_review_run_id": "f51855b0754f42faa74657bfc7e73590",
+      "latest_summary": {
+        "already_queued": 94,
+        "calls_discovered": 140,
+        "calls_failed": 0,
+        "calls_processed": 140,
+        "candidates_found": 228,
+        "candidates_suppressed": 128,
+        "collapsed_duplicates": 0,
+        "duration_seconds": 0.984,
+        "event": "run_review_completed",
+        "not_actionable": 0,
+        "queue_by_action": {
+          "file-new": 1,
+          "file-new-low": 9
+        },
+        "queued_for_review": 0,
+        "run_id": "f51855b0754f42faa74657bfc7e73590",
+        "skipped_already_processed": 6,
+        "ts": "2026-10-02T07:20:53.960660+00:00"
+      },
+      "limits": {
+        "baseline_candidates_per_call": null,
+        "expected_calls": 140,
+        "max_age_seconds": 3600,
+        "max_low_fraction": 0.25
+      },
+      "review_state": "completed"
+    },
+    "silent_zero": {
+      "alerts": [
+        {
+          "code": "ZERO_CANDIDATES",
+          "detail": "Inspect judge/configuration; use candidate rate, not new queue count, on reruns."
+        },
+        {
+          "code": "LOW_CONFIDENCE_BACKLOG",
+          "detail": {
+            "actions": {
+              "corroborate": 22,
+              "file-new": 42,
+              "file-new-low": 30
+            },
+            "max_fraction": 0.25
+          }
+        }
+      ],
+      "healthy": false,
+      "latest_review_run_id": "f51855b0754f42faa74657bfc7e73590",
+      "latest_summary": {
+        "already_queued": 94,
+        "calls_discovered": 140,
+        "calls_failed": 0,
+        "calls_processed": 140,
+        "candidates_found": 0,
+        "candidates_suppressed": 128,
+        "collapsed_duplicates": 0,
+        "duration_seconds": 0.984,
+        "event": "run_review_completed",
+        "not_actionable": 0,
+        "queue_by_action": {
+          "corroborate": 22,
+          "file-new": 42,
+          "file-new-low": 30
+        },
+        "queued_for_review": 0,
+        "run_id": "f51855b0754f42faa74657bfc7e73590",
+        "skipped_already_processed": 6,
+        "ts": "2026-10-02T07:20:53.960660+00:00"
+      },
+      "limits": {
+        "baseline_candidates_per_call": null,
+        "expected_calls": 140,
+        "max_age_seconds": 3600,
+        "max_low_fraction": 0.25
+      },
+      "review_state": "completed"
+    },
+    "stale_completion": {
+      "alerts": [
+        {
+          "code": "STALE_REVIEW",
+          "detail": {
+            "age_seconds": 7200.063867,
+            "last_event": "run_review_completed"
+          }
+        },
+        {
+          "code": "LOW_CONFIDENCE_BACKLOG",
+          "detail": {
+            "actions": {
+              "corroborate": 22,
+              "file-new": 42,
+              "file-new-low": 30
+            },
+            "max_fraction": 0.25
+          }
+        }
+      ],
+      "healthy": false,
+      "latest_review_run_id": "f51855b0754f42faa74657bfc7e73590",
+      "latest_summary": {
+        "already_queued": 94,
+        "calls_discovered": 140,
+        "calls_failed": 0,
+        "calls_processed": 140,
+        "candidates_found": 228,
+        "candidates_suppressed": 128,
+        "collapsed_duplicates": 0,
+        "duration_seconds": 0.984,
+        "event": "run_review_completed",
+        "not_actionable": 0,
+        "queue_by_action": {
+          "corroborate": 22,
+          "file-new": 42,
+          "file-new-low": 30
+        },
+        "queued_for_review": 0,
+        "run_id": "f51855b0754f42faa74657bfc7e73590",
+        "skipped_already_processed": 6,
+        "ts": "2026-10-02T07:20:53.960660+00:00"
+      },
+      "limits": {
+        "baseline_candidates_per_call": null,
+        "expected_calls": 140,
+        "max_age_seconds": 3600,
+        "max_low_fraction": 0.25
+      },
+      "review_state": "completed"
+    },
+    "stalled": {
+      "alerts": [
+        {
+          "code": "STALLED_REVIEW",
+          "detail": {
+            "age_seconds": 7200.066406,
+            "last_event": "call_completed"
+          }
+        }
+      ],
+      "healthy": false,
+      "latest_review_run_id": "f51855b0754f42faa74657bfc7e73590",
+      "latest_summary": null,
+      "limits": {
+        "baseline_candidates_per_call": null,
+        "expected_calls": 140,
+        "max_age_seconds": 3600,
+        "max_low_fraction": 0.25
+      },
+      "review_state": "running"
+    }
+  },
+  "synthetic_fault_injection": true
+}

@@ -1,0 +1,114 @@
+{
+  "counts": {
+    "approved": 0,
+    "rejected": 0,
+    "skipped": 1
+  },
+  "decisions": {},
+  "completed": false,
+  "human_signoff": false,
+  "reviewer": "Vaibhav",
+  "scope": "Configured for three isolated proposals; one skipped, session ended at the second. No human approval or rejection was provided.",
+  "simulation": false,
+  "sink_writes": {
+    "jira": 0,
+    "slack": 0
+  },
+  "timing_scope": "No decisions were recorded, so no human decision timings were measured.",
+  "views": [
+    {
+      "account": "Cedar Grove Schools",
+      "action": "corroborate",
+      "confidence": 0.271,
+      "dedup": {
+        "issue": {
+          "created": "2026-05-18",
+          "description": "Customers on non-UTC workspaces report that scheduled report timestamps are several hours off. Affects the emailed PDF and the in-app schedule view.",
+          "key": "PROJ-101",
+          "reported_by_accounts": [
+            "Meridian Health"
+          ],
+          "status": "In Progress",
+          "summary": "Scheduled reports display times in UTC instead of the workspace timezone",
+          "type": "Bug"
+        },
+        "rationale": "matches tracked PROJ-101 (similarity=0.27)",
+        "similarity": 0.271288,
+        "target": "PROJ-101",
+        "threshold": 0.2
+      },
+      "jira_preview": null,
+      "key": "call-004#23#bug",
+      "priority": "P3",
+      "proposal_sha256": "09f45b9d27d770f74c66d7984398f9902305f71687d6f246c2a90e5f4f992c03",
+      "slack_preview": {
+        "channel": "@priya.nair",
+        "source": {
+          "action": "corroborate",
+          "call_id": "call-004",
+          "issue_key": "PROJ-101"
+        },
+        "text": ":link: *Cedar Grove Schools* (call call-004) reported the same issue tracked as *PROJ-101*: \"[EXTERNAL] Will: Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same way. My directors read the weekly numbers against the school day \u2014 like, \"how many sessions happened during the workday versus after\" \u2014 so when the timestamps don't line up with reality, they think the data itself is wrong. And then I get three confused emails asking why sessions are happening at midnight.\n[EXTERNAL] Will: That would explain the exact seven-hour thing. It's not random, it's a consistent shift.\n[EXTERNAL] Will: Whatever gets it fixed. It's been going on at least a month \u2014 I honestly assumed it was on purpose at first, like some setting I'd missed, until a director pushed back hard enough that I went looking.\"\nNo new ticket filed -- added as a corroborating source on PROJ-101. cc Priya Nair"
+      },
+      "source": {
+        "path": "C:\\Users\\vaibhav9\\test\\take-homes\\applied-ai-engineer\\transcripts\\call-004.md",
+        "quote": "[EXTERNAL] Will: Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same way. My directors read the weekly numbers against the school day \u2014 like, \"how many sessions happened during the workday versus after\" \u2014 so when the timestamps don't line up with reality, they think the data itself is wrong. And then I get three confused emails asking why sessions are happening at midnight.\n[EXTERNAL] Will: That would explain the exact seven-hour thing. It's not random, it's a consistent shift.\n[EXTERNAL] Will: Whatever gets it fixed. It's been going on at least a month \u2014 I honestly assumed it was on purpose at first, like some setting I'd missed, until a director pushed back hard enough that I went looking.",
+        "turn_span": [
+          22,
+          28
+        ]
+      },
+      "title": "Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same..."
+    },
+    {
+      "account": "Brightpath Insurance",
+      "action": "file-new",
+      "confidence": 0.75,
+      "dedup": {
+        "issue": null,
+        "rationale": "no existing Bug issue matched above threshold (best similarity=0.09)",
+        "similarity": 0.088509,
+        "target": null,
+        "threshold": 0.2
+      },
+      "jira_preview": {
+        "description": "Reported by: Brightpath Insurance (call call-011, 2026-06-21)\n\n\"[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.\"\n\nTranscript: C:\\Users\\vaibhav9\\test\\take-homes\\applied-ai-engineer\\transcripts\\call-011.md#turns=38-48\nJudge rationale: no existing Bug issue matched above threshold (best similarity=0.09)",
+        "priority": "P3",
+        "project": "PROJ",
+        "source": {
+          "account": "Brightpath Insurance",
+          "call_id": "call-011",
+          "snippet": "[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.",
+          "transcript_ref": "C:\\Users\\vaibhav9\\test\\take-homes\\applied-ai-engineer\\transcripts\\call-011.md#turns=38-48",
+          "turn_span": [
+            38,
+            48
+          ]
+        },
+        "summary": "It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full...",
+        "type": "Bug"
+      },
+      "key": "call-011#41#bug",
+      "priority": "P3",
+      "proposal_sha256": "981273d041eb5820bc5418f38b14c0243fa1af6cc0ff96fbbf14f0e820876431",
+      "slack_preview": {
+        "channel": "@priya.nair",
+        "source": {
+          "action": "file-new",
+          "call_id": "call-011",
+          "issue_key": "PENDING:7"
+        },
+        "text": ":memo: New Bug filed from *Brightpath Insurance* (call call-011, priority P3): It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full...\n> \"[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.\"\nJira: PENDING:7 -- cc Priya Nair"
+      },
+      "source": {
+        "path": "C:\\Users\\vaibhav9\\test\\take-homes\\applied-ai-engineer\\transcripts\\call-011.md",
+        "quote": "[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.",
+        "turn_span": [
+          38,
+          48
+        ]
+      },
+      "title": "It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full..."
+    }
+  ]
+}
