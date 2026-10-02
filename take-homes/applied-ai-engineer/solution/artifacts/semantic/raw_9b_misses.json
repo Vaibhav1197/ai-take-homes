@@ -1,0 +1,22 @@
+{
+  "call-005": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "message": {
+          "content": "{\n  \"topics\": [\n    {\n      \"summary\": \"Customer confirms stable seat counts and successful cohort launch for the new district managers.\",\n      \"disposition\": \"noise\",\n      \"reason\": \"Customer explicitly states the situation is stable and 'boring' with no broken functionality or missing capabilities.\"\n    },\n    {\n      \"summary\": \"Customer describes a phishing simulation test where the AI tool was tricked by a fake link.\",\n      \"disposition\": \"noise\",\n      \"reason\": \"This is a deliberate security test/joke by the customer, not a report of a genuine product defect or feature request.\"\n    },\n    {\n      \"summary\": \"Customer relays a report from their engineering team regarding duplicate webhook deliveries and requests idempotency keys.\",\n      \"disposition\": \"retracted\",\n      \"reason\": \"The customer explicitly states they are relaying hearsay from a third party and later confirms the issue is already a known, tracked item being worked on.\"\n    },\n    {\n      \"summary\": \"Customer confirms mobile app functionality works well for district managers.\",\n      \"disposition\": \"noise\",\n      \"reason\": \"Customer confirms the existing capability works as intended ('It works fine') and is only confirming the vendor's assumption.\"\n    }\n  ],\n  \"issues\": []\n}\n"
+        }
+      }
+    ]
+  },
+  "call-015": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "message": {
+          "content": "{\n  \"topics\": [\n    {\n      \"summary\": \"Customer discusses team relocation, plant care, and renewal timeline.\",\n      \"disposition\": \"noise\",\n      \"reason\": \"Small talk regarding office plants and renewal logistics that do not involve product defects or missing capabilities.\"\n    },\n    {\n      \"summary\": \"Customer reports delayed password-reset emails during batch onboarding.\",\n      \"disposition\": \"bug\",\n      \"reason\": \"Multiple users experienced significant delays (20-30 minutes) in receiving reset emails during a high-volume batch onboarding event, indicating a performance defect under load.\"\n    },\n    {\n      \"summary\": \"Internal agent suggests staggering onboarding emails as a workaround.\",\n      \"disposition\": \"enablement\",\n      \"reason\": \"The agent proposes a manual configuration change for HR to stagger emails, which is an existing capability rather than a new feature request or a fix for a defect.\"\n    },\n    {\n      \"summary\": \"Customer confirms the delay issue is already known to the product team.\",\n      \"disposition\": \"retracted\",\n      \"reason\": \"The customer acknowledges the issue is familiar to the agent and agrees to wait for the existing resolution, effectively withdrawing the need to file a new ticket.\"\n    }\n  ],\n  \"issues\": []\n}\n"
+        }
+      }
+    ]
+  }
+}

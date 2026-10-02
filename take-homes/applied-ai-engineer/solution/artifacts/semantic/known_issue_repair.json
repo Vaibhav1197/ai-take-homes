@@ -1,0 +1,44 @@
+{
+  "call-005": [
+    {
+      "account": "Vanta Retail",
+      "call_id": "call-005",
+      "draft_title": "Fix intermittent duplicate deliveries of session webhooks",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 33,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Jordan: We consume your webhooks into our internal data platform \u2014 session events, membership changes, that kind of thing. Devraj's team says some events are being delivered twice. Same event, two deliveries, occasionally. Not every event, not on a schedule he can predict, just... sometimes the same one shows up twice.\n[EXTERNAL] Jordan: Their pipeline mostly dedupes it already \u2014 they've got logic that catches most of the doubles. But \"mostly\" is doing a lot of work in that sentence, and Devraj hates heuristic dedup. His actual ask, and I wrote it down so I'd get it right: can you put idempotency keys on the webhook payload, so his team can dedupe deterministically instead of guessing based on content and timing?\n[EXTERNAL] Jordan: Exactly. Right now he's fingerprinting the payload contents and hoping two genuinely-distinct events never look identical, which he describes as \"a bug waiting to happen.\"",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        33,
+        37
+      ]
+    }
+  ],
+  "call-015": [
+    {
+      "account": "Juniper Media",
+      "call_id": "call-015",
+      "draft_title": "Fix delayed password reset emails during batch onboarding spikes",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 25,
+      "provisional_priority": "P1",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Marcus: We onboarded a batch of new hires two weeks ago \u2014 twenty-three people, all at once, first Monday of the month. And several of them told me the password-reset email just... didn't come. Or came way late.\n[EXTERNAL] Marcus: That's the thing \u2014 not never. Late. One person said she requested it, went and got coffee, came back twenty-something minutes later, and it was sitting there. Another said his took like half an hour. A couple got it fine. It wasn't everybody.\n[EXTERNAL] Marcus: Monday morning, yeah. Everybody hitting it at once because HR sent the \"set up your account\" email at 9am sharp and twenty-three people clicked \"reset password\" within the same ten minutes.\n[EXTERNAL] Marcus: Right. And I want to be careful \u2014 nobody was locked out permanently. Everybody got in eventually. It just made the kickoff look janky. I stood up in front of the new hires and said \"check your email for the reset link\" and then we all sat there for twenty minutes while nothing happened for half the room.\n[EXTERNAL] Marcus: It's the optics. These are people forming their whole opinion of the tool in the first hour. \"The password email doesn't work\" is a sticky first note even if it does work five minutes later.\n[EXTERNAL] Marcus: Specifically the reset. The invites went out the night before and those were fine, near as I know. It was the \"I clicked reset and I'm waiting\" moment.\n[EXTERNAL] Marcus: That's my hunch, yeah. It felt like peak-hours congestion. When I test it right now on my own account, boom, instant. But 9am Monday with everybody hammering it, that's when it dragged.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        25,
+        37
+      ]
+    }
+  ]
+}

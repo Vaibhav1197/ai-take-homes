@@ -41,7 +41,9 @@ def input_hashes(cfg: Config) -> dict[str, str]:
 
 def judge_settings(cfg: Config) -> dict:
     return {"judge": cfg.judge, "similarity_threshold": cfg.similarity_threshold, "openai_model": cfg.openai_model,
-            "llm_api_url": cfg.llm_api_url, "llm_timeout_seconds": cfg.llm_timeout_seconds}
+            "llm_api_url": cfg.llm_api_url, "llm_timeout_seconds": cfg.llm_timeout_seconds,
+            "local_model_path": str(cfg.local_model_path) if cfg.local_model_path else None,
+            "local_engine": cfg.local_engine, "local_device": cfg.local_device}
 
 
 def select_calls(call_ids: list[str], count: int, seed: str = SAMPLE_SEED, excluded: list[str] = EXCLUDED_CALLS) -> list[str]:

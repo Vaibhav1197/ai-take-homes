@@ -44,6 +44,7 @@ Action.NONE ("already shipped"), not a ticket of any kind.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
@@ -158,6 +159,18 @@ class Deduplicator:
         issue_type = _issue_type_for(candidate)
         pool = self._issues_by_type.get(issue_type, [])
         index = self._index_by_type.get(issue_type)
+        excluded_products = {
+            match.group(1).lower()
+            for match in re.finditer(r"\bwe(?: are|'re)\s+not\s+(?:on|using)\s+([A-Za-z][A-Za-z0-9_-]*)",
+                                     candidate.snippet, re.I)
+            if match.group(1)[0].isupper()
+        }
+        compatible = [issue for issue in pool if not any(
+            re.search(r"\b" + re.escape(product) + r"\b", issue.corpus_text, re.I)
+            for product in excluded_products)]
+        if len(compatible) != len(pool):
+            pool = compatible
+            index = TfidfIndex([issue.corpus_text for issue in pool]) if pool else None
         if not pool or index is None:
             return MatchOutcome(
                 Action.FILE_NEW, None, 0.0,

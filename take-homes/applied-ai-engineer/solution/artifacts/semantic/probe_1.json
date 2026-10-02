@@ -1,0 +1,313 @@
+{
+  "cases": [
+    {
+      "call_id": "call-001",
+      "matching": [
+        1,
+        [
+          [
+            "call-001",
+            {
+              "account": "Meridian Health",
+              "action": "file-new",
+              "call_id": "call-001",
+              "confidence": 0.75,
+              "dedup_similarity": 0.134493,
+              "description": "[EXTERNAL] Dana: Small thing, and it's genuinely nitpicking \u2014 could the dashboard font be a notch bigger? I'm on a laptop screen half the day and I squint at the little team labels under the card. Not a real complaint. My optometrist would say it's a me problem.\n[EXTERNAL] Dana: Just the little gray labels. The big numbers are fine. It's honestly probably my eyes and this laptop, I'm not going to pretend it's a bug.\n[EXTERNAL] Dana: Oh, that's a decent hack. Don't you dare file the font thing. I have enough of a reputation as the squinting ops manager.",
+              "issue_type": "Feature",
+              "matched_key": "PENDING:2",
+              "priority": "P2",
+              "rationale": "no existing Feature issue matched above threshold (best similarity=0.13)",
+              "status": "queued",
+              "summary": "Increase font size of team labels in dashboard",
+              "turn_span": [
+                45,
+                49
+              ]
+            }
+          ],
+          [
+            "call-001",
+            {
+              "account": "Meridian Health",
+              "action": "file-new",
+              "call_id": "call-001",
+              "confidence": 0.92,
+              "dedup_similarity": 0.041983,
+              "description": "[EXTERNAL] Dana: That would actually be useful. If I can show Riverside's own trend line, I can manage their expectations instead of comparing them to the flagship, which just demoralizes everyone.\n[EXTERNAL] Dana: Ha. Yes. Assuming that.",
+              "issue_type": "Feature",
+              "matched_key": "PENDING:3",
+              "priority": "P3",
+              "rationale": "no existing Feature issue matched above threshold (best similarity=0.04)",
+              "status": "queued",
+              "summary": "Add Riverside campus-specific dashboard view",
+              "turn_span": [
+                53,
+                55
+              ]
+            }
+          ]
+        ],
+        []
+      ]
+    },
+    {
+      "call_id": "call-005",
+      "matching": [
+        1,
+        [],
+        []
+      ]
+    },
+    {
+      "call_id": "call-010",
+      "matching": [
+        1,
+        [
+          [
+            "call-010",
+            {
+              "account": "Atlas Financial",
+              "action": "corroborate",
+              "call_id": "call-010",
+              "confidence": 0.209,
+              "dedup_similarity": 0.208783,
+              "description": "[EXTERNAL] Renee: When one of our users changes their network password \u2014 our regular rotation \u2014 and then hits your app, they get stuck in a login loop. And I want to walk you through the exact loop, because I need you to file this precisely.\n[EXTERNAL] Renee: Give me a second, I want to get the order right \u2014 I watched one of my users do it over the shoulder yesterday, so this is from life, not a guess.\n[EXTERNAL] Renee: User changes their password on our side. Then they open your app. Your app bounces them to our IdP to authenticate. The IdP authenticates them just fine \u2014 new password, correct, no problem, IdP says \"yes, this is them.\" IdP sends them back to your app. And then your side immediately bounces them right back to the IdP again. And around, and around. Authenticate, return, bounce, authenticate, return, bounce. Infinite.\n[EXTERNAL] Renee: That's it exactly. They never get in. Not \"logged in briefly then out\" \u2014 they never reach the app at all. It just spins between your login and our IdP until they give up.\n[EXTERNAL] Renee: Every time. The user tries twice, decides it's broken, and calls my helpdesk instead of figuring it out themselves.\n[EXTERNAL] Renee: Clearing browser cookies for your domain breaks the loop. Once they wipe your cookies, they log in clean and they're fine. But that's a support call every single time \u2014 you can't tell four hundred people \"clear your cookies\" and expect that to scale.\n[EXTERNAL] Renee: You've met our users. That's exactly how the first three tickets went \u2014 \"which browser, where's the menu, what's a cookie.\" I'm not building a training program around that.\n[EXTERNAL] Renee: Right, and I actually read about that one in your status-page history, and I want to be emphatic: this is not that. Two reasons. One \u2014 we are not on Okta. We're Azure AD. So the Okta-specific issue doesn't even apply to us architecturally.\n[EXTERNAL] Renee: Two \u2014 the symptom is the opposite shape. In the Okta issue, people are being logged out early but they can get back in. In ours, nobody is being logged out early at all \u2014 they can't get in in the first place after a password change. It's not a premature expiry, it's a hard redirect loop that blocks entry entirely until cookies are cleared. Early-logout-but-you-can-return versus cannot-enter-at-all. Different shape entirely.\n[EXTERNAL] Renee: Filed exactly like that, yes. If it lands on the Okta ticket it'll get closed as a duplicate and we'll be stuck.\n[EXTERNAL] Renee: And then it's my problem to resurrect it three weeks later when nothing's moved. No thank you.\n[EXTERNAL] Renee: Five, out of the forty-person pilot. Which is what you'd expect, because password rotation is staggered \u2014 not everyone hit their rotation date in the same week. So five have rotated and hit the loop; the other thirty-five just haven't rotated yet.\n[EXTERNAL] Renee: Nobody hit it in the first week of the pilot at all, which is exactly why \u2014 none of them had rotated yet.\n[EXTERNAL] Renee: Precisely, and here's the math that matters for prioritization. At full rollout \u2014 four hundred users, ninety-day rotation policy \u2014 every single person hits a password change once a quarter. That's roughly four hundred people hitting this loop over a quarter, every quarter, forever. It would swamp our helpdesk. It turns a pilot annoyance into a rollout blocker.",
+              "issue_type": "Bug",
+              "matched_key": "PROJ-064",
+              "priority": "P1",
+              "rationale": "matches tracked PROJ-064 (similarity=0.21)",
+              "status": "queued",
+              "summary": "Fix Azure AD post-password-change redirect loop that blocks login",
+              "turn_span": [
+                23,
+                49
+              ]
+            }
+          ]
+        ],
+        [
+          [
+            "call-010",
+            {
+              "action": "file-new",
+              "summary": "Azure AD users stuck in a redirect login LOOP after password change; cookie-clear workaround; DISTINCT from PROJ-064 (Okta, early expiry, self-recoverable): folding this into PROJ-064 is wrong",
+              "type": "Bug"
+            }
+          ]
+        ]
+      ]
+    },
+    {
+      "call_id": "call-011",
+      "matching": [
+        1,
+        [],
+        []
+      ]
+    },
+    {
+      "call_id": "call-013",
+      "matching": [
+        1,
+        [],
+        []
+      ]
+    }
+  ],
+  "elapsed_seconds": 1071.7970000000205,
+  "entries": {
+    "call-001#23#bug": {
+      "account": "Meridian Health",
+      "action": "file-new",
+      "call_id": "call-001",
+      "confidence": 0.98,
+      "dedup_similarity": 0.034027,
+      "description": "[EXTERNAL] Dana: Okay, so, one real thing. The usage dashboard summary is wrong, and it's the kind of wrong that bites us.\n[EXTERNAL] Dana: The headline \"active members\" card \u2014 the big number at the top \u2014 says 280 for this month. Our admin panel says 412. And here's the kicker: the per-team breakdown directly below the card adds up to 412. So the detail is right and the headline is wrong, on the same screen.\n[EXTERNAL] Dana: Exactly. Add up the rows, you get 412. Read the big card, you get 280. Same page, same load, at the same moment.\n[EXTERNAL] Dana: Maybe a week, week and a half ago. Before that they matched. I know because I look at that card constantly \u2014 I report those numbers up to finance off it.\n[EXTERNAL] Dana: It feeds the monthly ops review. Rob \u2014 our finance partner \u2014 literally screenshots that card and drops it into the deck. So last month somebody in the review asked me why adoption \"fell off a cliff\" and I had to explain, live, that it hadn't, the number's just wrong. Not a great look in a room full of VPs.\n[EXTERNAL] Dana: That's exactly my anxiety. The real number is up. The card says it's down by a third. I need the card to tell the truth before the July review.\n[EXTERNAL] Dana: That's it word for word.",
+      "issue_type": "Bug",
+      "matched_key": "PENDING:1",
+      "priority": "P2",
+      "rationale": "no existing Bug issue matched above threshold (best similarity=0.03)",
+      "status": "queued",
+      "summary": "Fix dashboard active members summary card discrepancy",
+      "turn_span": [
+        23,
+        35
+      ]
+    },
+    "call-001#45#feature": {
+      "account": "Meridian Health",
+      "action": "file-new",
+      "call_id": "call-001",
+      "confidence": 0.75,
+      "dedup_similarity": 0.134493,
+      "description": "[EXTERNAL] Dana: Small thing, and it's genuinely nitpicking \u2014 could the dashboard font be a notch bigger? I'm on a laptop screen half the day and I squint at the little team labels under the card. Not a real complaint. My optometrist would say it's a me problem.\n[EXTERNAL] Dana: Just the little gray labels. The big numbers are fine. It's honestly probably my eyes and this laptop, I'm not going to pretend it's a bug.\n[EXTERNAL] Dana: Oh, that's a decent hack. Don't you dare file the font thing. I have enough of a reputation as the squinting ops manager.",
+      "issue_type": "Feature",
+      "matched_key": "PENDING:2",
+      "priority": "P2",
+      "rationale": "no existing Feature issue matched above threshold (best similarity=0.13)",
+      "status": "queued",
+      "summary": "Increase font size of team labels in dashboard",
+      "turn_span": [
+        45,
+        49
+      ]
+    },
+    "call-001#53#feature": {
+      "account": "Meridian Health",
+      "action": "file-new",
+      "call_id": "call-001",
+      "confidence": 0.92,
+      "dedup_similarity": 0.041983,
+      "description": "[EXTERNAL] Dana: That would actually be useful. If I can show Riverside's own trend line, I can manage their expectations instead of comparing them to the flagship, which just demoralizes everyone.\n[EXTERNAL] Dana: Ha. Yes. Assuming that.",
+      "issue_type": "Feature",
+      "matched_key": "PENDING:3",
+      "priority": "P3",
+      "rationale": "no existing Feature issue matched above threshold (best similarity=0.04)",
+      "status": "queued",
+      "summary": "Add Riverside campus-specific dashboard view",
+      "turn_span": [
+        53,
+        55
+      ]
+    },
+    "call-005#33#bug": {
+      "account": "Vanta Retail",
+      "action": "corroborate",
+      "call_id": "call-005",
+      "confidence": 0.328,
+      "dedup_similarity": 0.328458,
+      "description": "[EXTERNAL] Jordan: We consume your webhooks into our internal data platform \u2014 session events, membership changes, that kind of thing. Devraj's team says some events are being delivered twice. Same event, two deliveries, occasionally. Not every event, not on a schedule he can predict, just... sometimes the same one shows up twice.\n[EXTERNAL] Jordan: Their pipeline mostly dedupes it already \u2014 they've got logic that catches most of the doubles. But \"mostly\" is doing a lot of work in that sentence, and Devraj hates heuristic dedup. His actual ask, and I wrote it down so I'd get it right: can you put idempotency keys on the webhook payload, so his team can dedupe deterministically instead of guessing based on content and timing?\n[EXTERNAL] Jordan: Exactly. Right now he's fingerprinting the payload contents and hoping two genuinely-distinct events never look identical, which he describes as \"a bug waiting to happen.\"",
+      "issue_type": "Bug",
+      "matched_key": "PROJ-087",
+      "priority": "P3",
+      "rationale": "matches tracked PROJ-087 (similarity=0.33)",
+      "status": "queued",
+      "summary": "Add idempotency keys to webhook payloads",
+      "turn_span": [
+        33,
+        38
+      ]
+    },
+    "call-010#23#bug": {
+      "account": "Atlas Financial",
+      "action": "corroborate",
+      "call_id": "call-010",
+      "confidence": 0.209,
+      "dedup_similarity": 0.208783,
+      "description": "[EXTERNAL] Renee: When one of our users changes their network password \u2014 our regular rotation \u2014 and then hits your app, they get stuck in a login loop. And I want to walk you through the exact loop, because I need you to file this precisely.\n[EXTERNAL] Renee: Give me a second, I want to get the order right \u2014 I watched one of my users do it over the shoulder yesterday, so this is from life, not a guess.\n[EXTERNAL] Renee: User changes their password on our side. Then they open your app. Your app bounces them to our IdP to authenticate. The IdP authenticates them just fine \u2014 new password, correct, no problem, IdP says \"yes, this is them.\" IdP sends them back to your app. And then your side immediately bounces them right back to the IdP again. And around, and around. Authenticate, return, bounce, authenticate, return, bounce. Infinite.\n[EXTERNAL] Renee: That's it exactly. They never get in. Not \"logged in briefly then out\" \u2014 they never reach the app at all. It just spins between your login and our IdP until they give up.\n[EXTERNAL] Renee: Every time. The user tries twice, decides it's broken, and calls my helpdesk instead of figuring it out themselves.\n[EXTERNAL] Renee: Clearing browser cookies for your domain breaks the loop. Once they wipe your cookies, they log in clean and they're fine. But that's a support call every single time \u2014 you can't tell four hundred people \"clear your cookies\" and expect that to scale.\n[EXTERNAL] Renee: You've met our users. That's exactly how the first three tickets went \u2014 \"which browser, where's the menu, what's a cookie.\" I'm not building a training program around that.\n[EXTERNAL] Renee: Right, and I actually read about that one in your status-page history, and I want to be emphatic: this is not that. Two reasons. One \u2014 we are not on Okta. We're Azure AD. So the Okta-specific issue doesn't even apply to us architecturally.\n[EXTERNAL] Renee: Two \u2014 the symptom is the opposite shape. In the Okta issue, people are being logged out early but they can get back in. In ours, nobody is being logged out early at all \u2014 they can't get in in the first place after a password change. It's not a premature expiry, it's a hard redirect loop that blocks entry entirely until cookies are cleared. Early-logout-but-you-can-return versus cannot-enter-at-all. Different shape entirely.\n[EXTERNAL] Renee: Filed exactly like that, yes. If it lands on the Okta ticket it'll get closed as a duplicate and we'll be stuck.\n[EXTERNAL] Renee: And then it's my problem to resurrect it three weeks later when nothing's moved. No thank you.\n[EXTERNAL] Renee: Five, out of the forty-person pilot. Which is what you'd expect, because password rotation is staggered \u2014 not everyone hit their rotation date in the same week. So five have rotated and hit the loop; the other thirty-five just haven't rotated yet.\n[EXTERNAL] Renee: Nobody hit it in the first week of the pilot at all, which is exactly why \u2014 none of them had rotated yet.\n[EXTERNAL] Renee: Precisely, and here's the math that matters for prioritization. At full rollout \u2014 four hundred users, ninety-day rotation policy \u2014 every single person hits a password change once a quarter. That's roughly four hundred people hitting this loop over a quarter, every quarter, forever. It would swamp our helpdesk. It turns a pilot annoyance into a rollout blocker.",
+      "issue_type": "Bug",
+      "matched_key": "PROJ-064",
+      "priority": "P1",
+      "rationale": "matches tracked PROJ-064 (similarity=0.21)",
+      "status": "queued",
+      "summary": "Fix Azure AD post-password-change redirect loop that blocks login",
+      "turn_span": [
+        23,
+        49
+      ]
+    },
+    "call-010#9#feature": {
+      "account": "Atlas Financial",
+      "action": "file-new",
+      "call_id": "call-010",
+      "confidence": 0.99,
+      "dedup_similarity": 0.086767,
+      "description": "[EXTERNAL] Renee: Let's do the audit-log one first, it's cleaner. We need programmatic access to the audit log. There's a UI view today, which is genuinely fine for spot checks \u2014 if I want to see who changed a config last Tuesday, I click in and I see it.\n[EXTERNAL] Renee: The UI's fine for the \"who touched this on Tuesday\" moment. It's just not a machine.\n[EXTERNAL] Renee: Right. Our SOC team needs to pull audit events into our SIEM on a nightly job. Automated, unattended, every night. So what I need is an API endpoint \u2014 filterable by time range, paginated, machine-readable. JSON, ideally. Give me \"all audit events between these two timestamps,\" let me page through them, done.\n[EXTERNAL] Renee: Exactly. And I want to be clear about why the UI export button doesn't count, because someone will suggest it. A human clicking \"export CSV\" once a week is not continuous monitoring. It's a person, doing a manual task, on a schedule they'll eventually forget. Our SOC 2 auditors will keep writing it up as a control gap until an automated pull exists. Continuous monitoring means no human touches it.",
+      "issue_type": "Feature",
+      "matched_key": "PENDING:4",
+      "priority": "P2",
+      "rationale": "no existing Feature issue matched above threshold (best similarity=0.09)",
+      "status": "queued",
+      "summary": "Add SIEM-friendly audit-log API with time-range filtering and pagination",
+      "turn_span": [
+        9,
+        15
+      ]
+    },
+    "call-011#39#bug": {
+      "account": "Brightpath Insurance",
+      "action": "file-new",
+      "call_id": "call-011",
+      "confidence": 0.99,
+      "dedup_similarity": 0.061067,
+      "description": "[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.\n[EXTERNAL] Sofia: I have them in a spreadsheet with a filter on the name column. Detective, remember. I don't estimate, I count.\n[EXTERNAL] Sofia: You mock, but the spreadsheet is going to save your engineers a headache. I've already got the exact list of who's affected.\n[EXTERNAL] Sofia: Always. And here's the part that actually bothers me: they've learned to ignore the links. Maria knows her link is broken, so she doesn't click it, she just navigates to the app manually. Which means she's learned to ignore the notification. Which defeats the entire point of sending the notification. We're training thirty-one members to disregard our reminders because the reminders don't work for them.\n[EXTERNAL] Sofia: Sending Maria's. She's amused by her fame at this point \u2014 she's started calling herself \"the 404 lady.\" I'll paste the exact broken URL so your engineers can see where it truncates.",
+      "issue_type": "Bug",
+      "matched_key": "PENDING:5",
+      "priority": "P3",
+      "rationale": "no existing Bug issue matched above threshold (best similarity=0.06)",
+      "status": "queued",
+      "summary": "Fix link truncation for names with apostrophes",
+      "turn_span": [
+        39,
+        55
+      ]
+    },
+    "call-013#21#feature": {
+      "action": "none",
+      "call_id": "call-013",
+      "matched_key": "PROJ-095",
+      "rationale": "matches already-shipped PROJ-095 (4.3 (2026-06-10)); enablement, not a new ticket",
+      "status": "not_actionable"
+    },
+    "call-013#33#feature": {
+      "account": "Ridgeway Manufacturing",
+      "action": "file-new",
+      "call_id": "call-013",
+      "confidence": 0.98,
+      "dedup_similarity": 0.119769,
+      "description": "[EXTERNAL] Hank: Second one I suspect is a real ask, because I don't think it exists yet. Our LMS \u2014 we're on Cornerstone \u2014 is the system of record for all training compliance. Every certification, every safety course, every required training, it all lives in Cornerstone because that's what our auditors and OSHA and corporate all look at.\n[EXTERNAL] Hank: Same guy. He's been living in Cornerstone for six years, knows it better than the people who sold it to us. Quiet type, communicates almost entirely in short precise sentences, which honestly I've come to appreciate. No fluff.\n[EXTERNAL] Hank: Exactly. Corporate decided the therapy-dog and workplace-safety certification sessions count as professional development, which means they need to show up in the system of record alongside everything else. Right now that's a monthly manual entry job \u2014 someone on my team exports participation from your side and hand-keys it into Cornerstone. It's tedious and it's error-prone.\n[EXTERNAL] Hank: Right. And my integrations guy was specific about what he needs, so let me relay it precisely \u2014 he wrote it down for me. He said, quote: \"Ask if they can send a session-completed webhook with the member ID and timestamp; we'll do the rest.\" That's the ask. When a member completes a training session, your system fires an event to us \u2014 a webhook \u2014 carrying the member ID and the completion timestamp, and Cornerstone consumes it and records the participation automatically.\n[EXTERNAL] Hank: That's it word for word. Member ID, timestamp, on session completion. He said he'll handle the Cornerstone side, he just needs us to emit the event.\n[EXTERNAL] Hank: That's what he does. He said if I got the phrasing wrong on this call he'd never let me hear the end of it, so I wrote it on my hand. Figuratively. Mostly.\n[EXTERNAL] Hank: That's the one that matters long-term. The manual entry is error-prone, and when the thing being recorded is training compliance, an error isn't just annoying, it's an audit finding. And Brenda has better things to do \u2014 see also: the morning she lost to roster paging that a button would have saved.",
+      "issue_type": "Feature",
+      "matched_key": "PENDING:6",
+      "priority": "P2",
+      "rationale": "no existing Feature issue matched above threshold (best similarity=0.12)",
+      "status": "queued",
+      "summary": "Emit session-completed webhook with member ID and timestamp for Cornerstone integration",
+      "turn_span": [
+        33,
+        46
+      ]
+    }
+  },
+  "model_revision": "ab26c167dd687295980bbfc9f6b696f455b794c4",
+  "model_sha256": "4307805dc2a0f2b7a10e2d514e4627db153924ad2d4a808dc9a3ea593c1d2083",
+  "pipeline_sha256": {
+    "cli.py": "40fa7cfda8d7c60b31a229a07d5f415903a9e35ba88c27620bf27c27640b91c2",
+    "pipeline/__init__.py": "5dc450afd0f9e5884155b0cfde0e480f111038433de2483bf4425784a5900943",
+    "pipeline/config.py": "7eeb613a3138391f28b9a6abb17dbbd8bdce65d102221a258caf816f1328df8b",
+    "pipeline/dedup.py": "6041120bb464cde170c56b4ef511a55313a327691115bab72a6facaccc1afdbe",
+    "pipeline/heuristic_judge.py": "144c7b91f251ae777ca697ae3c7617ef5b5b7f347f9c13f25188b33115ace12c",
+    "pipeline/ingest.py": "19e60280981012fa07abc4d4a10f9987b62f5b40415c7df924a5bcf7dcd019b1",
+    "pipeline/judge_base.py": "160a0b4e425a7aefd58a1fdd23dbe5cd230185820ef1610661897ed548879218",
+    "pipeline/keywords.py": "e29e855b63ec490b73dc6764ba591c85a870f07c112faad929091be69c3e9342",
+    "pipeline/llm_judge.py": "6b6ae1265cb5fe4af1d6f7bc4e15c6d7d52a7d413b7bf366b8721d8a4e702e87",
+    "pipeline/local_model.py": "c3fa4be30640b7f266ec3bec6a8552c251ecf27297a5e51cf04bf5767d003df7",
+    "pipeline/logging_utils.py": "641cbbc12293aa0b269b96ea4a7181f0b616e1e40014a42697dfa591beb13ad7",
+    "pipeline/models.py": "904493c121387caefbda9fa3424a217c836704231ae5458cb1498baf3f1fc53f",
+    "pipeline/orchestrator.py": "7d7791249599e9f89328898a53c670ba19dffaa722ff3bd2f7f01584172bf421",
+    "pipeline/payloads.py": "2b9edba2856efc54b3cb1dab8c98233477d018b67eca15b5faceb83a6de979a7",
+    "pipeline/review.py": "96994fc9c9c1103c431b7abe756ae5311a869fda9356444c125d60d42d263dd6",
+    "pipeline/state_store.py": "dc5d47062db0631550dfbc1637e96e07719b38d54fff22a211d0d5b3b6716968",
+    "pipeline/text_utils.py": "b423db592a4dfae8a62721e0e0d13089bbb643bc4e9b2d4c194103ed63bdcd34",
+    "pipeline/triage.py": "7543eacfe56fea1c5f3b5d40e28ef0f9bde399ed73132577af9c68543e72bc56"
+  },
+  "scope": "Five selected dev calls, development probe only, not full dev or generalization certification",
+  "source_unchanged": true,
+  "summary": {
+    "already_queued": 0,
+    "calls_discovered": 5,
+    "calls_failed": 0,
+    "calls_processed": 5,
+    "candidates_found": 9,
+    "candidates_suppressed": 0,
+    "collapsed_duplicates": 0,
+    "duration_seconds": 1071.156,
+    "not_actionable": 1,
+    "queue_by_action": {
+      "corroborate": 2,
+      "file-new": 6
+    },
+    "queued_for_review": 8,
+    "skipped_already_processed": 0
+  }
+}

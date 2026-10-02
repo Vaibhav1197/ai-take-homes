@@ -1,0 +1,105 @@
+{
+  "call-005": [
+    {
+      "account": "Vanta Retail",
+      "call_id": "call-005",
+      "draft_title": "Add idempotency keys to webhook payloads to prevent duplicate deliveries",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 33,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Jordan: We consume your webhooks into our internal data platform \u2014 session events, membership changes, that kind of thing. Devraj's team says some events are being delivered twice. Same event, two deliveries, occasionally. Not every event, not on a schedule he can predict, just... sometimes the same one shows up twice.\n[EXTERNAL] Jordan: Their pipeline mostly dedupes it already \u2014 they've got logic that catches most of the doubles. But \"mostly\" is doing a lot of work in that sentence, and Devraj hates heuristic dedup. His actual ask, and I wrote it down so I'd get it right: can you put idempotency keys on the webhook payload, so his team can dedupe deterministically instead of guessing based on content and timing?\n[EXTERNAL] Jordan: Exactly. Right now he's fingerprinting the payload contents and hoping two genuinely-distinct events never look identical, which he describes as \"a bug waiting to happen.\"",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        33,
+        37
+      ]
+    }
+  ],
+  "call-008": [
+    {
+      "account": "Northwind Logistics",
+      "call_id": "call-008",
+      "draft_title": "Fix Android app crash on launch after 4.2 update",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 13,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Marcus: Real one first. A bunch of our warehouse folks on Android say the app won't open anymore. It crashes the second they tap the icon. Like, splash screen, then straight back to the home screen. Doesn't even get to the login.\n[EXTERNAL] Marcus: Right after the last app update. That's the pattern. The ones who updated are the ones crashing. The ones who haven't updated yet are totally fine. And the iPhone people are all fine across the board.\n[EXTERNAL] Marcus: That's how it reads to me, and I'm not exactly a mobile engineer. But the shape's obvious: update the Android app, it stops opening.\n[EXTERNAL] Marcus: A dozen or so have actually reached me. But here's the thing you have to understand about warehouse workers \u2014 that dozen means the real number is triple that, easy.\n[EXTERNAL] Marcus: Warehouse folks don't file tickets. If an app doesn't open, they don't email HR about it, they just... stop using it. They've got a job to do on a clock. A broken app isn't a problem they escalate, it's a thing they shrug at and move on from. So for every one who bothered to tell me, there are two or three who just quietly stopped opening it and I'll never hear from them.\n[EXTERNAL] Marcus: Exactly. And these are the people I most want engaged, because getting their dogs trained is the whole reason we bought this. If the app silently dies for warehouse workers after an update, that's my adoption number quietly bleeding out and I don't even see it happening.\n[EXTERNAL] Marcus: You get it. That's why I like working with you and not the ticket portal. The portal would've made me pick a severity from a dropdown and then argued with me about it.\n[EXTERNAL] Marcus: Mix. But it lands hardest on the seasonal wave because they're the ones we just told \"download the app, this is how you book your dog's training.\" First impression of the whole program is a splash screen and then nothing.\n[EXTERNAL] Marcus: Right in front of a supervisor holding a clipboard, no less. It doesn't inspire confidence in the \"we invested in your growth\" speech.\n[EXTERNAL] Marcus: So it's not just us. Somehow that's comforting and infuriating at the same time.\n[EXTERNAL] Marcus: It's a mess of cheap Android phones, honestly \u2014 whatever's on sale. I can ask the two supervisors to poll their crews for makes and models if that'd help.\n[EXTERNAL] Marcus: I'll pass \"don't update\" down the chain. The reinstall dance I won't inflict on warehouse crews, they'll mutiny. Better to just get it fixed.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        13,
+        36
+      ]
+    },
+    {
+      "account": "Northwind Logistics",
+      "call_id": "call-008",
+      "draft_title": "Fix spelling error of company name in confirmation email footers",
+      "flags": [
+        "cosmetic-factual-low-severity"
+      ],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 43,
+      "provisional_priority": "P4",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Marcus: She noticed the confirmation emails your system sends have \"BetterBrak\" \u2014 B-E-T-T-E-R-B-R-A-K \u2014 in the footer. Your own company name, misspelled, right there in the email footer. BetterBrak.\n[EXTERNAL] Marcus: Oh yes. BetterBrak. Every confirmation email, apparently.\n[EXTERNAL] Marcus: Every one. And she called it, quote, \"a P0 brand catastrophe\" and said she's, quote, \"genuinely alarmed.\" She used the word alarmed. About a typo. I told her I'd relay it with a straight face and I am now doing that, and I want you to know that face is costing me a great deal.\n[EXTERNAL] Marcus: She will be pleased to hear she's not wrong. She lives for that.\n[EXTERNAL] Marcus: That's exactly the energy I was hoping for. She'll be told it was escalated with maximum urgency. You and I will know the truth. Everyone gets to keep their dignity.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        43,
+        52
+      ]
+    }
+  ],
+  "call-012": [
+    {
+      "account": "Gable Group",
+      "call_id": "call-012",
+      "draft_title": "Fix search staleness after team rename or member move",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 11,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Devon: Feedback, yes. Mostly one thing, repeatedly, and it's a real one. We merged those two departments this month, which meant renaming teams and moving about forty people around. And every single time we made a change, search lied to us for a while afterward.\n[EXTERNAL] Devon: Two flavors. One \u2014 search for the new team name right after renaming it, and you get nothing. Empty results, like the team doesn't exist. Two \u2014 search for a person we just moved, and search shows them still on the old team, filed under the department that no longer exists. And then, if you wait \u2014 I don't know, five, ten minutes \u2014 it sorts itself out. Same search, correct answer.\n[EXTERNAL] Devon: That's exactly it. And it was consistent enough that my admins started planning around it. I'm not kidding \u2014 they started setting literal kitchen timers. Make a batch of changes, set a ten-minute timer, don't trust search until it dings. I'd describe that workflow as \"medieval.\"\n[EXTERNAL] Devon: Consistent enough to plan around, yes. And look, I'm a systems person \u2014 I get it, indexes take time to rebuild, eventual consistency is a real thing, I'm not naive about it. But here's my actual complaint: nothing in the UI says that. The edit screen says \"saved.\" Search says the opposite. And my admin is left standing there deciding which one of you is lying, with no signal about which to believe.\n[EXTERNAL] Devon: That's the crux. Tell me it's coming and I'll wait. Tell me it's done when it isn't, and I'll waste an hour thinking I broke something.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        11,
+        19
+      ]
+    },
+    {
+      "account": "Gable Group",
+      "call_id": "call-012",
+      "draft_title": "Add manual re-sync button to admin panel for search index refresh",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 29,
+      "provisional_priority": "P3",
+      "raw_score": 3.6,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Devon: Yeah. So given that the lag exists, could we get a manual \"re-sync\" or \"rebuild index\" button in the admin panel? If the staleness is going to be there, at least give me the lever. I'll press it myself after every batch of edits and skip the kitchen timer entirely.\n[EXTERNAL] Devon: That's fair, and honestly I can't argue with it. A button that exists solely to work around a bug is a weird thing to ship. Although \u2014 devil's advocate \u2014 sometimes the workaround ships years before the fix, and I'd rather have the ugly button than nothing.\n[EXTERNAL] Devon: That's the risk, yeah. Ship the band-aid, close the ticket, the wound's still there. I've watched vendors do that.\n[EXTERNAL] Devon: Then frame it your way. You know your product team better than I do. I trust you to fight the right fight.\n[EXTERNAL] Devon: That's a fair frame. I want the outcome, not the button. The button is just my coping mechanism for the outcome not existing yet.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        29,
+        37
+      ]
+    }
+  ]
+}

@@ -9,6 +9,17 @@ from solution.pipeline.config import load_config
 
 
 class TestLoadConfig(unittest.TestCase):
+    def test_local_engine_requires_explicit_weights_but_no_api_key(self) -> None:
+        with patch.dict("os.environ", {"PIPELINE_JUDGE": "local"}, clear=True):
+            with self.assertRaisesRegex(ValueError, "PIPELINE_LOCAL_MODEL_PATH"):
+                load_config()
+        with patch.dict("os.environ", {"PIPELINE_JUDGE": "local", "PIPELINE_LOCAL_MODEL_PATH": "models/qwen"}, clear=True):
+            cfg = load_config()
+        self.assertEqual(cfg.local_model_path, Path("models/qwen"))
+        self.assertEqual(cfg.llm_timeout_seconds, 300)
+        self.assertEqual(cfg.openai_model, "Qwen3.5-4B")
+        self.assertEqual(cfg.local_engine, "openvino")
+
     def test_local_model_does_not_require_paid_key(self) -> None:
         with patch.dict("os.environ", {"PIPELINE_JUDGE": "llm",
                         "PIPELINE_LLM_API_URL": "http://127.0.0.1:8011/v1/chat/completions",

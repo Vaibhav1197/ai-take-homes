@@ -66,6 +66,16 @@ class TestLoadExistingIssues(unittest.TestCase):
 
 
 class TestDeduplicatorEvaluate(unittest.TestCase):
+    def test_explicitly_excluded_provider_cannot_be_corroborated(self) -> None:
+        issue = _make_issue("PROJ-2001", summary="AcmeSSO login fails after password changes",
+                            description="AcmeSSO users cannot authenticate after changing their password")
+        candidate = _make_candidate(draft_title="Login fails after password changes",
+                                    snippet="We are not using AcmeSSO. Our other provider redirects forever after password changes.")
+        dedup = Deduplicator([issue], similarity_threshold=0.01)
+        self.assertEqual(dedup.evaluate(candidate).action, Action.FILE_NEW)
+        candidate.snippet = "AcmeSSO users cannot authenticate after changing their password"
+        self.assertEqual(dedup.evaluate(candidate).action, Action.CORROBORATE)
+
     def test_empty_pool_files_new(self) -> None:
         dedup = Deduplicator([])
         outcome = dedup.evaluate(_make_candidate())

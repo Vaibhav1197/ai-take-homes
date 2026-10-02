@@ -99,6 +99,19 @@ class ApplyRunSummary:
 
 
 def _make_judge(cfg: Config) -> IssueJudge:
+    if cfg.judge == "local":
+        from .llm_judge import LLMJudge
+        from .local_model import QwenCT2Transport, QwenOpenVINOTransport
+
+        if cfg.local_model_path is None:
+            raise ValueError("Local model path is required")
+        if cfg.local_engine == "openvino":
+            transport = QwenOpenVINOTransport(cfg.local_model_path, timeout_seconds=cfg.llm_timeout_seconds,
+                                              device=cfg.local_device, report_progress=True)
+        else:
+            transport = QwenCT2Transport(cfg.local_model_path, timeout_seconds=cfg.llm_timeout_seconds,
+                                         report_progress=True)
+        return LLMJudge(model=cfg.openai_model, api_key="", transport=transport)
     if cfg.judge == "llm":
         from .llm_judge import LLMJudge  # local import: optional dependency path
 

@@ -54,6 +54,9 @@ class Config:
     openai_model: str
     llm_api_url: str = "https://api.openai.com/v1/chat/completions"
     llm_timeout_seconds: float = 60.0
+    local_model_path: Path | None = None
+    local_engine: str = "openvino"
+    local_device: str = "GPU"
 
 
 def load_config() -> Config:
@@ -61,8 +64,15 @@ def load_config() -> Config:
     per CLI invocation); does not cache, so tests can freely monkeypatch
     os.environ between calls."""
     judge = os.environ.get("PIPELINE_JUDGE", "heuristic").strip().lower()
-    if judge not in ("heuristic", "llm"):
-        raise ValueError(f"PIPELINE_JUDGE must be 'heuristic' or 'llm', got {judge!r}")
+    if judge not in ("heuristic", "llm", "local"):
+        raise ValueError(f"PIPELINE_JUDGE must be 'heuristic', 'llm' or 'local', got {judge!r}")
+    local_path = os.environ.get("PIPELINE_LOCAL_MODEL_PATH")
+    local_engine = os.environ.get("PIPELINE_LOCAL_ENGINE", "openvino")
+    local_device = os.environ.get("PIPELINE_LOCAL_DEVICE", "GPU")
+    if local_engine not in ("openvino", "ctranslate2") or local_device not in ("GPU", "CPU"):
+        raise ValueError("Unsupported local engine or device")
+    if judge == "local" and not local_path:
+        raise ValueError("PIPELINE_JUDGE=local requires PIPELINE_LOCAL_MODEL_PATH")
     api_url = os.environ.get("PIPELINE_LLM_API_URL", "https://api.openai.com/v1/chat/completions")
     parsed = urlsplit(api_url)
     local = parsed.hostname in ("localhost", "127.0.0.1", "::1")
@@ -70,7 +80,7 @@ def load_config() -> Config:
             or (parsed.scheme == "http" and not local) or parsed.username or parsed.password
             or parsed.query or parsed.fragment):
         raise ValueError("Model endpoint must use HTTPS or loopback HTTP, without embedded credentials or query")
-    timeout = float(os.environ.get("PIPELINE_LLM_TIMEOUT_SECONDS", "60"))
+    timeout = float(os.environ.get("PIPELINE_LLM_TIMEOUT_SECONDS", "300" if judge == "local" else "60"))
     if not math.isfinite(timeout) or timeout <= 0:
         raise ValueError("Model timeout must be finite and positive")
     if judge == "llm" and not local and not os.environ.get("OPENAI_API_KEY"):
@@ -92,7 +102,11 @@ def load_config() -> Config:
             "PIPELINE_SIMILARITY_THRESHOLD", DEFAULT_SIMILARITY_THRESHOLD
         ),
         judge=judge,
-        openai_model=os.environ.get("PIPELINE_OPENAI_MODEL", "gpt-4o-mini"),
+        openai_model=os.environ.get("PIPELINE_OPENAI_MODEL", ("Qwen3.5-4B" if local_engine == "openvino"
+                        else "Qwen3-4B-Instruct-2507") if judge == "local" else "gpt-4o-mini"),
         llm_api_url=api_url,
         llm_timeout_seconds=timeout,
+        local_model_path=Path(local_path).expanduser() if local_path else None,
+        local_engine=local_engine,
+        local_device=local_device,
     )
