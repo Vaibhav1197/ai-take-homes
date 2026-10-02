@@ -11,6 +11,8 @@ from solution.pipeline.review import (
     queued_entries,
     sync_review_decisions,
     write_review_queue_markdown,
+    record_decision,
+    proposal_digest,
 )
 
 
@@ -125,6 +127,31 @@ class TestSyncReviewDecisions(unittest.TestCase):
 
 
 class TestLoadReviewDecisions(unittest.TestCase):
+    def test_records_identity_timing_and_exact_proposal(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "decisions.json"
+            entry = {"status": "queued", "summary": "Fix export", "priority": "P2"}
+            record = record_decision(path, "key", entry, decision="approved", reviewer="Test reviewer",
+                                     note="Verified source", elapsed_seconds=12.3456)
+            self.assertEqual(record["elapsed_seconds"], 12.346)
+            self.assertEqual(record["proposal_sha256"], proposal_digest(entry))
+            self.assertEqual(load_review_decisions(path)["key"], record)
+            with self.assertRaises(ValueError):
+                record_decision(path, "key", entry, decision="rejected", reviewer="Other",
+                                note="Changed mind", elapsed_seconds=1)
+
+    def test_invalid_reviews_do_not_write(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "decisions.json"
+            for fields in ({"reviewer": " "}, {"decision": "pending"},
+                           {"decision": "rejected", "note": ""},
+                           {"elapsed_seconds": float("nan")}):
+                options = {"decision": "approved", "reviewer": "Tester", "note": "", "elapsed_seconds": 1}
+                options.update(fields)
+                with self.subTest(fields=fields), self.assertRaises(ValueError):
+                    record_decision(path, "key", {"status": "queued"}, **options)
+            self.assertFalse(path.exists())
+
     def test_missing_file_returns_empty_dict(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "does_not_exist.json"

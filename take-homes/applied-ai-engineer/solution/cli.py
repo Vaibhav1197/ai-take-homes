@@ -18,6 +18,7 @@ from typing import Optional, Sequence
 from .pipeline.config import load_config
 from .pipeline.orchestrator import ApplyRunSummary, ReviewRunSummary, run_apply, run_review
 from .pipeline.logging_utils import EventLogger, assess_health
+from .pipeline.triage import run_triage
 
 
 def _print_review_summary(summary: ReviewRunSummary, review_queue_path, review_decisions_path) -> None:
@@ -47,6 +48,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("review", help="Parse transcripts, judge + dedup, queue genuine issues for human review.")
     sub.add_parser("apply", help="Apply human-approved decisions: file Jira tickets, send Slack notifications.")
+    triage = sub.add_parser("triage", help="Review evidence and payloads; record decisions without filing.")
+    triage.add_argument("--reviewer", required=True)
     monitor = sub.add_parser("monitor", help="Check batch freshness, coverage, failures and review noise; exits 1 on alerts.")
     monitor.add_argument("--expected-calls", type=int, default=140)
     monitor.add_argument("--max-age-seconds", type=float, default=3600)
@@ -63,6 +66,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         summary = run_apply(cfg)
         _print_apply_summary(summary)
         return int(summary.failed > 0)
+    elif args.command == "triage":
+        print(json.dumps(run_triage(cfg, args.reviewer), indent=2))
+        return 0
     elif args.command == "monitor":
         if args.expected_calls < 1 or args.max_age_seconds <= 0 or (args.baseline_rate is not None and args.baseline_rate <= 0):
             parser.error("monitor counts, age and baseline rate must be positive")

@@ -46,7 +46,7 @@ from .heuristic_judge import HeuristicJudge
 from .logging_utils import EventLogger
 from .models import Action, Candidate, Decision, IssueType, Transcript
 from .payloads import build_jira_payload, build_slack_payload
-from .review import load_review_decisions, queued_entries, sync_review_decisions, write_review_queue_markdown
+from .review import load_review_decisions, proposal_digest, queued_entries, sync_review_decisions, write_review_queue_markdown
 from .state_store import StateStore, candidate_key
 
 _TERMINAL_STATUSES = frozenset({"filed", "corroborated", "rejected", "not_actionable", "collapsed_duplicate"})
@@ -322,6 +322,9 @@ def run_apply(cfg: Optional[Config] = None) -> ApplyRunSummary:
             continue  # still pending a human decision
 
         try:
+            approved_hash = decisions.get(key, {}).get("proposal_sha256")
+            if approved_hash and approved_hash != proposal_digest(entry):
+                raise ValueError("Approved proposal changed; human review required again")
             transcript = parse_transcript(_transcript_path(cfg, entry["call_id"]))
             decision = _rehydrate_decision(entry, key)
             real_key = entry.get("issue_key")
@@ -357,6 +360,9 @@ def run_apply(cfg: Optional[Config] = None) -> ApplyRunSummary:
             continue
 
         try:
+            approved_hash = decisions.get(key, {}).get("proposal_sha256")
+            if approved_hash and approved_hash != proposal_digest(entry):
+                raise ValueError("Approved proposal changed; human review required again")
             matched_key = str(entry.get("matched_key", ""))
             real_key = pending_key_map.get(matched_key, matched_key)
             if real_key.startswith(PENDING_KEY_PREFIX):

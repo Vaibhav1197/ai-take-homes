@@ -20,10 +20,46 @@ Two files, two audiences:
 from __future__ import annotations
 
 import json
+import hashlib
+import math
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from .state_store import atomic_write_json
+
 _PRIORITY_ORDER = {"P1": 0, "P2": 1, "P3": 2, "P4": 3}
+
+
+def proposal_digest(entry: dict) -> str:
+    fields = ("call_id", "account", "action", "matched_key", "issue_type", "summary",
+              "description", "priority", "confidence", "rationale", "turn_span")
+    return hashlib.sha256(json.dumps({name: entry.get(name) for name in fields},
+                                    sort_keys=True).encode()).hexdigest()
+
+
+def record_decision(path: Path, key: str, entry: dict, *, decision: str,
+                    reviewer: str, note: str, elapsed_seconds: float) -> dict:
+    if decision not in ("approved", "rejected") or not reviewer.strip():
+        raise ValueError("An approve/reject decision and reviewer identity are required")
+    if entry.get("status") != "queued":
+        raise ValueError("Only queued proposals can be reviewed")
+    if decision == "rejected" and not note.strip():
+        raise ValueError("Rejection requires a reason")
+    if not math.isfinite(elapsed_seconds) or elapsed_seconds < 0:
+        raise ValueError("Review duration must be finite and nonnegative")
+    decisions = load_review_decisions(path)
+    if decisions.get(key, {}).get("decision", "pending") != "pending":
+        raise ValueError("This proposal already has a decision")
+    decisions[key] = {
+        "decision": decision, "reviewer": reviewer.strip(), "note": note.strip(),
+        "reviewed_at": datetime.now(timezone.utc).isoformat(),
+        "elapsed_seconds": round(elapsed_seconds, 3), "proposal_sha256": proposal_digest(entry),
+        "call_id": entry.get("call_id"), "action": entry.get("action"),
+        "summary": entry.get("summary"), "priority": entry.get("priority"),
+    }
+    atomic_write_json(path, decisions)
+    return decisions[key]
 
 
 def queued_entries(all_entries: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
@@ -109,8 +145,7 @@ def sync_review_decisions(entries: dict[str, dict[str, Any]], path: Path) -> dic
                 priority=entry.get("priority"),
             )
 
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(decisions, indent=2, sort_keys=True), encoding="utf-8")
+    atomic_write_json(path, decisions)
     return decisions
 
 

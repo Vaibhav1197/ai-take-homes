@@ -18,7 +18,7 @@ py -m solution.eval.run_eval --repeat 2 --output solution/eval/results.json
 py -m solution.eval.run_corpus --demo-decisions solution/demo/review_decisions_excerpt.json
 py -m solution.eval.run_holdout evaluate --assessment-dir solution/eval/holdout_round2 --repeat 2 --output solution/artifacts/holdout.json
 py -m solution review                       # ingest + judge + de-dup -> queue for human review
-#   ... edit solution/state/review_decisions.json: "pending" -> "approved" / "rejected" ...
+py -m solution triage --reviewer "Vaibhav"   # inspect source/payloads; approve, reject, skip or quit
 py -m solution apply                        # act on approved decisions -> stubs/outbox/*.jsonl
 py -m solution monitor --expected-calls 140 --max-age-seconds 3600
 ```
@@ -26,6 +26,15 @@ py -m solution monitor --expected-calls 140 --max-age-seconds 3600
 On macOS/Linux, use `python3` instead of `py`. Check out the submission branch, not the fork's unchanged `main`. Evidence commands use isolated temporary state; `review`/`apply` use the normal configured state. `monitor` returns 1 on alerts (the measured low-confidence backlog currently warrants a warning). A scheduler must run it independently and notify an operator on nonzero exit. Set freshness and expected coverage to the actual schedule.
 
 `py -m solution review` is safe to re-run any time (including on a schedule): already-decided or already-filed candidates are skipped, never re-queued or re-filed.
+
+`triage` shows the source quote and turn span, priority, dedup target and rationale,
+and exact proposed Jira/Slack payloads. It records reviewer identity, UTC time,
+elapsed review seconds, a note, and the proposal hash with an atomic write.
+Rejection requires a reason. Skipping, quitting or interrupted input never approves.
+The command never invokes either sink; `apply` is a separate explicit step.
+Hash-bound approvals fail closed if the proposal changes. Legacy manually edited
+decisions remain supported but have no timing or hash guarantee. Use one writer
+at a time; do not run triage concurrently with review/apply.
 
 ## Project structure
 

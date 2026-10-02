@@ -15,7 +15,8 @@ from unittest.mock import patch
 from solution.pipeline import orchestrator
 from solution.pipeline.config import Config
 from solution.pipeline.models import Candidate, Transcript
-from solution.pipeline.review import load_review_decisions
+from solution.pipeline.review import load_review_decisions, record_decision
+from solution.pipeline.triage import run_triage
 from solution.pipeline.state_store import StateStore, candidate_key
 from solution.eval.run_corpus import generate_evidence
 
@@ -128,6 +129,47 @@ class OrchestratorTestBase(unittest.TestCase):
         decisions = load_review_decisions(self.cfg.review_decisions_path)
         decisions[key]["decision"] = "rejected"
         self.cfg.review_decisions_path.write_text(__import__("json").dumps(decisions), encoding="utf-8")
+
+
+class TestInteractiveReview(OrchestratorTestBase):
+    def test_review_approve_reject_skip_and_apply_twice(self) -> None:
+        candidates = {}
+        for number, snippet in enumerate(("Export CSV empty", "Calendar time wrong", "SSO redirect loop"), 1):
+            call_id = f"call-{number:03d}"
+            _write_transcript(self.transcripts_dir, call_id)
+            candidates[call_id] = [_make_candidate(call_id, "Acme", snippet=snippet)]
+        self._run_review_with(candidates)
+        answers = iter(["a", "Verified", "r", "Not actionable", "s"])
+        ticks = iter([10, 22, 30, 45, 50])
+        views = []
+        counts = run_triage(self.cfg, "Simulated tester", read=lambda prompt: next(answers),
+                            write=views.append, clock=lambda: next(ticks))
+        self.assertEqual(counts, {"approved": 1, "rejected": 1, "skipped": 1})
+        self.assertEqual(len(views), 3)
+        self.assertIn("jira_preview", views[0])
+        self.assertIn("source", views[0])
+        self.assertEqual(self.fake_jira.calls, [])
+        self.assertEqual(self.fake_slack.calls, [])
+        self.assertEqual(self._run_apply().filed, 1)
+        self.assertEqual(self._run_apply().filed, 0)
+        self.assertEqual(len(self.fake_jira.calls), 1)
+        self.assertEqual(len(self.fake_slack.calls), 1)
+        records = load_review_decisions(self.cfg.review_decisions_path)
+        approved = next(record for record in records.values() if record["decision"] == "approved")
+        self.assertEqual(approved["elapsed_seconds"], 12)
+
+    def test_changed_proposal_blocks_approved_delivery(self) -> None:
+        _write_transcript(self.transcripts_dir, "call-001")
+        candidate = _make_candidate("call-001", "Acme")
+        self._run_review_with({"call-001": [candidate]})
+        key = candidate_key(candidate)
+        store = StateStore(self.cfg.state_path)
+        record_decision(self.cfg.review_decisions_path, key, store.get(key), decision="approved",
+                        reviewer="Simulated tester", note="Verified", elapsed_seconds=1)
+        store.upsert(key, summary="Changed after approval")
+        self.assertEqual(self._run_apply().failed, 1)
+        self.assertEqual(self.fake_jira.calls, [])
+        self.assertEqual(self.fake_slack.calls, [])
 
 
 class TestRunReview(OrchestratorTestBase):

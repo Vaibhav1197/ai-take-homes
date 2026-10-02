@@ -144,11 +144,12 @@ class TestRobustnessAgainstBadModelOutput(unittest.TestCase):
     def _judge(self, transport) -> LLMJudge:
         return LLMJudge(model="gpt-4o-mini", api_key="sk-test", transport=transport)
 
-    def test_out_of_range_turn_span_is_dropped_not_raised(self) -> None:
+    def test_out_of_range_turn_span_fails_visibly(self) -> None:
         transcript = _transcript([(EXT, "Jamie", "The export is broken.")])
         model_reply = {"issues": [{"start_turn": 0, "end_turn": 99, "signal_type": "bug"}]}
         judge = self._judge(unittest.mock.Mock(return_value=_chat_response(model_reply)))
-        self.assertEqual(judge.find_candidates(transcript), [])
+        with self.assertRaises(LLMJudgeError):
+            judge.find_candidates(transcript)
 
     def test_span_with_no_external_turn_is_dropped(self) -> None:
         transcript = _transcript(
@@ -156,13 +157,32 @@ class TestRobustnessAgainstBadModelOutput(unittest.TestCase):
         )
         model_reply = {"issues": [{"start_turn": 0, "end_turn": 0, "signal_type": "bug"}]}
         judge = self._judge(unittest.mock.Mock(return_value=_chat_response(model_reply)))
-        self.assertEqual(judge.find_candidates(transcript), [])
+        with self.assertRaises(LLMJudgeError):
+            judge.find_candidates(transcript)
 
     def test_malformed_item_missing_required_field_is_dropped(self) -> None:
         transcript = _transcript([(EXT, "Jamie", "The export is broken.")])
         model_reply = {"issues": [{"start_turn": 0, "signal_type": "bug"}]}  # no end_turn
         judge = self._judge(unittest.mock.Mock(return_value=_chat_response(model_reply)))
-        self.assertEqual(judge.find_candidates(transcript), [])
+        with self.assertRaises(LLMJudgeError):
+            judge.find_candidates(transcript)
+
+    def test_invalid_types_and_confidence_fail_visibly(self) -> None:
+        transcript = _transcript([(EXT, "Jamie", "The export is broken.")])
+        for override in ({"start_turn": True}, {"end_turn": 0.5},
+                         {"signal_type": "other"}, {"confidence": float("nan")},
+                         {"confidence": 1.1}):
+            with self.subTest(override=override):
+                item = {"start_turn": 0, "end_turn": 0, "signal_type": "bug", **override}
+                judge = self._judge(unittest.mock.Mock(return_value=_chat_response({"issues": [item]})))
+                with self.assertRaises(LLMJudgeError):
+                    judge.find_candidates(transcript)
+
+    def test_non_object_issue_fails_visibly(self) -> None:
+        transcript = _transcript([(EXT, "Jamie", "The export is broken.")])
+        judge = self._judge(unittest.mock.Mock(return_value=_chat_response({"issues": [None]})))
+        with self.assertRaises(LLMJudgeError):
+            judge.find_candidates(transcript)
 
     def test_unparseable_json_content_raises_llm_judge_error(self) -> None:
         transcript = _transcript([(EXT, "Jamie", "The export is broken.")])

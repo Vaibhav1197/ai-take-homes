@@ -87,6 +87,22 @@ def _replace_with_retry(src: str, dst: Path) -> None:
     raise last_error
 
 
+def atomic_write_json(path: Path, payload: object) -> None:
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_name = tempfile.mkstemp(dir=str(path.parent), prefix=".state_store_", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as handle:
+            json.dump(payload, handle, indent=2, sort_keys=True)
+            handle.flush()
+            os.fsync(handle.fileno())
+        _replace_with_retry(tmp_name, path)
+    except BaseException:
+        if os.path.exists(tmp_name):
+            os.remove(tmp_name)
+        raise
+
+
 def candidate_key(candidate: Candidate) -> str:
     """Stable idempotency key for a Candidate, used as the ledger's primary
     key and as `Decision.idempotency_key`.
@@ -118,21 +134,8 @@ class StateStore:
         self._entries = raw.get("entries", {})
 
     def _save(self) -> None:
-        self.path.parent.mkdir(parents=True, exist_ok=True)
         payload = {"version": _STATE_VERSION, "entries": self._entries}
-        fd, tmp_name = tempfile.mkstemp(
-            dir=str(self.path.parent), prefix=".state_store_", suffix=".tmp"
-        )
-        try:
-            with os.fdopen(fd, "w", encoding="utf-8") as fh:
-                json.dump(payload, fh, indent=2, sort_keys=True)
-                fh.flush()
-                os.fsync(fh.fileno())
-            _replace_with_retry(tmp_name, self.path)
-        except BaseException:
-            if os.path.exists(tmp_name):
-                os.remove(tmp_name)
-            raise
+        atomic_write_json(self.path, payload)
 
     def get(self, key: str) -> Optional[dict[str, Any]]:
         entry = self._entries.get(key)
