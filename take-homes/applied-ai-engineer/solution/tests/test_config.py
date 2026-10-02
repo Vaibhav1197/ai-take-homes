@@ -9,6 +9,27 @@ from solution.pipeline.config import load_config
 
 
 class TestLoadConfig(unittest.TestCase):
+    def test_local_model_does_not_require_paid_key(self) -> None:
+        with patch.dict("os.environ", {"PIPELINE_JUDGE": "llm",
+                        "PIPELINE_LLM_API_URL": "http://127.0.0.1:8011/v1/chat/completions",
+                        "PIPELINE_LLM_TIMEOUT_SECONDS": "300"}, clear=True):
+            cfg = load_config()
+        self.assertEqual(cfg.llm_timeout_seconds, 300)
+        self.assertIn("127.0.0.1:8011", cfg.llm_api_url)
+
+    def test_remote_cleartext_and_embedded_credentials_rejected(self) -> None:
+        for url in ("http://example.com/v1/chat/completions", "https://user:secret@example.com/v1",
+                    "https://example.com/v1?token=secret", "file:///tmp/model"):
+            with self.subTest(url=url), patch.dict("os.environ", {"PIPELINE_LLM_API_URL": url}, clear=True):
+                with self.assertRaises(ValueError):
+                    load_config()
+
+    def test_invalid_model_timeout_rejected(self) -> None:
+        for value in ("0", "-1", "nan", "inf"):
+            with self.subTest(value=value), patch.dict("os.environ", {"PIPELINE_LLM_TIMEOUT_SECONDS": value}, clear=True):
+                with self.assertRaises(ValueError):
+                    load_config()
+
     def test_defaults_point_at_repo_transcripts_and_data(self) -> None:
         with patch.dict("os.environ", {}, clear=True):
             cfg = load_config()

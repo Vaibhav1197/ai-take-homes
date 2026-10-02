@@ -26,7 +26,7 @@ import re
 import shutil
 import sys
 import tempfile
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Any, Optional
 
@@ -75,7 +75,7 @@ def _build_scratch_config(cfg: Config, scratch_dir: Path) -> Config:
         src = cfg.transcripts_dir / f"{call_id}.md"
         shutil.copy2(src, transcripts_dir / f"{call_id}.md")
 
-    return Config(
+    return replace(cfg,
         transcripts_dir=transcripts_dir,
         existing_issues_path=cfg.existing_issues_path,
         dev_labels_path=cfg.dev_labels_path,

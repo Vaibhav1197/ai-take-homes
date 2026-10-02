@@ -14,6 +14,21 @@ from solution.pipeline.config import load_config
 
 
 class TestHoldoutAssessment(unittest.TestCase):
+    def test_regression_mode_retains_label_seal_but_never_unblocks_normal_validation(self) -> None:
+        cfg = load_config()
+        directory = Path(__file__).parents[1] / "eval" / "holdout"
+        validate_assessment(cfg, directory, regression=True)
+        with self.assertRaisesRegex(ValueError, "pipeline changed"):
+            validate_assessment(cfg, directory)
+        with TemporaryDirectory() as tmp:
+            copied = Path(tmp)
+            for name in ("manifest.json", "annotations.json", "seal.json"):
+                (copied / name).write_bytes((directory / name).read_bytes())
+            with (copied / "annotations.json").open("a", encoding="utf-8") as handle:
+                handle.write("\n")
+            with self.assertRaisesRegex(ValueError, "Sealed annotations"):
+                validate_assessment(cfg, copied, regression=True)
+
     def test_coverage_success_cannot_hide_failed_missing_or_stale_assessment(self) -> None:
         cfg = load_config()
         coverage = {"passed": True, "health": {"healthy": True}}

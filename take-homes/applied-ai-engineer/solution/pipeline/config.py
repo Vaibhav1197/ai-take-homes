@@ -13,8 +13,10 @@ logging_utils.py's event stream is deliberate.
 from __future__ import annotations
 
 import os
+import math
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from .dedup import DEFAULT_SIMILARITY_THRESHOLD
 
@@ -50,6 +52,8 @@ class Config:
     similarity_threshold: float
     judge: str  # "heuristic" | "llm"
     openai_model: str
+    llm_api_url: str = "https://api.openai.com/v1/chat/completions"
+    llm_timeout_seconds: float = 60.0
 
 
 def load_config() -> Config:
@@ -59,7 +63,17 @@ def load_config() -> Config:
     judge = os.environ.get("PIPELINE_JUDGE", "heuristic").strip().lower()
     if judge not in ("heuristic", "llm"):
         raise ValueError(f"PIPELINE_JUDGE must be 'heuristic' or 'llm', got {judge!r}")
-    if judge == "llm" and not os.environ.get("OPENAI_API_KEY"):
+    api_url = os.environ.get("PIPELINE_LLM_API_URL", "https://api.openai.com/v1/chat/completions")
+    parsed = urlsplit(api_url)
+    local = parsed.hostname in ("localhost", "127.0.0.1", "::1")
+    if (parsed.scheme not in ("http", "https") or not parsed.hostname
+            or (parsed.scheme == "http" and not local) or parsed.username or parsed.password
+            or parsed.query or parsed.fragment):
+        raise ValueError("Model endpoint must use HTTPS or loopback HTTP, without embedded credentials or query")
+    timeout = float(os.environ.get("PIPELINE_LLM_TIMEOUT_SECONDS", "60"))
+    if not math.isfinite(timeout) or timeout <= 0:
+        raise ValueError("Model timeout must be finite and positive")
+    if judge == "llm" and not local and not os.environ.get("OPENAI_API_KEY"):
         raise ValueError("PIPELINE_JUDGE=llm requires OPENAI_API_KEY to be set")
 
     return Config(
@@ -79,4 +93,6 @@ def load_config() -> Config:
         ),
         judge=judge,
         openai_model=os.environ.get("PIPELINE_OPENAI_MODEL", "gpt-4o-mini"),
+        llm_api_url=api_url,
+        llm_timeout_seconds=timeout,
     )

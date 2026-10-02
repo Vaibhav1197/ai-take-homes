@@ -40,7 +40,8 @@ def input_hashes(cfg: Config) -> dict[str, str]:
 
 
 def judge_settings(cfg: Config) -> dict:
-    return {"judge": cfg.judge, "similarity_threshold": cfg.similarity_threshold, "openai_model": cfg.openai_model}
+    return {"judge": cfg.judge, "similarity_threshold": cfg.similarity_threshold, "openai_model": cfg.openai_model,
+            "llm_api_url": cfg.llm_api_url, "llm_timeout_seconds": cfg.llm_timeout_seconds}
 
 
 def select_calls(call_ids: list[str], count: int, seed: str = SAMPLE_SEED, excluded: list[str] = EXCLUDED_CALLS) -> list[str]:
@@ -80,12 +81,13 @@ def prepare(cfg: Config, output: Path, count: int = 24, *, seed: str = SAMPLE_SE
     return manifest
 
 
-def validate_assessment(cfg: Config, directory: Path, *, sealed: bool = True) -> tuple[dict, dict]:
+def validate_assessment(cfg: Config, directory: Path, *, sealed: bool = True,
+                        regression: bool = False) -> tuple[dict, dict]:
     manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
     annotations = json.loads((directory / "annotations.json").read_text(encoding="utf-8"))
-    if manifest["pipeline_sha256"] != pipeline_hashes():
+    if not regression and manifest["pipeline_sha256"] != pipeline_hashes():
         raise ValueError("Frozen pipeline changed; this assessment cannot certify a newly tuned version")
-    if manifest["input_sha256"] != input_hashes(cfg) or manifest["config"] != judge_settings(cfg):
+    if manifest["input_sha256"] != input_hashes(cfg) or (not regression and manifest["config"] != judge_settings(cfg)):
         raise ValueError("Frozen inputs or configuration changed")
     current_ids = sorted(path.stem for path in cfg.transcripts_dir.glob("call-*.md"))
     if not set(EXCLUDED_CALLS) <= set(manifest["excluded_calls"]):
@@ -122,7 +124,7 @@ def validate_assessment(cfg: Config, directory: Path, *, sealed: bool = True) ->
     if sealed:
         seal = json.loads((directory / "seal.json").read_text(encoding="utf-8"))
         hashes = {name: digest_file(directory / name) for name in ("manifest.json", "annotations.json")}
-        if seal["files_sha256"] != hashes or seal["evaluator_sha256"] != digest_file(Path(__file__)):
+        if seal["files_sha256"] != hashes or (not regression and seal["evaluator_sha256"] != digest_file(Path(__file__))):
             raise ValueError("Sealed annotations, protocol or evaluator changed; retain old evidence and create a new assessment")
     return manifest, annotations
 
@@ -216,8 +218,9 @@ def score_entries(cases: list[dict], entries: dict) -> dict:
     }
 
 
-def evaluate(cfg: Config, directory: Path, repeat: int = 2) -> dict:
-    manifest, annotations = validate_assessment(cfg, directory)
+def evaluate(cfg: Config, directory: Path, repeat: int = 2, *, regression: bool = False) -> dict:
+    manifest, annotations = validate_assessment(cfg, directory, regression=regression)
+    started_pipeline = pipeline_hashes()
     if repeat < manifest["minimum_repeats"]:
         raise ValueError("At least two fresh-state repetitions are required")
     runs = []
@@ -237,12 +240,17 @@ def evaluate(cfg: Config, directory: Path, repeat: int = 2) -> dict:
                                 and all(result[name]["value"] is not None and result[name]["value"] >= threshold
                                         for name, threshold in manifest["thresholds"].items()))
             runs.append(result)
-    validate_assessment(cfg, directory)
+    validate_assessment(cfg, directory, regression=regression)
+    if started_pipeline != pipeline_hashes():
+        raise ValueError("Pipeline changed during evaluation; discard this run")
     stable = len({run["fingerprint"] for run in runs}) == 1
     return {
         "schema_version": 1, "generated_at": datetime.now(timezone.utc).isoformat(),
         "annotation_source": annotations["annotation_source"], "human_confirmed": annotations["human_confirmed"],
-        "scope": "Frozen source-annotated sample; NOT official private-label or independent human accuracy",
+        "scope": ("Previously inspected labels on current code; regression only, NEVER fresh generalization"
+              if regression else "Frozen source-annotated sample; NOT official private-label or independent human accuracy"),
+        "assessment_mode": "regression" if regression else "frozen_sample",
+        "certifies_generalization": False if regression else None,
         "interval_caveat": "Wilson intervals are descriptive binomial approximations; issue clustering, selection exclusions and annotation error are not captured. Thresholds use point estimates, not lower bounds.",
         "sample": manifest["sample"], "eligible_calls": len(manifest["eligible_calls"]),
         "unassessed_eligible_calls": len(manifest["eligible_calls"]) - len(manifest["sample"]),
@@ -255,7 +263,7 @@ def evaluate(cfg: Config, directory: Path, repeat: int = 2) -> dict:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Freeze and evaluate a source-annotated call sample without altering the pipeline.")
-    parser.add_argument("command", choices=["prepare", "seal", "evaluate"])
+    parser.add_argument("command", choices=["prepare", "seal", "evaluate", "regression"])
     parser.add_argument("--assessment-dir", type=Path, default=Path("solution/eval/holdout"))
     parser.add_argument("--sample-size", type=int, default=24)
     parser.add_argument("--repeat", type=int, default=2)
@@ -273,7 +281,7 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "seal":
             report = seal_assessment(cfg, args.assessment_dir)
         else:
-            report = evaluate(cfg, args.assessment_dir, args.repeat)
+            report = evaluate(cfg, args.assessment_dir, args.repeat, regression=args.command == "regression")
             args.output.parent.mkdir(parents=True, exist_ok=True)
             write_json(args.output, report)
             print(json.dumps({"passed": report["passed"], "stability": report["stability"],

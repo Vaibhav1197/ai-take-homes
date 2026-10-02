@@ -33,7 +33,7 @@ _PRIORITY_ORDER = {"P1": 0, "P2": 1, "P3": 2, "P4": 3}
 
 def proposal_digest(entry: dict) -> str:
     fields = ("call_id", "account", "action", "matched_key", "issue_type", "summary",
-              "description", "priority", "confidence", "rationale", "turn_span")
+              "description", "priority", "confidence", "rationale", "turn_span", "dedup_similarity")
     return hashlib.sha256(json.dumps({name: entry.get(name) for name in fields},
                                     sort_keys=True).encode()).hexdigest()
 

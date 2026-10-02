@@ -26,9 +26,12 @@ def review_view(cfg: Config, key: str, entry: dict) -> dict:
     return {
         "key": key, "priority": entry["priority"], "account": entry.get("account"),
         "title": entry["summary"], "action": entry["action"],
+        "confidence": entry.get("confidence"),
         "source": {"path": str(transcript.path), "turn_span": entry.get("turn_span"),
                    "quote": entry.get("description")},
         "dedup": {"target": target if corroboration else None, "issue": matched if corroboration else None,
+                  "similarity": entry.get("dedup_similarity"),
+                  "threshold": cfg.similarity_threshold,
                   "rationale": entry.get("rationale")},
         "jira_preview": None if corroboration else build_jira_payload(decision, transcript),
         "slack_preview": build_slack_payload(decision, transcript, issue_key=target or "AFTER_APPROVAL"),
@@ -37,10 +40,15 @@ def review_view(cfg: Config, key: str, entry: dict) -> dict:
 
 
 def run_triage(cfg: Config, reviewer: str, *, read: Callable[[str], str] = input,
-               write: Callable[[str], None] = print, clock: Callable[[], float] = monotonic) -> dict:
+               write: Callable[[str], None] = print, clock: Callable[[], float] = monotonic,
+               keys: list[str] | None = None) -> dict:
     if not reviewer.strip():
         raise ValueError("Reviewer identity is required")
     entries = queued_entries(StateStore(cfg.state_path).all_entries())
+    if keys is not None:
+        if set(keys) - entries.keys():
+            raise ValueError("Requested review key is not queued")
+        entries = {key: entry for key, entry in entries.items() if key in keys}
     decisions = load_review_decisions(cfg.review_decisions_path)
     counts = {"approved": 0, "rejected": 0, "skipped": 0}
     for key, entry in sorted(entries.items(), key=lambda item: (item[1].get("priority", "P3"), item[0])):

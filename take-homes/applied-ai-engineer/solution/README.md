@@ -91,5 +91,22 @@ Overriding paths is mainly how the eval runs against a scratch ledger without ev
 
 ## Notes
 
+### Scheduled Monitoring
+
+[Pipeline Health](../../../.github/workflows/pipeline-health.yml) runs hourly and
+on manual dispatch: tests, a fresh review-only batch, health checks, retained
+artifacts, and one maintained GitHub issue for operator alerts. Recovery closes
+the alert. It never applies approvals. Subscribe to repository Issues/Actions
+notifications to receive the alert; a failed alert-routing step also fails the job.
+
+This workflow is configuration, not a deployed service in the local branch.
+After publishing, enable Actions on your own fork and dispatch the workflow once.
+Scheduled runs require the workflow on that fork's default branch; fork schedules
+are disabled by default. Do not open a PR against the upstream assignment repo.
+Runners use isolated state, so this is an extraction/health canary, not a durable
+production review queue. A production deployment must mount persistent state and
+have an external dead-man alert for scheduler-wide outages. Current heuristic
+review-noise warnings are real and should not be silenced by raising thresholds.
+
 - `solution/state/*` and `stubs/outbox/*.jsonl` are gitignored: they're run-specific (timestamps, machine-local paths), not source. [`solution/demo/`](demo/README.md) is a small, real, checked-in excerpt of one full run so the human-review gate and its outputs are inspectable without re-running anything.
 - No CI or scheduler is deployed. Run the suite, two-run eval and full-corpus evidence command before resubmitting. Tests include real temporary filesystem integration; no API credentials are required for the default judge.

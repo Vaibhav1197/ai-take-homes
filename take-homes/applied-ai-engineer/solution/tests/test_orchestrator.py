@@ -8,6 +8,8 @@ the real stubs/outbox/*.jsonl files, which are actual deliverable output).
 from __future__ import annotations
 
 import tempfile
+import json
+from contextlib import ExitStack
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -132,6 +134,25 @@ class OrchestratorTestBase(unittest.TestCase):
 
 
 class TestInteractiveReview(OrchestratorTestBase):
+    def test_corpus_demo_exercises_real_review_workflow(self) -> None:
+        _write_transcript(self.transcripts_dir, "call-001")
+        candidate = _make_candidate("call-001", "Acme")
+        self.cfg.dev_labels_path.write_text('{"labels": {}}', encoding="utf-8")
+        manifest = Path(self._tmp.name) / "demo.json"
+        manifest.write_text(json.dumps({candidate_key(candidate): {
+            "decision": "approved", "action": "file-new", "note": "Simulation only"}}), encoding="utf-8")
+        output = Path(self._tmp.name) / "evidence"
+        with patch.object(orchestrator, "_make_judge", return_value=_FakeJudge({"call-001": [candidate]})):
+            report = generate_evidence(self.cfg, output, expected_calls=1, demo_decisions=manifest)
+        session = json.loads((output / "review_session.json").read_text(encoding="utf-8"))
+        self.assertTrue(session["simulation"])
+        self.assertFalse(session["human_signoff"])
+        self.assertEqual(session["counts"]["approved"], 1)
+        self.assertEqual(session["views"][0]["source"]["quote"], candidate.snippet)
+        self.assertIn("proposal_sha256", session["decisions"][candidate_key(candidate)])
+        self.assertTrue(report["demo"]["outboxes_unchanged"])
+        self.assertTrue(report["passed"])
+
     def test_review_approve_reject_skip_and_apply_twice(self) -> None:
         candidates = {}
         for number, snippet in enumerate(("Export CSV empty", "Calendar time wrong", "SSO redirect loop"), 1):
@@ -170,6 +191,62 @@ class TestInteractiveReview(OrchestratorTestBase):
         self.assertEqual(self._run_apply().failed, 1)
         self.assertEqual(self.fake_jira.calls, [])
         self.assertEqual(self.fake_slack.calls, [])
+
+
+class TestSinkReconciliation(OrchestratorTestBase):
+    def _exercise_checkpoint_failure(self, phase: str) -> None:
+        _write_transcript(self.transcripts_dir, "call-001")
+        candidate = _make_candidate("call-001", "Acme")
+        self._run_review_with({"call-001": [candidate]})
+        self._approve(candidate_key(candidate))
+        root = Path(self._tmp.name)
+        original_upsert = StateStore.upsert
+        failed = False
+
+        def crash_checkpoint(store, key, **fields):
+            nonlocal failed
+            if fields.get("delivery_phase") == phase and not failed:
+                failed = True
+                raise OSError("Simulated crash after sink write, before checkpoint")
+            return original_upsert(store, key, **fields)
+
+        with ExitStack() as stack:
+            for module, name, filename in ((orchestrator.jira_stub, "_JIRA_LOG", "jira.jsonl"),
+                                          (orchestrator.slack_stub, "_SLACK_LOG", "slack.jsonl")):
+                stack.enter_context(patch.object(module, "_OUTBOX", str(root)))
+                stack.enter_context(patch.object(module, name, str(root / filename)))
+            with patch.object(StateStore, "upsert", crash_checkpoint):
+                self.assertEqual(orchestrator.run_apply(self.cfg).failed, 1)
+            self.assertEqual(orchestrator.run_apply(self.cfg).filed, 1)
+            self.assertEqual(orchestrator.run_apply(self.cfg).filed, 0)
+        for sink in ("jira", "slack"):
+            records = [json.loads(line) for line in (root / f"{sink}.jsonl").read_text().splitlines()]
+            self.assertEqual(len(records), 1)
+            self.assertEqual(records[0]["delivery"]["operation_id"], candidate_key(candidate) + ":" + sink)
+
+    def test_jira_write_before_failed_checkpoint_is_reconciled(self) -> None:
+        self._exercise_checkpoint_failure("jira_created")
+
+    def test_slack_write_before_failed_checkpoint_is_reconciled(self) -> None:
+        self._exercise_checkpoint_failure("complete")
+
+    def test_conflicting_sink_receipt_fails_closed(self) -> None:
+        path = Path(self._tmp.name) / "sink.jsonl"
+        sent = []
+
+        def send(payload):
+            sent.append(payload)
+            path.write_text(json.dumps(payload) + "\n", encoding="utf-8")
+            return payload
+
+        orchestrator._deliver_once("op", {"text": "approved"}, path, send)
+        with self.assertRaises(ValueError):
+            orchestrator._deliver_once("op", {"text": "changed"}, path, send)
+        self.assertEqual(len(sent), 1)
+        path.write_text("broken JSON", encoding="utf-8")
+        with self.assertRaises(ValueError):
+            orchestrator._deliver_once("op", {"text": "approved"}, path, send)
+        self.assertEqual(len(sent), 1)
 
 
 class TestRunReview(OrchestratorTestBase):

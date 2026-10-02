@@ -23,6 +23,7 @@ from ..pipeline.logging_utils import EventLogger, assess_health
 from ..pipeline.orchestrator import run_apply, run_review
 from ..pipeline.review import load_review_decisions, write_review_queue_markdown
 from ..pipeline.state_store import StateStore
+from ..pipeline.triage import run_triage
 
 
 def _digest(value: object) -> str:
@@ -110,9 +111,17 @@ def generate_evidence(cfg: Config, output: Path, expected_calls: int = 140,
     paths = sorted(cfg.transcripts_dir.glob("call-*.md"))
     inputs = paths + [cfg.existing_issues_path, cfg.dev_labels_path]
     source_root = Path(__file__).resolve().parents[1]
+    assessed = {f"call-{number:03d}": "supplied_dev_labels" for number in range(1, 16)}
+    assessed.update({f"call-{number:03d}": "regression_audit" for number in (20, 40, 80, 100, 140)})
+    assessed["call-051"] = "previously_inspected_unannotated"
+    for name in ("holdout", "holdout_round2"):
+        manifest = json.loads((Path(__file__).parent / name / "manifest.json").read_text(encoding="utf-8"))
+        assessed.update({call_id: name + "_historical_regression" for call_id in manifest["sample"]})
     provenance = {
         "generated_at": datetime.now(timezone.utc).isoformat(), "python": platform.python_version(),
         "judge": cfg.judge, "similarity_threshold": cfg.similarity_threshold,
+        "model": cfg.openai_model, "llm_api_url": cfg.llm_api_url,
+        "llm_timeout_seconds": cfg.llm_timeout_seconds,
         "input_sha256": {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in inputs},
         "source_sha256": {path.relative_to(source_root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
                           for path in sorted(source_root.rglob("*.py"))},
@@ -147,6 +156,7 @@ def generate_evidence(cfg: Config, output: Path, expected_calls: int = 140,
                         and event["run_id"] == first_run_id and event["event"] in ("call_completed", "call_failed", "call_parse_failed")]
             entries = {key: entry for key, entry in before.items() if entry.get("call_id") == path.stem}
             per_call.append({"call_id": path.stem, "split": "dev" if int(path.stem.split("-")[1]) <= 15 else "unlabeled_holdout",
+                             "assessment_status": assessed.get(path.stem, "unassessed"),
                              "outcome": terminal[-1] if terminal else {"event": "missing_completion"},
                              "queue_by_action": dict(Counter(entry["action"] for entry in entries.values() if entry["status"] == "queued")),
                              "ledger_keys": sorted(entries)})
@@ -161,8 +171,26 @@ def generate_evidence(cfg: Config, output: Path, expected_calls: int = 140,
                     raise ValueError(f"Invalid or stale demo decision: {key}")
                 if decision.get("action") != decisions[key]["action"]:
                     raise ValueError(f"Demo action changed for {key}; re-review required")
-                decisions[key].update(decision)
-            _write_json(scratch_cfg.review_decisions_path, decisions)
+            views = []
+
+            def capture_view(text: str) -> None:
+                views.append(json.loads(text))
+
+            def simulated_input(prompt: str) -> str:
+                choice = manifest[views[-1]["key"]]
+                if prompt.startswith("[a]"):
+                    return "a" if choice["decision"] == "approved" else "r"
+                return choice["note"]
+
+            review_counts = run_triage(scratch_cfg, "GitHub Copilot (automated simulation)",
+                                      keys=list(manifest), read=simulated_input, write=capture_view)
+            recorded = load_review_decisions(scratch_cfg.review_decisions_path)
+            _write_json(output / "review_session.json", {
+                "simulation": True, "human_signoff": False,
+                "timing_scope": "Measured automated input latency, NOT human review speed",
+                "counts": review_counts, "views": views,
+                "decisions": {key: recorded[key] for key in manifest},
+            })
             applied = run_apply(scratch_cfg)
             writes_before = {"jira": _rows(jira_path), "slack": _rows(slack_path)}
             reapplied = run_apply(scratch_cfg)
@@ -197,6 +225,14 @@ def generate_evidence(cfg: Config, output: Path, expected_calls: int = 140,
                       and (not demo["performed"] or demo["passed"]),
         }
         _write_json(output / "full_run.json", report)
+        _write_json(output / "assessment_inventory.json", {
+            "scope": "Annotation coverage inventory, NOT new adjudication or correctness labels",
+            "counts": dict(Counter(row["assessment_status"] for row in per_call)),
+            "calls": [{"call_id": row["call_id"], "assessment_status": row["assessment_status"],
+                   "note": f"{row['assessment_status']}; {row['outcome']['event']}; "
+                       f"{sum(row['queue_by_action'].values())} machine proposals, not adjudicated outcomes"}
+                  for row in per_call],
+        })
         _write_json(output / "decisions.json", before)
         _write_json(output / "audit.json", audit_entries(before, cfg))
         _write_json(output / "alert_examples.json", probes)

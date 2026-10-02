@@ -33,6 +33,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from collections import Counter
 from pathlib import Path
+import hashlib
+import json
 from time import monotonic
 from typing import Optional
 
@@ -51,6 +53,25 @@ from .state_store import StateStore, candidate_key
 
 _TERMINAL_STATUSES = frozenset({"filed", "corroborated", "rejected", "not_actionable", "collapsed_duplicate"})
 _FILE_NEW_ACTIONS = frozenset({Action.FILE_NEW.value, Action.FILE_NEW_LOW.value})
+
+
+def _deliver_once(operation_id: str, payload: dict, log_path, send) -> dict:
+    payload_hash = hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
+    receipts = []
+    if log_path and Path(log_path).exists():
+        for line in Path(log_path).read_text(encoding="utf-8").splitlines():
+            record = json.loads(line)
+            if record.get("delivery", {}).get("operation_id") == operation_id:
+                receipts.append(record)
+    if len(receipts) > 1:
+        raise ValueError("Multiple sink receipts found for one delivery; operator reconciliation required")
+    if receipts:
+        record = receipts[0]
+        if (record["delivery"].get("payload_sha256") != payload_hash
+                or any(record.get(name) != value for name, value in payload.items())):
+            raise ValueError("Sink receipt conflicts with approved payload; operator reconciliation required")
+        return record
+    return send({**payload, "delivery": {"operation_id": operation_id, "payload_sha256": payload_hash}})
 
 
 @dataclass
@@ -81,7 +102,8 @@ def _make_judge(cfg: Config) -> IssueJudge:
     if cfg.judge == "llm":
         from .llm_judge import LLMJudge  # local import: optional dependency path
 
-        return LLMJudge(model=cfg.openai_model)
+        return LLMJudge(model=cfg.openai_model, api_url=cfg.llm_api_url,
+                timeout_seconds=cfg.llm_timeout_seconds)
     return HeuristicJudge()
 
 
@@ -286,6 +308,7 @@ def _process_call_for_review(
             issue_type=decision.issue_type.value if decision.issue_type else None,
             summary=decision.title, description=candidate.snippet, priority=decision.priority,
             confidence=decision.confidence, rationale=decision.rationale,
+            dedup_similarity=round(outcome.similarity, 6),
             turn_span=list(candidate.turn_span),
         )
         summary.queued_for_review += 1
@@ -329,12 +352,14 @@ def run_apply(cfg: Optional[Config] = None) -> ApplyRunSummary:
             decision = _rehydrate_decision(entry, key)
             real_key = entry.get("issue_key")
             if not real_key:
-                record = jira_stub.create_issue(build_jira_payload(decision, transcript))
+                record = _deliver_once(key + ":jira", build_jira_payload(decision, transcript),
+                                       getattr(jira_stub, "_JIRA_LOG", None), jira_stub.create_issue)
                 real_key = record["key"]
                 store.upsert(key, issue_key=real_key, delivery_phase="jira_created")
             if str(entry.get("matched_key", "")).startswith(PENDING_KEY_PREFIX):
                 pending_key_map[entry["matched_key"]] = real_key
-            slack_stub.post_message(build_slack_payload(decision, transcript, issue_key=real_key))
+            _deliver_once(key + ":slack", build_slack_payload(decision, transcript, issue_key=real_key),
+                          getattr(slack_stub, "_SLACK_LOG", None), slack_stub.post_message)
             store.upsert(
                 key, status="filed", delivery_phase="complete", issue_key=real_key, issue_type=entry.get("issue_type"),
                 summary=entry.get("summary"), description=entry.get("description"),
@@ -369,7 +394,8 @@ def run_apply(cfg: Optional[Config] = None) -> ApplyRunSummary:
                 raise ValueError("Corroboration depends on a new ticket that has not been filed yet")
             transcript = parse_transcript(_transcript_path(cfg, entry["call_id"]))
             decision = _rehydrate_decision(entry, key)
-            slack_stub.post_message(build_slack_payload(decision, transcript, issue_key=real_key))
+            _deliver_once(key + ":slack", build_slack_payload(decision, transcript, issue_key=real_key),
+                          getattr(slack_stub, "_SLACK_LOG", None), slack_stub.post_message)
             store.upsert(key, status="corroborated", issue_key=real_key)
             summary.corroborated += 1
             logger.emit("corroboration_notified", key=key, issue_key=real_key, call_id=entry.get("call_id"))

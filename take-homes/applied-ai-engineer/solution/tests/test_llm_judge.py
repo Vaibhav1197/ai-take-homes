@@ -141,6 +141,14 @@ class TestPromptConstruction(unittest.TestCase):
 
 
 class TestRobustnessAgainstBadModelOutput(unittest.TestCase):
+    def test_truncated_json_response_fails_even_when_json_parses(self) -> None:
+        transcript = _transcript([(EXT, "Jamie", "The export is broken.")])
+        response = _chat_response({"issues": []})
+        response["choices"][0]["finish_reason"] = "length"
+        judge = self._judge(unittest.mock.Mock(return_value=response))
+        with self.assertRaises(LLMJudgeError):
+            judge.find_candidates(transcript)
+
     def _judge(self, transport) -> LLMJudge:
         return LLMJudge(model="gpt-4o-mini", api_key="sk-test", transport=transport)
 

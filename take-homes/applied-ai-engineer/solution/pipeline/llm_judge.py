@@ -2,9 +2,9 @@
 running the rule engine. See WRITEUP.md "AI placement" for why this is not
 the default.
 
-Only imported when `PIPELINE_JUDGE=llm` (see `orchestrator._make_judge`),
-and `config.load_config()` already refuses to select "llm" without
-`OPENAI_API_KEY` set. Uses only the standard library (`urllib`) to stay
+Only imported when `PIPELINE_JUDGE=llm` (see `orchestrator._make_judge`).
+Configuration allows a no-key loopback endpoint; remote endpoints require
+`OPENAI_API_KEY`. Uses only the standard library (`urllib`) to stay
 consistent with the rest of this solution's zero-third-party-dependency
 stance -- no `openai` package required.
 
@@ -38,6 +38,7 @@ import math
 import os
 import urllib.error
 import urllib.request
+from functools import partial
 from typing import Callable, Optional
 
 from .heuristic_judge import _build_snippet, estimate_priority
@@ -85,12 +86,13 @@ def _render_transcript(transcript: Transcript) -> str:
 Transport = Callable[[str, dict], dict]
 
 
-def _default_transport(api_key: str, payload: dict) -> dict:
+def _default_transport(api_key: str, payload: dict, *, api_url: str = _API_URL,
+                       timeout_seconds: float = _REQUEST_TIMEOUT_SECONDS) -> dict:
     """Real network call, stdlib-only. Never exercised by unit tests --
     `LLMJudge(transport=...)` swaps this out for a fake."""
     body = json.dumps(payload).encode("utf-8")
     request = urllib.request.Request(
-        _API_URL,
+        api_url,
         data=body,
         method="POST",
         headers={
@@ -98,7 +100,7 @@ def _default_transport(api_key: str, payload: dict) -> dict:
             "Authorization": f"Bearer {api_key}",
         },
     )
-    with urllib.request.urlopen(request, timeout=_REQUEST_TIMEOUT_SECONDS) as response:
+    with urllib.request.urlopen(request, timeout=timeout_seconds) as response:
         return json.loads(response.read().decode("utf-8"))
 
 
@@ -118,10 +120,12 @@ class LLMJudge:
         model: str,
         api_key: Optional[str] = None,
         transport: Optional[Transport] = None,
+        api_url: str = _API_URL,
+        timeout_seconds: float = _REQUEST_TIMEOUT_SECONDS,
     ) -> None:
         self.model = model
         self.api_key = api_key if api_key is not None else os.environ.get("OPENAI_API_KEY", "")
-        self._transport = transport or _default_transport
+        self._transport = transport or partial(_default_transport, api_url=api_url, timeout_seconds=timeout_seconds)
 
     def find_candidates(self, transcript: Transcript) -> list[Candidate]:
         if not transcript.has_external_participant:
@@ -130,6 +134,7 @@ class LLMJudge:
         payload = {
             "model": self.model,
             "temperature": 0,
+            "max_tokens": 4096,
             "response_format": {"type": "json_object"},
             "messages": [
                 {"role": "system", "content": _SYSTEM_PROMPT},
@@ -150,11 +155,15 @@ class LLMJudge:
     def _request_issues(self, call_id: str, payload: dict) -> list[dict]:
         try:
             response = self._transport(self.api_key, payload)
-            raw_content = response["choices"][0]["message"]["content"]
+            choice = response["choices"][0]
+            if choice.get("finish_reason") not in (None, "stop"):
+                raise LLMJudgeError(f"Incomplete model response for {call_id}")
+            raw_content = choice["message"]["content"]
             parsed = json.loads(raw_content)
             issues = parsed["issues"]
         except (
             urllib.error.URLError,
+            TimeoutError,
             KeyError,
             IndexError,
             TypeError,
@@ -170,7 +179,7 @@ class LLMJudge:
     ) -> Optional[Candidate]:
         """Never trust the model past this point without re-deriving from
         real turns -- an out-of-range span, or a span with no EXTERNAL
-        turn in it, is dropped rather than passed through."""
+        turn in it, invalidates the call rather than becoming a silent miss."""
         if not isinstance(item, dict):
             return None
         try:

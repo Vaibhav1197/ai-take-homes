@@ -50,6 +50,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     sub.add_parser("apply", help="Apply human-approved decisions: file Jira tickets, send Slack notifications.")
     triage = sub.add_parser("triage", help="Review evidence and payloads; record decisions without filing.")
     triage.add_argument("--reviewer", required=True)
+    triage.add_argument("--key", action="append", help="Review only this queued key; repeat for multiple keys.")
     monitor = sub.add_parser("monitor", help="Check batch freshness, coverage, failures and review noise; exits 1 on alerts.")
     monitor.add_argument("--expected-calls", type=int, default=140)
     monitor.add_argument("--max-age-seconds", type=float, default=3600)
@@ -67,7 +68,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         _print_apply_summary(summary)
         return int(summary.failed > 0)
     elif args.command == "triage":
-        print(json.dumps(run_triage(cfg, args.reviewer), indent=2))
+        print(json.dumps(run_triage(cfg, args.reviewer, keys=args.key), indent=2))
         return 0
     elif args.command == "monitor":
         if args.expected_calls < 1 or args.max_age_seconds <= 0 or (args.baseline_rate is not None and args.baseline_rate <= 0):
