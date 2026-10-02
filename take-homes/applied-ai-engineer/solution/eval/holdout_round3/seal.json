@@ -1,0 +1,9 @@
+{
+  "evaluator_sha256": "ff109cc47b6ed50f148d116828680377e72d97590c14fa3e14d1604d0e9e8af8",
+  "files_sha256": {
+    "annotations.json": "da334737896baecf968e7075285419b536bece957fd27aa112c961c19059657c",
+    "manifest.json": "314504785f69d08e5f589e3aa819d1e36c38721cb2f04e05fb98efe31fe7607f"
+  },
+  "purpose": "Integrity checkpoint before first score, not cryptographic proof of independent annotation",
+  "sealed_at": "2026-10-02T15:11:56.552358+00:00"
+}

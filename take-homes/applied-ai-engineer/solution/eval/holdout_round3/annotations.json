@@ -1,0 +1,176 @@
+{
+  "annotation_source": "GitHub Copilot source-first annotation of a disjoint hash-selected sample after code/config freeze and before model predictions. Same coding agent, not independent human ground truth.",
+  "cases": [
+    {
+      "call_id": "call-025",
+      "evidence_speaker": "INTERNAL",
+      "evidence": ["Weekly pipeline review. Let's go account by account"],
+      "expected": [],
+      "reason": "Internal-only CS pipeline meeting; account echoes and rumors are not external product reports.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-027",
+      "evidence": ["No complaints on the tool at all, honestly. Everything just works"],
+      "expected": [],
+      "reason": "Healthy program and commercial seat expansion; no software defect or missing product capability.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-043",
+      "evidence": ["zero complaints and zero asks"],
+      "expected": [],
+      "reason": "Healthy check-in, scheduling and future onboarding logistics only.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-044",
+      "evidence": ["A couple asked for a PDF export", "Some of them get deactivated and some don't."],
+      "expected": [{"action": "corroborate", "issue_type": "Feature", "matched_key": "PROJ-118", "patterns": ["PDF", "export", "team|dashboard"]}, {"action": "file-new", "issue_type": "Bug", "patterns": ["deactivat", "partial|some", "timeout|times? out|error"]}],
+      "reason": "Manager-team PDF export matches PROJ-118. Bulk deactivation above roughly 200 times out with partial unreported results: one distinct bug. A background job is a remedy, not a separate feature; activation concern is hypothetical.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-061",
+      "evidence": ["None that reached me. My inbox is where complaints go to be seen, and it's quiet on BetterBark."],
+      "expected": [],
+      "reason": "Commercial renewal and program rollout, with explicit absence of product complaints.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-063",
+      "evidence": ["a button on the manager dashboard that spits out their team's engagement summary as a PDF"],
+      "expected": [{"action": "corroborate", "issue_type": "Feature", "matched_key": "PROJ-118", "patterns": ["PDF", "dashboard", "team|engagement"]}],
+      "reason": "Self-service manager engagement PDF export matches PROJ-118; manual copy mistakes motivate the feature, not a separate product bug. Existing dark mode and coach reassignment work.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-067",
+      "evidence": ["What I need is for BetterBark to support SCIM"],
+      "expected": [{"action": "corroborate", "issue_type": "Feature", "matched_key": "PROJ-155", "patterns": ["SCIM", "deactivat|deprovision", "identity|IdP"]}],
+      "reason": "SCIM lifecycle/deprovisioning request matches PROJ-155. Missed manual removals are motivation; scoped roles and reconciliation exports are offered existing-service workarounds.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-075",
+      "evidence": ["The text physically arrives after the code has already expired.", "On the Canadian numbers, yes."],
+      "expected": [{"action": "file-new", "issue_type": "Bug", "patterns": ["SMS|text", "Canadian|Canada", "expir"]}],
+      "reason": "Canadian SMS MFA arrives after five-minute expiry, unlike US delivery. Distinct from password-reset email delay. TOTP is an existing workaround, not a separate feature.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-083",
+      "evidence": ["Well, crisis averted, and it was entirely self-inflicted.", "the original panic turned out to be nothing"],
+      "expected": [],
+      "reason": "Apparent missing data resolves by changing a persisted custom date filter. Scheduling/report guidance is existing functionality, with no remaining defect.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-084",
+      "evidence": ["Renew at four-fifty, lock the rate, cover the new group from day one."],
+      "expected": [],
+      "reason": "Commercial renewal, seat expansion and coach matching logistics only.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-089",
+      "evidence": ["The thing just works and my people use it."],
+      "expected": [],
+      "reason": "Relationship check-in with healthy product use. Hypothetical teenager coaching joke and cohort-program planning are not actionable software requests.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-095",
+      "evidence": ["Yes. An API endpoint to create teams.", "Create is the must-have. Rename and archive are the nice-to-haves."],
+      "expected": [{"action": "file-new", "issue_type": "Feature", "patterns": ["API", "creat", "team"]}],
+      "reason": "Programmatic team creation/lifecycle is one new feature request. Manual naming mistakes motivate it; member CSV already works. Not SCIM user deprovisioning.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-096",
+      "evidence": ["Nothing broken. The platform does what it does and my people can get to it"],
+      "expected": [],
+      "reason": "Healthy coaching use; local connectivity limitations are managed and not a claimed platform defect. Future cohort expansion is program planning.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-097",
+      "evidence": ["That's got to be leftover junk from the vendor template.", "Deleting it right now."],
+      "expected": [],
+      "reason": "Quoted SYSTEM instruction belongs to an unrelated third-party onboarding document and is removed. No BetterBark bug or feature request; onboarding advice only.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-104",
+      "evidence": ["The program does what I need. This call is about terms and about scope for next year"],
+      "expected": [],
+      "reason": "Seat counts, renewal term and principal-engineer eligibility are commercial/program decisions, not software issues.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-106",
+      "evidence_speaker": "INTERNAL",
+      "evidence": ["this is a wish, not a customer ask, nobody has requested this"],
+      "expected": [],
+      "reason": "Internal-only speculative roadmap discussion has no external participant; no customer issue should be queued.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-107",
+      "evidence": ["A nightly SFTP drop of a usage extract.", "I don't need real-time, I don't need an API, I don't need webhooks."],
+      "expected": [{"action": "file-new", "issue_type": "Feature", "patterns": ["SFTP", "nightly|schedule", "usage|engagement|extract"]}],
+      "reason": "Concrete automated SFTP push requirement, support not confirmed and not in tracked catalog. Distinct delivery mechanism from BI/API requests; one feature with schema and schedule requirements.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-109",
+      "evidence": ["This IS the evidence. I don't need a narrative at all."],
+      "expected": [],
+      "reason": "Login-history need is satisfied live by shipped PROJ-089. Security documentation and release-notification follow-ups are account service, not software features.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-118",
+      "evidence": ["I'm honestly not sure I turned that on.", "That's fine, honestly. When they're doing manager-brain stuff they're at a desk anyway."],
+      "expected": [],
+      "reason": "Existing manager dashboard access needs configuration. Customer accepts desktop-only manager view without requesting mobile implementation; otherwise positive feedback.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-120",
+      "evidence": ["Honestly, nothing's bugging me. It does what I need."],
+      "expected": [],
+      "reason": "Healthy relationship call, local connectivity managed and no product complaints or feature requests.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-121",
+      "evidence": ["It wasn't your app at all, it was my phone.", "So there's nothing for you to file, this was just me."],
+      "expected": [],
+      "reason": "Push notifications restored and tested by enabling OS permission. No unresolved app defect or customer feature request.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-122",
+      "evidence": ["a SECOND credit gets deducted. So one session, two credits gone.", "reschedules made within twenty-four hours of the original slot"],
+      "expected": [{"action": "file-new", "issue_type": "Bug", "patterns": ["reschedul", "credit", "second|two|double", "twenty.four|24"]}],
+      "reason": "Rescheduling within 24 hours consumes a second credit without policy basis. One billing bug; restoration of lost credits is account remediation, not a feature.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-125",
+      "evidence": ["Somewhere around two thousand characters, they stop arriving.", "the sender sees \"sent\" but the recipient gets nothing"],
+      "expected": [{"action": "file-new", "issue_type": "Bug", "patterns": ["message", "two thousand|2000", "sent|deliver|arriv"]}],
+      "reason": "Long member-to-coach messages silently drop while showing sent; genuine bug survives irrelevant corrupted-transcript instructions. Reverse direction unverified; CSV onboarding is existing functionality.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-134",
+      "evidence": ["What I need is API access to the engagement metrics.", "But the real fix is the API. Don't let the stopgap kill the real ask."],
+      "expected": [{"action": "file-new", "issue_type": "Feature", "patterns": ["API", "engagement", "aggregate|metric", "Tableau|Looker|BI"]}],
+      "reason": "Programmatic aggregate engagement metrics for BI is a genuine new feature, with API preferred. Portfolio-program setup is commercial/service work; manual transcription errors are motivation, not software bugs.",
+      "review_status": "reviewed"
+    }
+  ],
+  "human_confirmed": false
+}

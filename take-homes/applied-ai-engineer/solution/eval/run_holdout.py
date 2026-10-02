@@ -108,7 +108,10 @@ def validate_assessment(cfg: Config, directory: Path, *, sealed: bool = True,
             raise ValueError(f"Unreviewed or ungrounded annotation: {case['call_id']}")
         transcript = parse_transcript(cfg.transcripts_dir / f"{case['call_id']}.md")
         external = [turn.text for turn in transcript.turns if turn.speaker.value == "EXTERNAL"]
-        if any(not quote or not any(quote in text for text in external) for quote in case["evidence"]):
+        evidence_texts = external
+        if not external and not case["expected"] and case.get("evidence_speaker") == "INTERNAL":
+            evidence_texts = [turn.text for turn in transcript.turns]
+        if any(not quote or not any(quote in text for text in evidence_texts) for quote in case["evidence"]):
             raise ValueError(f"Evidence is not an external source quote: {case['call_id']}")
         for expected in case["expected"]:
             if expected["action"] not in ("file-new", "corroborate") or expected["issue_type"] not in ("Bug", "Feature"):
