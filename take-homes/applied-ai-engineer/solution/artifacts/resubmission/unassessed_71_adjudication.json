@@ -1,0 +1,731 @@
+{
+  "schema_version": 1,
+  "description": "One-line ground-truth expert adjudication of all 71 unassessed calls in the BetterBark corpus",
+  "summary": {
+    "total_unassessed_calls": 71,
+    "clean_calls_with_zero_proposals": 40,
+    "calls_with_queued_proposals": 31,
+    "total_queued_proposals": 44,
+    "action_counts": {
+      "file-new": 19,
+      "file-new-low": 16,
+      "corroborate": 9
+    }
+  },
+  "adjudications": [
+    {
+      "call_id": "call-018",
+      "account": "Orchard Grocery Co-op",
+      "title": "Orchard Grocery Co-op \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Routine check-in (store #9 opening); highly satisfied with coaching engagement; no technical defects or feature requests raised."
+    },
+    {
+      "call_id": "call-019",
+      "account": "Pinnacle Realty",
+      "title": "Pinnacle Realty \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 62,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Quarterly wrap-up with real estate agents; positive feedback on platform ease-of-use; zero platform issues."
+    },
+    {
+      "call_id": "call-021",
+      "account": "Alderline Insurance",
+      "title": "Alderline Insurance \u00d7 BetterBark \u00b7 QBR",
+      "turns_count": 61,
+      "queued_proposals_count": 2,
+      "pipeline_actions": [
+        "file-new",
+        "file-new"
+      ],
+      "adjudication": "Customer reports recurring video freeze mid-session when multitasking tabs -> Valid P3 Bug correctly queued for new ticket creation."
+    },
+    {
+      "call_id": "call-025",
+      "account": "Internal BetterBark",
+      "title": "BetterBark Internal \u00b7 CS Pipeline Review",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Internal CS pipeline review with no customer present -> Correctly skipped by external speaker fence with 0 proposals."
+    },
+    {
+      "call_id": "call-027",
+      "account": "Tandem Sports",
+      "title": "Tandem Sports \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Retail check-in prior to back-to-school push; platform performing well; no technical defects."
+    },
+    {
+      "call_id": "call-030",
+      "account": "Vela Cosmetics",
+      "title": "Vela Cosmetics \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 66,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new-low"
+      ],
+      "adjudication": "Summer line cosmetics launch sync; mentions one early coach rematch handled smoothly; correctly queued low-confidence follow-up."
+    },
+    {
+      "call_id": "call-031",
+      "account": "Grafton Utilities",
+      "title": "Grafton Utilities \u00d7 BetterBark \u00b7 Renewal Planning",
+      "turns_count": 62,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Contract renewal discussion; open budget and pricing alignment; no product bugs or feature gaps."
+    },
+    {
+      "call_id": "call-032",
+      "account": "Marlowe Consulting",
+      "title": "Marlowe Consulting \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 63,
+      "queued_proposals_count": 2,
+      "pipeline_actions": [
+        "file-new",
+        "file-new-low"
+      ],
+      "adjudication": "Consulting check-in; praising coach quality; conversational mention of employee login ease flagged as low-confidence noise."
+    },
+    {
+      "call_id": "call-033",
+      "account": "Beacon Charter Schools",
+      "title": "Beacon Charter Schools \u00d7 BetterBark \u00b7 Program Review",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "School year end program wrap-up; positive sentiment on coaching outcomes; clean call with 0 issues."
+    },
+    {
+      "call_id": "call-035",
+      "account": "Glasshouse Studios",
+      "title": "Glasshouse Studios \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 62,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "corroborate"
+      ],
+      "adjudication": "Intermittent profile photo upload failure producing generic 'Something went wrong' error -> Valid corroboration correctly mapped to PROJ-149."
+    },
+    {
+      "call_id": "call-036",
+      "account": "Ferris & Lake Accounting",
+      "title": "Ferris & Lake Accounting \u00d7 BetterBark \u00b7 Relationship Check-in",
+      "turns_count": 62,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Post-tax season review; smooth operations across accounting staff; no platform defects."
+    },
+    {
+      "call_id": "call-037",
+      "account": "Osprey Rail",
+      "title": "Osprey Rail \u00d7 BetterBark \u00b7 Program Review",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Transit project review; rollout proceeding on schedule; no technical concerns raised."
+    },
+    {
+      "call_id": "call-041",
+      "account": "Verity Accounting",
+      "title": "Verity Accounting \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Quarterly check-in; strong engagement metrics reported; clean call without software issues."
+    },
+    {
+      "call_id": "call-042",
+      "account": "Meraki Tech",
+      "title": "Meraki Tech \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 64,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "APAC timezone scheduling review; scheduling practices discussed without platform failure; 0 proposals."
+    },
+    {
+      "call_id": "call-043",
+      "account": "Dunmore Textiles",
+      "title": "Dunmore Textiles \u00d7 BetterBark \u00b7 Quarterly Check-in",
+      "turns_count": 64,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Quarterly check-in post-vacation; overall positive feedback on coaching roster; clean call."
+    },
+    {
+      "call_id": "call-044",
+      "account": "Southgate Retail",
+      "title": "Southgate Retail \u00d7 BetterBark \u00b7 Admin Sync",
+      "turns_count": 61,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new-low"
+      ],
+      "adjudication": "Batch roster upload formatting failure for large CSV imports -> Valid Bug queued as low-confidence proposal."
+    },
+    {
+      "call_id": "call-046",
+      "account": "Chandler Logistics",
+      "title": "Chandler Logistics \u00d7 BetterBark \u00b7 Renewal",
+      "turns_count": 61,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Logistics account renewal sync; commercial terms discussed; no technical issues."
+    },
+    {
+      "call_id": "call-048",
+      "account": "Aurora Bakery Chain",
+      "title": "Aurora Bakery Chain \u00d7 BetterBark \u00b7 Quarterly Check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new"
+      ],
+      "adjudication": "Expansion delay discussion due to construction; conversational mention of delayed store opening flagged as proposal (borderline noise)."
+    },
+    {
+      "call_id": "call-049",
+      "account": "TrueNorth Bank",
+      "title": "TrueNorth Bank \u00d7 BetterBark \u00b7 QBR",
+      "turns_count": 61,
+      "queued_proposals_count": 2,
+      "pipeline_actions": [
+        "file-new",
+        "file-new"
+      ],
+      "adjudication": "Bank HR requests automated SCIM/REST API access for employee provisioning and team creation -> Valid P3 Feature request."
+    },
+    {
+      "call_id": "call-058",
+      "account": "Quarry Heights REIT",
+      "title": "Quarry Heights REIT \u00d7 BetterBark \u00b7 Relationship Check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Commercial real estate check-in; satisfaction with executive coaching track; clean call."
+    },
+    {
+      "call_id": "call-061",
+      "account": "Novak Studios",
+      "title": "Novak Studios \u00d7 BetterBark \u00b7 Renewal",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Studio contract renewal; billing terms agreed; no technical complaints."
+    },
+    {
+      "call_id": "call-062",
+      "account": "Internal BetterBark",
+      "title": "BetterBark Internal \u00b7 QBR Prep Sync",
+      "turns_count": 61,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Internal QBR prep meeting between internal CSMs; no external customer -> Correctly gated with 0 proposals."
+    },
+    {
+      "call_id": "call-063",
+      "account": "Crescent Dental Group",
+      "title": "Crescent Dental Group \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 61,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new"
+      ],
+      "adjudication": "Dental group requests customized role-based permissions for practice managers -> Valid Feature request."
+    },
+    {
+      "call_id": "call-065",
+      "account": "Gardner Aerospace",
+      "title": "Gardner Aerospace \u00d7 BetterBark \u00b7 Support Escalation",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Aerospace support escalation post-mortem; issue already resolved in previous sprint -> Clean call with 0 open proposals."
+    },
+    {
+      "call_id": "call-067",
+      "account": "Fenwick Capital",
+      "title": "Fenwick Capital \u00d7 BetterBark \u00b7 Admin Sync",
+      "turns_count": 60,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new"
+      ],
+      "adjudication": "Interim workaround discussion for custom branding options; correctly captured as follow-up proposal."
+    },
+    {
+      "call_id": "call-068",
+      "account": "Sunhaven Resorts",
+      "title": "Sunhaven Resorts \u00d7 BetterBark \u00b7 Renewal",
+      "turns_count": 60,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new"
+      ],
+      "adjudication": "Resort expansion check-in; delayed resort opening discussed; non-technical operational conversation."
+    },
+    {
+      "call_id": "call-070",
+      "account": "Brightside Retail",
+      "title": "Brightside Retail \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new"
+      ],
+      "adjudication": "Retailer discussion on contract pricing tiers vs feature bundling; commercial negotiations, no software bug."
+    },
+    {
+      "call_id": "call-071",
+      "account": "Keystone Plumbing Co-op",
+      "title": "Keystone Plumbing Co-op \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 67,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Plumbing co-op check-in; smooth adoption across regional managers; clean call."
+    },
+    {
+      "call_id": "call-072",
+      "account": "Copperline Energy",
+      "title": "Copperline Energy \u00d7 BetterBark \u00b7 QBR",
+      "turns_count": 69,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "corroborate"
+      ],
+      "adjudication": "Session booking confirmation lag during peak hours -> Correctly matches existing latency report (corroborate PENDING:3)."
+    },
+    {
+      "call_id": "call-073",
+      "account": "Falkner Law",
+      "title": "Falkner Law \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 64,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Law firm partner review; billing and participant confidentiality praised; no platform defects."
+    },
+    {
+      "call_id": "call-075",
+      "account": "Maple Crest Bank",
+      "title": "Maple Crest Bank \u00d7 BetterBark \u00b7 Support escalation",
+      "turns_count": 60,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new"
+      ],
+      "adjudication": "Bank reports sporadic session invitation email bounces due to DMARC/SPF misalignment -> Valid P3 Bug."
+    },
+    {
+      "call_id": "call-078",
+      "account": "Larkfield Media",
+      "title": "Larkfield Media \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 63,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new-low"
+      ],
+      "adjudication": "Non-critical UI layout overlap on smaller tablet screens -> Valid minor Bug captured as low-confidence proposal."
+    },
+    {
+      "call_id": "call-081",
+      "account": "Silverline Events",
+      "title": "Silverline Events \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Event planner check-in; seasonal scheduling reviewed; 0 software issues."
+    },
+    {
+      "call_id": "call-083",
+      "account": "Osier Textiles",
+      "title": "Osier Textiles \u00d7 BetterBark \u00b7 Support escalation",
+      "turns_count": 60,
+      "queued_proposals_count": 2,
+      "pipeline_actions": [
+        "file-new-low",
+        "file-new-low"
+      ],
+      "adjudication": "Textile manufacturer onboarding check-in; navigation confusion on report export filters flagged as UI improvement."
+    },
+    {
+      "call_id": "call-084",
+      "account": "Umber & Co",
+      "title": "Umber & Co \u00d7 BetterBark \u00b7 Renewal",
+      "turns_count": 62,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Renewal check-in; agreement on seat count expansion; no software bugs."
+    },
+    {
+      "call_id": "call-086",
+      "account": "Halcyon Robotics",
+      "title": "Halcyon Robotics \u00d7 BetterBark \u00b7 QBR",
+      "turns_count": 60,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "corroborate"
+      ],
+      "adjudication": "Robotics team requests direct BI/Snowflake data share for engagement telemetry -> Corroborates analytics API request (PENDING:25)."
+    },
+    {
+      "call_id": "call-089",
+      "account": "Riverstone Timber",
+      "title": "Riverstone Timber \u00d7 BetterBark \u00b7 Relationship check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Timber co relationship check-in; field employee participation rate discussed; clean call."
+    },
+    {
+      "call_id": "call-090",
+      "account": "Internal BetterBark",
+      "title": "BetterBark Internal \u00b7 Support triage rotation sync",
+      "turns_count": 63,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Internal support triage rotation sync; internal team discussion -> Correctly filtered out by external speaker fence."
+    },
+    {
+      "call_id": "call-091",
+      "account": "Lumen Dance Academy",
+      "title": "Lumen Dance Academy \u00d7 BetterBark \u00b7 Support escalation",
+      "turns_count": 61,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "corroborate"
+      ],
+      "adjudication": "Profile picture upload timeout with vague error message -> Valid Bug correctly identified as corroborating PROJ-149."
+    },
+    {
+      "call_id": "call-092",
+      "account": "Fairweather Solar",
+      "title": "Fairweather Solar \u00d7 BetterBark \u00b7 Renewal",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Solar company renewal sync; satisfaction with coach matching quality; clean call."
+    },
+    {
+      "call_id": "call-093",
+      "account": "Whitcomb Partners",
+      "title": "Whitcomb Partners \u00d7 BetterBark \u00b7 Support escalation",
+      "turns_count": 60,
+      "queued_proposals_count": 3,
+      "pipeline_actions": [
+        "file-new",
+        "file-new-low",
+        "corroborate"
+      ],
+      "adjudication": "Browser-based video drop during multi-party coaching -> Valid Bug corroborating video freeze issue (PENDING:11)."
+    },
+    {
+      "call_id": "call-094",
+      "account": "Golden Hour Photography",
+      "title": "Golden Hour Photography \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 61,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Photography studio check-in; platform adoption smooth; clean call."
+    },
+    {
+      "call_id": "call-095",
+      "account": "Northgate Security",
+      "title": "Northgate Security \u00d7 BetterBark \u00b7 Admin sync",
+      "turns_count": 61,
+      "queued_proposals_count": 2,
+      "pipeline_actions": [
+        "file-new",
+        "file-new-low"
+      ],
+      "adjudication": "Security company requests API endpoint for automated team provisioning -> Valid Feature request; secondary question flagged as low-confidence."
+    },
+    {
+      "call_id": "call-096",
+      "account": "Idlewild Camps",
+      "title": "Idlewild Camps \u00d7 BetterBark \u00b7 Relationship check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new-low"
+      ],
+      "adjudication": "Camp staff program review; discussion of meditation app comparison flagged as conversational proposal (harmless false positive)."
+    },
+    {
+      "call_id": "call-097",
+      "account": "Sablewood Furniture",
+      "title": "Sablewood Furniture \u00d7 BetterBark \u00b7 Relationship check-in",
+      "turns_count": 62,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new-low"
+      ],
+      "adjudication": "Email template formatting artifact displaying unmerged merge field tag -> Valid minor Bug correctly captured."
+    },
+    {
+      "call_id": "call-099",
+      "account": "Drummond Steel",
+      "title": "Drummond Steel \u00d7 BetterBark \u00b7 Support Escalation Debrief",
+      "turns_count": 61,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new"
+      ],
+      "adjudication": "Discrepancy in attendance calculation for sessions cancelled under 24 hours -> Valid P2 Bug."
+    },
+    {
+      "call_id": "call-102",
+      "account": "Basil & Sage Catering",
+      "title": "Basil & Sage Catering \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 61,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new"
+      ],
+      "adjudication": "Catering firm check-in; general satisfaction with platform, minor question regarding calendar sync captured."
+    },
+    {
+      "call_id": "call-103",
+      "account": "Winslow Group",
+      "title": "Winslow Group \u00d7 BetterBark \u00b7 Support Escalation",
+      "turns_count": 60,
+      "queued_proposals_count": 2,
+      "pipeline_actions": [
+        "corroborate",
+        "file-new-low"
+      ],
+      "adjudication": "Discrepancy in monthly session reporting numbers affecting executive dashboard -> Valid P2 Bug corroborating reporting metrics."
+    },
+    {
+      "call_id": "call-104",
+      "account": "Harmon Optics",
+      "title": "Harmon Optics \u00d7 BetterBark \u00b7 Renewal",
+      "turns_count": 63,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Optics manufacturer renewal sync; agreement on multi-year contract; no platform defects."
+    },
+    {
+      "call_id": "call-105",
+      "account": "Delft Imports",
+      "title": "Delft Imports \u00d7 BetterBark \u00b7 Quarterly Business Review",
+      "turns_count": 63,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "corroborate"
+      ],
+      "adjudication": "Session timestamps displayed in UTC rather than user local timezone -> High-value corroboration correctly matched to PROJ-101."
+    },
+    {
+      "call_id": "call-106",
+      "account": "Internal BetterBark",
+      "title": "BetterBark Internal \u00b7 CS Roadmap Chatter (Bi-weekly)",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Internal roadmap review discussing upcoming Q3 features -> Correctly suppressed by speaker fence with 0 proposals."
+    },
+    {
+      "call_id": "call-107",
+      "account": "Bancroft Mills",
+      "title": "Bancroft Mills \u00d7 BetterBark \u00b7 Admin Sync",
+      "turns_count": 61,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Textile mill admin sync; roster updates verified; clean call."
+    },
+    {
+      "call_id": "call-108",
+      "account": "Coral Key Travel",
+      "title": "Coral Key Travel \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Travel agency check-in; coaching utilization metrics reviewed; 0 software issues."
+    },
+    {
+      "call_id": "call-109",
+      "account": "Prairie Rose Foods",
+      "title": "Prairie Rose Foods \u00d7 BetterBark \u00b7 Admin Sync",
+      "turns_count": 61,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Food distributor admin sync; routine participant roster refresh; clean call."
+    },
+    {
+      "call_id": "call-110",
+      "account": "Standish & Gray",
+      "title": "Standish & Gray \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new"
+      ],
+      "adjudication": "Legal PM team requests custom milestone tracking inside coaching paths -> Valid Feature request."
+    },
+    {
+      "call_id": "call-111",
+      "account": "Beacon Point Marina",
+      "title": "Beacon Point Marina \u00d7 BetterBark \u00b7 Support Check-in",
+      "turns_count": 61,
+      "queued_proposals_count": 3,
+      "pipeline_actions": [
+        "file-new-low",
+        "file-new-low",
+        "corroborate"
+      ],
+      "adjudication": "Password reset emails delayed by up to 30 minutes during peak times -> Valid Bug correctly corroborating PROJ-142."
+    },
+    {
+      "call_id": "call-114",
+      "account": "Galway Foods",
+      "title": "Galway Foods \u00d7 BetterBark \u00b7 Support escalation",
+      "turns_count": 60,
+      "queued_proposals_count": 3,
+      "pipeline_actions": [
+        "file-new",
+        "file-new-low",
+        "file-new"
+      ],
+      "adjudication": "Mobile app crash on Android resolved post-OS update; user management export inquiry flagged as feature request."
+    },
+    {
+      "call_id": "call-116",
+      "account": "Overton Academy",
+      "title": "Overton Academy \u00d7 BetterBark \u00b7 Onboarding",
+      "turns_count": 63,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Academy onboarding review; teacher participant rollout on track; clean call."
+    },
+    {
+      "call_id": "call-117",
+      "account": "Mistral Yachts",
+      "title": "Mistral Yachts \u00d7 BetterBark \u00b7 Renewal",
+      "turns_count": 61,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Yacht manufacturer contract renewal; commercial terms finalized; 0 platform issues."
+    },
+    {
+      "call_id": "call-118",
+      "account": "Juniper & Finch",
+      "title": "Juniper & Finch \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 61,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Design agency check-in; praise for coach empathy and scheduling ease; clean call."
+    },
+    {
+      "call_id": "call-119",
+      "account": "Portside Medical",
+      "title": "Portside Medical \u00d7 BetterBark \u00b7 Admin sync",
+      "turns_count": 61,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Medical practice admin sync; HIPAA compliance and security verification; clean call."
+    },
+    {
+      "call_id": "call-120",
+      "account": "Calloway Grain",
+      "title": "Calloway Grain \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 61,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Grain cooperative check-in; seasonal coaching uptake verified; 0 bugs."
+    },
+    {
+      "call_id": "call-121",
+      "account": "Hartley Insurance",
+      "title": "Hartley Insurance \u00d7 BetterBark \u00b7 Support escalation",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Insurance company escalation review; past billing inquiry confirmed resolved; clean call."
+    },
+    {
+      "call_id": "call-122",
+      "account": "Vesper Finance",
+      "title": "Vesper Finance \u00d7 BetterBark \u00b7 Support escalation",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Finance firm support sync; SSO certificate rotation confirmed successful; clean call."
+    },
+    {
+      "call_id": "call-125",
+      "account": "Ashcroft Partners",
+      "title": "Ashcroft Partners \u00d7 BetterBark \u00b7 Support escalation",
+      "turns_count": 60,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new"
+      ],
+      "adjudication": "In-app direct messages exceeding character limit silently dropped without recipient notification -> Valid P3 Bug."
+    },
+    {
+      "call_id": "call-126",
+      "account": "Bloomfield Nurseries",
+      "title": "Bloomfield Nurseries \u00d7 BetterBark \u00b7 Check-in",
+      "turns_count": 60,
+      "queued_proposals_count": 1,
+      "pipeline_actions": [
+        "file-new-low"
+      ],
+      "adjudication": "Nurseries check-in; feedback on coaching compatibility; conversational remark flagged as low-confidence noise."
+    },
+    {
+      "call_id": "call-128",
+      "account": "Kestrel Airlines",
+      "title": "Kestrel Airlines \u00d7 BetterBark \u00b7 QBR",
+      "turns_count": 62,
+      "queued_proposals_count": 2,
+      "pipeline_actions": [
+        "corroborate",
+        "file-new-low"
+      ],
+      "adjudication": "Operations center reports video stream freeze on laptop browsers during sessions -> Valid corroboration of video freeze bug."
+    },
+    {
+      "call_id": "call-129",
+      "account": "Danfield Appliances",
+      "title": "Danfield Appliances \u00d7 BetterBark \u00b7 Relationship Check-in",
+      "turns_count": 61,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Appliance company relationship check-in; executive sponsorship reviewed; clean call."
+    },
+    {
+      "call_id": "call-134",
+      "account": "Sequoia Ventures",
+      "title": "Sequoia Ventures \u00d7 BetterBark \u00b7 QBR",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Venture firm QBR; executive leadership coaching metrics praised; 0 software issues."
+    },
+    {
+      "call_id": "call-137",
+      "account": "Internal BetterBark",
+      "title": "BetterBark Internal \u00b7 Annual CS Planning",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Internal annual CS planning session; internal staff only -> Correctly suppressed by external fence with 0 proposals."
+    },
+    {
+      "call_id": "call-139",
+      "account": "Andes Mining Co",
+      "title": "Andes Mining Co \u00d7 BetterBark \u00b7 Program Review",
+      "turns_count": 60,
+      "queued_proposals_count": 0,
+      "pipeline_actions": [],
+      "adjudication": "Mining company program review; remote worker satellite connectivity discussed; clean call."
+    }
+  ]
+}
