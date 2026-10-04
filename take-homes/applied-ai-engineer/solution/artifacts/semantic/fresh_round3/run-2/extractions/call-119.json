@@ -1,0 +1,25 @@
+{
+  "call_id": "call-119",
+  "candidates": [
+    {
+      "account": "Portside Medical",
+      "call_id": "call-119",
+      "draft_title": "Add bulk reassignment of members to a new coach when a coach departs",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 15,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Harold Nguyen: One thing's been a genuine pain, and it's not a bug exactly, it's more of a missing capability. Let me explain the situation.\n[EXTERNAL] Harold Nguyen: So we had a coach leave the platform last month. One of the coaches assigned to a bunch of our people just... left. Retired, moved on, I don't know the details on your side.\n[EXTERNAL] Harold Nguyen: That's the problem. Forty-three. Forty-three of our nurses and staff were all matched to this one coach.\n[EXTERNAL] Harold Nguyen: Right. So the coach leaves, and now I've got forty-three people who need to be moved to a new coach. And the only way I could find to do it was one. At. A. Time.\n[EXTERNAL] Harold Nguyen: One at a time. Go into each member, find the reassignment option, pick a new coach, confirm, next member. Forty-three times. I did it over two afternoons and I wanted to throw my monitor out the window.\n[EXTERNAL] Harold Nguyen: And the whole time I'm thinking, surely there's a bulk option. Surely I can select all the members who were with Coach A and reassign them to Coach B in one move. But I couldn't find one. If it exists, I failed to find it, and I looked hard.\n[EXTERNAL] Harold Nguyen: Well, that's validating and infuriating in equal measure.\n[EXTERNAL] Harold Nguyen: Simple version: when a coach leaves \u2014 or even just when I want to rebalance \u2014 I want to see all the members currently assigned to that coach, select them, and reassign the whole group to a new coach in one action. Bulk reassign.\n[EXTERNAL] Harold Nguyen: Exactly that. And the departing-coach case is the one that really stings because it's forced, it's urgent, and it's high-volume all at once. Those people are suddenly coachless and I'm scrambling.\n[EXTERNAL] Harold Nguyen: Yes. In our world, a nurse who's stressed and suddenly has no coach for a week because I'm clicking through forty-three profiles \u2014 that's a real gap.\n[EXTERNAL] Harold Nguyen: Use all of it. If it saves the next admin from my monitor-throwing rage, worth it.\n[EXTERNAL] Harold Nguyen: Departing coach is the burning one. Rebalancing would be nice-to-have but I can live without it. If I had to pick, solve the coach-leaves case.\n[EXTERNAL] Harold Nguyen: Perfect. I feel heard, which is more than I expected from an admin sync.\n[EXTERNAL] Harold Nguyen: Noted. I'll save my rage for the syncs.\n[EXTERNAL] Harold Nguyen: Onboarding's fine. I pull the roster export monthly for our HRIS reconciliation and that's been smooth since the CSV export got added. That one made my life better, so credit where due.\n[EXTERNAL] Harold Nguyen: That's the one. Everything else is boringly functional, which is what I want from software.\n[EXTERNAL] Harold Nguyen: Good question. The history stayed intact, as far as I could tell. Each member kept their record, it just pointed at a new coach. So the data was fine, it was purely the tedium of doing it forty-three times.\n[EXTERNAL] Harold Nguyen: Correct. The one-at-a-time reassign works perfectly. There's just no way to do it in bulk. That's the entire ask.\n[EXTERNAL] Harold Nguyen: Exactly. Don't touch the thing that works, just let me do it a hundred at a time.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        15,
+        51
+      ]
+    }
+  ],
+  "source_sha256": "9c0282ccc0a0621722244fe598b138551c778559827e9964ec80ddc409600070"
+}

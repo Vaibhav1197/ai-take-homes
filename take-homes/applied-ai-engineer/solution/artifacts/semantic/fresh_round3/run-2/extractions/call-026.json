@@ -1,0 +1,25 @@
+{
+  "call_id": "call-026",
+  "candidates": [
+    {
+      "account": "Berkfield University",
+      "call_id": "call-026",
+      "draft_title": "Fix Outlook calendar invite not updating time after session reschedule",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 23,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Rosa: Right. So when a faculty member books a coaching session, they get a calendar invite that lands in their Outlook. Fine. The problem is rescheduling. When someone reschedules a session \u2014 moves it to a new time, which faculty do constantly because their schedules are chaos \u2014 the Outlook invite doesn't update to the new time. It still shows the old time.\n[EXTERNAL] Rosa: Exactly. The session genuinely moves \u2014 in your system it's at the new time, the coach shows up at the new time \u2014 but the faculty member's Outlook calendar is still sitting there displaying the old time. So they get a reminder for the old slot, show up expecting the old time, and it's a mess.\n[EXTERNAL] Rosa: The calendar is God to a professor. If Outlook says 2pm, they believe 2pm, even if the platform says 3pm. I had a department chair miss a session entirely last week because he rescheduled it to later in the day, but his Outlook still pinged him for the original time, he assumed that was right, showed up, and the coach wasn't there yet because the coach was going by the actual new time.\n[EXTERNAL] Rosa: You've got it exactly. And here's a detail that might matter \u2014 we have a handful of faculty who use Google Calendar instead, personal preference, and one of them mentioned that when SHE reschedules, her Google Calendar updates fine, shows the new time immediately. So it seems specific to the Outlook side. Google's fine, Outlook's stale.\n[EXTERNAL] Rosa: Right. And since ninety-something percent of our faculty are on Outlook, the fact that Google works fine doesn't help me much. My whole population is on the broken one.\n[EXTERNAL] Rosa: That's precisely it. Word for word.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        23,
+        33
+      ]
+    }
+  ],
+  "source_sha256": "1e561b4a61ad980afebe2e2e32e883c819d448c45185f768274e0aa0f0746215"
+}

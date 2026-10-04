@@ -1,0 +1,25 @@
+{
+  "call_id": "call-065",
+  "candidates": [
+    {
+      "account": "Gardner Aerospace",
+      "call_id": "call-065",
+      "draft_title": "Fix in-app push notification preferences resetting to defaults on every app update",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 22,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Renata: Then \u2014 and this is the problem \u2014 every time the mobile app updates, those settings get wiped. The notification preferences reset back to the defaults, which is everything ON. So people who explicitly opted out suddenly start getting buzzed again, and they're furious, because they made a choice and the app un-made it.\n[EXTERNAL] Renata: That's exactly it. The update resets them to defaults and re-opts-them-in.\n[EXTERNAL] Renata: Every update, as far as we can tell. Devon's tracked it more closely than I have.\n[EXTERNAL] Devon: Yeah. It's happened at least three times now, each time lining up with an app update. I keep a little log because people complain to me directly. After the update in \u2014 I want to say early May \u2014 I got eleven complaints in two days, all the same thing: \"why is BetterBark buzzing me again, I turned this off.\" Then it went quiet. Then the next update, another wave.\n[EXTERNAL] Devon: Both. I've got iPhone complainers and Android complainers in the same wave. It's not platform-specific from what I can see.\n[EXTERNAL] Renata: Good question. We think it's the mobile settings specifically \u2014 the ones you set in the app itself. Devon, did anyone say their web preferences changed?\n[EXTERNAL] Devon: No one mentioned web. The complaints are all \"the app started buzzing me.\" Push notifications, specifically. Nobody complained about email changing.\n[EXTERNAL] Renata: That's exactly why it's escalated and not just a ticket sitting in a queue. In our culture, buzzing someone who explicitly asked not to be buzzed reads as the tool not respecting them. And these are the same skeptical machinists we worked hard to get onboarded. A few of them have threatened to just delete the app, and if they do, my whole floor rollout starts unraveling.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        22,
+        34
+      ]
+    }
+  ],
+  "source_sha256": "7a2a1df9fcedb5d491f5ba453c9125e6acaacfd96a230904757eede6a328de16"
+}

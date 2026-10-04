@@ -1,0 +1,25 @@
+{
+  "call_id": "call-012",
+  "candidates": [
+    {
+      "account": "Gable Group",
+      "call_id": "call-012",
+      "draft_title": "Fix search index staleness after team rename or member move",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 11,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Devon: Feedback, yes. Mostly one thing, repeatedly, and it's a real one. We merged those two departments this month, which meant renaming teams and moving about forty people around. And every single time we made a change, search lied to us for a while afterward.\n[EXTERNAL] Devon: Two flavors. One \u2014 search for the new team name right after renaming it, and you get nothing. Empty results, like the team doesn't exist. Two \u2014 search for a person we just moved, and search shows them still on the old team, filed under the department that no longer exists. And then, if you wait \u2014 I don't know, five, ten minutes \u2014 it sorts itself out. Same search, correct answer.\n[EXTERNAL] Devon: That's exactly it. And it was consistent enough that my admins started planning around it. I'm not kidding \u2014 they started setting literal kitchen timers. Make a batch of changes, set a ten-minute timer, don't trust search until it dings. I'd describe that workflow as \"medieval.\"\n[EXTERNAL] Devon: Consistent enough to plan around, yes. And look, I'm a systems person \u2014 I get it, indexes take time to rebuild, eventual consistency is a real thing, I'm not naive about it. But here's my actual complaint: nothing in the UI says that. The edit screen says \"saved.\" Search says the opposite. And my admin is left standing there deciding which one of you is lying, with no signal about which to believe.\n[EXTERNAL] Devon: That's the crux. Tell me it's coming and I'll wait. Tell me it's done when it isn't, and I'll waste an hour thinking I broke something.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        11,
+        19
+      ]
+    }
+  ],
+  "source_sha256": "9e0316c2157cb212ba68223ad59f4b7666a942f610ac661028de62468813f5fc"
+}

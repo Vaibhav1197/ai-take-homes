@@ -1,0 +1,25 @@
+{
+  "call_id": "call-104",
+  "candidates": [
+    {
+      "account": "Harmon Optics",
+      "call_id": "call-104",
+      "draft_title": "Add 'Principal Engineer' tier to coaching program for senior ICs",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 34,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Gwen: Mostly steady. One small expansion idea \u2014 I've had a couple of quality managers ask whether the coaching could extend to their senior individual contributors, not just people managers. The argument is that a senior quality engineer influences a lot of behavior without formally managing anyone, and developing their influence skills would pay off.\n[EXTERNAL] Gwen: I don't want it to balloon. If I open it to all senior ICs I'll have forty people asking. I'd want a defined tier \u2014 maybe the principal engineers only, which is about eight people.\n[EXTERNAL] Gwen: Model it. If the number works I'll probably do it. It's a nice signal to the principal engineers that we see them as leaders even without the title, and this crowd notices signals like that.\n[EXTERNAL] Gwen: You've clearly worked with engineers. They will absolutely notice which eight got picked and grumble about the ninth who didn't. Which is why I want a clean, defensible tier \u2014 \"principal engineers, all of them\" \u2014 so there's no favoritism argument.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        34,
+        40
+      ]
+    }
+  ],
+  "source_sha256": "ad0bd7894dd87c1903997444659716f52074a888abd26f5ab1b44a71d267df65"
+}

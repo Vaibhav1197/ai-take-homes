@@ -1,0 +1,25 @@
+{
+  "call_id": "call-132",
+  "candidates": [
+    {
+      "account": "Fairbanks Consulting",
+      "call_id": "call-132",
+      "draft_title": "Auto-release coach calendar slots after member no-show grace period",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 32,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Owen: So our consultants are, frankly, flaky about their calendars. Not because they're rude \u2014 because a client escalation blows up and they miss things. It happens constantly. And when a consultant no-shows a coaching session, here's what I've observed with the coaches.\n[EXTERNAL] Owen: The coach holds the slot. The consultant doesn't show. The coach \u2014 being a professional \u2014 waits. They wait ten, fifteen minutes in case the person is just running late. And then eventually they give up and mark it a no-show. But that whole hour is burned. The coach sat there for an hour that could have gone to somebody else.\n[EXTERNAL] Owen: Exactly. And here's the part that bugs me \u2014 I have other consultants who would happily grab that slot. Like, I'll have someone messaging me saying \"can I get a session this week, I'm slammed but I have a gap Thursday at 2,\" and there's a coach sitting alone in an empty video room at Thursday at 2 because someone else no-showed. But the system has that slot locked to the no-show for the whole hour, so nobody can claim it.\n[EXTERNAL] Owen: Right. And what I'd love \u2014 and this is my ask \u2014 is for the coach's calendar hold to auto-release if the member no-shows, say, ten minutes in. Give the person a ten-minute grace window, sure, people run late. But if they haven't joined after ten minutes, free up the rest of that slot so it can go back into availability. Then someone else can book it, or the coach can reclaim the time.\n[EXTERNAL] Owen: I tried to keep it specific because I know \"make no-shows better\" is too vague to do anything with. Ten minutes, auto-release, slot goes back to available. That's the whole thing.\n[EXTERNAL] Owen: More than I'd like. In a given week, out of maybe sixty booked sessions, I'd guess five to eight are no-shows. So call it ten percent of coach time is at risk of being wasted this way. And with our utilization being high, that stranded time actually matters \u2014 we're capacity-constrained on coach availability during peak weeks.\n[EXTERNAL] Owen: Exactly. It's real capacity we're leaving on the floor. If I could recover even half of those stranded slots, that's three or four extra sessions a week I could offer people who are actually asking for them.\n[EXTERNAL] Priyanka: And to add the business framing \u2014 during our staffing crunch is precisely when our consultants are most stressed and most need the coaching, and it's also when they're most likely to no-show because a client is on fire. So the waste peaks exactly when the demand peaks. That's the frustrating part.\n[EXTERNAL] Owen: Configurable would be ideal, honestly. Ten feels right to me but I could imagine other orgs wanting five or fifteen. If I had to pick a default I'd say ten.\n[EXTERNAL] Owen: Both would be great but if I'm being realistic, the minimum viable version is just \"free up the coach and let the slot go back to available.\" The dream version is that it auto-notifies someone on a waitlist, but I'll take the basic version happily.\n[EXTERNAL] Owen: Right now it's manual, and honestly if the auto-release handled the marking too, that'd save the coaches a step. But that's secondary. The main thing is stop burning the hour.\n[EXTERNAL] Owen: You got it exactly. That's the ask, cleanly stated.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        32,
+        53
+      ]
+    }
+  ],
+  "source_sha256": "dc9ab9983b06ce9a698ebd74f089529ec813fad9b8ffab68756ea8fb2626f14f"
+}

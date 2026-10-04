@@ -1,0 +1,25 @@
+{
+  "call_id": "call-042",
+  "candidates": [
+    {
+      "account": "Meraki Tech",
+      "call_id": "call-042",
+      "draft_title": "Fix goal-tracking reminders scheduled in US hours instead of member local timezone",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 27,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Wei Lin: So we use the goal-tracking feature a lot. People set training goals and the platform sends reminder notifications \u2014 \"time to check in on your goal,\" that kind of nudge. And they're useful, people like the nudges. Except the timing is bizarre for us.\n[EXTERNAL] Wei Lin: They arrive in the middle of the night. Like, genuinely the middle of the night. I've had multiple people tell me their goal reminder woke them up at three in the morning. One of my engineers in Singapore joked that his phone buzzes at 3am to remind him to work on his \"stop the dog barking at night\" goal, which \u2014 the irony was not lost on anyone.\n[EXTERNAL] Wei Lin: I laughed for about a minute. But it's a real problem. People are turning off notifications entirely to avoid being woken up, which means they lose the nudges that were actually helping. So they're forced to choose between \"get useful reminders\" and \"sleep through the night.\"\n[EXTERNAL] Wei Lin: Around 3am, yeah. It's not exact \u2014 some people say 2:30, some say 3:30 \u2014 but it's clearly the small hours. And here's my theory, tell me if it's crazy. Three a.m. in Singapore is what, mid-afternoon in the US? Like early afternoon US time?\n[EXTERNAL] Wei Lin: Right. So my theory is these reminders are scheduled for a nice sensible time \u2014 like early afternoon \u2014 but tuned to US hours. And nobody adjusted them for people who live on the other side of the planet. So a reminder that's meant to hit you at 2pm during your workday instead hits me at 3am while I'm asleep.\n[EXTERNAL] Wei Lin: Exactly that. And it affects everyone here, not just Singapore. My Sydney people have mentioned it, Tokyo too. Anyone in this part of the world gets nudged while they're asleep. It's not one person's phone settings \u2014 it's structural, it's the whole APAC population.\n[EXTERNAL] Wei Lin: That's it exactly. You said it better than I did. And the impact is real \u2014 I'm losing the engagement benefit of the nudges because people would rather sleep than be reminded.\n[EXTERNAL] Wei Lin: Please. And I want to be clear I'm not asking for a hack \u2014 I don't want to tell people to turn off notifications, that's not a fix, that's surrender. I want the reminders to come at a sensible local hour like they presumably do for US users.\n[EXTERNAL] Wei Lin: I appreciate you not blowing smoke. I'd rather hear \"there's no good workaround, we'll fix it\" than a fake solution.\n[EXTERNAL] Wei Lin: Complained directly to me, maybe a dozen. But I suspect the real number is much higher \u2014 most people just quietly turn off notifications and grumble to their teammates rather than filing anything with me. The dozen who complained are the tip of it. My whole APAC population is affected in principle, that's 260-ish people who could be getting 3am buzzes.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        27,
+        46
+      ]
+    }
+  ],
+  "source_sha256": "c2f9f92e5ef8fdc33ff2343575c8e88d550a59b5153b268c19246525287ee100"
+}

@@ -1,0 +1,25 @@
+{
+  "call_id": "call-066",
+  "candidates": [
+    {
+      "account": "Pillar & Oak",
+      "call_id": "call-066",
+      "draft_title": "Add content for dogs in small apartments",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 49,
+      "provisional_priority": "P3",
+      "raw_score": 4.0,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Gregory: Coaches are good. Content, the creatives want more stuff on dogs in small apartments specifically, since half of them are in studios, but that's a wish, not a complaint.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        49,
+        50
+      ]
+    }
+  ],
+  "source_sha256": "c0cdbff159d1c494562ac87d8d123192056588549765c316d4498fb54b0c05a2"
+}

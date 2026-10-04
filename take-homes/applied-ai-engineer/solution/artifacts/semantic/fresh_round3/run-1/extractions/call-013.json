@@ -1,0 +1,25 @@
+{
+  "call_id": "call-013",
+  "candidates": [
+    {
+      "account": "Ridgeway Manufacturing",
+      "call_id": "call-013",
+      "draft_title": "Add session-completed webhook with member ID and timestamp for LMS integration",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 39,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Hank: Right. And my integrations guy was specific about what he needs, so let me relay it precisely \u2014 he wrote it down for me. He said, quote: \"Ask if they can send a session-completed webhook with the member ID and timestamp; we'll do the rest.\" That's the ask. When a member completes a training session, your system fires an event to us \u2014 a webhook \u2014 carrying the member ID and the completion timestamp, and Cornerstone consumes it and records the participation automatically.\n[EXTERNAL] Hank: That's it word for word. Member ID, timestamp, on session completion. He said he'll handle the Cornerstone side, he just needs us to emit the event.\n[EXTERNAL] Hank: That's what he does. He said if I got the phrasing wrong on this call he'd never let me hear the end of it, so I wrote it on my hand. Figuratively. Mostly.\n[EXTERNAL] Hank: That's the one that matters long-term. The manual entry is error-prone, and when the thing being recorded is training compliance, an error isn't just annoying, it's an audit finding. And Brenda has better things to do \u2014 see also: the morning she lost to roster paging that a button would have saved.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        39,
+        46
+      ]
+    }
+  ],
+  "source_sha256": "5ff74066a97204fe8b3ca7f8e1916014f7c0ad2bc174428465b805a8972eceb8"
+}

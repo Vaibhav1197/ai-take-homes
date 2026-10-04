@@ -1,0 +1,25 @@
+{
+  "call_id": "call-005",
+  "candidates": [
+    {
+      "account": "Vanta Retail",
+      "call_id": "call-005",
+      "draft_title": "Fix intermittent duplicate deliveries of session webhooks",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 33,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Jordan: We consume your webhooks into our internal data platform \u2014 session events, membership changes, that kind of thing. Devraj's team says some events are being delivered twice. Same event, two deliveries, occasionally. Not every event, not on a schedule he can predict, just... sometimes the same one shows up twice.\n[EXTERNAL] Jordan: Their pipeline mostly dedupes it already \u2014 they've got logic that catches most of the doubles. But \"mostly\" is doing a lot of work in that sentence, and Devraj hates heuristic dedup. His actual ask, and I wrote it down so I'd get it right: can you put idempotency keys on the webhook payload, so his team can dedupe deterministically instead of guessing based on content and timing?\n[EXTERNAL] Jordan: Exactly. Right now he's fingerprinting the payload contents and hoping two genuinely-distinct events never look identical, which he describes as \"a bug waiting to happen.\"",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        33,
+        37
+      ]
+    }
+  ],
+  "source_sha256": "222b62ad084cd3b669cf46820d5c15ff92fc5c030c002abd238bf6934137a3e0"
+}

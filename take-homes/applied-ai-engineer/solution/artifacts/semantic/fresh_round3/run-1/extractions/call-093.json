@@ -1,0 +1,25 @@
+{
+  "call_id": "call-093",
+  "candidates": [
+    {
+      "account": "Whitcomb Partners",
+      "call_id": "call-093",
+      "draft_title": "Fix video stream stalling mid-session while audio continues in Chrome",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 8,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Daniel: Exactly. And what's happening is, during a coaching session in the browser, the video freezes. Not right away. It's always well into the session. And it's been happening to enough of our consultants that they're complaining to me directly, which is how I know it's not a one-off fluke.\n[EXTERNAL] Daniel: So the video image just locks up. The coach's face freezes on screen like someone hit pause on a movie. But, and this is the key part, the audio keeps going. You can still hear the coach talking, the conversation continues, it's just the picture is frozen solid.\n[EXTERNAL] Daniel: I asked around specifically because I figured you'd want a number, and honestly I got a mess of answers. One partner swears it's 45 minutes on the dot every time. A couple of people said \"half an hour-ish, maybe more.\" One just said \"toward the end.\" Best I can pin it down: our sessions run 50 minutes, and it's always somewhere in the back half \u2014 never at the start, never early. Past that, the estimates disagree with each other.\n[EXTERNAL] Daniel: They refresh the page. If they hit refresh, the video comes back and it's fine again, at least for a while. But it's disruptive, you're mid-sentence with your coach and suddenly you're reloading the page like it's 2003.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        8,
+        14
+      ]
+    }
+  ],
+  "source_sha256": "fbefa2a46650e5819fe3b9f6eb470a4a3c1b02d5792d3aa53c53b36fc5b620ba"
+}

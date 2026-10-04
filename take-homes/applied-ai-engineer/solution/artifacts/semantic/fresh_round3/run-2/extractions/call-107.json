@@ -1,0 +1,25 @@
+{
+  "call_id": "call-107",
+  "candidates": [
+    {
+      "account": "Bancroft Mills",
+      "call_id": "call-107",
+      "draft_title": "Add automated scheduled SFTP push for usage/engagement extracts",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 14,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Wade: Right. And the coaching platform is currently the one source that does NOT flow in. It's an island. If leadership wants to know coaching engagement alongside, say, plant safety metrics or turnover, someone \u2014 usually Priyanka \u2014 has to log into your dashboard, eyeball it, and manually type numbers into a report. That's the problem I'm here to kill.\n[EXTERNAL] Priyanka: And I would very much like it killed. I have literally sat there transcribing your dashboard into a spreadsheet for the quarterly ops review. It's demeaning and error-prone.\n[EXTERNAL] Wade: Here's the thing, and this is the part that I suspect makes us a little different from your typical customer. Our data platform is old-school in one specific way: it ingests by file drop, not by API. We have an SFTP landing zone. Every source system drops a file \u2014 usually nightly \u2014 into a designated folder, and our ingestion jobs pick up whatever's there and load it. That's the pattern for all forty-some sources. It's boring and it's bulletproof and it's what my whole platform is built around.\n[EXTERNAL] Wade: Exactly. And I want to be honest about why, because \"just use the API\" is what everyone says. My team is small. We don't build and maintain API integrations for every source \u2014 that's forty custom API clients to write, monitor, handle auth rotation for, deal with rate limits, page through, retry. It's a maintenance nightmare at our size. The file-drop pattern means every source looks identical to my ingestion layer: a file shows up, we load it. One pattern, forty sources. If I have to write a bespoke API caller just for coaching, it becomes the one weird snowflake that breaks and that nobody remembers how to fix when I'm on vacation.\n[EXTERNAL] Wade: You've got it exactly. A nightly SFTP drop of a usage extract. Predictable filename, predictable schema, lands in our folder, we take it from there. I don't need real-time, I don't need an API, I don't need webhooks. I need a file, on a schedule, in a place I control.\n[EXTERNAL] Priyanka: And from my side, the outcome is I never transcribe your dashboard again. The numbers just appear in the warehouse and flow into the ops review automatically alongside everything else.\n[EXTERNAL] Wade: I appreciate that. I've been promised SFTP drops before that turned out to be \"well, you can manually download a CSV,\" which is not the same thing at all.\n[EXTERNAL] Wade: That's it. That's the whole spec. If you can do that, you've solved it. If you can only do a manual download or an API, then we have a harder conversation about whether I build the one snowflake or Priyanka keeps transcribing.\n[EXTERNAL] Priyanka: Please don't make me keep transcribing.\n[EXTERNAL] Wade: Thank you for getting that. It's a subtle point and it usually gets flattened. \"Customer wants their data\" \u2014 well, yes, but HOW matters enormously to whether I can actually use it.\n[EXTERNAL] Wade: Good question. Minimum viable: member identifier, session count per period, engagement status, and a timestamp. Nice to have: which coaching track, completion rates, maybe goal activity. But honestly, if I get member ID, session counts, and status on a nightly file, I can build ninety percent of what Priyanka needs off that.\n[EXTERNAL] Priyanka: That covers the ops review completely. The rest is gravy.\n[EXTERNAL] Wade: We'd provision a dedicated SFTP account for BetterBark with key-based auth, locked to a single landing folder, write-only. Standard for how we onboard any data provider. I can have that ready the day you tell me it's supported.\n[EXTERNAL] Wade: CSV with a header row, comma-delimited, UTF-8, quoted strings. Boring and universal. My loader eats that without complaint. I'd want the schema stable \u2014 same columns, same order, every night \u2014 because if the columns shift, my ingestion breaks silently and I find out three days later when a report looks wrong.\n[EXTERNAL] Wade: You get it. A feed I can't trust to be consistent is a feed I have to babysit, and babysitting is what I'm trying to eliminate. Consistency is the whole value.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        14,
+        38
+      ]
+    }
+  ],
+  "source_sha256": "bea1c72bb4c000ac4908235deafbcf90d1a273ba2acd6b979655cab032c2ba71"
+}

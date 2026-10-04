@@ -1,0 +1,25 @@
+{
+  "call_id": "call-091",
+  "candidates": [
+    {
+      "account": "Lumen Dance Academy",
+      "call_id": "call-091",
+      "draft_title": "Fix generic upload failure for large professional headshots",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 7,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Bianca: So we onboarded our new cohort of instructors onto the coaching platform, and part of setting up their profiles is uploading a headshot. And a bunch of them just cannot get their photo to upload.\n[EXTERNAL] Bianca: They pick the photo, they hit upload, and after a second it just fails. And the error message is so unhelpful, it's like \"something went wrong\" or \"upload failed, please try again.\"\n[EXTERNAL] Bianca: No reason at all. So they try again, same thing, and they give up and message me thinking the whole platform is broken.\n[EXTERNAL] Bianca: That's the thing, it's not everybody. Some instructors uploaded their headshots totally fine, no problem. Others can't, no matter how many times they try. And I couldn't figure out the pattern at first, it seemed random.\n[EXTERNAL] Bianca: I think so, yeah. So these are dance instructors, right, and a lot of them are also professional performers with real photographer-taken headshots. And the ones who can't upload are exactly the ones using their fancy professional photos. High-resolution, straight from a photographer's camera.\n[EXTERNAL] Bianca: Just used a phone selfie or a cropped photo. Smaller, casual pictures. So it clicked, the successful ones are small files and the failing ones are big files.\n[EXTERNAL] Bianca: I did, because I figured you'd ask. One of the failing ones was like 12 megabytes, huge, straight off a DSLR at full resolution. And the ones that worked were one or two megabytes, phone-sized. So it's clearly a size thing.\n[EXTERNAL] Bianca: Exactly. If it just said \"your photo is too big, please use one under whatever the limit is,\" my instructors could fix it themselves in ten seconds. Instead it says \"something went wrong\" and they conclude the platform is junk.\n[EXTERNAL] Bianca: It tries for a second or two, there's a little spinner, and then it fails. So it's not rejecting the file instantly, it's like it starts and then chokes partway.\n[EXTERNAL] Bianca: Right, which is why a plain-English \"too big\" message would be so much better than letting it try and die.\n[EXTERNAL] Bianca: The failing ones I checked were JPEGs, big high-res JPEGs. I don't think it's a format thing, the small JPEGs upload fine. It's purely the size.\n[EXTERNAL] Bianca: That's it exactly. It's not that they can't ever upload a photo, it's that the big ones fail with a useless message.\n[EXTERNAL] Bianca: Happy to help. Do you want me to send you one of the failing images so you can see the size for yourself?\n[EXTERNAL] Bianca: I'll grab a couple and send them over this afternoon. So the workaround for now is just, tell them to shrink the photo?\n[EXTERNAL] Bianca: The screenshot trick is clever, I'll pass that along, my instructors will find that easier than fiddling with resize settings.\n[EXTERNAL] Bianca: Perfect. I just wanted to make sure it wasn't only us doing something wrong. It felt like a bug and I didn't want to keep telling people \"just try again\" like a broken record.\n[EXTERNAL] Bianca: The error message thing is honestly the bigger deal to me. Even if there has to be a size limit, just tell people what it is so they're not stuck guessing.\n[EXTERNAL] Bianca: Exactly. I'd rather have a clear limit than a mysterious failure any day.\n[EXTERNAL] Bianca: You captured it better than I did. That's exactly right.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        7,
+        43
+      ]
+    }
+  ],
+  "source_sha256": "b3d0c255f460f0fd4d47dc72cb503a7942d2250ffe68adb0d4bb7ee0f8f4d984"
+}

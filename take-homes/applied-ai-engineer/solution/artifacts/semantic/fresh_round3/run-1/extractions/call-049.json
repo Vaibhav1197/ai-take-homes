@@ -1,0 +1,25 @@
+{
+  "call_id": "call-049",
+  "candidates": [
+    {
+      "account": "TrueNorth Bank",
+      "call_id": "call-049",
+      "draft_title": "Add scheduled API endpoint for team-level engagement metrics export",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 14,
+      "provisional_priority": "P1",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Winston: Thanks. So my job is talent analytics for the whole bank, which means I own the dashboards and models that our leadership actually looks at. Board level, exec level. And I have a gap that's becoming a real friction point.\n[EXTERNAL] Winston: All of our people analytics lives in one place. We run everything through our BI stack \u2014 we're a Tableau shop primarily, some Power BI in the finance org. Engagement surveys, attrition, comp bands, performance distributions, learning completion, all of it flows into a central model and gets served up to leadership in unified dashboards.\n[EXTERNAL] Winston: BetterBark isn't in that model, and it's the one thing that isn't. Right now, when leadership asks how training engagement correlates with, say, retention in the wealth division, I can't answer it in the same view as everything else. Priyanka pulls the numbers from your dashboard, screenshots them, and pastes them into a slide.\n[EXTERNAL] Priyanka: Which I hate, for the record. I feel like an intern. I'm literally taking screenshots of your dashboard and retyping numbers into a spreadsheet so Winston can get them into Tableau.\n[EXTERNAL] Winston: Exactly that. What I need is API access to the engagement metrics. Active users, session counts, utilization by team or division, the trend data \u2014 whatever's in that dashboard, I want to be able to pull it on a schedule into our warehouse so it flows into Tableau alongside everything else. Then I can build the correlation analyses leadership keeps asking for, and Priyanka can stop screenshotting.\n[EXTERNAL] Winston: That's it precisely. And I want to be clear it's not the visualizations I need \u2014 I don't want your dashboard embedded, I have my own visualization layer. I need the underlying numbers, as data, that I can query. The dashboard is fine for Priyanka's day-to-day, it's just a dead end for analytics.\n[EXTERNAL] Winston: The latter. Give me an endpoint and an API key and I'll do the rest. My team can handle the integration, we do this with a dozen other systems. What we can't do is manufacture data that isn't exposed.\n[EXTERNAL] Winston: Warehouse first, always. We don't let BI tools hit source systems directly \u2014 that's a governance rule here, everything goes through the warehouse where we can version it, audit it, apply access controls. So an API that my ETL job can call nightly and land into the warehouse is the ideal shape. Tableau and Power BI just read from the warehouse downstream.\n[EXTERNAL] Winston: Correct, and please frame it that way. A Tableau-specific connector would actually be less useful to me than a plain, well-documented REST API I can pull with my own tooling. Don't build me a connector, give me an endpoint.\n[EXTERNAL] Winston: Daily would be ideal. Our warehouse refreshes overnight, so a nightly pull that lands the latest engagement numbers before the morning dashboards rebuild is the sweet spot. Weekly I could live with. Real-time I don't need \u2014 nobody's making a decision on training engagement in the last four hours.\n[EXTERNAL] Winston: Aggregate by team and division is plenty, and honestly cleaner from a privacy standpoint. I don't want individual training data in my warehouse \u2014 that's a can of worms with our privacy office. Team-level and up is exactly the right grain. I want to correlate populations, not surveil individuals.\n[EXTERNAL] Winston: Please emphasize it. If it were individual-level I couldn't use it anyway. Aggregate is the whole point.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        14,
+        35
+      ]
+    }
+  ],
+  "source_sha256": "dc30915daf00b7b0b0dfef661ebb0e99150fce911185ffc5e7273738e75c8fb3"
+}

@@ -1,0 +1,25 @@
+{
+  "call_id": "call-130",
+  "candidates": [
+    {
+      "account": "Ryecroft Analytics",
+      "call_id": "call-130",
+      "draft_title": "Add stable idempotency key to webhook payloads to prevent duplicate processing",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 21,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Nadia: We've been noticing that we sometimes get the same event more than once. Like, the exact same session-completed event will land in our queue twice, occasionally three times. Same session ID, same payload, just delivered multiple times.\n[EXTERNAL] Nadia: It's not constant, which is what makes it annoying. Most events come through exactly once. But maybe \u2014 I'd estimate a few out of every thousand? \u2014 show up as duplicates. Enough that it's not noise, but not so much that it's every event.\n[EXTERNAL] Nadia: That's a good question and I actually checked. The event payload is identical. Same session ID, same completion timestamp, same everything in the body. The delivery envelope has a different delivery timestamp because it arrives a few seconds or minutes later, but the actual event content is byte-for-byte the same. It's clearly the same underlying event being sent again, not a new event.\n[EXTERNAL] Nadia: Right now we've built our own dedup layer to catch it, so it's not breaking anything today. But it's fragile. We're keying off the session ID plus event type and dropping anything we've already seen. The problem is that's our hack, and it means every consumer of your webhooks has to independently reinvent this. And if two duplicates race through our pipeline at the same time before the first one commits, our dedup can miss it and we double-count a session. Which for an analytics company is genuinely bad \u2014 we're literally in the business of accurate counts.\n[EXTERNAL] Nadia: Honestly, the clean fix is an idempotency key. If every webhook delivery carried a stable, unique identifier for the event itself \u2014 not the delivery, the event \u2014 then we could dedup reliably on that key instead of guessing based on payload contents. Send the same event twice, same idempotency key, we drop the second one with confidence. That's the industry-standard pattern and it would let us throw away our hacky dedup layer.\n[EXTERNAL] Nadia: Right? I'd much rather trust a key you guarantee than fingerprint the body myself and hope you never change the schema.\n[EXTERNAL] Nadia: Exactly. So that's the flag. I don't need it fixed tomorrow, but I want it on your radar as the direction, because we're going to keep leaning on webhooks and this only gets more important as our volume grows.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        21,
+        33
+      ]
+    }
+  ],
+  "source_sha256": "895310fa8abbfe851ba53aca7a8826e43b9e29e15124e9c7f625ec2180842af9"
+}

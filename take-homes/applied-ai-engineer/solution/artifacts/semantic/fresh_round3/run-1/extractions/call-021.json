@@ -1,0 +1,25 @@
+{
+  "call_id": "call-021",
+  "candidates": [
+    {
+      "account": "Alderline Insurance",
+      "call_id": "call-021",
+      "draft_title": "Fix video freeze at 40-minute mark on Chrome while audio continues",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 17,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Curtis: Yeah. So this is a real one, and it's been driving a specific group of people slightly crazy. Our live training sessions \u2014 the video ones, in the browser \u2014 have started freezing.\n[EXTERNAL] Curtis: Okay. You're in a session, video call with your coach, going along fine. And then somewhere around the forty-minute mark, the video just freezes. The coach's picture locks up on one frame. But \u2014 and this is the weird part \u2014 the audio keeps going. You can still hear each other. It's just the video that's frozen solid.\n[EXTERNAL] Curtis: Right. So you're staring at a frozen photo of your coach mid-sentence while their voice keeps talking. It's unsettling. One of our people said it's \"like a hostage video.\"\n[EXTERNAL] Curtis: Consistently around then. Sessions are scheduled for an hour, and it seems to hit in the back third. Not exactly forty every time but in that neighborhood.\n[EXTERNAL] Curtis: They have to refresh the page. If you refresh the browser, the video comes back and you rejoin and it's fine \u2014 for a while. Sometimes it makes it to the end after a refresh, sometimes it freezes again. But the refresh always brings the video back.\n[EXTERNAL] Curtis: Chrome. Everyone who's reported it is on Chrome, which is basically our whole office \u2014 we're a Chrome shop. I don't have a Safari or Firefox comparison because nobody here uses them.\n[EXTERNAL] Curtis: This is the part I'm fairly confident about. It started after the last app update. We didn't have this before. There was an update \u2014 I want to say last month \u2014 and the freezing started showing up after that. Before the update, video sessions were rock solid for us. After, this forty-minute freeze thing.\n[EXTERNAL] Curtis: That's the exact shape. You should record these calls just to transcribe my run-on sentences into that clean version.\n[EXTERNAL] Curtis: Hard to say precisely because a lot of people probably just refresh and move on without telling me. I've had maybe eight or nine explicitly mention it. But my guess is it's more common than that and people are just quietly refreshing.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        17,
+        34
+      ]
+    }
+  ],
+  "source_sha256": "30247d933a474cc1998673ae7d1ecd12e5808dd9a604a11d81cb52f24d8fa43f"
+}

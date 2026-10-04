@@ -1,0 +1,25 @@
+{
+  "call_id": "call-040",
+  "candidates": [
+    {
+      "account": "Palmetto Hotels",
+      "call_id": "call-040",
+      "draft_title": "Fix BetterBark app session termination after iOS updates",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 25,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Wesley: So a chunk of my GMs are on iPhones \u2014 probably 60, 70% of them, it skews Apple in management for some reason. And they've been complaining about getting kicked out of the app.\n[EXTERNAL] Wesley: No, not randomly, that's the thing. It's specific. They update their phone \u2014 you know how Apple pushes those iOS updates, and everyone eventually taps \"install tonight\" \u2014 and then the next time they open the BetterBark app, they've been logged out. It makes them sign in all over again.\n[EXTERNAL] Wesley: After the phone's operating system updates. That's the pattern. The app was fine, they update iOS overnight, they open the app in the morning, and boom \u2014 logged out, back to the login screen, gotta re-enter everything.\n[EXTERNAL] Wesley: Multiple. I'd say I've heard it from at least six or seven GMs across different properties, all iPhone users, all after an OS update. My deputy at the beach property flagged it first and then once I asked around, others said \"oh yeah, that happens to me too.\"\n[EXTERNAL] Wesley: I haven't heard it from the Android folks. It's specifically the iPhone people, specifically after the OS update. And to be fair \u2014 logging back in isn't the end of the world. It's not like they lose data or can't get in. It's just friction, and for a population this busy and this reluctant, friction is the enemy. Every extra step is an excuse to not bother.\n[EXTERNAL] Wesley: That's my worry. It's not catastrophic, but it's corrosive. Little bit of friction, little bit of drop-off, and over time you've lost the reluctant users you worked so hard to get.\n[EXTERNAL] Wesley: Good. I don't need it to be a novel problem, I just need it to actually get fixed. If other people are hitting it too, great, that means it's more likely to get attention.\n[EXTERNAL] Wesley: No, these are mostly the GMs' own phones. We don't manage their devices \u2014 it's bring-your-own for management. So it's not some corporate policy wiping their sessions. It's just personal iPhones doing normal iOS updates.\n[EXTERNAL] Wesley: Perfect. That's really the only technical thing I've got. Everything else is smooth.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        25,
+        41
+      ]
+    }
+  ],
+  "source_sha256": "aef7447182addbb9c54643fe7d26b9f87ac0b643e7b2bad7d0c7c094cf92a1d5"
+}

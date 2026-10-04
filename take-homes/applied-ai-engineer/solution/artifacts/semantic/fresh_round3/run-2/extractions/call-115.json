@@ -1,0 +1,44 @@
+{
+  "call_id": "call-115",
+  "candidates": [
+    {
+      "account": "Crane & Whitfield",
+      "call_id": "call-115",
+      "draft_title": "Fix verification link consumption by Outlook Safe Links prefetch",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 9,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Nadia Okonkwo: So when we add a new member, they get an email to verify their account and set a password. Standard.\n[EXTERNAL] Nadia Okonkwo: A chunk of my new associates were telling me the link didn't work. They'd click it and get a page saying the link had expired. On a link they'd just received minutes ago.\n[EXTERNAL] Nadia Okonkwo: Immediately. Some of them clicked within a minute of the email landing. \"Expired.\"\n[EXTERNAL] Nadia Okonkwo: A subset, but a big one. And that's the clue, I think. Let me keep going because I did some digging and I have a theory that I'd love you to shoot down or confirm.\n[EXTERNAL] Nadia Okonkwo: The people it happened to \u2014 they'd click the link, get \"expired.\" But then if they went and requested a fresh link and clicked THAT one fast, sometimes it worked, sometimes it didn't. Totally inconsistent. Which drove me up a wall.\n[EXTERNAL] Nadia Okonkwo: So I got nerdy about it. I noticed the affected people all had one thing in common. They're the ones on Outlook. Our firm runs Microsoft 365, and the associates are all in Outlook. But a handful of our contractors and a couple of partners use other mail clients, personal Gmail forwarding, that kind of thing, and THOSE people never had the problem.\n[EXTERNAL] Nadia Okonkwo: As far as I can tell, yes. Outlook people: broken. Everyone else: fine.\n[EXTERNAL] Nadia Okonkwo: Here's my theory, and I'm not an email engineer so tell me if I'm being an idiot. We have a security layer on our email \u2014 the Microsoft safe-links thing. It scans URLs in incoming mail. My understanding is it actually visits the links to check if they're malicious before it lets the user click.\n[EXTERNAL] Nadia Okonkwo: Right. So my theory is: the scanner clicks the verification link before the human does. And if your verification link is one-time-use, the scanner burns it. So by the time the human clicks, the token's already been spent, and they see \"expired.\"\n[EXTERNAL] Nadia Okonkwo: Take your time. I've been sitting with it for a week.\n[EXTERNAL] Nadia Okonkwo: That's exactly my theory. And it explains the inconsistency too \u2014 sometimes the scanner is slow and the human beats it, sometimes the scanner wins the race.\n[EXTERNAL] Nadia Okonkwo: So I'm not crazy.\n[EXTERNAL] Nadia Okonkwo: So what do we do? Because I've got another cohort starting in three weeks and I can't have half of them locked out.\n[EXTERNAL] Nadia Okonkwo: I can raise that with our security team, though they're touchy about exclusions.\n[EXTERNAL] Nadia Okonkwo: That makes sense to me even as a non-engineer.\n[EXTERNAL] Nadia Okonkwo: Thank you. I was worried you'd tell me to have everyone try incognito mode.\n[EXTERNAL] Nadia Okonkwo: What's the timeline on something like this? Ballpark, no promises.\n[EXTERNAL] Nadia Okonkwo: That's fair. I appreciate the honesty over a fake date.\n[EXTERNAL] Nadia Okonkwo: Let's hold that as plan B. I'll push for the exclusion first.\n[EXTERNAL] Nadia Okonkwo: \"This link has expired.\" Every time. Which is misleading because it's not expired, it's spent.\n[EXTERNAL] Nadia Okonkwo: Yes! Exactly. They keep apologizing to me for being slow and it's not their fault at all.\n[EXTERNAL] Nadia Okonkwo: Forty-two in this cohort, I'd say at least twenty-five hit it. So call it sixty percent. And it'll be every Outlook-based cohort going forward.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        9,
+        51
+      ]
+    },
+    {
+      "account": "Crane & Whitfield",
+      "call_id": "call-115",
+      "draft_title": "Correct error message from 'expired' to 'already redeemed' for consumed tokens",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 47,
+      "provisional_priority": "P3",
+      "raw_score": 3.6,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Nadia Okonkwo: \"This link has expired.\" Every time. Which is misleading because it's not expired, it's spent.\n[EXTERNAL] Nadia Okonkwo: Yes! Exactly. They keep apologizing to me for being slow and it's not their fault at all.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        47,
+        49
+      ]
+    }
+  ],
+  "source_sha256": "56bf65ef9f9d79124c4c518f65e30b3c404fbdfaacdfcf60f4c545f8b907deb0"
+}

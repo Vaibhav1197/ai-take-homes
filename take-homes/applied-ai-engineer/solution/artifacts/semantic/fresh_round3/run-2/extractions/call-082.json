@@ -1,0 +1,25 @@
+{
+  "call_id": "call-082",
+  "candidates": [
+    {
+      "account": "Twin Pines Farms",
+      "call_id": "call-082",
+      "draft_title": "Fix Outlook calendar invite not updating when session is rescheduled",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 13,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Lacey Dunn: Right. But then the calendar invite on Hank's actual calendar still says 2pm. The old time. It didn't update.\n[EXTERNAL] Lacey Dunn: Exactly. So Hank sees 2pm on his calendar, shows up to nothing, because the coach is expecting him at 4pm. Twice now he's sat there confused.\n[EXTERNAL] Hank Brubaker: I logged in early like a good boy and nobody was there. Felt like a fool.\n[EXTERNAL] Lacey Dunn: At least four or five reschedules that I know of. Two ended with someone showing up to an empty session. The rest I caught before they did.\n[EXTERNAL] Lacey Dunn: Every single one now. I don't trust it, so I double-check, which defeats the purpose of having the calendar sync at all.\n[EXTERNAL] Lacey Dunn: Hank's on Outlook. We're a Microsoft shop for the leadership team.\n[EXTERNAL] Lacey Dunn: Funny you ask. Our field ops guys use Google Calendar, and I reschedule for a couple of them too. Their invites update fine. It's only Hank and the other Outlook people where the old time sticks.\n[EXTERNAL] Lacey Dunn: That's exactly the pattern. Google updates, Outlook doesn't. I've done both in the same afternoon and watched it happen.\n[EXTERNAL] Lacey Dunn: I'm glad it makes sense to you. I thought I was going crazy for a while.\n[EXTERNAL] Lacey Dunn: That's word for word accurate. You can quote me.\n[EXTERNAL] Hank Brubaker: And it's not a one-off. It's every reschedule for the Outlook people, near as we can tell.\n[EXTERNAL] Lacey Dunn: Six of them, including Hank. All Outlook, all affected. The two Google users are fine.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        13,
+        33
+      ]
+    }
+  ],
+  "source_sha256": "254636d3a80a006450fca2df8e24c4c6db4c4b1d042ba9773196537a286bda96"
+}

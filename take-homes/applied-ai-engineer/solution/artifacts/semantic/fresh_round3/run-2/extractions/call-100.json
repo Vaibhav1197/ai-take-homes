@@ -1,0 +1,25 @@
+{
+  "call_id": "call-100",
+  "candidates": [
+    {
+      "account": "Elmswood Care",
+      "call_id": "call-100",
+      "draft_title": "Fix reactivation to restore member visibility to pre-deactivation session notes",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 17,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Renata: So care facilities have this rhythm where people leave and come back. A nurse goes on maternity leave, or somebody takes a seasonal job elsewhere and then comes crawling back when it doesn't work out, or a caregiver moves to be near family and then moves back. It's constant. So we deactivate people when they leave and reactivate them when they return, rather than deleting and recreating, because recreating loses all their history and it's a pain.\n[EXTERNAL] Renata: Right, that's what I thought, and that's why this is bugging me. Because it turns out it does NOT fully preserve it. Or at least not the part that matters to the person.\n[EXTERNAL] Renata: Okay. We had a caregiver \u2014 I'll call her by role, a shift lead at our Millbrook site \u2014 who left last fall, was deactivated, came back in April, and we reactivated her. She'd done a solid chunk of coaching before she left, maybe eight or nine sessions, and she'd taken notes on them. Her own session notes, the ones the member writes for themselves after a session. She came back, got reactivated, logged in, and her notes from before she left were just... gone. Not visible to her. Blank history where there used to be nine sessions of her own reflections.\n[EXTERNAL] Renata: Correct. From my admin view, actually, I can see that she had those sessions \u2014 the session count is right, the history shows the sessions happened. But when SHE logs in and goes to her own notes, the pre-deactivation notes aren't there. It's like reactivation gave her a fresh notebook and locked the old one in a drawer she can't open.\n[EXTERNAL] Renata: That's exactly how she framed it, actually, and she was upset. She said, \"I wrote things in those notes I wanted to come back to \u2014 goals I set myself, things my coach said that landed \u2014 and now I feel like I'm starting over.\" For someone in a job as emotionally heavy as caregiving, having your own reflection history vanish is not nothing.\n[EXTERNAL] Renata: That's the part that made me put it on today's agenda instead of just filing a helpdesk ticket. I went and checked. We've reactivated eleven people this year across all sites. I had my ops person spot-check with three of them who were willing \u2014 asked them to look at whether their pre-leave notes were visible. All three: same thing. History shows the sessions existed, but the notes they wrote before deactivation are not accessible to them post-reactivation. So it's not a fluke with one account. It's what reactivation does.\n[EXTERNAL] Renata: Yes. That's the exact shape of it. And I want to stress \u2014 this isn't a \"nice to have someday.\" These are people we're actively trying to retain by welcoming them back warmly, and the tool is quietly telling them \"your past doesn't count anymore.\" That undercuts the whole reactivation-over-recreation strategy you all recommend.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        17,
+        30
+      ]
+    }
+  ],
+  "source_sha256": "b959b28879a265d445782a91ce73d06e90ff59faefedea477c93bde385880af7"
+}

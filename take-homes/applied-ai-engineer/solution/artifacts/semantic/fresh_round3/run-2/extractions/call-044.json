@@ -1,0 +1,25 @@
+{
+  "call_id": "call-044",
+  "candidates": [
+    {
+      "account": "Southgate Retail",
+      "call_id": "call-044",
+      "draft_title": "Fix bulk deactivation timeout and missing state reporting for large batches",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 15,
+      "provisional_priority": "P1",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Derek: The big one is offboarding. You know our headcount balloons for holiday and then we shed a couple thousand seasonal workers in January. When we offboard, I need to deactivate people in bulk, and I've hit a wall with it.\n[EXTERNAL] Derek: So the way I do it, I pull the list of terms from Workday, filter to the ones who had a BetterBark seat, and I've got a CSV of member IDs. Then in the admin panel I select them and hit deactivate. Small batches, fine. Fifty, a hundred, no problem.\n[EXTERNAL] Derek: The big batches are where it falls apart. Anything over about two hundred at once and the thing just spins. The progress spinner sits there, and then eventually the page either times out or throws a generic error and dumps me back to the member list.\n[EXTERNAL] Derek: That's the part that made me actually put it on the agenda. It's not all-or-nothing. Some of them get deactivated and some don't. So I'm left with a partial. And here's the kicker \u2014 it doesn't tell me which ones went through and which didn't. No report, no confirmation list, nothing. Just the error and a shrug.\n[EXTERNAL] Derek: Right. I have to go back and manually re-check every single member ID against the roster to see who's still active. On a batch of five hundred that's my whole afternoon gone, and I'm doing it because the tool half-finished the job and then lied to me about it.\n[EXTERNAL] Derek: You've got it exactly. And the timing is what worries me. Right now it's June, I'm doing maintenance offboarding, forty here, sixty there. In January I'm going to need to deactivate somewhere north of two thousand people in a compressed window. If it can't handle two hundred cleanly, January is going to be a catastrophe.\n[EXTERNAL] Derek: Please do. My workaround right now is chunking it into batches of a hundred and fifty and babysitting each one, which works but it's absurd. I'm a systems administrator manually clicking through pages like it's 2009.\n[EXTERNAL] Derek: A hundred and fifty's been clean so far. I've done maybe a dozen of those since spring and I haven't caught a partial in that range. It's specifically when I get greedy and try to do the whole list.\n[EXTERNAL] Derek: On the big ones, maybe thirty, forty seconds of spinner and then it dies. It's not instant, which is what made me think it's genuinely trying and giving up, not rejecting it up front. It gets partway, times out, and bails with whatever it's half-done.\n[EXTERNAL] Derek: Whatever it is, I need it fixed or I need a supported way to do a big batch before January. Even if the answer is \"here's an import-style job that runs in the background and emails you a result file,\" I'd take that in a heartbeat.\n[EXTERNAL] Derek: Good. I don't need it tomorrow. I need it before the holiday hiring wave, which means realistically I need to know by October whether it's coming, so I can plan around it if it's not.\n[EXTERNAL] Derek: Truly generic. \"Something went wrong, please try again.\" No code, no ID, nothing I could give you to trace it. If there were even an error reference I could hand you I'd feel better.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        15,
+        38
+      ]
+    }
+  ],
+  "source_sha256": "df4fbe14020be50be30a58ca7d3e04175e98811433652726c03a56d042a3d66f"
+}

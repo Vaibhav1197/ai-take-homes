@@ -1,0 +1,25 @@
+{
+  "call_id": "call-055",
+  "candidates": [
+    {
+      "account": "Foxglove Pharma",
+      "call_id": "call-055",
+      "draft_title": "Fix delayed password reset emails during peak login times",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 25,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Simone: So we don't use SSO for the training platform \u2014 long story, our IT wouldn't federate a non-critical app, so our people log in with email and password directly. Which means when someone forgets their password, and they do constantly because it's not their daily driver, they hit the \"forgot password\" link.\n[EXTERNAL] Simone: The reset email takes forever to arrive. Sometimes. That's the maddening part \u2014 it's not always. Someone clicks \"reset my password,\" the screen says check your email, and then... nothing. For a long time. And they sit there refreshing their inbox getting frustrated, and half of them give up and email my team instead, which is how I keep hearing about it.\n[EXTERNAL] Simone: Let me be careful here, because I want to give you something real, not \"it feels slow.\" Vague complaints are useless, I know that.\n[EXTERNAL] Simone: I do, actually. One of my coordinators actually timed it because she was so annoyed. She said it was close to half an hour before the reset email showed up. Twenty-five, thirty minutes. By then she'd already messaged my team and moved on. When it finally arrived she didn't even need it anymore.\n[EXTERNAL] Simone: I made her write down the times, which she thought was excessive, but I've learned that \"it was slow\" gets nowhere and \"it was twenty-eight minutes at 9:04 in the morning\" gets attention.\n[EXTERNAL] Simone: Now that you ask \u2014 yes, I think so. The complaints cluster in the morning. Like, when everyone's logging in at the start of the day. My coordinator said she did it first thing, around nine, when the whole office is firing up. Later in the day I hear about it less. But mornings, when it's busy, that's when it drags.\n[EXTERNAL] Simone: That's it exactly. And it's not that the reset doesn't work \u2014 it does, eventually. The email just crawls. Which is almost worse, because there's no error to point at. It's just slow, so people assume it's broken and bail.\n[EXTERNAL] Simone: Good thought, and I did check \u2014 my coordinator found hers in her regular inbox, timestamped twenty-plus minutes after she requested it. So it's not that it was quarantined and she found it late. The email itself was genuinely sent late. The send timestamp confirms the delay is upstream of her mailbox.\n[EXTERNAL] Simone: If it's already known, good, add us to it. It's not a five-alarm fire \u2014 nobody's locked out permanently, they just have a bad twenty minutes and bother my team. But it's a papercut that hits us more than most because we don't have SSO to fall back on. The reset flow is our only door.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        25,
+        43
+      ]
+    }
+  ],
+  "source_sha256": "9aa46a83669b2f778f7847fd9af1eee5507ec0bd54c356251ee521ee76ad799b"
+}

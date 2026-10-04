@@ -1,0 +1,25 @@
+{
+  "call_id": "call-004",
+  "candidates": [
+    {
+      "account": "Cedar Grove Schools",
+      "call_id": "call-004",
+      "draft_title": "Fix scheduled report timestamps rendering in UTC instead of workspace timezone",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 19,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Will: Main thing, and it's the one that's been generating email: the scheduled reports are coming in at a weird time, and the timestamps inside them are off.\n[EXTERNAL] Will: Looks like about seven hours ahead of us. We're Pacific. A report that should say 9am shows up stamped around 4pm. So the timestamps inside the report just don't match when things actually happened in our day.\n[EXTERNAL] Will: Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same way. My directors read the weekly numbers against the school day \u2014 like, \"how many sessions happened during the workday versus after\" \u2014 so when the timestamps don't line up with reality, they think the data itself is wrong. And then I get three confused emails asking why sessions are happening at midnight.\n[EXTERNAL] Will: That would explain the exact seven-hour thing. It's not random, it's a consistent shift.\n[EXTERNAL] Will: Whatever gets it fixed. It's been going on at least a month \u2014 I honestly assumed it was on purpose at first, like some setting I'd missed, until a director pushed back hard enough that I went looking.\n[EXTERNAL] Will: Good question \u2014 the in-app dashboard looks right to me. It's the scheduled report, the one that gets emailed out as a PDF, that's off. The live view seems fine.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        19,
+        30
+      ]
+    }
+  ],
+  "source_sha256": "62f7bed5fced3db674eb2d0df8244a99f0778ebfc763eea7d2a7268f82a3fe59"
+}

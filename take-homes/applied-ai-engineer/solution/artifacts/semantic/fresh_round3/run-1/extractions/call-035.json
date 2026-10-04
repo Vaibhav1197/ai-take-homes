@@ -1,0 +1,25 @@
+{
+  "call_id": "call-035",
+  "candidates": [
+    {
+      "account": "Glasshouse Studios",
+      "call_id": "call-035",
+      "draft_title": "Fix unhelpful generic error when profile photo upload exceeds size limit",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 25,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Tobias: First thing, and this is on-brand for a design studio: our people care a lot about their profile photos.\n[EXTERNAL] Tobias: It's actually a whole thing. We had professional headshots done \u2014 a real photographer, good lighting, the works. Everyone got a beautiful high-res portrait. And people wanted to use those as their profile photos on the platform, naturally.\n[EXTERNAL] Tobias: The upload fails. But \u2014 and this is the frustrating part \u2014 it fails in the least helpful way possible. You go to your profile, you click to change your photo, you pick the headshot file, and it churns for a second and then just says something like \"Something went wrong. Please try again.\" That's it. No explanation.\n[EXTERNAL] Tobias: Nothing. \"Something went wrong, please try again.\" So of course people try again. And it fails again, identically. And they assume the whole platform is broken, or their account is broken, and they give up and message me.\n[EXTERNAL] Tobias: I did, because I'm the ops guy and this is my life. It took me a bit, but I figured out it's the file size. Our headshots are big \u2014 these are high-resolution photographer files, easily 12, 15 megabytes each straight off the camera export. And if I shrink one down \u2014 I ran a couple through a compressor to get them under, I want to say, 8 megs \u2014 it uploads perfectly fine.\n[EXTERNAL] Tobias: Consistently. There's some size ceiling around 8 megabytes. Anything over it fails, anything under it works. But the app never says \"your image is too large\" or \"max size is whatever.\" It just says \"something went wrong\" and lets you flail.\n[EXTERNAL] Tobias: That's it precisely. And look, I get that there has to be a size limit somewhere. That's reasonable. My complaint isn't the limit, it's that the error is useless. If it said \"images must be under 8 MB\" I'd have solved this in ten seconds instead of an afternoon. And more to the point, my designers would solve it themselves instead of thinking the product's broken.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        25,
+        37
+      ]
+    }
+  ],
+  "source_sha256": "b9d38d01b3cec780bebeaa4ba625c6085d77bb28222c9e8e7700f111aa9c0a8b"
+}

@@ -1,0 +1,25 @@
+{
+  "call_id": "call-063",
+  "candidates": [
+    {
+      "account": "Crescent Dental Group",
+      "call_id": "call-063",
+      "draft_title": "Add PDF export button to manager dashboard for team engagement summary",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 19,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Nadia: Right. There's no way to just export it. What I want \u2014 what all forty-two of them want, and they've told me so loudly \u2014 is a button on the manager dashboard that spits out their team's engagement summary as a PDF. A clean one-pager they can drop into a deck or email to their regional director without having to recreate it by hand.\n[EXTERNAL] Nadia: Exactly that. And here's the thing \u2014 it wouldn't just save them time. Right now, because it's manual, half of them do it wrong. They screenshot the wrong date range, or they retype a number with a typo, and then I'm getting emails from regional directors going \"why does Practice 12's number not match what Nadia sent.\" The manual step introduces errors that make the whole program look sloppy.\n[EXTERNAL] Nadia: Both. And honestly the accuracy one bothers me more. When a regional director sees two different numbers for the same practice, they stop trusting the program, and then engagement drops, and then I've got a real problem instead of a formatting one.\n[EXTERNAL] Nadia: Yes. And ideally with the date range they've selected baked in, so there's no ambiguity about what period it covers. That was one of the screenshot problems \u2014 you can't tell from a screenshot what date range someone was looking at.\n[EXTERNAL] Nadia: I figured it didn't exist, or I'd have found it \u2014 I've looked. And I don't need a date, I just want it on the record with the reason, because \"forty-two managers are hand-copying numbers and getting them wrong\" feels like the kind of thing that should get fixed eventually.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        19,
+        27
+      ]
+    }
+  ],
+  "source_sha256": "746f89fb77ffb2d1b9f1b2e2285edf2fc23368f8916026c3a79dc57ce10c16e6"
+}

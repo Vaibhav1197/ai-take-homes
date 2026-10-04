@@ -1,0 +1,25 @@
+{
+  "call_id": "call-095",
+  "candidates": [
+    {
+      "account": "Northgate Security",
+      "call_id": "call-095",
+      "draft_title": "Add API endpoint to programmatically create teams with name and initial members",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 12,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Fatima: Both are annoying, but the team creation is the part that has literally no shortcut. There's a bulk CSV thing for adding members that I've started using, which helps a lot with assignment. But there's nothing for creating the teams themselves. That's all click, type, save, click new, type, save, repeat.\n[EXTERNAL] Fatima: Exactly. And the CSV import for members has been a lifesaver for the assignment half. It's just the team-creation half that's still stuck in the stone age. And that's where Wesley comes in, because his answer to everything is \"why are you doing that by hand.\"\n[EXTERNAL] Wesley: Before I get on my soapbox, quick context on our scale so you understand the volume. We've got about 340 active sites right now, and the average site relationship lasts maybe eight to fourteen months before the contract ends or renews under a new structure.\n[EXTERNAL] Wesley: Effectively, yes. It's not that people leave, it's that the containers they sit in are constantly being created and destroyed as contracts churn. That's the fundamental shape of our business.\n[EXTERNAL] Wesley: Ephemeral is the perfect word. And a manual process built for stable orgs breaks completely against ephemeral ones. Which is my whole point. Because you shouldn't be doing that by hand, that's why. Here's the thing, Lena. All of this already exists in our systems. When we win a contract, our operations platform automatically provisions the site, creates the cost center, sets up the shift schedule, all of it. It's fully automated on our side.\n[EXTERNAL] Wesley: Precisely. BetterBark is the only system in our entire stack where a human has to manually mirror an org change that every other system handles automatically. It's the odd one out, and it drives me up the wall.\n[EXTERNAL] Wesley: Huge one. Fatima's human, she'll eventually typo a site name, or transpose a location code, or miss one during a big onboarding when she's doing 15 in a row. And then the team structures drift out of sync between our ops platform and BetterBark, and reconciling that drift is its own miserable job.\n[EXTERNAL] Fatima: It's already happened twice. I created \"Riverside Mall\" in one system and \"Riverside Plaza\" in the other and it took a week to notice.\n[EXTERNAL] Wesley: Yes. An API endpoint to create teams. If I could call an API to create a team when our ops platform provisions a new site, I'd wire it into our existing provisioning automation in an afternoon and Fatima would never hand-create a team again. We already script every other part of the org change, we just need the hook on your side to complete the loop.\n[EXTERNAL] Wesley: That's it exactly. You nailed it.\n[EXTERNAL] Wesley: Creation is the priority and by far the biggest pain, and it has to include the name and ideally the initial member assignment. But honestly, the full lifecycle would be ideal, create, rename when a site gets renamed, and archive or delete when a contract ends, since teams die about as often as they're born for us.\n[EXTERNAL] Wesley: Create is the must-have. Rename and archive are the nice-to-haves. If I had create, I'd wire that up immediately and handle the deletions manually in a monthly batch, that's survivable. It's the constant creation that's the daily bleed.\n[EXTERNAL] Fatima: If I could just get creation automated I'd genuinely cry with joy. The occasional deletion I can batch. The constant creation is what's killing me.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        12,
+        34
+      ]
+    }
+  ],
+  "source_sha256": "b03c9eb00d4abdd34a1b1551f1c1a12d589005484cf317ae89a39a8113f338a9"
+}

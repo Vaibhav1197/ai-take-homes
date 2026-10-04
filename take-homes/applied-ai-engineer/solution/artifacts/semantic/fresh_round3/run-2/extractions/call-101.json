@@ -1,0 +1,25 @@
+{
+  "call_id": "call-101",
+  "candidates": [
+    {
+      "account": "Taro Logistics",
+      "call_id": "call-101",
+      "draft_title": "Fix goal-tracking reminders firing at 3 a.m. local time for APAC members",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 18,
+      "provisional_priority": "P3",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Aiko: So, the goal-tracking feature sends reminder notifications, yes? A member sets a goal, and the app reminds them to check in on it, reflect on progress, that sort of thing.\n[EXTERNAL] Aiko: During their working day. Yes. That is the problem. They are not arriving during the working day. They are arriving in the middle of the night.\n[EXTERNAL] Aiko: Around three in the morning. Consistently. My phone, Kenji's phone, and we started asking members and it is the same for them. The goal reminder buzzes at roughly three a.m. local. People are being woken up by their dog-training tool telling them to reflect on their goals, which is not the reflective mood you want to induce at three in the morning.\n[EXTERNAL] Kenji: I turned mine off after the second time. A notification at three a.m. from a wellness product is, how to say, ironic.\n[EXTERNAL] Aiko: Exactly. And here is the detail I think is the clue, because I did a little investigating myself. Three a.m. in Japan is \u2014 Japan is UTC plus nine \u2014 so three a.m. here is around lunchtime the previous day in the United States. Around noon Central time, roughly. Late morning on the West Coast.\n[EXTERNAL] Aiko: I am a logistics person. Timezone math is my entire life. We route freight across twelve zones. When something fires at the \"wrong\" time, my first instinct is always \"whose clock is it actually on?\" And it looks very much like these reminders are on someone's clock in the middle of the United States, not ours.\n[EXTERNAL] Kenji: That is our theory as well. The reminders behave as if we are all in America. We are, I assure you, not.\n[EXTERNAL] Aiko: That was my worry \u2014 that it is not just us. If it is tuned for American hours, then every customer in Asia has members getting woken up at three in the morning by a goal reminder, and most of them are probably just turning notifications off, like Kenji did, and not telling you why.\n[EXTERNAL] Aiko: Thank you. I will feel much better knowing it is filed. Even if the fix takes a while, at least I can tell members \"we reported it, it is a known issue, please just mute it for now\" instead of \"the app is broken and we don't know why.\"",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        18,
+        33
+      ]
+    }
+  ],
+  "source_sha256": "e2dfd5d35ac6818a8b0ee7a464e5a4addae1bd895ab3a39e52f6ac1109356fe0"
+}

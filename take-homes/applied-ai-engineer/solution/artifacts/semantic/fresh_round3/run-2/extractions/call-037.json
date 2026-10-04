@@ -1,0 +1,44 @@
+{
+  "call_id": "call-037",
+  "candidates": [
+    {
+      "account": "Osprey Rail",
+      "call_id": "call-037",
+      "draft_title": "Add policy-gated download for member-owned session notes",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 19,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Declan: Okay. So this comes directly from my members, repeatedly, and it's been building for months. People want to be able to download their own session notes.\n[EXTERNAL] Declan: Right. So the way it works now \u2014 the member and coach have sessions, notes get taken, there's a reflection, action items, all that. And members can see them in the platform. But they can't take them with them. They can't export or download their own notes.\n[EXTERNAL] Declan: They want a copy, and the reasons are actually good ones. First, some of them want to bring their dog's training notes to their own vet or a new trainer. Like, \"here's the behavior we've been working on with the coach, here's the progress.\" They want to reference their dog's whole training journey in their own words.\n[EXTERNAL] Declan: Second \u2014 and this one's more emotional \u2014 a few people have said they want their notes because the coaching has genuinely mattered to them and they want to keep it. Like a journal. If they ever left the company and lost platform access, all that reflection just... vanishes. And that feels wrong to them. It's their growth, their words.\n[EXTERNAL] Declan: Exactly. It's theirs. They wrote it, or it's about them. And the ask is simple: let a member download their own session notes. A PDF, a text file, I don't care about the format. Just \"here's your coaching history, it's yours to keep.\"\n[EXTERNAL] Declan: That's an important distinction and yes. I'm not asking for a free-for-all. I'd want it to be something an org can allow or not. For us, we'd allow it \u2014 our whole philosophy is transparency, the notes belong to the person. But I can imagine a more locked-down company wanting to keep everything in the walls. So make it policy-gated. Where the org permits it, members can download their own notes.\n[EXTERNAL] Declan: Yes. That's the ask, cleanly stated.\n[EXTERNAL] Declan: It's more than nice. I've had at least a dozen people ask me directly, and a couple were genuinely disappointed \u2014 like it slightly soured the experience for them that they couldn't keep their own work. When your best engineers are the ones asking, and they're the retention risk, I take it seriously. It's not a dealbreaker, but it's a \"you almost got this perfectly right and stopped one step short\" kind of gap.\n[EXTERNAL] Declan: You put it better than I did. Steal my thunder, please.\n[EXTERNAL] Declan: Good. As long as it's captured properly I'm happy. I know these things take time. I just want it in the queue with a real rationale, not as a throwaway.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        19,
+        37
+      ]
+    },
+    {
+      "account": "Osprey Rail",
+      "call_id": "call-037",
+      "draft_title": "Add post-project recovery training module for exhausted engineers",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 53,
+      "provisional_priority": "P3",
+      "raw_score": 3.6,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Declan: One more, purely logistical \u2014 when the signaling project wraps in the autumn, I'll have a cohort of exhausted engineers coming off eighteen months of hell. Can we do something for them specifically? A reset, almost.\n[EXTERNAL] Declan: Exactly. I don't want them to burn out at the finish line, which is when it usually happens. You survive the marathon and collapse a step past the tape.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        53,
+        56
+      ]
+    }
+  ],
+  "source_sha256": "b7a062baf58cc12f11210e641d72009df8bb523fe7e5b6afbb256f097ed4088c"
+}

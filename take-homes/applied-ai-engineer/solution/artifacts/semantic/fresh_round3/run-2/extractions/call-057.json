@@ -1,0 +1,63 @@
+{
+  "call_id": "call-057",
+  "candidates": [
+    {
+      "account": "Pemberton Foods",
+      "call_id": "call-057",
+      "draft_title": "Fix video stream freezing at 40-minute mark while audio continues in Chrome",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 23,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Danielle: The loudest one is about the video sessions. And before you ask \u2014 no, it's not \"the video is bad,\" people are specific. Several of my corporate members have said that during their live training sessions in the browser, the video just freezes. Like, the coach's picture locks up.\n[EXTERNAL] Danielle: That's the weird part. The audio keeps going. So you're mid-conversation, the coach's face freezes on some unflattering frame, and you keep talking like nothing happened. One of my directors said she spent ten minutes talking to a frozen coach before she realized the video had died.\n[EXTERNAL] Danielle: Marcus actually tracked this because two of them were on his team.\n[EXTERNAL] Marcus: Yeah, so I got curious because it happened to me too. It's not random. It's around the forty-minute mark. Every time. My session froze at almost exactly forty-one minutes in, and when I asked the two others, both said \"yeah, around forty minutes, near the end.\"\n[EXTERNAL] Marcus: Purely video. Audio's fine, you can keep talking. And here's the fix we found by accident: if you refresh the page, the video comes right back. Just a browser refresh and you're reconnected, coach's face moving again.\n[EXTERNAL] Marcus: I asked. All Chrome. I'm on Chrome, the two directors are on Chrome. I didn't have anyone on Safari or Firefox to compare, our corporate standard is Chrome so that's basically everyone.\n[EXTERNAL] Marcus: I want to say it's newish. I've been doing sessions since March and this only started maybe four, five weeks ago. Before that video was rock solid for the full hour.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        23,
+        35
+      ]
+    },
+    {
+      "account": "Pemberton Foods",
+      "call_id": "call-057",
+      "draft_title": "Add ability to schedule and deliver recorded dashboard walkthroughs for plant shifts",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 48,
+      "provisional_priority": "P2",
+      "raw_score": 3.6,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Danielle: That would actually be huge. The night shift will never make a live session, but they'll watch a video during a break.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        47,
+        48
+      ]
+    },
+    {
+      "account": "Pemberton Foods",
+      "call_id": "call-057",
+      "draft_title": "Implement one-click facility breakdown filter in reporting views",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 54,
+      "provisional_priority": "P2",
+      "raw_score": 3.4,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Danielle: Still want it, but it's not blocking me. The facility breakdown I can mostly do by filtering. If it ever becomes a one-click thing I won't complain.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        54,
+        55
+      ]
+    }
+  ],
+  "source_sha256": "01d67573a34ee832981bb0a9841e3d4fcafd8226ca678ee92d2e951228994645"
+}

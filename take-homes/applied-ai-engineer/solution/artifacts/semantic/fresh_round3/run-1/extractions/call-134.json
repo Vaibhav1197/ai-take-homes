@@ -1,0 +1,25 @@
+{
+  "call_id": "call-134",
+  "candidates": [
+    {
+      "account": "Sequoia Ventures",
+      "call_id": "call-134",
+      "draft_title": "Expose aggregate engagement metrics via API for BI integration",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 30,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Alan: Okay, so here's my life right now. When a partner asks \"how's engagement with the coaching program trending,\" I log into your dashboard, I look at the numbers, and then \u2014 I am not proud of this \u2014 I take screenshots. I screenshot your engagement charts and I paste them into a slide or I manually retype the numbers into my Tableau workbook so they sit next to everything else.\n[EXTERNAL] Alan: By hand. In the year 2026. I have a data pipeline that ingests millions of rows automatically from a dozen systems, and for BetterBark I am squinting at a chart and typing numbers into a spreadsheet like it's 2005. It's embarrassing and it's error-prone.\n[EXTERNAL] Alan: What I need is API access to the engagement metrics. A programmatic endpoint I can call to pull the aggregate engagement data \u2014 activation rates, session volumes, the trend metrics you show on the dashboard \u2014 so I can ingest it into my pipeline automatically and land it in Tableau and Looker alongside everything else. Then it's just another data source, refreshed on a schedule, no human in the loop.\n[EXTERNAL] Alan: Exactly. I don't need it to be fancy. Even a well-documented endpoint that returns the same aggregate numbers your dashboard shows would transform my workflow. The dashboard is fine for a human glancing at it, but I need the data, not the picture.\n[EXTERNAL] Alan: For the standing partner reports, monthly. But partners ask ad hoc constantly, so realistically I'm pulling BetterBark numbers by hand a few times a month, sometimes weekly during board-prep season. Every one of those is manual and every one is a chance to fat-finger a number into a partner deck, which is the nightmare \u2014 wrong data in front of the partners.\n[EXTERNAL] Alan: The accuracy risk is what actually keeps me up. Time I can absorb. But if I transpose a digit and a partner makes a comment to the CEO based on a wrong engagement number that I typed wrong, that's on me. An API removes the human transcription entirely, which removes that class of error.\n[EXTERNAL] Bethany: And to add the strategic layer \u2014 as we scale the program and potentially extend to portfolio companies, Alan's going to need to report on all of it in one place. If every new population means more manual screenshotting, that doesn't scale. The API isn't just a convenience, it's a prerequisite for us reporting on this the way we report on everything else.\n[EXTERNAL] Alan: Correct, and I want to be crystal clear on that because I know coaching data is sensitive. I do not want individual-level coaching content or anything private. I want the aggregate, org-level engagement numbers \u2014 the same rollups your dashboard already shows to admins. Activation, session counts, engagement trends over time. Nothing that identifies what any individual discussed with a coach.\n[EXTERNAL] Alan: A callable API is the ideal because my pipeline is pull-based and scheduled. But honestly, if the only option were a scheduled push of the same aggregate data to somewhere I can ingest, I'd take it. The core need is machine-readable aggregate engagement data, delivered automatically. API is my preference; the principle is \"stop making me screenshot.\"\n[EXTERNAL] Alan: Tableau today, Looker as we migrate, and a couple of the partners poke at things in Power BI. So really any of the standard BI platforms \u2014 the common thread is they all consume from data sources, and right now BetterBark isn't one they can consume from.\n[EXTERNAL] Alan: That's a better summary than I would've written. Yes, exactly that.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        30,
+        49
+      ]
+    }
+  ],
+  "source_sha256": "69016a88af82481030e36525adcf4cbb39be41f3722191e97c9ce4244e6264cb"
+}

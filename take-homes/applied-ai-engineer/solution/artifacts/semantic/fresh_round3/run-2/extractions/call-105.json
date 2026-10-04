@@ -1,0 +1,44 @@
+{
+  "call_id": "call-105",
+  "candidates": [
+    {
+      "account": "Delft Imports",
+      "call_id": "call-105",
+      "draft_title": "Fix scheduled report timestamps defaulting to UTC instead of workspace timezone",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 19,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Saskia: Yes. And the times are wrong. All of the times in that report are wrong.\n[EXTERNAL] Saskia: The report shows session times, when sessions happened, when they are scheduled, that sort of thing. And every timestamp in it is off by six hours. We are in the Eastern timezone \u2014 our office is on the East Coast, that is where the import operation runs from. A session that I know happened at nine in the morning our time shows in the report as three in the afternoon. Everything is shifted forward by six hours.\n[EXTERNAL] Saskia: That is exactly what I concluded. It is showing UTC. Not our timezone. And I checked our workspace settings \u2014 the workspace is correctly set to Eastern. Everywhere else in the product, the times are right. When I look at a member's session detail in the app, it says nine a.m., correct. When I look at the calendar, correct. It is only this scheduled report \u2014 the emailed PDF and the in-app scheduled version of it \u2014 where the times come out in UTC.\n[EXTERNAL] Saskia: Precisely isolated. That is the frustrating part \u2014 it is not a global timezone misconfiguration on our side, because then everything would be wrong. It is only the scheduled report. Which tells me the report generator is ignoring the workspace timezone and defaulting to UTC.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        19,
+        26
+      ]
+    },
+    {
+      "account": "Delft Imports",
+      "call_id": "call-105",
+      "draft_title": "Support per-member or per-site timezone localization in scheduled reports for multi-timezone workspaces",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 38,
+      "provisional_priority": "P3",
+      "raw_score": 3.6,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Joost: Then let us move on. Maya, the reason I care about these reports so much is the next topic \u2014 we are considering expanding coaching to a second facility. We just opened a distribution center in the Midwest, near Chicago, and it will have its own supervisors and leads. If we add them, they are Central timezone, not Eastern.\n[EXTERNAL] Joost: Exactly my worry. If the report already cannot handle one timezone correctly, what happens with two? Will the Chicago people's times be even more wrong?\n[EXTERNAL] Joost: That is a good question to have asked before we add Chicago, not after. I would rather know the answer while it is still a plan.\n[EXTERNAL] Saskia: And if the answer is that the report cannot localize per member in a multi-timezone workspace, that changes how I would set up the Chicago reporting entirely. I might need separate reports per site rather than one combined report.\n[EXTERNAL] Saskia: Thank you. I would rather design it once, correctly, than build a combined report and discover it puts Chicago on the wrong clock too.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        38,
+        45
+      ]
+    }
+  ],
+  "source_sha256": "ec706bb7e3eceb6ea4cbd7474d36069436f449ebb4be66f81155783a7f389872"
+}

@@ -1,0 +1,25 @@
+{
+  "call_id": "call-029",
+  "candidates": [
+    {
+      "account": "Hanamura Trading",
+      "call_id": "call-029",
+      "draft_title": "Fix silent failure of CSV import for rows with non-Latin names",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 17,
+      "provisional_priority": "P1",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Kenji: Let's do it now, actually, because the first one has been bugging me and I want to make sure I explain it right.\n[EXTERNAL] Kenji: So. We onboarded a new cohort in early June. About 320 people, mostly from the Osaka and Fukuoka offices \u2014 the ones from the reorg who hadn't been enrolled yet.\n[EXTERNAL] Kenji: Yes. And rather than send 320 individual invites, my coordinator used the bulk import. The CSV upload, the members import.\n[EXTERNAL] Kenji: Correct. She built the file from our HRIS export \u2014 name, email, team, employee ID in a custom column. Uploaded it. The tool said it succeeded. Green checkmark, \"import complete,\" some number of members added.\n[EXTERNAL] Kenji: And then two weeks later people started emailing me saying they never got their welcome email and they can't find their account. At first I assumed they were in the wrong, you know, they typed their email wrong or they're looking in spam.\n[EXTERNAL] Kenji: The usual suspects. So I tell my coordinator to check. And she goes into the members list and counts. And we're short. We uploaded 320 rows. There are 291 members in the system.\n[EXTERNAL] Kenji: Twenty-nine missing. And no error. No warning. Nothing said \"29 rows failed.\" The import just... quietly did 291 of them and told us it was done.\n[EXTERNAL] Kenji: Exactly. And here's the part that took us a while to see. My coordinator, she's sharp, she pulled the 29 missing ones into a separate list to see what they had in common. And it's the names.\n[EXTERNAL] Kenji: The 29 that got skipped \u2014 every single one has a name written in kanji or katakana in the name field. Non-Latin characters. The ones that came through, either they had Latin-alphabet names, or the coordinator happened to have romanized them \u2014 Watanabe instead of \u6e21\u8fba, that kind of thing.\n[EXTERNAL] Kenji: That's our theory, yes. We haven't proven it exhaustively but the correlation is 29 for 29. Every skipped row has non-Latin characters in the name. Every included row is Latin, or was romanized.\n[EXTERNAL] Kenji: Completely valid. Same format as everyone else. The only difference is the script the name is written in. And most of our workforce writes their name in Japanese, obviously, so this isn't an edge case for us. It's a structural problem. If I re-run any import with real Japanese names, I'm going to lose rows every time.\n[EXTERNAL] Kenji: That's the real issue for me. I don't even mind if certain rows can't import for some technical reason, as long as it tells me which ones. I can fix a list of 29. What I can't do is trust an import that lies about being complete.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        17,
+        40
+      ]
+    }
+  ],
+  "source_sha256": "080f7a23da8fba73a8c3c7ceb2481b525a5c8197637fb7620e6c175379fb226a"
+}

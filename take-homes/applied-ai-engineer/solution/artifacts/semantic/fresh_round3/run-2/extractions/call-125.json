@@ -1,0 +1,25 @@
+{
+  "call_id": "call-125",
+  "candidates": [
+    {
+      "account": "Ashcroft Partners",
+      "call_id": "call-125",
+      "draft_title": "Fix silent delivery failure for in-app messages exceeding 2000 characters",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 9,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Fiona Delacroix: Perfect, parking all of that. Okay, the actual problem I called about. It's about the in-app messaging between members and coaches.\n[EXTERNAL] Fiona Delacroix: So a couple of my senior people \u2014 the ones who really engage deeply \u2014 like to send their coach a long note before a session. Context, background, a whole situation they want to work through. Detailed stuff.\n[EXTERNAL] Fiona Delacroix: Right. And what's happening is the coach never gets the long ones. The member writes this whole thoughtful message, hits send, sees it appear in their own thread like it went through \u2014 and then shows up to the session and the coach has no idea what they're talking about. Never received it.\n[EXTERNAL] Fiona Delacroix: Just the long ones. That's the pattern my analyst \u2014 well, I don't have an analyst, I did this myself with too much coffee \u2014 the pattern I found is it's only the LONG messages. Short messages go through fine. \"See you at 3\" arrives instantly. It's the essays that vanish.\n[EXTERNAL] Fiona Delacroix: I actually tested this because it was driving me mad. I sent myself \u2014 well, I had one of my people send test messages of increasing length to their coach and we compared notes. Short ones, fine. Medium, fine. Somewhere around two thousand characters, they stop arriving. Above that, gone.\n[EXTERNAL] Fiona Delacroix: Roughly. Below it, delivered. Above it, the sender sees \"sent\" but the recipient gets nothing. No error, no warning, no \"message too long.\" It just silently fails to deliver while pretending it succeeded.\n[EXTERNAL] Fiona Delacroix: Exactly the damage. My senior person felt ignored \u2014 \"I sent you all that and you didn't read it?\" \u2014 and the coach felt ambushed. It eroded trust on both sides over something neither of them did wrong.\n[EXTERNAL] Fiona Delacroix: Hang on, Ravi, my transcription tool is doing something weird. Are you seeing this? The live transcript just spat out a garbled line.\n[EXTERNAL] Fiona Delacroix: Yes, that gibberish. My tool does this occasionally when the audio glitches, it hallucinates a string of nonsense. Ignore it, it's just a corrupted transcript segment.\n[EXTERNAL] Fiona Delacroix: Sorry about that, the joys of AI transcription. Back to the messages.\n[EXTERNAL] Fiona Delacroix: Literally nothing. It's not truncated, it's not garbled on their end. The message simply never appears in the coach's thread at all. From the coach's side, the member never wrote anything.\n[EXTERNAL] Fiona Delacroix: Whole thing gone. All or nothing. Under the limit, fully delivered. Over the limit, entirely dropped, with a false \"sent\" on the sender's side.\n[EXTERNAL] Fiona Delacroix: That's it precisely. And I'd stress the \"silent\" part. If it just told the member \"your message is too long, please shorten it,\" this would be an annoyance. Instead it fabricates success and destroys the whole point of the feature for exactly the most engaged users.\n[EXTERNAL] Fiona Delacroix: The long-message writers are my most senior, most invested people \u2014 maybe six or seven, but they're the whales, the ones getting the most from coaching. And it's happened repeatedly, it's not a one-off. Every time one of them writes a proper brief, it disappears.\n[EXTERNAL] Fiona Delacroix: Yes, I kept a couple. I'll send you the character counts and the timestamps, and which coach didn't receive them.\n[EXTERNAL] Fiona Delacroix: I'm just relieved it's real and not me being technically incompetent.\n[EXTERNAL] Fiona Delacroix: I'll take that as the compliment I desperately need this week.\n[EXTERNAL] Fiona Delacroix: Thank you both. So what happens now?\n[EXTERNAL] Fiona Delacroix: One thing I'm curious about \u2014 does the same limit hit coach-to-member messages, or only member-to-coach? Because if a coach writes a long note back, does that vanish too?\n[EXTERNAL] Fiona Delacroix: Fair. I've only seen it going member-to-coach because that's who writes the essays. I haven't tested the reverse.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        9,
+        48
+      ]
+    }
+  ],
+  "source_sha256": "a2d253c8bf9df5260363b50d2fefa78db49dd1deb2a2dd01fb16dcfce7f5ae59"
+}

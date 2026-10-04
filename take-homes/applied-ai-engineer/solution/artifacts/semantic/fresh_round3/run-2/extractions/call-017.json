@@ -1,0 +1,25 @@
+{
+  "call_id": "call-017",
+  "candidates": [
+    {
+      "account": "Halewood Biotech",
+      "call_id": "call-017",
+      "draft_title": "Fix weekly digest showing aggregate stats for non-member teams when user has dual membership",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 17,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Priyanka: The weekly digest email. You know the one \u2014 the Monday \"here's your team's activity this week\" summary that goes to members. Several of my dual-team people are getting numbers that aren't theirs.\n[EXTERNAL] Priyanka: So. I have a scientist, Aleksander, who's on Discovery and on Basel Launch. His Monday digest showed him the aggregate stats \u2014 session counts, average goals-completed, engagement rate \u2014 for a team he is not on. Not Discovery, not Basel Launch. A third team entirely. The \"Formulation\" team, which he has nothing to do with.\n[EXTERNAL] Priyanka: Correct. And here's what makes it worse than just \"wrong number.\" Those are aggregate stats for a team he's not a member of. So he's now seeing, in his inbox, how the Formulation team is doing. Their engagement rate. How many sessions they collectively booked. That's not his to see.\n[EXTERNAL] Priyanka: Right. In a biotech, team-level performance data is sensitive. If the Formulation team is having a rough quarter, that's between them and their lead. It should absolutely not be surfacing in some random scientist's weekly email because he happens to be double-teamed.\n[EXTERNAL] Priyanka: Good question. For Aleksander it's been Formulation two Mondays running. But I've got another dual-team person, Fenna, and hers showed a different wrong team than her actual two. So it's not like everyone's seeing Formulation \u2014 it's that dual-team people are getting some other team's numbers, and it's the wrong team per person.\n[EXTERNAL] Priyanka: That's the pattern, yes. Single-team people seem fine \u2014 I asked around, and everyone whose digest I could check who's on exactly one team got their own correct numbers. It's specifically the dual-membership folks whose digest goes sideways.\n[EXTERNAL] Priyanka: It surfaced when Aleksander emailed me two Mondays ago and said \"why am I getting the Formulation team's stats.\" I hadn't been looking. Once he flagged it I checked the other dual-team people and found Fenna's. So \u2014 call it early June is when I have hard evidence, but it could've been happening since the reorg and nobody said anything.\n[EXTERNAL] Priyanka: That's the part that got MY attention. I don't love that a person can see another team's aggregate performance because of how membership overlaps. If my legal team hears \"members can see other teams' data,\" that becomes a whole thing.\n[EXTERNAL] Priyanka: Aleksander definitely kept his, he's the type. I'll get you both IDs, the dates, and whatever screenshots exist by end of day.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        17,
+        33
+      ]
+    }
+  ],
+  "source_sha256": "f4456ac8c677689c0b704500a5ae1d0305bd120dc445122bf3d29c2529a08a9e"
+}

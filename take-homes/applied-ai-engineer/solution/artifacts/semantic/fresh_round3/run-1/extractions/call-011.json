@@ -1,0 +1,25 @@
+{
+  "call_id": "call-011",
+  "candidates": [
+    {
+      "account": "Brightpath Insurance",
+      "call_id": "call-011",
+      "draft_title": "Fix email notification links truncated at apostrophe in names",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 39,
+      "provisional_priority": "P3",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.\n[EXTERNAL] Sofia: I have them in a spreadsheet with a filter on the name column. Detective, remember. I don't estimate, I count.\n[EXTERNAL] Sofia: You mock, but the spreadsheet is going to save your engineers a headache. I've already got the exact list of who's affected.\n[EXTERNAL] Sofia: Always. And here's the part that actually bothers me: they've learned to ignore the links. Maria knows her link is broken, so she doesn't click it, she just navigates to the app manually. Which means she's learned to ignore the notification. Which defeats the entire point of sending the notification. We're training thirty-one members to disregard our reminders because the reminders don't work for them.\n[EXTERNAL] Sofia: Sending Maria's. She's amused by her fame at this point \u2014 she's started calling herself \"the 404 lady.\" I'll paste the exact broken URL so your engineers can see where it truncates.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        39,
+        56
+      ]
+    }
+  ],
+  "source_sha256": "cfe24a02e4a3623d817644f94b5ed6729fd390470b287594ff10a61588a7e4d2"
+}

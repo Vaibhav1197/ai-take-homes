@@ -1,0 +1,44 @@
+{
+  "call_id": "call-074",
+  "candidates": [
+    {
+      "account": "Windmark Insurance",
+      "call_id": "call-074",
+      "draft_title": "Add configurable threshold-based Slack alerts for at-risk segments",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 28,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Lorraine Petty: In an ideal world? Somebody or something taps me on the shoulder and says \"hey, claims dropped below whatever line, go look.\"\n[EXTERNAL] Lorraine Petty: Yes. Exactly that. I don't want to hunt for problems, I want the problems to find me.\n[EXTERNAL] Neil Ashby: And ideally not another email I'll ignore. We live in Slack. If it hit our Slack, I'd actually see it.\n[EXTERNAL] Neil Ashby: We've got a #people-ops channel. If an at-risk alert dropped there when a team's engagement fell below a threshold we set, the right three people would see it within minutes.\n[EXTERNAL] Lorraine Petty: That would genuinely change how fast we react. Right now it's monthly. That could be same-day.\n[EXTERNAL] Neil Ashby: That's the shape exactly. Configurable threshold, posts to Slack, so we catch the drop early instead of a month late.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        28,
+        36
+      ]
+    },
+    {
+      "account": "Windmark Insurance",
+      "call_id": "call-074",
+      "draft_title": "Allow per-segment configuration of engagement alert thresholds",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 49,
+      "provisional_priority": "P3",
+      "raw_score": 3.6,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Neil Ashby: Just \u2014 when you build the alert, let me set the threshold per segment, not one global number. Claims and underwriting shouldn't share a line.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        49,
+        50
+      ]
+    }
+  ],
+  "source_sha256": "5066771db2d7ae92ebc6cb3d2535ce19f8a2be6e37d2a8d18180a34ae6259fdf"
+}

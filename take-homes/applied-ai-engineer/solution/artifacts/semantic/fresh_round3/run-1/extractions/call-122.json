@@ -1,0 +1,25 @@
+{
+  "call_id": "call-122",
+  "candidates": [
+    {
+      "account": "Vesper Finance",
+      "call_id": "call-122",
+      "draft_title": "Fix double credit deduction for sessions rescheduled within 24 hours",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 17,
+      "provisional_priority": "P3",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Aditi Menon: Here's the problem. We noticed our credit consumption was running higher than our session count. Like, meaningfully higher. Finance flagged it because the numbers didn't reconcile, and finance flagging you is never a fun day.\n[EXTERNAL] Aditi Menon: Enough that our operations analyst spent a week trying to figure out if we were miscounting. We weren't. Let me tell you what she found, because she's sharp and she nailed it down.\n[EXTERNAL] Aditi Menon: She isolated it to rescheduling. Specifically, when a member reschedules a session on short notice. She built a little tracking sheet and matched every anomaly to a reschedule.\n[EXTERNAL] Aditi Menon: She did, meticulously. Member books a session. One credit gets held or deducted, fine. Then the member reschedules that session \u2014 moves it to a different time. And when they reschedule within a short window before the original slot, a SECOND credit gets deducted. So one session, two credits gone.\n[EXTERNAL] Aditi Menon: Yes. She pinned it to reschedules made within twenty-four hours of the original slot. If someone reschedules a week out, one credit, correct. If they reschedule the morning of, or the night before \u2014 inside that twenty-four-hour window \u2014 two credits get burned for the one session.\n[EXTERNAL] Aditi Menon: That's exactly her theory. It's as if it thinks you cancelled late and booked fresh, when really you just moved the same session.\n[EXTERNAL] Aditi Menon: Thank you. That's the distinction I needed someone to confirm. Because at first I wondered if it was an intentional late-reschedule fee. But there's nothing in our contract about that, no notice to the member, nothing in the UI. The credit just quietly vanishes.\n[EXTERNAL] Aditi Menon: Right. So it's just... eating credits. And because it's tied to short-notice reschedules, which happen constantly in our world \u2014 traders' calendars are chaos \u2014 it adds up fast.\n[EXTERNAL] Aditi Menon: Over the last two months, my analyst estimates somewhere between sixty and eighty credits lost to this. That's real money at our per-credit rate, and it's real reconciliation pain for finance every month.\n[EXTERNAL] Aditi Menon: Absolutely, she'll be thrilled someone wants her spreadsheet. She's been dying to be vindicated.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        17,
+        36
+      ]
+    }
+  ],
+  "source_sha256": "47e2fbd99e569eb3d024f30adf72b46143b6f1279f33204d90e9ae8bc184e416"
+}

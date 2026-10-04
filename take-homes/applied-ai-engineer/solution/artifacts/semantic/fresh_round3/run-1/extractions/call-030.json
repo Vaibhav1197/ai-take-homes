@@ -1,0 +1,25 @@
+{
+  "call_id": "call-030",
+  "candidates": [
+    {
+      "account": "Vela Cosmetics",
+      "call_id": "call-030",
+      "draft_title": "Add tailored content pathway for individual-contributor track",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 35,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Bianca: Kind of you to say. Alright, second thing. This isn't a complaint, more a question. We're expanding the program in the fall \u2014 I want to add the individual-contributor track, not just managers. The high-potential ICs.\n[EXTERNAL] Bianca: Maybe another 60, 70? It depends on budget, which depends on whether the summer line does what we hope.\n[EXTERNAL] Bianca: Tailored, ideally. The reactive-dog stuff won't all land for people whose puppy just needs the basics.\n[EXTERNAL] Bianca: Perfect. Send me the menu, I'll socialize it internally.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        35,
+        41
+      ]
+    }
+  ],
+  "source_sha256": "ebd260d60b25e175bb08179a34ceca4da52e069f099008fa2caadf042329f2ee"
+}
