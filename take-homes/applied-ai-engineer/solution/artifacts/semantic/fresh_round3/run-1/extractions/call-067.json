@@ -1,0 +1,25 @@
+{
+  "call_id": "call-067",
+  "candidates": [
+    {
+      "account": "Fenwick Capital",
+      "call_id": "call-067",
+      "draft_title": "Add SCIM support for automated user deprovisioning",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 25,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Colin: Our whole identity stack speaks SCIM. Every other system in our environment provisions and deprovisions via SCIM against our IdP. What I need is for BetterBark to support SCIM so that user lifecycle \u2014 create, update, and critically deactivate \u2014 is driven automatically from our identity provider.\n[EXTERNAL] Colin: You have it exactly right. Provisioning-in would be nice, but honestly I can live with manual account creation. It's the deprovisioning-out that's the compliance gap. If SCIM only did the deactivate reliably, I'd be 90% happy.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        25,
+        27
+      ]
+    }
+  ],
+  "source_sha256": "a26382128c2721f51b87d7a3f2321c60184e0543599cb22e461dc1f4f1bf4ec0"
+}

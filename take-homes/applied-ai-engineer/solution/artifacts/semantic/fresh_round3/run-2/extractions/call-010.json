@@ -1,0 +1,44 @@
+{
+  "call_id": "call-010",
+  "candidates": [
+    {
+      "account": "Atlas Financial",
+      "call_id": "call-010",
+      "draft_title": "Add API endpoint for automated, time-range filtered audit log export",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 9,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Renee: Let's do the audit-log one first, it's cleaner. We need programmatic access to the audit log. There's a UI view today, which is genuinely fine for spot checks \u2014 if I want to see who changed a config last Tuesday, I click in and I see it.\n[EXTERNAL] Renee: The UI's fine for the \"who touched this on Tuesday\" moment. It's just not a machine.\n[EXTERNAL] Renee: Right. Our SOC team needs to pull audit events into our SIEM on a nightly job. Automated, unattended, every night. So what I need is an API endpoint \u2014 filterable by time range, paginated, machine-readable. JSON, ideally. Give me \"all audit events between these two timestamps,\" let me page through them, done.\n[EXTERNAL] Renee: Exactly. And I want to be clear about why the UI export button doesn't count, because someone will suggest it. A human clicking \"export CSV\" once a week is not continuous monitoring. It's a person, doing a manual task, on a schedule they'll eventually forget. Our SOC 2 auditors will keep writing it up as a control gap until an automated pull exists. Continuous monitoring means no human touches it.\n[EXTERNAL] Renee: And keep it separate from the role-mapping request from Wednesday. Different control, different auditors, honestly different people on my side own each one. I don't want them collapsed into one ticket where one blocks the other.\n[EXTERNAL] Renee: Perfect. Keep them separate. My auditors would find a way to blame me if one ticket blocking another made us miss a control.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        9,
+        19
+      ]
+    },
+    {
+      "account": "Atlas Financial",
+      "call_id": "call-010",
+      "draft_title": "Fix infinite redirect loop for Azure AD users after network password rotation",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": true,
+      "primary_turn_index": 23,
+      "provisional_priority": "P1",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Renee: When one of our users changes their network password \u2014 our regular rotation \u2014 and then hits your app, they get stuck in a login loop. And I want to walk you through the exact loop, because I need you to file this precisely.\n[EXTERNAL] Renee: Give me a second, I want to get the order right \u2014 I watched one of my users do it over the shoulder yesterday, so this is from life, not a guess.\n[EXTERNAL] Renee: User changes their password on our side. Then they open your app. Your app bounces them to our IdP to authenticate. The IdP authenticates them just fine \u2014 new password, correct, no problem, IdP says \"yes, this is them.\" IdP sends them back to your app. And then your side immediately bounces them right back to the IdP again. And around, and around. Authenticate, return, bounce, authenticate, return, bounce. Infinite.\n[EXTERNAL] Renee: That's it exactly. They never get in. Not \"logged in briefly then out\" \u2014 they never reach the app at all. It just spins between your login and our IdP until they give up.\n[EXTERNAL] Renee: Every time. The user tries twice, decides it's broken, and calls my helpdesk instead of figuring it out themselves.\n[EXTERNAL] Renee: Clearing browser cookies for your domain breaks the loop. Once they wipe your cookies, they log in clean and they're fine. But that's a support call every single time \u2014 you can't tell four hundred people \"clear your cookies\" and expect that to scale.\n[EXTERNAL] Renee: You've met our users. That's exactly how the first three tickets went \u2014 \"which browser, where's the menu, what's a cookie.\" I'm not building a training program around that.\n[EXTERNAL] Renee: Right, and I actually read about that one in your status-page history, and I want to be emphatic: this is not that. Two reasons. One \u2014 we are not on Okta. We're Azure AD. So the Okta-specific issue doesn't even apply to us architecturally.\n[EXTERNAL] Renee: Two \u2014 the symptom is the opposite shape. In the Okta issue, people are being logged out early but they can get back in. In ours, nobody is being logged out early at all \u2014 they can't get in in the first place after a password change. It's not a premature expiry, it's a hard redirect loop that blocks entry entirely until cookies are cleared. Early-logout-but-you-can-return versus cannot-enter-at-all. Different shape entirely.\n[EXTERNAL] Renee: Filed exactly like that, yes. If it lands on the Okta ticket it'll get closed as a duplicate and we'll be stuck.\n[EXTERNAL] Renee: And then it's my problem to resurrect it three weeks later when nothing's moved. No thank you.\n[EXTERNAL] Renee: Five, out of the forty-person pilot. Which is what you'd expect, because password rotation is staggered \u2014 not everyone hit their rotation date in the same week. So five have rotated and hit the loop; the other thirty-five just haven't rotated yet.\n[EXTERNAL] Renee: Nobody hit it in the first week of the pilot at all, which is exactly why \u2014 none of them had rotated yet.\n[EXTERNAL] Renee: Precisely, and here's the math that matters for prioritization. At full rollout \u2014 four hundred users, ninety-day rotation policy \u2014 every single person hits a password change once a quarter. That's roughly four hundred people hitting this loop over a quarter, every quarter, forever. It would swamp our helpdesk. It turns a pilot annoyance into a rollout blocker.\n[EXTERNAL] Renee: Good. The number is what'll get it taken seriously. Five is ignorable, four-hundred-a-quarter is not.\n[EXTERNAL] Renee: Years of learning that \"please fix this\" gets ignored and \"this will cost us X\" gets a meeting. Sad, but true.\n[EXTERNAL] Renee: And keep the role-mapping item from Wednesday moving too. That's still open, still the biggest one. Three things standing between us and September now \u2014 role mapping, audit API, and this login loop.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        23,
+        55
+      ]
+    }
+  ],
+  "source_sha256": "df7de2285a3a7740767240747c3065578d073cf2911e4cb727d27516d0e9d3be"
+}

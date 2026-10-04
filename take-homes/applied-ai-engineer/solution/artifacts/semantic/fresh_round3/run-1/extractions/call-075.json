@@ -1,0 +1,25 @@
+{
+  "call_id": "call-075",
+  "candidates": [
+    {
+      "account": "Maple Crest Bank",
+      "call_id": "call-075",
+      "draft_title": "Fix SMS 2FA codes expiring before delivery to Canadian mobile numbers",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 10,
+      "provisional_priority": "P2",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Devon Marsh: Sure. So we've been getting a steady trickle of tickets \u2014 people saying the text code doesn't work. They type it in and it's rejected as expired.\n[EXTERNAL] Devon Marsh: Sometimes. Sometimes they request three or four before one lands in time. It's inconsistent, which is the maddening part.\n[EXTERNAL] Devon Marsh: That's the crux. It's slow. We timed it. From clicking \"send code\" to the SMS showing up on the phone, we're seeing five, six, sometimes seven minutes.\n[EXTERNAL] Devon Marsh: On the Canadian numbers, yes. And the code says it's only valid for five minutes. So by the time the text arrives, the window's already closed. The code's dead on arrival.\n[EXTERNAL] Devon Marsh: Exactly. It's not that people are typing slow. The text physically arrives after the code has already expired.\n[EXTERNAL] Corinne Boudreau: We had one of our VPs stuck out of the app for twenty minutes cycling codes. That's when it got escalated to me.\n[EXTERNAL] Corinne Boudreau: We have, actually, because I anticipated you'd ask. We have two contractors on US mobile numbers. Their codes arrive in under thirty seconds. Every time.\n[EXTERNAL] Corinne Boudreau: That's the pattern precisely. Same app, same flow, same five-minute expiry. The only variable is the phone number's country.\n[EXTERNAL] Devon Marsh: I ran a little log. Twenty-two Canadian-number tickets in the last two weeks. Zero from the two US contractors. The split is total.\n[EXTERNAL] Corinne Boudreau: That's our read too. Either the codes need to live longer, or the delivery to Canada needs to be faster, but the combination as-is is unusable for us.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        10,
+        26
+      ]
+    }
+  ],
+  "source_sha256": "901cbc861750681b2936eac1e3cd75bb1dc95d07c61f4e5f4fa037c854a85e64"
+}

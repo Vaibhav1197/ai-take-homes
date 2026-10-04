@@ -1,0 +1,11 @@
+{
+  "annotation_source": "GitHub Copilot source inspection, 2026-10-01; requires human confirmation. Not the evaluator's private labels.",
+  "sampling": "Five calls selected before reading: 020, 040, 080, 100, 140. Failures were then used for regression development; these five are no longer untouched holdout.",
+  "cases": [
+    {"call_id": "call-020", "turns": [9, 17], "expected": [{"action": "corroborate", "issue_type": "Bug", "matched_key": "PROJ-110", "patterns": ["android", "open|crash"]}], "reason": "Android crash after update is already tracked. Holding updates is a follow-up, not a second new bug."},
+    {"call_id": "call-040", "turns": [27, 29], "expected": [{"action": "corroborate", "issue_type": "Bug", "matched_key": "PROJ-160", "patterns": ["ios|iphone", "logged out|sign"]}], "reason": "Repeatable logout after iOS update matches PROJ-160; no queue output is a true miss, not vague dissatisfaction."},
+    {"call_id": "call-080", "turns": [29, 33], "expected": [{"action": "file-new", "issue_type": "Feature", "patterns": ["invoice", "department|cost center"]}], "reason": "Explicit per-department invoice split requires product work; distinguish from a support-only billing question and shipped CSV workaround."},
+    {"call_id": "call-100", "turns": [21, 27], "expected": [{"action": "file-new", "issue_type": "Bug", "patterns": ["notes", "reactivat|deactivat"]}], "reason": "Existing personal notes disappear after reactivation; manual restoration is a workaround, not an independent Feature."},
+    {"call_id": "call-140", "turns": [32, 60, 61], "expected": [], "reason": "Hypothetical breakage explicitly denies a defect. Store-level filtering already exists; enablement does not require a ticket."}
+  ]
+}

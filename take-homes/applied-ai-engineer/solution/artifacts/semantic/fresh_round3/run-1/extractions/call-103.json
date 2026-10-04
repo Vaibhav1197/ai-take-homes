@@ -1,0 +1,25 @@
+{
+  "call_id": "call-103",
+  "candidates": [
+    {
+      "account": "Winslow Group",
+      "call_id": "call-103",
+      "draft_title": "Fix monthly session totals to include history for members deactivated mid-period",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 24,
+      "provisional_priority": "P3",
+      "raw_score": 4.0,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Harriet: Every single missing session belonged to a member who had been deactivated at some point during May. People who left the company mid-month, or transferred out, or in a couple of cases got deactivated because they went on leave. When those members were deactivated, their sessions \u2014 including the ones they'd completed earlier in the month, while they were still active \u2014 vanished from the monthly total.\n[EXTERNAL] Harriet: That is precisely what's happening. I checked five of them by hand. Member does three sessions May first through tenth. Gets deactivated May eighteenth. May report shows zero sessions for them. But those three sessions HAPPENED. They were delivered. A coach's time was spent, we paid for them, they count. The report is silently dropping them because the member's current status is inactive, as if deactivating someone retroactively un-happens their history.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        24,
+        26
+      ]
+    }
+  ],
+  "source_sha256": "97cae09b2fe36df99db7b748cf6741bc994e3b26be38cbaa562333a1dfb34d0e"
+}

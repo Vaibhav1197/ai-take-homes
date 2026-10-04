@@ -1,0 +1,25 @@
+{
+  "call_id": "call-006",
+  "candidates": [
+    {
+      "account": "Harborline Media",
+      "call_id": "call-006",
+      "draft_title": "Fix search index lagging team renames and member moves by ~10 minutes",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 19,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Aisha: There's a but. There's a real bug we hit over and over, and it's about search, not the editing. After we rename a team or move a member, search keeps returning the old state for about ten minutes.\n[EXTERNAL] Aisha: So say I rename \"Digital Video\" to \"Video Production.\" Somebody searches \"Video Production\" \u2014 the new name \u2014 and gets nothing. Empty. Or they search for a person I just moved, and search still shows them filed under the old team. And then, with no action from anyone, it quietly fixes itself. Ten minutes later the same search is correct.\n[EXTERNAL] Aisha: That's exactly what it looks like. And I can reproduce it on demand \u2014 I did it three times while I was documenting it for myself. Rename a test team, search immediately, stale result. Wait ten minutes, search again, correct result. Every single time.\n[EXTERNAL] Aisha: Feels like about ten, give or take a couple. I didn't stopwatch it precisely, but it's in that ballpark consistently. Never seen it take an hour, never seen it be instant.\n[EXTERNAL] Aisha: I've been on the other side of that. Vague bug reports are how you get vague fixes. I'd rather do the homework once.\n[EXTERNAL] Aisha: Oh, it was a mess. It caused a stream of \"where did this person go\" tickets to my desk. A manager would search for someone right after I moved them, get the old team or get nothing, and conclude I'd deleted the person or lost them. So I'm getting panicked messages while I'm mid-reorg, and the answer every time is \"just wait ten minutes and search again,\" which is not a satisfying thing to tell a panicking manager.\n[EXTERNAL] Aisha: Right. On a normal week I'd probably never notice, because who searches for a team the instant it's renamed? But during a reorg you're renaming and searching constantly, so the gap is in your face all day.\n[EXTERNAL] Aisha: Exactly. If we reorged one team a month I'd never have caught it. Do it sixty times in two days and it's impossible to miss.\n[EXTERNAL] Aisha: I'll send it today. I literally have notes from when I was testing it, so I can give you a clean sequence with the times. Do you want the team names too, or scrubbed?\n[EXTERNAL] Aisha: Easy. I'll use a throwaway test team so there's nothing sensitive at all. To be clear, though \u2014 this isn't rollout-blocking. The reorg is done, the dust has settled, search is correct now that I've stopped editing. I don't want you to treat it as a five-alarm fire.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        19,
+        37
+      ]
+    }
+  ],
+  "source_sha256": "bf7e89668d7fcd709d43c22cfda338a8ec4c75f8c7bbd9103d885260d248418a"
+}

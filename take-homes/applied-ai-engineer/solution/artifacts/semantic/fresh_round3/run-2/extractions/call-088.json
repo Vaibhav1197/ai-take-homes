@@ -1,0 +1,44 @@
+{
+  "call_id": "call-088",
+  "candidates": [
+    {
+      "account": "Beaumont Insurance",
+      "call_id": "call-088",
+      "draft_title": "Fix hard lockout of Ping-federated users at 24 hours despite successful SAML assertion",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 12,
+      "provisional_priority": "P1",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Susan: Our users get hard-locked out at exactly 24 hours. And I mean exactly. If someone logs in at 9am Monday, at 9am Tuesday they are locked out. Not \"asked to re-authenticate.\" Locked out.\n[EXTERNAL] Susan: That's the part that's killing us. They cannot get back in. They hit the login, it bounces to Ping, Ping authenticates them fine, they come back to BetterBark, and BetterBark rejects them. It says something like account locked or access denied. They cannot self-recover. The only way back in is for me or one of my admins to go into the admin console and manually unlock that user's account.\n[EXTERNAL] Susan: Exactly that. And it's every federated user, on a rolling 24-hour clock from their last login. So every day I've got a fresh batch of people I have to manually unlock. Yesterday I unlocked 40-something accounts one at a time. It's untenable.\n[EXTERNAL] Harold: This is why I escalated. It's not a papercut, it's a daily operational tax on Susan's team and a wall for our users.\n[EXTERNAL] Susan: Correct on both. Not Okta, and they absolutely cannot get back in themselves. If they could just re-login I'd be annoyed but I wouldn't be escalating. The hard lockout requiring a manual admin unlock is the killer. That's the whole problem.\n[EXTERNAL] Susan: That's what's weird. Our Ping session lifetime is set to 12 hours, so I'd expect a re-auth prompt at 12 hours. The 24-hour lockout doesn't match any timeout we've configured anywhere. It's like BetterBark has its own 24-hour hard cap that fires independently and then poisons the account instead of just ending the session.\n[EXTERNAL] Susan: Yes. And I've checked our side thoroughly. Our Ping logs show a clean, successful authentication every time the user tries to come back. Ping is doing its job. The rejection is happening after the SAML assertion is accepted, on your end.\n[EXTERNAL] Susan: It started about eight days ago. We didn't change anything on the Ping side, I've triple-checked our change log. No config edits, no cert rotation, no metadata update. It just started happening.\n[EXTERNAL] Harold: Which is why we're confident it's not us. We didn't touch anything and suddenly every federated user is on a 24-hour lockout timer.\n[EXTERNAL] Susan: Every federated user, as far as I can tell. It's not scoped to a group. Executives, adjusters, admins, everyone on SSO is on the same 24-hour timer. The only people unaffected are our two break-glass local accounts that don't go through Ping at all.\n[EXTERNAL] Susan: That's how I read it too. The local accounts have never once locked. It's purely the SSO users.\n[EXTERNAL] Susan: It shows as locked in the console, explicitly. There's a locked status flag on the account and I have to clear it. It's not a silent thing, the account is genuinely in a locked state that I can see and have to reverse.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        12,
+        33
+      ]
+    },
+    {
+      "account": "Beaumont Insurance",
+      "call_id": "call-088",
+      "draft_title": "Add bulk unlock capability for accounts locked by the 24-hour timer",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 38,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Susan: A bulk unlock would at least make the daily pain survivable while you fix the root cause. Right now there's no bulk option that I can find, it's user by user.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        37,
+        38
+      ]
+    }
+  ],
+  "source_sha256": "1e41512f1fa1a66dd1b324c7ce86726c95a481f17208d54497fece5505188f97"
+}

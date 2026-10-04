@@ -1,0 +1,25 @@
+{
+  "call_id": "call-131",
+  "candidates": [
+    {
+      "account": "Montclair Cosmetics",
+      "call_id": "call-131",
+      "draft_title": "Fix French locale settings tooltip accent error",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 16,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Sylvie: So. Our French-locale users \u2014 and Paris is our largest office, our headquarters, our brand home \u2014 they are seeing a typo. In your interface. In French.\n[EXTERNAL] Sylvie: It is on the settings menu. The tooltip, when you hover over the settings gear. It says \"Param\u00e9tres.\" With an accent on the \u00e9. It should be \"Param\u00e8tres\" \u2014 the accent is grave, not acute. Or in that position, honestly, it should be no accent at all on that letter, but the point is it is wrong.\n[EXTERNAL] Sylvie: Exactly. It is wrong. It is grammatically, orthographically wrong. And I cannot overstate how this looks to our Paris team. We are a French luxury cosmetics house. Our entire identity is French elegance, precision, refinement. And a tool we roll out to our people has a spelling error in French on the very first menu they see.\n[EXTERNAL] Sylvie: I have only seen it on the tooltip. The menu label itself, the actual button, is spelled correctly I think. It is the hover text that is wrong.\n[EXTERNAL] Sylvie: Well \u2014 yes. The button works. You can click it and the settings open. Functionally it works. But that is not the point, Derek. The point is the impression.\n[EXTERNAL] Sylvie: When you say it like that it sounds small. But you have to understand, our CEO is French. Our founder is French. If someone screenshots this and it circulates, it reflects on the tools we chose.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        16,
+        27
+      ]
+    }
+  ],
+  "source_sha256": "ac733b852ea9c5f3669643e8340ae6e8a699605de887df5c6dd4e2e3f58e5a84"
+}

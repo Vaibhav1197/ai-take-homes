@@ -1,0 +1,46 @@
+{
+  "call_id": "call-008",
+  "candidates": [
+    {
+      "account": "Northwind Logistics",
+      "call_id": "call-008",
+      "draft_title": "Fix Android app crash on launch after update",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 13,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Marcus: Real one first. A bunch of our warehouse folks on Android say the app won't open anymore. It crashes the second they tap the icon. Like, splash screen, then straight back to the home screen. Doesn't even get to the login.\n[EXTERNAL] Marcus: Right after the last app update. That's the pattern. The ones who updated are the ones crashing. The ones who haven't updated yet are totally fine. And the iPhone people are all fine across the board.\n[EXTERNAL] Marcus: That's how it reads to me, and I'm not exactly a mobile engineer. But the shape's obvious: update the Android app, it stops opening.\n[EXTERNAL] Marcus: A dozen or so have actually reached me. But here's the thing you have to understand about warehouse workers \u2014 that dozen means the real number is triple that, easy.\n[EXTERNAL] Marcus: Warehouse folks don't file tickets. If an app doesn't open, they don't email HR about it, they just... stop using it. They've got a job to do on a clock. A broken app isn't a problem they escalate, it's a thing they shrug at and move on from. So for every one who bothered to tell me, there are two or three who just quietly stopped opening it and I'll never hear from them.\n[EXTERNAL] Marcus: Exactly. And these are the people I most want engaged, because getting their dogs trained is the whole reason we bought this. If the app silently dies for warehouse workers after an update, that's my adoption number quietly bleeding out and I don't even see it happening.\n[EXTERNAL] Marcus: You get it. That's why I like working with you and not the ticket portal. The portal would've made me pick a severity from a dropdown and then argued with me about it.\n[EXTERNAL] Marcus: Mix. But it lands hardest on the seasonal wave because they're the ones we just told \"download the app, this is how you book your dog's training.\" First impression of the whole program is a splash screen and then nothing.\n[EXTERNAL] Marcus: Right in front of a supervisor holding a clipboard, no less. It doesn't inspire confidence in the \"we invested in your growth\" speech.\n[EXTERNAL] Marcus: So it's not just us. Somehow that's comforting and infuriating at the same time.\n[EXTERNAL] Marcus: It's a mess of cheap Android phones, honestly \u2014 whatever's on sale. I can ask the two supervisors to poll their crews for makes and models if that'd help.\n[EXTERNAL] Marcus: I'll pass \"don't update\" down the chain. The reinstall dance I won't inflict on warehouse crews, they'll mutiny. Better to just get it fixed.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        13,
+        36
+      ]
+    },
+    {
+      "account": "Northwind Logistics",
+      "call_id": "call-008",
+      "draft_title": "Correct company name spelling in email footer",
+      "flags": [
+        "cosmetic-factual-low-severity"
+      ],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 43,
+      "provisional_priority": "P4",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Marcus: She noticed the confirmation emails your system sends have \"BetterBrak\" \u2014 B-E-T-T-E-R-B-R-A-K \u2014 in the footer. Your own company name, misspelled, right there in the email footer. BetterBrak.\n[EXTERNAL] Marcus: Oh yes. BetterBrak. Every confirmation email, apparently.\n[EXTERNAL] Marcus: Every one. And she called it, quote, \"a P0 brand catastrophe\" and said she's, quote, \"genuinely alarmed.\" She used the word alarmed. About a typo. I told her I'd relay it with a straight face and I am now doing that, and I want you to know that face is costing me a great deal.\n[EXTERNAL] Marcus: She will be pleased to hear she's not wrong. She lives for that.\n[EXTERNAL] Marcus: That's exactly the energy I was hoping for. She'll be told it was escalated with maximum urgency. You and I will know the truth. Everyone gets to keep their dignity.\n[EXTERNAL] Marcus: Perfect. Send her a thank-you and she'll be insufferable for a week, but a happy insufferable.\n[EXTERNAL] Marcus: Same one. She has a genuine gift for finding the one wrong letter on anything with our name near it. In fairness it's a useful gift, I just wish it came with a volume knob.\n[EXTERNAL] Marcus: That's the two. Fix the crashing app before the typo, in case that needed saying.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        43,
+        58
+      ]
+    }
+  ],
+  "source_sha256": "d22896f37454951a97410dd0920affd939b7286b056fdf6796ba79e2116bf602"
+}

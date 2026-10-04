@@ -1,0 +1,44 @@
+{
+  "call_id": "call-014",
+  "candidates": [
+    {
+      "account": "Sunrise Hospitality",
+      "call_id": "call-014",
+      "draft_title": "Fix mobile app blank white screen when deactivating mid-session",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 35,
+      "provisional_priority": "P1",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Gloria: Mid-quarter we did the seasonal transition. We deactivate a couple hundred seasonal staff accounts every May when the season ends \u2014 it's routine, we do it every year. Smooth on the whole. Except we found something genuinely broken this time, and my ops manager made me promise to raise it, so I'm raising it.\n[EXTERNAL] Gloria: When an admin deactivates a member while that member happens to be in the app \u2014 like, actively using it, mid-session on their phone \u2014 the app doesn't handle it gracefully. It goes to a blank white screen. No message, no \"your account has been deactivated,\" no logout, no nothing. Just a white screen. A void.\n[EXTERNAL] Gloria: White. Blank. And it stays white \u2014 it doesn't recover on its own. What fixes it is force-quitting the app and reopening it, and then you finally get the \"account inactive\" screen, which is the thing that should have appeared in the first place. The correct screen exists. The app just doesn't get you there if you were mid-session when the deactivation hit \u2014 it strands you on white until you force-quit.\n[EXTERNAL] Gloria: We know of six or seven, all during the May deactivation batch. It's not a huge number. But two of them called our IT helpdesk saying the app was \"broken\" \u2014 they didn't know they'd been deactivated, they just saw their app die into a white screen and assumed it crashed. That's how it climbed up to my ops manager, through IT tickets.\n[EXTERNAL] Gloria: Right, and here's why it bugs me more than the number suggests. It's not the volume \u2014 six or seven isn't a crisis. It's that a blank white screen with no explanation is the worst possible goodbye. These are seasonal staff we genuinely want back next season. We invest in rehiring the good ones. And their last interaction with our tooling was a white void that made them think something was broken. That's a terrible final impression to leave with someone you're hoping returns.\n[EXTERNAL] Gloria: I'd bet it does too \u2014 it happened to every one of the six or seven who were mid-session, so it's not a fluke, it's what the app does in that situation. Consistent.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        35,
+        46
+      ]
+    },
+    {
+      "account": "Sunrise Hospitality",
+      "call_id": "call-014",
+      "draft_title": "Add custom reporting cut for frontline utilization-to-retention",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 23,
+      "provisional_priority": "P2",
+      "raw_score": 3.6,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Gloria: Utilization tied to retention numbers, mostly. He wants to see that the money produces an outcome he can measure \u2014 not \"people feel supported,\" but \"supported people stayed.\" Your quarterly report mostly covers it, but I'll need a custom cut for the frontline population specifically, because that's where our turnover pain is and that's the number he'll fixate on.\n[EXTERNAL] Gloria: Before the renewal, not today. I'll email you the exact specifics \u2014 which properties, which date range, how he wants retention defined. It's a reporting request, I'll spell it out in writing so we're precise. Don't build it off this call, wait for my email.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        23,
+        25
+      ]
+    }
+  ],
+  "source_sha256": "13e43316d957a3a3da53dc5d5c002439e70031598f144065ebfa2bb4fd9a4f75"
+}

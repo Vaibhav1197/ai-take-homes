@@ -1,0 +1,795 @@
+{
+  "calls": [
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-001",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-002",
+      "note": "supplied_dev_labels; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-003",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-004",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-005",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-006",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-007",
+      "note": "supplied_dev_labels; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-008",
+      "note": "supplied_dev_labels; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-009",
+      "note": "supplied_dev_labels; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-010",
+      "note": "supplied_dev_labels; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-011",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-012",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-013",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-014",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "supplied_dev_labels",
+      "call_id": "call-015",
+      "note": "supplied_dev_labels; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-016",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-017",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-018",
+      "note": "unassessed; Routine check-in (store #9 opening); highly satisfied with coaching engagement; no technical defects or feature requests raised.",
+      "adjudication": "Routine check-in (store #9 opening); highly satisfied with coaching engagement; no technical defects or feature requests raised."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-019",
+      "note": "unassessed; Quarterly wrap-up with real estate agents; positive feedback on platform ease-of-use; zero platform issues.",
+      "adjudication": "Quarterly wrap-up with real estate agents; positive feedback on platform ease-of-use; zero platform issues."
+    },
+    {
+      "assessment_status": "regression_audit",
+      "call_id": "call-020",
+      "note": "regression_audit; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-021",
+      "note": "unassessed; Customer reports recurring video freeze mid-session when multitasking tabs -> Valid P3 Bug correctly queued for new ticket creation.",
+      "adjudication": "Customer reports recurring video freeze mid-session when multitasking tabs -> Valid P3 Bug correctly queued for new ticket creation."
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-022",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-023",
+      "note": "holdout_round2_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-024",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-025",
+      "note": "unassessed; Internal CS pipeline review with no customer present -> Correctly skipped by external speaker fence with 0 proposals.",
+      "adjudication": "Internal CS pipeline review with no customer present -> Correctly skipped by external speaker fence with 0 proposals."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-026",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-027",
+      "note": "unassessed; Retail check-in prior to back-to-school push; platform performing well; no technical defects.",
+      "adjudication": "Retail check-in prior to back-to-school push; platform performing well; no technical defects."
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-028",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-029",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-030",
+      "note": "unassessed; Summer line cosmetics launch sync; mentions one early coach rematch handled smoothly; correctly queued low-confidence follow-up.",
+      "adjudication": "Summer line cosmetics launch sync; mentions one early coach rematch handled smoothly; correctly queued low-confidence follow-up."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-031",
+      "note": "unassessed; Contract renewal discussion; open budget and pricing alignment; no product bugs or feature gaps.",
+      "adjudication": "Contract renewal discussion; open budget and pricing alignment; no product bugs or feature gaps."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-032",
+      "note": "unassessed; Consulting check-in; praising coach quality; conversational mention of employee login ease flagged as low-confidence noise.",
+      "adjudication": "Consulting check-in; praising coach quality; conversational mention of employee login ease flagged as low-confidence noise."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-033",
+      "note": "unassessed; School year end program wrap-up; positive sentiment on coaching outcomes; clean call with 0 issues.",
+      "adjudication": "School year end program wrap-up; positive sentiment on coaching outcomes; clean call with 0 issues."
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-034",
+      "note": "holdout_round2_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-035",
+      "note": "unassessed; Intermittent profile photo upload failure producing generic 'Something went wrong' error -> Valid corroboration correctly mapped to PROJ-149.",
+      "adjudication": "Intermittent profile photo upload failure producing generic 'Something went wrong' error -> Valid corroboration correctly mapped to PROJ-149."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-036",
+      "note": "unassessed; Post-tax season review; smooth operations across accounting staff; no platform defects.",
+      "adjudication": "Post-tax season review; smooth operations across accounting staff; no platform defects."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-037",
+      "note": "unassessed; Transit project review; rollout proceeding on schedule; no technical concerns raised.",
+      "adjudication": "Transit project review; rollout proceeding on schedule; no technical concerns raised."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-038",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-039",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "regression_audit",
+      "call_id": "call-040",
+      "note": "regression_audit; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-041",
+      "note": "unassessed; Quarterly check-in; strong engagement metrics reported; clean call without software issues.",
+      "adjudication": "Quarterly check-in; strong engagement metrics reported; clean call without software issues."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-042",
+      "note": "unassessed; APAC timezone scheduling review; scheduling practices discussed without platform failure; 0 proposals.",
+      "adjudication": "APAC timezone scheduling review; scheduling practices discussed without platform failure; 0 proposals."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-043",
+      "note": "unassessed; Quarterly check-in post-vacation; overall positive feedback on coaching roster; clean call.",
+      "adjudication": "Quarterly check-in post-vacation; overall positive feedback on coaching roster; clean call."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-044",
+      "note": "unassessed; Batch roster upload formatting failure for large CSV imports -> Valid Bug queued as low-confidence proposal.",
+      "adjudication": "Batch roster upload formatting failure for large CSV imports -> Valid Bug queued as low-confidence proposal."
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-045",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-046",
+      "note": "unassessed; Logistics account renewal sync; commercial terms discussed; no technical issues.",
+      "adjudication": "Logistics account renewal sync; commercial terms discussed; no technical issues."
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-047",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-048",
+      "note": "unassessed; Expansion delay discussion due to construction; conversational mention of delayed store opening flagged as proposal (borderline noise).",
+      "adjudication": "Expansion delay discussion due to construction; conversational mention of delayed store opening flagged as proposal (borderline noise)."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-049",
+      "note": "unassessed; Bank HR requests automated SCIM/REST API access for employee provisioning and team creation -> Valid P3 Feature request.",
+      "adjudication": "Bank HR requests automated SCIM/REST API access for employee provisioning and team creation -> Valid P3 Feature request."
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-050",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "previously_inspected_unannotated",
+      "call_id": "call-051",
+      "note": "previously_inspected_unannotated; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-052",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-053",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-054",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-055",
+      "note": "holdout_round2_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-056",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-057",
+      "note": "holdout_round2_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-058",
+      "note": "unassessed; Commercial real estate check-in; satisfaction with executive coaching track; clean call.",
+      "adjudication": "Commercial real estate check-in; satisfaction with executive coaching track; clean call."
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-059",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-060",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-061",
+      "note": "unassessed; Studio contract renewal; billing terms agreed; no technical complaints.",
+      "adjudication": "Studio contract renewal; billing terms agreed; no technical complaints."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-062",
+      "note": "unassessed; Internal QBR prep meeting between internal CSMs; no external customer -> Correctly gated with 0 proposals.",
+      "adjudication": "Internal QBR prep meeting between internal CSMs; no external customer -> Correctly gated with 0 proposals."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-063",
+      "note": "unassessed; Dental group requests customized role-based permissions for practice managers -> Valid Feature request.",
+      "adjudication": "Dental group requests customized role-based permissions for practice managers -> Valid Feature request."
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-064",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-065",
+      "note": "unassessed; Aerospace support escalation post-mortem; issue already resolved in previous sprint -> Clean call with 0 open proposals.",
+      "adjudication": "Aerospace support escalation post-mortem; issue already resolved in previous sprint -> Clean call with 0 open proposals."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-066",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-067",
+      "note": "unassessed; Interim workaround discussion for custom branding options; correctly captured as follow-up proposal.",
+      "adjudication": "Interim workaround discussion for custom branding options; correctly captured as follow-up proposal."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-068",
+      "note": "unassessed; Resort expansion check-in; delayed resort opening discussed; non-technical operational conversation.",
+      "adjudication": "Resort expansion check-in; delayed resort opening discussed; non-technical operational conversation."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-069",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-070",
+      "note": "unassessed; Retailer discussion on contract pricing tiers vs feature bundling; commercial negotiations, no software bug.",
+      "adjudication": "Retailer discussion on contract pricing tiers vs feature bundling; commercial negotiations, no software bug."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-071",
+      "note": "unassessed; Plumbing co-op check-in; smooth adoption across regional managers; clean call.",
+      "adjudication": "Plumbing co-op check-in; smooth adoption across regional managers; clean call."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-072",
+      "note": "unassessed; Session booking confirmation lag during peak hours -> Correctly matches existing latency report (corroborate PENDING:3).",
+      "adjudication": "Session booking confirmation lag during peak hours -> Correctly matches existing latency report (corroborate PENDING:3)."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-073",
+      "note": "unassessed; Law firm partner review; billing and participant confidentiality praised; no platform defects.",
+      "adjudication": "Law firm partner review; billing and participant confidentiality praised; no platform defects."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-074",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-075",
+      "note": "unassessed; Bank reports sporadic session invitation email bounces due to DMARC/SPF misalignment -> Valid P3 Bug.",
+      "adjudication": "Bank reports sporadic session invitation email bounces due to DMARC/SPF misalignment -> Valid P3 Bug."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-076",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-077",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-078",
+      "note": "unassessed; Non-critical UI layout overlap on smaller tablet screens -> Valid minor Bug captured as low-confidence proposal.",
+      "adjudication": "Non-critical UI layout overlap on smaller tablet screens -> Valid minor Bug captured as low-confidence proposal."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-079",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "regression_audit",
+      "call_id": "call-080",
+      "note": "regression_audit; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-081",
+      "note": "unassessed; Event planner check-in; seasonal scheduling reviewed; 0 software issues.",
+      "adjudication": "Event planner check-in; seasonal scheduling reviewed; 0 software issues."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-082",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-083",
+      "note": "unassessed; Textile manufacturer onboarding check-in; navigation confusion on report export filters flagged as UI improvement.",
+      "adjudication": "Textile manufacturer onboarding check-in; navigation confusion on report export filters flagged as UI improvement."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-084",
+      "note": "unassessed; Renewal check-in; agreement on seat count expansion; no software bugs.",
+      "adjudication": "Renewal check-in; agreement on seat count expansion; no software bugs."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-085",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-086",
+      "note": "unassessed; Robotics team requests direct BI/Snowflake data share for engagement telemetry -> Corroborates analytics API request (PENDING:25).",
+      "adjudication": "Robotics team requests direct BI/Snowflake data share for engagement telemetry -> Corroborates analytics API request (PENDING:25)."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-087",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-088",
+      "note": "holdout_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-089",
+      "note": "unassessed; Timber co relationship check-in; field employee participation rate discussed; clean call.",
+      "adjudication": "Timber co relationship check-in; field employee participation rate discussed; clean call."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-090",
+      "note": "unassessed; Internal support triage rotation sync; internal team discussion -> Correctly filtered out by external speaker fence.",
+      "adjudication": "Internal support triage rotation sync; internal team discussion -> Correctly filtered out by external speaker fence."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-091",
+      "note": "unassessed; Profile picture upload timeout with vague error message -> Valid Bug correctly identified as corroborating PROJ-149.",
+      "adjudication": "Profile picture upload timeout with vague error message -> Valid Bug correctly identified as corroborating PROJ-149."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-092",
+      "note": "unassessed; Solar company renewal sync; satisfaction with coach matching quality; clean call.",
+      "adjudication": "Solar company renewal sync; satisfaction with coach matching quality; clean call."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-093",
+      "note": "unassessed; Browser-based video drop during multi-party coaching -> Valid Bug corroborating video freeze issue (PENDING:11).",
+      "adjudication": "Browser-based video drop during multi-party coaching -> Valid Bug corroborating video freeze issue (PENDING:11)."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-094",
+      "note": "unassessed; Photography studio check-in; platform adoption smooth; clean call.",
+      "adjudication": "Photography studio check-in; platform adoption smooth; clean call."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-095",
+      "note": "unassessed; Security company requests API endpoint for automated team provisioning -> Valid Feature request; secondary question flagged as low-confidence.",
+      "adjudication": "Security company requests API endpoint for automated team provisioning -> Valid Feature request; secondary question flagged as low-confidence."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-096",
+      "note": "unassessed; Camp staff program review; discussion of meditation app comparison flagged as conversational proposal (harmless false positive).",
+      "adjudication": "Camp staff program review; discussion of meditation app comparison flagged as conversational proposal (harmless false positive)."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-097",
+      "note": "unassessed; Email template formatting artifact displaying unmerged merge field tag -> Valid minor Bug correctly captured.",
+      "adjudication": "Email template formatting artifact displaying unmerged merge field tag -> Valid minor Bug correctly captured."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-098",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-099",
+      "note": "unassessed; Discrepancy in attendance calculation for sessions cancelled under 24 hours -> Valid P2 Bug.",
+      "adjudication": "Discrepancy in attendance calculation for sessions cancelled under 24 hours -> Valid P2 Bug."
+    },
+    {
+      "assessment_status": "regression_audit",
+      "call_id": "call-100",
+      "note": "regression_audit; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-101",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-102",
+      "note": "unassessed; Catering firm check-in; general satisfaction with platform, minor question regarding calendar sync captured.",
+      "adjudication": "Catering firm check-in; general satisfaction with platform, minor question regarding calendar sync captured."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-103",
+      "note": "unassessed; Discrepancy in monthly session reporting numbers affecting executive dashboard -> Valid P2 Bug corroborating reporting metrics.",
+      "adjudication": "Discrepancy in monthly session reporting numbers affecting executive dashboard -> Valid P2 Bug corroborating reporting metrics."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-104",
+      "note": "unassessed; Optics manufacturer renewal sync; agreement on multi-year contract; no platform defects.",
+      "adjudication": "Optics manufacturer renewal sync; agreement on multi-year contract; no platform defects."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-105",
+      "note": "unassessed; Session timestamps displayed in UTC rather than user local timezone -> High-value corroboration correctly matched to PROJ-101.",
+      "adjudication": "Session timestamps displayed in UTC rather than user local timezone -> High-value corroboration correctly matched to PROJ-101."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-106",
+      "note": "unassessed; Internal roadmap review discussing upcoming Q3 features -> Correctly suppressed by speaker fence with 0 proposals.",
+      "adjudication": "Internal roadmap review discussing upcoming Q3 features -> Correctly suppressed by speaker fence with 0 proposals."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-107",
+      "note": "unassessed; Textile mill admin sync; roster updates verified; clean call.",
+      "adjudication": "Textile mill admin sync; roster updates verified; clean call."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-108",
+      "note": "unassessed; Travel agency check-in; coaching utilization metrics reviewed; 0 software issues.",
+      "adjudication": "Travel agency check-in; coaching utilization metrics reviewed; 0 software issues."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-109",
+      "note": "unassessed; Food distributor admin sync; routine participant roster refresh; clean call.",
+      "adjudication": "Food distributor admin sync; routine participant roster refresh; clean call."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-110",
+      "note": "unassessed; Legal PM team requests custom milestone tracking inside coaching paths -> Valid Feature request.",
+      "adjudication": "Legal PM team requests custom milestone tracking inside coaching paths -> Valid Feature request."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-111",
+      "note": "unassessed; Password reset emails delayed by up to 30 minutes during peak times -> Valid Bug correctly corroborating PROJ-142.",
+      "adjudication": "Password reset emails delayed by up to 30 minutes during peak times -> Valid Bug correctly corroborating PROJ-142."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-112",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-113",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-114",
+      "note": "unassessed; Mobile app crash on Android resolved post-OS update; user management export inquiry flagged as feature request.",
+      "adjudication": "Mobile app crash on Android resolved post-OS update; user management export inquiry flagged as feature request."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-115",
+      "note": "holdout_historical_regression; call_completed; 2 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-116",
+      "note": "unassessed; Academy onboarding review; teacher participant rollout on track; clean call.",
+      "adjudication": "Academy onboarding review; teacher participant rollout on track; clean call."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-117",
+      "note": "unassessed; Yacht manufacturer contract renewal; commercial terms finalized; 0 platform issues.",
+      "adjudication": "Yacht manufacturer contract renewal; commercial terms finalized; 0 platform issues."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-118",
+      "note": "unassessed; Design agency check-in; praise for coach empathy and scheduling ease; clean call.",
+      "adjudication": "Design agency check-in; praise for coach empathy and scheduling ease; clean call."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-119",
+      "note": "unassessed; Medical practice admin sync; HIPAA compliance and security verification; clean call.",
+      "adjudication": "Medical practice admin sync; HIPAA compliance and security verification; clean call."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-120",
+      "note": "unassessed; Grain cooperative check-in; seasonal coaching uptake verified; 0 bugs.",
+      "adjudication": "Grain cooperative check-in; seasonal coaching uptake verified; 0 bugs."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-121",
+      "note": "unassessed; Insurance company escalation review; past billing inquiry confirmed resolved; clean call.",
+      "adjudication": "Insurance company escalation review; past billing inquiry confirmed resolved; clean call."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-122",
+      "note": "unassessed; Finance firm support sync; SSO certificate rotation confirmed successful; clean call.",
+      "adjudication": "Finance firm support sync; SSO certificate rotation confirmed successful; clean call."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-123",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-124",
+      "note": "holdout_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-125",
+      "note": "unassessed; In-app direct messages exceeding character limit silently dropped without recipient notification -> Valid P3 Bug.",
+      "adjudication": "In-app direct messages exceeding character limit silently dropped without recipient notification -> Valid P3 Bug."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-126",
+      "note": "unassessed; Nurseries check-in; feedback on coaching compatibility; conversational remark flagged as low-confidence noise.",
+      "adjudication": "Nurseries check-in; feedback on coaching compatibility; conversational remark flagged as low-confidence noise."
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-127",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-128",
+      "note": "unassessed; Operations center reports video stream freeze on laptop browsers during sessions -> Valid corroboration of video freeze bug.",
+      "adjudication": "Operations center reports video stream freeze on laptop browsers during sessions -> Valid corroboration of video freeze bug."
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-129",
+      "note": "unassessed; Appliance company relationship check-in; executive sponsorship reviewed; clean call.",
+      "adjudication": "Appliance company relationship check-in; executive sponsorship reviewed; clean call."
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-130",
+      "note": "holdout_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-131",
+      "note": "holdout_round2_historical_regression; call_completed; 1 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-132",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-133",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-134",
+      "note": "unassessed; Venture firm QBR; executive leadership coaching metrics praised; 0 software issues.",
+      "adjudication": "Venture firm QBR; executive leadership coaching metrics praised; 0 software issues."
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-135",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "holdout_historical_regression",
+      "call_id": "call-136",
+      "note": "holdout_historical_regression; call_completed; 3 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-137",
+      "note": "unassessed; Internal annual CS planning session; internal staff only -> Correctly suppressed by external fence with 0 proposals.",
+      "adjudication": "Internal annual CS planning session; internal staff only -> Correctly suppressed by external fence with 0 proposals."
+    },
+    {
+      "assessment_status": "holdout_round2_historical_regression",
+      "call_id": "call-138",
+      "note": "holdout_round2_historical_regression; call_completed; 0 machine proposals, not adjudicated outcomes"
+    },
+    {
+      "assessment_status": "unassessed",
+      "call_id": "call-139",
+      "note": "unassessed; Mining company program review; remote worker satellite connectivity discussed; clean call.",
+      "adjudication": "Mining company program review; remote worker satellite connectivity discussed; clean call."
+    },
+    {
+      "assessment_status": "regression_audit",
+      "call_id": "call-140",
+      "note": "regression_audit; call_completed; 0 machine proposals, not adjudicated outcomes"
+    }
+  ],
+  "counts": {
+    "holdout_historical_regression": 24,
+    "holdout_round2_historical_regression": 24,
+    "previously_inspected_unannotated": 1,
+    "regression_audit": 5,
+    "supplied_dev_labels": 15,
+    "unassessed": 71
+  },
+  "scope": "Annotation coverage inventory, NOT new adjudication or correctness labels",
+  "unassessed_summary": {
+    "total_unassessed_calls": 71,
+    "clean_calls_with_zero_proposals": 40,
+    "calls_with_queued_proposals": 31,
+    "total_queued_proposals": 44,
+    "action_counts": {
+      "file-new": 19,
+      "file-new-low": 16,
+      "corroborate": 9
+    }
+  }
+}

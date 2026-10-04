@@ -1,0 +1,25 @@
+{
+  "call_id": "call-086",
+  "candidates": [
+    {
+      "account": "Halcyon Robotics",
+      "call_id": "call-086",
+      "draft_title": "Add scheduled API endpoint for aggregate coaching metrics to support BI ingestion",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 17,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Elaine: Not a worry exactly. More that I'm getting pressure from above to prove out the coaching investment in the language finance speaks, and right now the way I do that is clunky.\n[EXTERNAL] Elaine: So every month I go into the dashboards, I look at the engagement numbers, the utilization, the program-wellbeing trends, participation, progress milestones, and I basically screenshot them into a slide deck. Tobias, how many screenshots was the last board pack?\n[EXTERNAL] Tobias: For the coaching section? Eleven. I counted because it was miserable.\n[EXTERNAL] Elaine: And here's the thing. Our whole analytics function runs on a proper BI stack. Everything else the board sees is a live dashboard I built. Attrition, comp bands, DEI metrics, hiring funnel, all of it flows into our BI tool and updates automatically.\n[EXTERNAL] Tobias: We're a Tableau shop primarily, some Power BI in finance.\n[EXTERNAL] Elaine: Exactly. It's the one data source I have to hand-carry. And it looks bad, frankly, in a company full of engineers, that the coaching metrics are the ones where the VP is manually screenshotting a web page like it's 2011.\n[EXTERNAL] Elaine: Yes. An API, or a data connector, whatever the right word is. Tobias would know better than me what shape it needs to be.\n[EXTERNAL] Tobias: Ideally a REST endpoint we can hit on a schedule, or a native connector. We can work with either. What we can't work with is a human clicking export buttons. That doesn't scale and it breaks the second I'm on vacation.\n[EXTERNAL] Elaine: Aggregate only. Please, God, not individual. We are extremely careful about the privacy line on coaching, individual coaching data never leaves the vendor by design and I want to keep it that way. It's the org-level and team-level engagement rollups I need.\n[EXTERNAL] Tobias: And ideally the historical series, not just current snapshot, so we can trend it. But even current snapshot on a schedule would let us build the trend ourselves.\n[EXTERNAL] Elaine: You've got it exactly.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        17,
+        34
+      ]
+    }
+  ],
+  "source_sha256": "1e5d31f4ebd78452c8bd22d59d6015d832f4aecfe3f70f483a582f2e2f451b05"
+}

@@ -1,0 +1,25 @@
+{
+  "call_id": "call-020",
+  "candidates": [
+    {
+      "account": "Stallard Freight",
+      "call_id": "call-020",
+      "draft_title": "Fix crash on Android app launch after recent update",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 9,
+      "provisional_priority": "P1",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Roy: Starting about \u2014 I want to say ten days ago? \u2014 I've had a wave of drivers telling me the app won't open on their phones. And when I say won't open, I mean it opens and immediately closes. Tap the icon, splash screen flashes, gone. Back to the home screen.\n[EXTERNAL] Roy: Right. It doesn't even get to the login. You never see a login screen. Splash, then poof.\n[EXTERNAL] Roy: That's the pattern I noticed. It's the Android users. My office people on iPhones aren't complaining. I use an iPhone myself and mine's totally fine, which is why it took me a bit to take the drivers seriously, honestly. I couldn't reproduce it on my own phone.\n[EXTERNAL] Roy: Volume-wise, I've had maybe fifteen, sixteen tickets. Could be more not bothering to file \u2014 drivers aren't big on tickets. On the version, that's a good question. I know some of them updated recently because the company MDM pushes updates. Let me think \u2014 yeah, the ones complaining are the ones who got the recent update.\n[EXTERNAL] Roy: That lines up, yeah. I had one driver, Danny, who's sharp \u2014 he told me it was \"totally fine until the phone updated it, now it won't even open.\" And he tried the usual stuff. Cleared cache, restarted the phone, nothing.\n[EXTERNAL] Roy: Danny did. Reinstalled fresh, same thing \u2014 installs fine, opens, dies. So it's not a corrupted install.\n[EXTERNAL] Roy: They vary. It's a mix. We buy phones in batches so there's a spread of models and OS versions across the fleet. I couldn't tell you it's one specific Android version, if that's what you're getting at. It feels broader than that.\n[EXTERNAL] Roy: That matches exactly. It's not \"old phones\" or \"one weird model.\" It's \"Android phones that took the update.\" iPhones fine.\n[EXTERNAL] Roy: Bit of both. The drivers use the app for their dog-training sessions, which are supposed to help with the whole retention push we're doing \u2014 trucking has brutal turnover, that's the entire reason we bought this. So when a driver can't open the app, they can't do their session, and they shrug and go \"well, I tried,\" and that's exactly the disengagement we're paying to prevent.\n[EXTERNAL] Roy: Precisely. My drivers are the whole point and they're the ones locked out.\n[EXTERNAL] Roy: That's it. You said it better than I did.\n[EXTERNAL] Roy: I'd rather be attached to an existing thing than start from zero, honestly. Whatever gets my drivers back in fastest.\n[EXTERNAL] Roy: The MDM logs all of that. I can pull the update push date and the exact version it pushed. Model and OS spread I can get from a few driver phones. I'll have it to you today.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        9,
+        33
+      ]
+    }
+  ],
+  "source_sha256": "9322588c6825b808145f52893db650801f9294dd862ea787595e63c8ae7be03f"
+}

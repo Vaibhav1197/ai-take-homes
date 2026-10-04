@@ -3,3 +3,11 @@ __pycache__/
 .DS_Store
 # Local stub output — should never be committed
 **/outbox/*.jsonl
+
+# --- solution/ runtime artifacts (candidate addition) ---
+# Generated ledger/review-decision state and structured logs are run-specific
+# (timestamps, machine-local paths) and shouldn't be committed as "source".
+# A curated point-in-time example is checked in separately under solution/demo/.
+take-homes/applied-ai-engineer/solution/state/
+take-homes/applied-ai-engineer/solution/logs/
+.pytest_cache/

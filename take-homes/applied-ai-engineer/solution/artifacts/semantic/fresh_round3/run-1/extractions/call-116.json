@@ -1,0 +1,25 @@
+{
+  "call_id": "call-116",
+  "candidates": [
+    {
+      "account": "Overton Academy",
+      "call_id": "call-116",
+      "draft_title": "Fix search index lag for newly imported CSV members",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 13,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Marcus Bell: So I imported a batch of about forty faculty on Monday. The import said success, forty added. Great. Then a couple of our department heads went in to organize people into teams, assign coaches, that kind of thing.\n[EXTERNAL] Marcus Bell: And they couldn't find the people they'd just imported. They'd search for a teacher by name in the member search, and nothing would come up. Like the person didn't exist.\n[EXTERNAL] Marcus Bell: Right. My department head, Cynthia, she was convinced the import had failed. She was ready to redo the whole thing. I talked her off the ledge.\n[EXTERNAL] Marcus Bell: She did not, thank god. Because here's the weird part. The next morning, they were all there. Every single one. Searchable, findable, no problem.\n[EXTERNAL] Marcus Bell: Overnight. Like they needed to sleep on it. So the import worked, the people existed, but there was this gap where they were invisible to search for the rest of the day.\n[EXTERNAL] Marcus Bell: I imported around eleven Monday morning. They tried searching Monday afternoon, maybe two, three o'clock \u2014 nothing. By the time Cynthia logged in Tuesday around eight, all there.\n[EXTERNAL] Marcus Bell: That's the pattern. And it's happened on more than one batch now, so it's not a fluke. Import, invisible in search for the rest of the day, fine the next morning.\n[EXTERNAL] Marcus Bell: Good question. Cynthia said she could see the total member count went up. So the count reflected them. It was specifically the search that couldn't find them by name.\n[EXTERNAL] Marcus Bell: Yes, that's it exactly. Is that normal? Am I supposed to wait a day?\n[EXTERNAL] Marcus Bell: What's the wrinkle?\n[EXTERNAL] Marcus Bell: Ah. So it might be the same underlying thing but I'm hitting it through a different door.\n[EXTERNAL] Marcus Bell: That would explain the overnight thing. There's some nightly rebuild and my people are stuck waiting for it.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        13,
+        36
+      ]
+    }
+  ],
+  "source_sha256": "41cdf3685c066bdb71214150dd2afe2aa086f606378e8e2b92b269e8538e5645"
+}

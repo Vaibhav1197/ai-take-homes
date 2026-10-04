@@ -1,0 +1,25 @@
+{
+  "call_id": "call-139",
+  "candidates": [
+    {
+      "account": "Andes Mining Co",
+      "call_id": "call-139",
+      "draft_title": "Add multi-language support for automated notification emails",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 25,
+      "provisional_priority": "P3",
+      "raw_score": 3.92,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Diego: Here's the thing. The coaching itself is fine \u2014 we can match people with Spanish-speaking coaches, and that works. The sessions happen in Spanish. That part is good. The problem is everything around the coaching. Specifically, the notification emails.\n[EXTERNAL] Diego: Exactly those. Every automated email your platform sends \u2014 the \"welcome, book your first session\" email, the session reminders, the \"you have a new message from your coach\" \u2014 they all go out in English. And my Spanish-speaking workforce gets an email in English and just... ignores it. Or deletes it. They see English, they assume it's not for them or it's spam or it's corporate noise, and they move on.\n[EXTERNAL] Diego: Precisely. I did an informal survey with one of my sites in Peru. I asked the crew \"did you get the emails about the coaching?\" and half of them said no. But they did get them \u2014 I checked. They got them, saw English, and mentally filed them as not-for-me. So to them it's as if the email never came. That's why my activation is 51%. It's not disinterest, it's a language wall on the notifications.\n[EXTERNAL] Diego: Right. And once someone is engaged \u2014 once they've had a session with a Spanish-speaking coach \u2014 they're fine, they love it. The wall is entirely at the front door, in the notifications that are supposed to get them through it.\n[EXTERNAL] Diego: Yes. Multi-language notification emails. Send the automated emails in the member's language, not just English. Spanish first, obviously, given my region \u2014 but honestly French too, because we have a French-speaking operation in one of our African joint ventures, and they have the exact same problem in reverse. So Spanish and French would cover the biggest gaps for us.\n[EXTERNAL] Diego: Correct. The in-app stuff I'm less worried about because once they're in, they're engaged and they navigate it fine. And the coaching is already in Spanish through the coach matching. It's the outbound automated emails \u2014 the ones that are the trigger to act \u2014 that need to be in the member's language. Those are the ones being thrown away.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        25,
+        35
+      ]
+    }
+  ],
+  "source_sha256": "eb2fa89d3c7dec12a0f57e834b9fcee6d93e740c5d6b077381fe63561c21a793"
+}

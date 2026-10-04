@@ -1,0 +1,34 @@
+{
+  "broken_local_links": [],
+  "commands": [
+    {
+      "command": "python -m unittest discover -s solution/tests -q",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "command": "python -m solution.eval.run_eval --repeat 2 --output solution/eval/results.json",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "command": "python -m solution.eval.run_corpus --demo-decisions solution/demo/review_decisions_excerpt.json",
+      "exit_code": 1,
+      "expected_exit_code": 1
+    }
+  ],
+  "copied_files": 223,
+  "coverage_passed": true,
+  "fault_probes_passed": true,
+  "generated_at": "2026-10-01T07:13:36.507663+00:00",
+  "meaning": "Verification machinery and the repaired pipeline's real, still-failing generalization reproduce from clean source; this is NOT a semantic quality pass.",
+  "method": "Clean copy of tracked plus new nonignored files, excluding runtime state/outboxes; not a committed checkout.",
+  "passed": true,
+  "python": "3.11.9",
+  "round1_seal_correctly_locked_pipeline_changed": true,
+  "round2_fresh_sample_reproduced": true,
+  "semantic_acceptance_passed": false,
+  "source_hashes_match": true,
+  "supplemental_audit_passed": true,
+  "tests_passed": 209
+}

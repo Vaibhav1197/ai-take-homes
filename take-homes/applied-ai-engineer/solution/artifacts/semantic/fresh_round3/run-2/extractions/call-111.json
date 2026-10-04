@@ -1,0 +1,44 @@
+{
+  "call_id": "call-111",
+  "candidates": [
+    {
+      "account": "Beacon Point Marina",
+      "call_id": "call-111",
+      "draft_title": "Fix delayed password reset emails during peak usage hours",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 9,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Delia: Right. So this is a real, specific, annoying thing that's been happening, and I've been collecting examples because I figured you'd want them. It's about password resets.\n[EXTERNAL] Delia: No, once it finally arrives, clicking the link works perfectly. They set a new password, they're in. The link's fine, it's just slow to arrive.\n[EXTERNAL] Delia: Happy to save you the chase. Okay, walk me through it \u2014 well, you walk me through your questions and I'll answer.\n[EXTERNAL] Delia: Okay. Here's the pattern. Someone can't log in \u2014 they've forgotten their password, which happens constantly with our crowd because half of them only log in for a coaching session every couple weeks and don't remember it. So they click \"forgot password,\" they enter their email, and the app says \"check your email for a reset link.\" Standard.\n[EXTERNAL] Delia: And then the email doesn't come. Or rather \u2014 it comes, eventually, but not for like half an hour. So the person's sitting there refreshing their inbox, no email, they figure it's broken, they give up or they call me. And then twenty-five, thirty minutes later, the reset email finally shows up, long after they've moved on.\n[EXTERNAL] Delia: Up to thirty minutes, yeah. Sometimes it's faster, sometimes it's the full half hour. But it's never instant, and it really should be instant, right? Every other service on earth sends a password reset in like three seconds. Yours takes half an hour.\n[EXTERNAL] Delia: It's not everyone every time, but it's frequent enough that I've got, I don't know, a dozen examples just from the last couple months. And those are only the ones who complained to me. I figure for every one who tells me, there are three who just give up quietly.\n[EXTERNAL] Delia: Ask away, I've got examples in front of me.\n[EXTERNAL] Delia: It always arrives eventually, in my experience. It's not that they vanish. It's that they're slow. Every example I have, the email did show up, just way too late to be useful.\n[EXTERNAL] Delia: Okay, that's reassuring. So the emails aren't getting eaten by spam filters?\n[EXTERNAL] Delia: Oh, that's interesting. Let me look at my examples. Um... you know what, now that you ask \u2014 most of these are during the day, business hours. And a lot of them are \u2014 huh. A lot of them are late morning to early afternoon. When it's busy. Let me see... yeah. The really bad ones, the full-thirty-minute ones, those are all midday. There's one from a Saturday morning that was bad too, and Saturdays are our busiest.\n[EXTERNAL] Delia: Now that I'm looking at it laid out, yeah. When we're slammed, the emails are slowest. I hadn't connected that until you asked. I just thought \"email slow, annoying.\"\n[EXTERNAL] Delia: So it's not on our end? Because I did wonder if it was our email provider being slow. Half my dock masters use their personal Gmail, some use the marina's email, it's a mix.\n[EXTERNAL] Delia: That makes sense. So the reset emails are getting stuck in a queue when things are busy and taking half an hour to get out the door.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        9,
+        36
+      ]
+    },
+    {
+      "account": "Beacon Point Marina",
+      "call_id": "call-111",
+      "draft_title": "Add support for Single Sign-On (SSO) authentication",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 44,
+      "provisional_priority": "P3",
+      "raw_score": 3.6,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Delia: We don't have SSO. We're a marina, we're not exactly an enterprise IT shop. Our \"IT department\" is me, a guy named Pete who's good with computers, and a support contract we call when Pete's stumped. But that's an interesting thought. Is that something you all support?",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        43,
+        45
+      ]
+    }
+  ],
+  "source_sha256": "2d2e8c5c2e460d3ea5e86d48f04e857ad69b01cc163ad4d5f7527f5551e70fcc"
+}

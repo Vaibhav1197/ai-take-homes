@@ -1,0 +1,25 @@
+{
+  "call_id": "call-078",
+  "candidates": [
+    {
+      "account": "Larkfield Media",
+      "call_id": "call-078",
+      "draft_title": "Fix coach search filters resetting on browser back navigation",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 13,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Aisha Bramble: So. People are complaining about finding a coach. Not that there aren't coaches \u2014 there are \u2014 but the search itself is annoying them.\n[EXTERNAL] Aisha Bramble: Okay so you go to the coach search, and there are filters, right? Specialty, language, timezone, all that.\n[EXTERNAL] Aisha Bramble: So our folks set up their filters carefully. Say someone wants a coach who speaks Spanish, does reactive-dog rehabilitation, in their timezone. They tick all three, get a nice list.\n[EXTERNAL] Aisha Bramble: Then they click into a coach's profile to read the bio. And then they hit the browser back button to go back to the list \u2014 and all their filters are gone. Wiped. Back to square one.\n[EXTERNAL] Aisha Bramble: Exactly. Every single filter, cleared. So they're staring at the full unfiltered list again and have to re-tick Spanish, leadership, timezone, all of it, from scratch.\n[EXTERNAL] Aisha Bramble: The browser back button, yeah. The top-left arrow. That's what everyone instinctively hits after reading a profile. And boom, selections lost.\n[EXTERNAL] Aisha Bramble: You've got it. And when you're comparing four or five coaches, you're re-entering those filters four or five times. People are giving up before they book.\n[EXTERNAL] Aisha Bramble: Anecdotally yes. Two people literally told me \"I couldn't be bothered, the search kept resetting.\" Which for a coaching program is a bad reason to not get coached.\n[EXTERNAL] Aisha Bramble: That's it exactly. The selections don't survive the back navigation.\n[EXTERNAL] Aisha Bramble: We're a Chrome shop almost entirely, so I can only confirm Chrome. I haven't heard about others because nobody here uses others.\n[EXTERNAL] Aisha Bramble: Please do. It's not a crash or anything dramatic, it's just death by a thousand re-clicks.\n[EXTERNAL] Aisha Bramble: Feel free. I workshop my complaints, I'm a media person.\n[EXTERNAL] Aisha Bramble: The one clever guy opens each coach profile in a new tab instead of clicking through. Then the list tab keeps its filters. But nobody thinks to do that naturally.\n[EXTERNAL] Aisha Bramble: Agreed. The tab trick is a band-aid. The real fix is the filters not evaporating.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        13,
+        39
+      ]
+    }
+  ],
+  "source_sha256": "8e6a71559609a84a7578225ec41ef697396412ff5f2569bed48f9d39bb38c158"
+}

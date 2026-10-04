@@ -1,0 +1,112 @@
+"""Central, env-driven configuration (12-factor: config lives in the
+environment, not hardcoded). Every path/tunable has a sensible default so
+the pipeline runs out of the box against this repo's own `transcripts/` and
+`data/` folders; overriding any of them (e.g. to point at a different
+transcripts directory, or run the eval against a scratch state file so it
+never touches the real ledger) is a single env var, no code change.
+
+The one real secret, `OPENAI_API_KEY`, is read directly by llm_judge.py at
+the point of use and is never stored on this Config object, logged, or
+written to disk -- keeping it out of state_store.py's ledger and
+logging_utils.py's event stream is deliberate.
+"""
+from __future__ import annotations
+
+import os
+import math
+from dataclasses import dataclass
+from pathlib import Path
+from urllib.parse import urlsplit
+
+from .dedup import DEFAULT_SIMILARITY_THRESHOLD
+
+# applied-ai-engineer/ (parent of solution/)
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+_STATE_DIR = REPO_ROOT / "solution" / "state"
+
+
+def _env_path(name: str, default: Path) -> Path:
+    raw = os.environ.get(name)
+    return Path(raw).expanduser() if raw else default
+
+
+def _env_float(name: str, default: float) -> float:
+    raw = os.environ.get(name)
+    if not raw:
+        return default
+    try:
+        return float(raw)
+    except ValueError:
+        return default
+
+
+@dataclass(frozen=True)
+class Config:
+    transcripts_dir: Path
+    existing_issues_path: Path
+    dev_labels_path: Path
+    state_path: Path
+    review_queue_path: Path
+    review_decisions_path: Path
+    log_path: Path
+    similarity_threshold: float
+    judge: str  # "heuristic" | "llm"
+    openai_model: str
+    llm_api_url: str = "https://api.openai.com/v1/chat/completions"
+    llm_timeout_seconds: float = 60.0
+    local_model_path: Path | None = None
+    local_engine: str = "openvino"
+    local_device: str = "GPU"
+
+
+def load_config() -> Config:
+    """Read Config from the environment. Safe to call repeatedly (e.g. once
+    per CLI invocation); does not cache, so tests can freely monkeypatch
+    os.environ between calls."""
+    judge = os.environ.get("PIPELINE_JUDGE", "heuristic").strip().lower()
+    if judge not in ("heuristic", "llm", "local"):
+        raise ValueError(f"PIPELINE_JUDGE must be 'heuristic', 'llm' or 'local', got {judge!r}")
+    local_path = os.environ.get("PIPELINE_LOCAL_MODEL_PATH")
+    local_engine = os.environ.get("PIPELINE_LOCAL_ENGINE", "openvino")
+    local_device = os.environ.get("PIPELINE_LOCAL_DEVICE", "GPU")
+    if local_engine not in ("openvino", "ctranslate2") or local_device not in ("GPU", "CPU"):
+        raise ValueError("Unsupported local engine or device")
+    if judge == "local" and not local_path:
+        raise ValueError("PIPELINE_JUDGE=local requires PIPELINE_LOCAL_MODEL_PATH")
+    api_url = os.environ.get("PIPELINE_LLM_API_URL", "https://api.openai.com/v1/chat/completions")
+    parsed = urlsplit(api_url)
+    local = parsed.hostname in ("localhost", "127.0.0.1", "::1")
+    if (parsed.scheme not in ("http", "https") or not parsed.hostname
+            or (parsed.scheme == "http" and not local) or parsed.username or parsed.password
+            or parsed.query or parsed.fragment):
+        raise ValueError("Model endpoint must use HTTPS or loopback HTTP, without embedded credentials or query")
+    timeout = float(os.environ.get("PIPELINE_LLM_TIMEOUT_SECONDS", "300" if judge == "local" else "60"))
+    if not math.isfinite(timeout) or timeout <= 0:
+        raise ValueError("Model timeout must be finite and positive")
+    if judge == "llm" and not local and not os.environ.get("OPENAI_API_KEY"):
+        raise ValueError("PIPELINE_JUDGE=llm requires OPENAI_API_KEY to be set")
+
+    return Config(
+        transcripts_dir=_env_path("PIPELINE_TRANSCRIPTS_DIR", REPO_ROOT / "transcripts"),
+        existing_issues_path=_env_path(
+            "PIPELINE_EXISTING_ISSUES", REPO_ROOT / "data" / "existing_issues.json"
+        ),
+        dev_labels_path=_env_path("PIPELINE_DEV_LABELS", REPO_ROOT / "data" / "dev_labels.json"),
+        state_path=_env_path("PIPELINE_STATE_PATH", _STATE_DIR / "pipeline_state.json"),
+        review_queue_path=_env_path("PIPELINE_REVIEW_QUEUE", _STATE_DIR / "review_queue.md"),
+        review_decisions_path=_env_path(
+            "PIPELINE_REVIEW_DECISIONS", _STATE_DIR / "review_decisions.json"
+        ),
+        log_path=_env_path("PIPELINE_LOG_PATH", _STATE_DIR / "events.jsonl"),
+        similarity_threshold=_env_float(
+            "PIPELINE_SIMILARITY_THRESHOLD", DEFAULT_SIMILARITY_THRESHOLD
+        ),
+        judge=judge,
+        openai_model=os.environ.get("PIPELINE_OPENAI_MODEL", ("Qwen3.5-4B" if local_engine == "openvino"
+                        else "Qwen3-4B-Instruct-2507") if judge == "local" else "gpt-4o-mini"),
+        llm_api_url=api_url,
+        llm_timeout_seconds=timeout,
+        local_model_path=Path(local_path).expanduser() if local_path else None,
+        local_engine=local_engine,
+        local_device=local_device,
+    )

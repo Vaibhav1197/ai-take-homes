@@ -1,0 +1,25 @@
+{
+  "call_id": "call-056",
+  "candidates": [
+    {
+      "account": "Trellis Gardens",
+      "call_id": "call-056",
+      "draft_title": "Automatically enroll new store managers in coaching upon store opening",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 47,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Priscilla: Oh, that's good to know. I'd assumed I'd batch them at renewal. If I can just fold new managers in as stores open, that's cleaner \u2014 they get coaching from the start instead of six months in.\n[EXTERNAL] Priscilla: I like that. New store, new manager, coaching on day one. I'll build it into the store-opening checklist.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        46,
+        49
+      ]
+    }
+  ],
+  "source_sha256": "2c6e17f9c1cd253f5526d1de8e8fccc6e44d0fc4c414c7793a648c8db6fc978f"
+}

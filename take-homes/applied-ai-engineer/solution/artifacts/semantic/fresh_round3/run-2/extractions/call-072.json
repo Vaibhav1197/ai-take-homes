@@ -1,0 +1,25 @@
+{
+  "call_id": "call-072",
+  "candidates": [
+    {
+      "account": "Copperline Energy",
+      "call_id": "call-072",
+      "draft_title": "Fix search results lagging 10 minutes after team rename or member move",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 24,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Gerald Voss: When we rename a team or move people between teams \u2014 which we do a lot during reorgs \u2014 the changes don't seem to show up right away when you search.\n[EXTERNAL] Gerald Voss: So say I rename \"Downstream Ops\" to \"Refining Operations.\" I make the change, it saves, confirmation and all. Then a manager searches for \"Refining\" to find their people and gets nothing. Or gets the old team name still.\n[EXTERNAL] Gerald Voss: That's the thing \u2014 if they come back ten, fifteen minutes later, it's fine. It fixes itself. So it's not broken exactly, it's just... slow to catch up.\n[EXTERNAL] Gerald Voss: Exactly that. Stale for about ten minutes and then it sorts itself out. Same thing when I move a person from one team to another \u2014 search shows them on the old team for a bit.\n[EXTERNAL] Priti Shah: I've hit this too actually. I moved someone to my cohort and couldn't find them under the new team for a while. I assumed I did it wrong and re-did it, which probably didn't help.\n[EXTERNAL] Gerald Voss: It's not a huge deal day to day. It's just confusing during a reorg when there's a hundred moves happening and managers are searching for people who \"aren't there\" and pinging me.\n[EXTERNAL] Gerald Voss: You said it. In steady state I'd never notice. In a reorg it generates a wave of \"where's my report\" tickets to my desk.\n[EXTERNAL] Gerald Voss: Consistently around ten minutes. Sometimes a touch less. Never seen it take an hour or anything. Just enough to be annoying.\n[EXTERNAL] Gerald Voss: Good question. Let me think. Yeah \u2014 if I click into the team directly, the new name and the new members are right. It's when you search by name that you get the old picture for a while.\n[EXTERNAL] Gerald Voss: That's the cleanest way I've heard it put. I've been calling it \"the search hangover.\"\n[EXTERNAL] Gerald Voss: Appreciate it. Again, low priority from our side, but during reorgs it'd be nice if search kept up.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        24,
+        43
+      ]
+    }
+  ],
+  "source_sha256": "3a86237d6ade2579142eda0d748815679a982208c1bd0438abd2325cbe220f35"
+}

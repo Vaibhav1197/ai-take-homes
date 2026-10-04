@@ -1,0 +1,982 @@
+{
+  "diagnostic_control": {
+    "actual_entry": {
+      "account": "Brightpath Insurance",
+      "action": "file-new",
+      "call_id": "call-011",
+      "confidence": 0.95,
+      "dedup_similarity": 0.10575,
+      "description": "[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.\n[EXTERNAL] Sofia: I have them in a spreadsheet with a filter on the name column. Detective, remember. I don't estimate, I count.\n[EXTERNAL] Sofia: You mock, but the spreadsheet is going to save your engineers a headache. I've already got the exact list of who's affected.\n[EXTERNAL] Sofia: Always. And here's the part that actually bothers me: they've learned to ignore the links. Maria knows her link is broken, so she doesn't click it, she just navigates to the app manually. Which means she's learned to ignore the notification. Which defeats the entire point of sending the notification. We're training thirty-one members to disregard our reminders because the reminders don't work for them.",
+      "issue_type": "Bug",
+      "matched_key": "PENDING:7",
+      "priority": "P3",
+      "rationale": "no existing Bug issue matched above threshold (best similarity=0.11)",
+      "status": "queued",
+      "summary": "Fix broken profile links containing apostrophes in email notifications",
+      "turn_span": [
+        39,
+        54
+      ]
+    },
+    "extra": 1,
+    "interpretation": "An injected Feature label contradicts the verbatim broken-link/404 evidence and original Bug label. Flag annotation review; do not silently relabel or count as a pass. No real supplied label error is established.",
+    "matched": 0,
+    "missing": 1,
+    "original_label": {
+      "action": "file-new",
+      "summary": "Profile links in notification emails truncate at apostrophes in member names (O'Brien -> /maria-o -> 404); 31 members affected in every notification",
+      "type": "Bug"
+    },
+    "synthetic_bad_label": {
+      "action": "file-new",
+      "summary": "Injected incorrect type; original label remains Bug.",
+      "type": "Feature"
+    }
+  },
+  "evidence_patterns": {
+    "call-001": [
+      "280",
+      "412"
+    ],
+    "call-003": [
+      "saml|idp",
+      "group",
+      "role"
+    ],
+    "call-006": [
+      "search",
+      "stale|ten.minute|10.minute|old (?:name|team)"
+    ],
+    "call-008": [
+      "betterbrak|typo|misspell"
+    ],
+    "call-010:Bug": [
+      "idp|azure",
+      "loop|bounce"
+    ],
+    "call-010:Feature": [
+      "audit",
+      "api|endpoint|siem"
+    ],
+    "call-011": [
+      "apostrophe|o.bri|404|truncat",
+      "link|url|profile"
+    ],
+    "call-013": [
+      "webhook|event",
+      "complet|lms|cornerstone"
+    ],
+    "call-014": [
+      "deactivat|inactiv",
+      "blank|white screen"
+    ]
+  },
+  "input_sha256": {
+    "call-001.md": "92fe1b860aa80a2c238b8dbd7ff348fc89bc3d6612625409b1a51aca1ca42b4d",
+    "call-002.md": "8dff64453d1ce1a52f61fb86be9a85a248b77a2055c34bd868225e0783f2d777",
+    "call-003.md": "13888a8df0690f818d6b37805028c6f3fec685b6a3047fd350c28214f450dae4",
+    "call-004.md": "62f7bed5fced3db674eb2d0df8244a99f0778ebfc763eea7d2a7268f82a3fe59",
+    "call-005.md": "222b62ad084cd3b669cf46820d5c15ff92fc5c030c002abd238bf6934137a3e0",
+    "call-006.md": "bf7e89668d7fcd709d43c22cfda338a8ec4c75f8c7bbd9103d885260d248418a",
+    "call-007.md": "261b0f1b7f3c17b3613ade95b60a918721fe011fa2f39e9afce9cf1d4be8c8ed",
+    "call-008.md": "d22896f37454951a97410dd0920affd939b7286b056fdf6796ba79e2116bf602",
+    "call-009.md": "1d02aced4f4dc37daa4a5cc8bd6bfd7e98317006ccef89b16bc9d0b9d6951a10",
+    "call-010.md": "df7de2285a3a7740767240747c3065578d073cf2911e4cb727d27516d0e9d3be",
+    "call-011.md": "cfe24a02e4a3623d817644f94b5ed6729fd390470b287594ff10a61588a7e4d2",
+    "call-012.md": "9e0316c2157cb212ba68223ad59f4b7666a942f610ac661028de62468813f5fc",
+    "call-013.md": "5ff74066a97204fe8b3ca7f8e1916014f7c0ad2bc174428465b805a8972eceb8",
+    "call-014.md": "13e43316d957a3a3da53dc5d5c002439e70031598f144065ebfa2bb4fd9a4f75",
+    "call-015.md": "3930388bb830cdb6b7f171130185c5eba796599aa6de9b29d159f498404bb2ec",
+    "dev_labels.json": "be136bf252da0d9f3a11eb3c0a0dd405155e4865e4fda1d5aabf96c293cdd5b3",
+    "existing_issues.json": "1d8a2b02ce15267cd0ccfbf9e783cbab36a1dd1e0f3b820610e0262cd0ad9304"
+  },
+  "judge": "local",
+  "label_counts": {
+    "actionable": 14,
+    "all_labels": 30,
+    "calls": 15
+  },
+  "passed": false,
+  "rules": {
+    "all_queue_precision_min": 0.85,
+    "confident_precision_min": 0.85,
+    "file_new_low": "Every unmatched item is an FP in all_queue; every missed actionable label is an FN.",
+    "matching": "One-to-one action/type + curated symptom regex for new issues; exact target for corroboration. Manual review still required; lexical anchors are not semantic ground truth.",
+    "recall_min": 0.85,
+    "required": "All calls succeed, every hard case and every run passes, >=2 independent fresh-state runs have identical complete decisions."
+  },
+  "runs": [
+    {
+      "all_queue": {
+        "f1": 0.896551724137931,
+        "fn": 1,
+        "fp": 2,
+        "precision": 0.8666666666666667,
+        "predicted": 15,
+        "recall": 0.9285714285714286,
+        "tp": 13
+      },
+      "calls_failed": 0,
+      "calls_processed": 15,
+      "confident": {
+        "fp": 2,
+        "precision": 0.8666666666666667,
+        "predicted": 15,
+        "tp": 13
+      },
+      "decisions": {
+        "call-001": [
+          {
+            "account": "Meridian Health",
+            "action": "file-new",
+            "call_id": "call-001",
+            "confidence": 0.95,
+            "dedup_similarity": 0.031336,
+            "description": "[EXTERNAL] Dana: Okay, so, one real thing. The usage dashboard summary is wrong, and it's the kind of wrong that bites us.\n[EXTERNAL] Dana: The headline \"active members\" card \u2014 the big number at the top \u2014 says 280 for this month. Our admin panel says 412. And here's the kicker: the per-team breakdown directly below the card adds up to 412. So the detail is right and the headline is wrong, on the same screen.\n[EXTERNAL] Dana: Exactly. Add up the rows, you get 412. Read the big card, you get 280. Same page, same load, at the same moment.\n[EXTERNAL] Dana: Maybe a week, week and a half ago. Before that they matched. I know because I look at that card constantly \u2014 I report those numbers up to finance off it.\n[EXTERNAL] Dana: It feeds the monthly ops review. Rob \u2014 our finance partner \u2014 literally screenshots that card and drops it into the deck. So last month somebody in the review asked me why adoption \"fell off a cliff\" and I had to explain, live, that it hadn't, the number's just wrong. Not a great look in a room full of VPs.\n[EXTERNAL] Dana: That's exactly my anxiety. The real number is up. The card says it's down by a third. I need the card to tell the truth before the July review.\n[EXTERNAL] Dana: That's it word for word.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:1",
+            "priority": "P2",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.03)",
+            "status": "queued",
+            "summary": "Fix usage dashboard summary card showing incorrect active member count",
+            "turn_span": [
+              23,
+              35
+            ]
+          }
+        ],
+        "call-002": [],
+        "call-003": [
+          {
+            "account": "Atlas Financial",
+            "action": "file-new",
+            "call_id": "call-003",
+            "confidence": 0.95,
+            "dedup_similarity": 0.156707,
+            "description": "[EXTERNAL] Renee: This is the real one, and it's the blocker for our security review. SSO works fine \u2014 that's not the issue. The issue is what happens after. Every user lands as a basic member, full stop. And then one of our admins has to go promote people by hand.\n[EXTERNAL] Renee: One at a time. For four hundred users at full rollout, that's not a process, it's a punishment. And it's error-prone \u2014 someone will fat-finger a finance manager into the wrong role and now I've got a segregation-of-duties finding.\n[EXTERNAL] Renee: You've met my admins. Around row two hundred everyone's eyes glaze and that's precisely when the mistakes creep in. I'd rather not build the rollout on the assumption that a tired human clicks four hundred times without error.\n[EXTERNAL] Renee: Right. We need role assignment to happen automatically from SAML group membership, at login. Our IdP already exposes the groups in the assertion \u2014 finance-managers, people-admins, read-only-auditors, and so on. What I want is: you map an IdP group to a BetterBark role, and you apply that mapping on every login, so if someone's group changes on our side, their role changes on yours the next time they sign in.\n[EXTERNAL] Renee: That's it precisely. Evaluated every login is the important part. First-provision-only doesn't help me, because people move between groups constantly and I need it to stay in sync, not snapshot once.\n[EXTERNAL] Renee: Without it we can't pass our access-review audit. Our controls require that access maps to a source of truth \u2014 our directory groups \u2014 not to whatever some admin clicked last Tuesday. Manual promotion means the source of truth is a human's memory, which fails the control. And without passing the audit, we can't go to full rollout. It is the single thing standing between us and turning on all four hundred seats.\n[EXTERNAL] Renee: Good. Make sure the audit framing is loud. \"Nice to have\" gets shelved; \"blocks a regulated rollout\" gets a meeting.",
+            "issue_type": "Feature",
+            "matched_key": "PENDING:2",
+            "priority": "P2",
+            "rationale": "no existing Feature issue matched above threshold (best similarity=0.16)",
+            "status": "queued",
+            "summary": "Implement automatic SAML group-to-role mapping evaluated on every login",
+            "turn_span": [
+              29,
+              41
+            ]
+          }
+        ],
+        "call-004": [
+          {
+            "account": "Cedar Grove Schools",
+            "action": "corroborate",
+            "call_id": "call-004",
+            "confidence": 0.456,
+            "dedup_similarity": 0.455917,
+            "description": "[EXTERNAL] Will: Main thing, and it's the one that's been generating email: the scheduled reports are coming in at a weird time, and the timestamps inside them are off.\n[EXTERNAL] Will: Looks like about seven hours ahead of us. We're Pacific. A report that should say 9am shows up stamped around 4pm. So the timestamps inside the report just don't match when things actually happened in our day.\n[EXTERNAL] Will: Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same way. My directors read the weekly numbers against the school day \u2014 like, \"how many sessions happened during the workday versus after\" \u2014 so when the timestamps don't line up with reality, they think the data itself is wrong. And then I get three confused emails asking why sessions are happening at midnight.\n[EXTERNAL] Will: That would explain the exact seven-hour thing. It's not random, it's a consistent shift.\n[EXTERNAL] Will: Whatever gets it fixed. It's been going on at least a month \u2014 I honestly assumed it was on purpose at first, like some setting I'd missed, until a director pushed back hard enough that I went looking.\n[EXTERNAL] Will: Good question \u2014 the in-app dashboard looks right to me. It's the scheduled report, the one that gets emailed out as a PDF, that's off. The live view seems fine.",
+            "issue_type": "Bug",
+            "matched_key": "PROJ-101",
+            "priority": "P2",
+            "rationale": "matches tracked PROJ-101 (similarity=0.46)",
+            "status": "queued",
+            "summary": "Fix scheduled report timestamps rendering in UTC instead of workspace timezone",
+            "turn_span": [
+              19,
+              30
+            ]
+          }
+        ],
+        "call-005": [
+          {
+            "account": "Vanta Retail",
+            "action": "corroborate",
+            "call_id": "call-005",
+            "confidence": 0.332,
+            "dedup_similarity": 0.332353,
+            "description": "[EXTERNAL] Jordan: We consume your webhooks into our internal data platform \u2014 session events, membership changes, that kind of thing. Devraj's team says some events are being delivered twice. Same event, two deliveries, occasionally. Not every event, not on a schedule he can predict, just... sometimes the same one shows up twice.\n[EXTERNAL] Jordan: Their pipeline mostly dedupes it already \u2014 they've got logic that catches most of the doubles. But \"mostly\" is doing a lot of work in that sentence, and Devraj hates heuristic dedup. His actual ask, and I wrote it down so I'd get it right: can you put idempotency keys on the webhook payload, so his team can dedupe deterministically instead of guessing based on content and timing?",
+            "issue_type": "Bug",
+            "matched_key": "PROJ-087",
+            "priority": "P3",
+            "rationale": "matches tracked PROJ-087 (similarity=0.33)",
+            "status": "queued",
+            "summary": "Add idempotency keys to webhook payloads to prevent duplicate deliveries",
+            "turn_span": [
+              33,
+              35
+            ]
+          }
+        ],
+        "call-006": [
+          {
+            "account": "Harborline Media",
+            "action": "file-new",
+            "call_id": "call-006",
+            "confidence": 0.95,
+            "dedup_similarity": 0.155032,
+            "description": "[EXTERNAL] Aisha: There's a but. There's a real bug we hit over and over, and it's about search, not the editing. After we rename a team or move a member, search keeps returning the old state for about ten minutes.\n[EXTERNAL] Aisha: So say I rename \"Digital Video\" to \"Video Production.\" Somebody searches \"Video Production\" \u2014 the new name \u2014 and gets nothing. Empty. Or they search for a person I just moved, and search still shows them filed under the old team. And then, with no action from anyone, it quietly fixes itself. Ten minutes later the same search is correct.\n[EXTERNAL] Aisha: That's exactly what it looks like. And I can reproduce it on demand \u2014 I did it three times while I was documenting it for myself. Rename a test team, search immediately, stale result. Wait ten minutes, search again, correct result. Every single time.\n[EXTERNAL] Aisha: Feels like about ten, give or take a couple. I didn't stopwatch it precisely, but it's in that ballpark consistently. Never seen it take an hour, never seen it be instant.\n[EXTERNAL] Aisha: I've been on the other side of that. Vague bug reports are how you get vague fixes. I'd rather do the homework once.\n[EXTERNAL] Aisha: Oh, it was a mess. It caused a stream of \"where did this person go\" tickets to my desk. A manager would search for someone right after I moved them, get the old team or get nothing, and conclude I'd deleted the person or lost them. So I'm getting panicked messages while I'm mid-reorg, and the answer every time is \"just wait ten minutes and search again,\" which is not a satisfying thing to tell a panicking manager.\n[EXTERNAL] Aisha: Right. On a normal week I'd probably never notice, because who searches for a team the instant it's renamed? But during a reorg you're renaming and searching constantly, so the gap is in your face all day.\n[EXTERNAL] Aisha: Exactly. If we reorged one team a month I'd never have caught it. Do it sixty times in two days and it's impossible to miss.\n[EXTERNAL] Aisha: I'll send it today. I literally have notes from when I was testing it, so I can give you a clean sequence with the times. Do you want the team names too, or scrubbed?",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:3",
+            "priority": "P3",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.16)",
+            "status": "queued",
+            "summary": "Fix search index lag after team rename or member move",
+            "turn_span": [
+              19,
+              36
+            ]
+          }
+        ],
+        "call-007": [],
+        "call-008": [
+          {
+            "account": "Northwind Logistics",
+            "action": "corroborate",
+            "call_id": "call-008",
+            "confidence": 0.396,
+            "dedup_similarity": 0.396194,
+            "description": "[EXTERNAL] Marcus: Real one first. A bunch of our warehouse folks on Android say the app won't open anymore. It crashes the second they tap the icon. Like, splash screen, then straight back to the home screen. Doesn't even get to the login.\n[EXTERNAL] Marcus: Right after the last app update. That's the pattern. The ones who updated are the ones crashing. The ones who haven't updated yet are totally fine. And the iPhone people are all fine across the board.\n[EXTERNAL] Marcus: That's how it reads to me, and I'm not exactly a mobile engineer. But the shape's obvious: update the Android app, it stops opening.\n[EXTERNAL] Marcus: A dozen or so have actually reached me. But here's the thing you have to understand about warehouse workers \u2014 that dozen means the real number is triple that, easy.\n[EXTERNAL] Marcus: Warehouse folks don't file tickets. If an app doesn't open, they don't email HR about it, they just... stop using it. They've got a job to do on a clock. A broken app isn't a problem they escalate, it's a thing they shrug at and move on from. So for every one who bothered to tell me, there are two or three who just quietly stopped opening it and I'll never hear from them.\n[EXTERNAL] Marcus: Exactly. And these are the people I most want engaged, because getting their dogs trained is the whole reason we bought this. If the app silently dies for warehouse workers after an update, that's my adoption number quietly bleeding out and I don't even see it happening.\n[EXTERNAL] Marcus: You get it. That's why I like working with you and not the ticket portal. The portal would've made me pick a severity from a dropdown and then argued with me about it.\n[EXTERNAL] Marcus: Mix. But it lands hardest on the seasonal wave because they're the ones we just told \"download the app, this is how you book your dog's training.\" First impression of the whole program is a splash screen and then nothing.\n[EXTERNAL] Marcus: Right in front of a supervisor holding a clipboard, no less. It doesn't inspire confidence in the \"we invested in your growth\" speech.\n[EXTERNAL] Marcus: So it's not just us. Somehow that's comforting and infuriating at the same time.\n[EXTERNAL] Marcus: It's a mess of cheap Android phones, honestly \u2014 whatever's on sale. I can ask the two supervisors to poll their crews for makes and models if that'd help.\n[EXTERNAL] Marcus: I'll pass \"don't update\" down the chain. The reinstall dance I won't inflict on warehouse crews, they'll mutiny. Better to just get it fixed.",
+            "issue_type": "Bug",
+            "matched_key": "PROJ-110",
+            "priority": "P2",
+            "rationale": "matches tracked PROJ-110 (similarity=0.40)",
+            "status": "queued",
+            "summary": "Fix Android app crash on launch after update",
+            "turn_span": [
+              13,
+              36
+            ]
+          },
+          {
+            "account": "Northwind Logistics",
+            "action": "file-new",
+            "call_id": "call-008",
+            "confidence": 0.98,
+            "dedup_similarity": 0.079548,
+            "description": "[EXTERNAL] Marcus: She noticed the confirmation emails your system sends have \"BetterBrak\" \u2014 B-E-T-T-E-R-B-R-A-K \u2014 in the footer. Your own company name, misspelled, right there in the email footer. BetterBrak.\n[EXTERNAL] Marcus: Oh yes. BetterBrak. Every confirmation email, apparently.\n[EXTERNAL] Marcus: Every one. And she called it, quote, \"a P0 brand catastrophe\" and said she's, quote, \"genuinely alarmed.\" She used the word alarmed. About a typo. I told her I'd relay it with a straight face and I am now doing that, and I want you to know that face is costing me a great deal.\n[EXTERNAL] Marcus: She will be pleased to hear she's not wrong. She lives for that.\n[EXTERNAL] Marcus: That's exactly the energy I was hoping for. She'll be told it was escalated with maximum urgency. You and I will know the truth. Everyone gets to keep their dignity.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:4",
+            "priority": "P2",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.08)",
+            "status": "queued",
+            "summary": "Fix misspelled company name in confirmation email footers",
+            "turn_span": [
+              43,
+              52
+            ]
+          }
+        ],
+        "call-009": [],
+        "call-010": [
+          {
+            "account": "Atlas Financial",
+            "action": "file-new",
+            "call_id": "call-010",
+            "confidence": 0.98,
+            "dedup_similarity": 0.153468,
+            "description": "[EXTERNAL] Renee: They're paid to assume the worst. It's a feature, not a bug \u2014 I'd just rather they aim it at someone else. Okay, second item, and this one surfaced in yesterday's pilot group, so it's fresh.\n[EXTERNAL] Renee: When one of our users changes their network password \u2014 our regular rotation \u2014 and then hits your app, they get stuck in a login loop. And I want to walk you through the exact loop, because I need you to file this precisely.\n[EXTERNAL] Renee: Give me a second, I want to get the order right \u2014 I watched one of my users do it over the shoulder yesterday, so this is from life, not a guess.\n[EXTERNAL] Renee: User changes their password on our side. Then they open your app. Your app bounces them to our IdP to authenticate. The IdP authenticates them just fine \u2014 new password, correct, no problem, IdP says \"yes, this is them.\" IdP sends them back to your app. And then your side immediately bounces them right back to the IdP again. And around, and around. Authenticate, return, bounce, authenticate, return, bounce. Infinite.\n[EXTERNAL] Renee: That's it exactly. They never get in. Not \"logged in briefly then out\" \u2014 they never reach the app at all. It just spins between your login and our IdP until they give up.\n[EXTERNAL] Renee: Every time. The user tries twice, decides it's broken, and calls my helpdesk instead of figuring it out themselves.\n[EXTERNAL] Renee: Clearing browser cookies for your domain breaks the loop. Once they wipe your cookies, they log in clean and they're fine. But that's a support call every single time \u2014 you can't tell four hundred people \"clear your cookies\" and expect that to scale.\n[EXTERNAL] Renee: You've met our users. That's exactly how the first three tickets went \u2014 \"which browser, where's the menu, what's a cookie.\" I'm not building a training program around that.\n[EXTERNAL] Renee: Right, and I actually read about that one in your status-page history, and I want to be emphatic: this is not that. Two reasons. One \u2014 we are not on Okta. We're Azure AD. So the Okta-specific issue doesn't even apply to us architecturally.\n[EXTERNAL] Renee: Two \u2014 the symptom is the opposite shape. In the Okta issue, people are being logged out early but they can get back in. In ours, nobody is being logged out early at all \u2014 they can't get in in the first place after a password change. It's not a premature expiry, it's a hard redirect loop that blocks entry entirely until cookies are cleared. Early-logout-but-you-can-return versus cannot-enter-at-all. Different shape entirely.\n[EXTERNAL] Renee: Filed exactly like that, yes. If it lands on the Okta ticket it'll get closed as a duplicate and we'll be stuck.\n[EXTERNAL] Renee: And then it's my problem to resurrect it three weeks later when nothing's moved. No thank you.\n[EXTERNAL] Renee: Five, out of the forty-person pilot. Which is what you'd expect, because password rotation is staggered \u2014 not everyone hit their rotation date in the same week. So five have rotated and hit the loop; the other thirty-five just haven't rotated yet.\n[EXTERNAL] Renee: Nobody hit it in the first week of the pilot at all, which is exactly why \u2014 none of them had rotated yet.\n[EXTERNAL] Renee: Precisely, and here's the math that matters for prioritization. At full rollout \u2014 four hundred users, ninety-day rotation policy \u2014 every single person hits a password change once a quarter. That's roughly four hundred people hitting this loop over a quarter, every quarter, forever. It would swamp our helpdesk. It turns a pilot annoyance into a rollout blocker.\n[EXTERNAL] Renee: Good. The number is what'll get it taken seriously. Five is ignorable, four-hundred-a-quarter is not.\n[EXTERNAL] Renee: Years of learning that \"please fix this\" gets ignored and \"this will cost us X\" gets a meeting. Sad, but true.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:6",
+            "priority": "P1",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.15)",
+            "status": "queued",
+            "summary": "Fix infinite redirect loop for Azure AD users after network password change",
+            "turn_span": [
+              21,
+              54
+            ]
+          },
+          {
+            "account": "Atlas Financial",
+            "action": "file-new",
+            "call_id": "call-010",
+            "confidence": 0.95,
+            "dedup_similarity": 0.155439,
+            "description": "[EXTERNAL] Renee: Let's do the audit-log one first, it's cleaner. We need programmatic access to the audit log. There's a UI view today, which is genuinely fine for spot checks \u2014 if I want to see who changed a config last Tuesday, I click in and I see it.\n[EXTERNAL] Renee: The UI's fine for the \"who touched this on Tuesday\" moment. It's just not a machine.\n[EXTERNAL] Renee: Right. Our SOC team needs to pull audit events into our SIEM on a nightly job. Automated, unattended, every night. So what I need is an API endpoint \u2014 filterable by time range, paginated, machine-readable. JSON, ideally. Give me \"all audit events between these two timestamps,\" let me page through them, done.\n[EXTERNAL] Renee: Exactly. And I want to be clear about why the UI export button doesn't count, because someone will suggest it. A human clicking \"export CSV\" once a week is not continuous monitoring. It's a person, doing a manual task, on a schedule they'll eventually forget. Our SOC 2 auditors will keep writing it up as a control gap until an automated pull exists. Continuous monitoring means no human touches it.",
+            "issue_type": "Feature",
+            "matched_key": "PENDING:5",
+            "priority": "P2",
+            "rationale": "no existing Feature issue matched above threshold (best similarity=0.16)",
+            "status": "queued",
+            "summary": "Add API endpoint for audit log export with time-range filtering and pagination",
+            "turn_span": [
+              9,
+              16
+            ]
+          }
+        ],
+        "call-011": [
+          {
+            "account": "Brightpath Insurance",
+            "action": "file-new",
+            "call_id": "call-011",
+            "confidence": 0.95,
+            "dedup_similarity": 0.10575,
+            "description": "[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.\n[EXTERNAL] Sofia: I have them in a spreadsheet with a filter on the name column. Detective, remember. I don't estimate, I count.\n[EXTERNAL] Sofia: You mock, but the spreadsheet is going to save your engineers a headache. I've already got the exact list of who's affected.\n[EXTERNAL] Sofia: Always. And here's the part that actually bothers me: they've learned to ignore the links. Maria knows her link is broken, so she doesn't click it, she just navigates to the app manually. Which means she's learned to ignore the notification. Which defeats the entire point of sending the notification. We're training thirty-one members to disregard our reminders because the reminders don't work for them.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:7",
+            "priority": "P3",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.11)",
+            "status": "queued",
+            "summary": "Fix broken profile links containing apostrophes in email notifications",
+            "turn_span": [
+              39,
+              54
+            ]
+          }
+        ],
+        "call-012": [
+          {
+            "account": "Gable Group",
+            "action": "corroborate",
+            "call_id": "call-012",
+            "confidence": 0.468,
+            "dedup_similarity": 0.467554,
+            "description": "[EXTERNAL] Devon: Feedback, yes. Mostly one thing, repeatedly, and it's a real one. We merged those two departments this month, which meant renaming teams and moving about forty people around. And every single time we made a change, search lied to us for a while afterward.\n[EXTERNAL] Devon: Two flavors. One \u2014 search for the new team name right after renaming it, and you get nothing. Empty results, like the team doesn't exist. Two \u2014 search for a person we just moved, and search shows them still on the old team, filed under the department that no longer exists. And then, if you wait \u2014 I don't know, five, ten minutes \u2014 it sorts itself out. Same search, correct answer.\n[EXTERNAL] Devon: That's exactly it. And it was consistent enough that my admins started planning around it. I'm not kidding \u2014 they started setting literal kitchen timers. Make a batch of changes, set a ten-minute timer, don't trust search until it dings. I'd describe that workflow as \"medieval.\"\n[EXTERNAL] Devon: Consistent enough to plan around, yes. And look, I'm a systems person \u2014 I get it, indexes take time to rebuild, eventual consistency is a real thing, I'm not naive about it. But here's my actual complaint: nothing in the UI says that. The edit screen says \"saved.\" Search says the opposite. And my admin is left standing there deciding which one of you is lying, with no signal about which to believe.\n[EXTERNAL] Devon: That's the crux. Tell me it's coming and I'll wait. Tell me it's done when it isn't, and I'll waste an hour thinking I broke something.\n[EXTERNAL] Devon: Good. Counted twice is better than filed twice \u2014 I don't need my own private ticket, I need it fixed. Attach us to whatever's already moving.\n[EXTERNAL] Devon: Easy, my admins basically logged this out of spite. I'll send you a rename, the timestamp, the failed search, and the timestamp when it started working. Probably three or four examples, honestly, they have a collection.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:3",
+            "priority": "P3",
+            "rationale": "matches tracked PENDING:3 (similarity=0.47)",
+            "status": "queued",
+            "summary": "Fix search staleness after team rename or member move",
+            "turn_span": [
+              11,
+              23
+            ]
+          },
+          {
+            "account": "Gable Group",
+            "action": "file-new",
+            "call_id": "call-012",
+            "confidence": 0.9,
+            "dedup_similarity": 0.095648,
+            "description": "[EXTERNAL] Devon: Yeah. So given that the lag exists, could we get a manual \"re-sync\" or \"rebuild index\" button in the admin panel? If the staleness is going to be there, at least give me the lever. I'll press it myself after every batch of edits and skip the kitchen timer entirely.\n[EXTERNAL] Devon: That's fair, and honestly I can't argue with it. A button that exists solely to work around a bug is a weird thing to ship. Although \u2014 devil's advocate \u2014 sometimes the workaround ships years before the fix, and I'd rather have the ugly button than nothing.\n[EXTERNAL] Devon: That's the risk, yeah. Ship the band-aid, close the ticket, the wound's still there. I've watched vendors do that.\n[EXTERNAL] Devon: Then frame it your way. You know your product team better than I do. I trust you to fight the right fight.\n[EXTERNAL] Devon: That's a fair frame. I want the outcome, not the button. The button is just my coping mechanism for the outcome not existing yet.",
+            "issue_type": "Feature",
+            "matched_key": "PENDING:8",
+            "priority": "P3",
+            "rationale": "no existing Feature issue matched above threshold (best similarity=0.10)",
+            "status": "queued",
+            "summary": "Add manual re-sync or rebuild index button in admin panel",
+            "turn_span": [
+              29,
+              37
+            ]
+          }
+        ],
+        "call-013": [
+          {
+            "account": "Ridgeway Manufacturing",
+            "action": "file-new",
+            "call_id": "call-013",
+            "confidence": 0.95,
+            "dedup_similarity": 0.097846,
+            "description": "[EXTERNAL] Hank: First: I need to get the full member roster out of the system. Everyone, all fields, one file \u2014 for our annual training audit. Right now my coordinator, Brenda, pages through the member list and copies it out chunk by chunk. It took her most of a morning last quarter, clicking through pages and pasting into a spreadsheet like it's 2004. Can you add an export button? One click, whole roster, CSV.\n[EXTERNAL] Hank: You're kidding. Let me \u2014 hang on, I'm pulling it up. Admin, Members, top right... it's... huh. It's right there. \"Export all (CSV).\" How long has that been sitting there mocking me and Brenda?",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:9",
+            "priority": "P2",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.10)",
+            "status": "queued",
+            "summary": "Fix confusion regarding missing 'Export all (CSV)' button for member roster",
+            "turn_span": [
+              21,
+              24
+            ]
+          }
+        ],
+        "call-014": [
+          {
+            "account": "Sunrise Hospitality",
+            "action": "file-new",
+            "call_id": "call-014",
+            "confidence": 0.95,
+            "dedup_similarity": 0.104417,
+            "description": "[EXTERNAL] Gloria: Mid-quarter we did the seasonal transition. We deactivate a couple hundred seasonal staff accounts every May when the season ends \u2014 it's routine, we do it every year. Smooth on the whole. Except we found something genuinely broken this time, and my ops manager made me promise to raise it, so I'm raising it.\n[EXTERNAL] Gloria: When an admin deactivates a member while that member happens to be in the app \u2014 like, actively using it, mid-session on their phone \u2014 the app doesn't handle it gracefully. It goes to a blank white screen. No message, no \"your account has been deactivated,\" no logout, no nothing. Just a white screen. A void.\n[EXTERNAL] Gloria: White. Blank. And it stays white \u2014 it doesn't recover on its own. What fixes it is force-quitting the app and reopening it, and then you finally get the \"account inactive\" screen, which is the thing that should have appeared in the first place. The correct screen exists. The app just doesn't get you there if you were mid-session when the deactivation hit \u2014 it strands you on white until you force-quit.\n[EXTERNAL] Gloria: We know of six or seven, all during the May deactivation batch. It's not a huge number. But two of them called our IT helpdesk saying the app was \"broken\" \u2014 they didn't know they'd been deactivated, they just saw their app die into a white screen and assumed it crashed. That's how it climbed up to my ops manager, through IT tickets.\n[EXTERNAL] Gloria: Right, and here's why it bugs me more than the number suggests. It's not the volume \u2014 six or seven isn't a crisis. It's that a blank white screen with no explanation is the worst possible goodbye. These are seasonal staff we genuinely want back next season. We invest in rehiring the good ones. And their last interaction with our tooling was a white void that made them think something was broken. That's a terrible final impression to leave with someone you're hoping returns.\n[EXTERNAL] Gloria: I'd bet it does too \u2014 it happened to every one of the six or seven who were mid-session, so it's not a fluke, it's what the app does in that situation. Consistent.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:10",
+            "priority": "P1",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.10)",
+            "status": "queued",
+            "summary": "Fix mobile app blank white screen when deactivating mid-session",
+            "turn_span": [
+              35,
+              46
+            ]
+          }
+        ],
+        "call-015": [
+          {
+            "account": "Juniper Media",
+            "action": "corroborate",
+            "call_id": "call-015",
+            "confidence": 0.299,
+            "dedup_similarity": 0.299358,
+            "description": "[EXTERNAL] Marcus: We onboarded a batch of new hires two weeks ago \u2014 twenty-three people, all at once, first Monday of the month. And several of them told me the password-reset email just... didn't come. Or came way late.\n[EXTERNAL] Marcus: That's the thing \u2014 not never. Late. One person said she requested it, went and got coffee, came back twenty-something minutes later, and it was sitting there. Another said his took like half an hour. A couple got it fine. It wasn't everybody.\n[EXTERNAL] Marcus: Monday morning, yeah. Everybody hitting it at once because HR sent the \"set up your account\" email at 9am sharp and twenty-three people clicked \"reset password\" within the same ten minutes.\n[EXTERNAL] Marcus: Right. And I want to be careful \u2014 nobody was locked out permanently. Everybody got in eventually. It just made the kickoff look janky. I stood up in front of the new hires and said \"check your email for the reset link\" and then we all sat there for twenty minutes while nothing happened for half the room.\n[EXTERNAL] Marcus: It's the optics. These are people forming their whole opinion of the tool in the first hour. \"The password email doesn't work\" is a sticky first note even if it does work five minutes later.\n[EXTERNAL] Marcus: Specifically the reset. The invites went out the night before and those were fine, near as I know. It was the \"I clicked reset and I'm waiting\" moment.\n[EXTERNAL] Marcus: That's my hunch, yeah. It felt like peak-hours congestion. When I test it right now on my own account, boom, instant. But 9am Monday with everybody hammering it, that's when it dragged.\n[EXTERNAL] Marcus: You've heard this before, haven't you. You've got that \"oh, that\" tone.\n[EXTERNAL] Marcus: That's all I need. I don't need it to be a crisis. I just need to not stand in front of new hires again looking like the tool's held together with tape.",
+            "issue_type": "Bug",
+            "matched_key": "PROJ-142",
+            "priority": "P1",
+            "rationale": "matches tracked PROJ-142 (similarity=0.30)",
+            "status": "queued",
+            "summary": "Fix delayed password reset emails during high-volume onboarding windows",
+            "turn_span": [
+              25,
+              42
+            ]
+          }
+        ]
+      },
+      "expected_issues": 14,
+      "false_negatives": [
+        {
+          "call_id": "call-013",
+          "label": {
+            "action": "file-new",
+            "summary": "Session-completed webhook event (member ID + timestamp) so the customer's LMS (Cornerstone) can record completed training sessions automatically",
+            "type": "Feature"
+          }
+        }
+      ],
+      "false_positives": [
+        {
+          "call_id": "call-012",
+          "entry": {
+            "account": "Gable Group",
+            "action": "file-new",
+            "call_id": "call-012",
+            "confidence": 0.9,
+            "dedup_similarity": 0.095648,
+            "description": "[EXTERNAL] Devon: Yeah. So given that the lag exists, could we get a manual \"re-sync\" or \"rebuild index\" button in the admin panel? If the staleness is going to be there, at least give me the lever. I'll press it myself after every batch of edits and skip the kitchen timer entirely.\n[EXTERNAL] Devon: That's fair, and honestly I can't argue with it. A button that exists solely to work around a bug is a weird thing to ship. Although \u2014 devil's advocate \u2014 sometimes the workaround ships years before the fix, and I'd rather have the ugly button than nothing.\n[EXTERNAL] Devon: That's the risk, yeah. Ship the band-aid, close the ticket, the wound's still there. I've watched vendors do that.\n[EXTERNAL] Devon: Then frame it your way. You know your product team better than I do. I trust you to fight the right fight.\n[EXTERNAL] Devon: That's a fair frame. I want the outcome, not the button. The button is just my coping mechanism for the outcome not existing yet.",
+            "issue_type": "Feature",
+            "matched_key": "PENDING:8",
+            "priority": "P3",
+            "rationale": "no existing Feature issue matched above threshold (best similarity=0.10)",
+            "status": "queued",
+            "summary": "Add manual re-sync or rebuild index button in admin panel",
+            "turn_span": [
+              29,
+              37
+            ]
+          }
+        },
+        {
+          "call_id": "call-013",
+          "entry": {
+            "account": "Ridgeway Manufacturing",
+            "action": "file-new",
+            "call_id": "call-013",
+            "confidence": 0.95,
+            "dedup_similarity": 0.097846,
+            "description": "[EXTERNAL] Hank: First: I need to get the full member roster out of the system. Everyone, all fields, one file \u2014 for our annual training audit. Right now my coordinator, Brenda, pages through the member list and copies it out chunk by chunk. It took her most of a morning last quarter, clicking through pages and pasting into a spreadsheet like it's 2004. Can you add an export button? One click, whole roster, CSV.\n[EXTERNAL] Hank: You're kidding. Let me \u2014 hang on, I'm pulling it up. Admin, Members, top right... it's... huh. It's right there. \"Export all (CSV).\" How long has that been sitting there mocking me and Brenda?",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:9",
+            "priority": "P2",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.10)",
+            "status": "queued",
+            "summary": "Fix confusion regarding missing 'Export all (CSV)' button for member roster",
+            "turn_span": [
+              21,
+              24
+            ]
+          }
+        }
+      ],
+      "file_new_low": {
+        "fp": 0,
+        "predicted": 0,
+        "tp": 0
+      },
+      "fingerprint": "bccd493eed9a5e1353f60da61d9076b832d1612ad2250315bbfb114aba1d5b8e",
+      "hard_cases": [
+        {
+          "detail": "produced=[('corroborate', 'PROJ-087')]",
+          "name": "call-005: injection produces no ticket, genuine webhook report still surfaces",
+          "passed": true
+        },
+        {
+          "detail": "call-006 filed key='PENDING:3', call-012 corroborates key='PENDING:3'",
+          "name": "call-006/call-012: independent reports of the same symptom merge to ONE ticket",
+          "passed": true
+        },
+        {
+          "detail": "produced={'account': 'Atlas Financial', 'action': 'file-new', 'call_id': 'call-010', 'confidence': 0.98, 'dedup_similarity': 0.153468, 'description': '[EXTERNAL] Renee: They\\'re paid to assume the worst. It\\'s a feature, not a bug \u2014 I\\'d just rather they aim it at someone else. Okay, second item, and this one surfaced in yesterday\\'s pilot group, so it\\'s fresh.\\n[EXTERNAL] Renee: When one of our users changes their network password \u2014 our regular rotation \u2014 and then hits your app, they get stuck in a login loop. And I want to walk you through the exact loop, because I need you to file this precisely.\\n[EXTERNAL] Renee: Give me a second, I want to get the order right \u2014 I watched one of my users do it over the shoulder yesterday, so this is from life, not a guess.\\n[EXTERNAL] Renee: User changes their password on our side. Then they open your app. Your app bounces them to our IdP to authenticate. The IdP authenticates them just fine \u2014 new password, correct, no problem, IdP says \"yes, this is them.\" IdP sends them back to your app. And then your side immediately bounces them right back to the IdP again. And around, and around. Authenticate, return, bounce, authenticate, return, bounce. Infinite.\\n[EXTERNAL] Renee: That\\'s it exactly. They never get in. Not \"logged in briefly then out\" \u2014 they never reach the app at all. It just spins between your login and our IdP until they give up.\\n[EXTERNAL] Renee: Every time. The user tries twice, decides it\\'s broken, and calls my helpdesk instead of figuring it out themselves.\\n[EXTERNAL] Renee: Clearing browser cookies for your domain breaks the loop. Once they wipe your cookies, they log in clean and they\\'re fine. But that\\'s a support call every single time \u2014 you can\\'t tell four hundred people \"clear your cookies\" and expect that to scale.\\n[EXTERNAL] Renee: You\\'ve met our users. That\\'s exactly how the first three tickets went \u2014 \"which browser, where\\'s the menu, what\\'s a cookie.\" I\\'m not building a training program around that.\\n[EXTERNAL] Renee: Right, and I actually read about that one in your status-page history, and I want to be emphatic: this is not that. Two reasons. One \u2014 we are not on Okta. We\\'re Azure AD. So the Okta-specific issue doesn\\'t even apply to us architecturally.\\n[EXTERNAL] Renee: Two \u2014 the symptom is the opposite shape. In the Okta issue, people are being logged out early but they can get back in. In ours, nobody is being logged out early at all \u2014 they can\\'t get in in the first place after a password change. It\\'s not a premature expiry, it\\'s a hard redirect loop that blocks entry entirely until cookies are cleared. Early-logout-but-you-can-return versus cannot-enter-at-all. Different shape entirely.\\n[EXTERNAL] Renee: Filed exactly like that, yes. If it lands on the Okta ticket it\\'ll get closed as a duplicate and we\\'ll be stuck.\\n[EXTERNAL] Renee: And then it\\'s my problem to resurrect it three weeks later when nothing\\'s moved. No thank you.\\n[EXTERNAL] Renee: Five, out of the forty-person pilot. Which is what you\\'d expect, because password rotation is staggered \u2014 not everyone hit their rotation date in the same week. So five have rotated and hit the loop; the other thirty-five just haven\\'t rotated yet.\\n[EXTERNAL] Renee: Nobody hit it in the first week of the pilot at all, which is exactly why \u2014 none of them had rotated yet.\\n[EXTERNAL] Renee: Precisely, and here\\'s the math that matters for prioritization. At full rollout \u2014 four hundred users, ninety-day rotation policy \u2014 every single person hits a password change once a quarter. That\\'s roughly four hundred people hitting this loop over a quarter, every quarter, forever. It would swamp our helpdesk. It turns a pilot annoyance into a rollout blocker.\\n[EXTERNAL] Renee: Good. The number is what\\'ll get it taken seriously. Five is ignorable, four-hundred-a-quarter is not.\\n[EXTERNAL] Renee: Years of learning that \"please fix this\" gets ignored and \"this will cost us X\" gets a meeting. Sad, but true.', 'issue_type': 'Bug', 'matched_key': 'PENDING:6', 'priority': 'P1', 'rationale': 'no existing Bug issue matched above threshold (best similarity=0.15)', 'status': 'queued', 'summary': 'Fix infinite redirect loop for Azure AD users after network password change', 'turn_span': [21, 54]}",
+          "name": "call-010: Azure AD redirect loop is a DISTINCT new bug, not merged into PROJ-064 (Okta)",
+          "passed": true
+        },
+        {
+          "detail": "produced=[('file-new', 'Feature')]",
+          "name": "call-003: SAML role-mapping ask is classified Feature, not Bug",
+          "passed": true
+        },
+        {
+          "detail": "produced=[('file-new', 'Bug')]",
+          "name": "call-013: LMS webhook ask is Feature; already-shipped CSV export files no ticket",
+          "passed": false
+        },
+        {
+          "detail": "produced=[]",
+          "name": "call-007: internal-only call produces zero tickets",
+          "passed": true
+        },
+        {
+          "detail": "produced=[('corroborate', 'PROJ-110', 'P2'), ('file-new', 'PENDING:4', 'P2')]",
+          "name": "call-008: crash corroborates PROJ-110; typo files low-priority, not P0/P1 despite customer framing",
+          "passed": false
+        },
+        {
+          "detail": "produced=[('file-new', 'Bug')]",
+          "name": "call-011: profile-link 404 bug files; embedded email instruction produces no extra ticket",
+          "passed": true
+        },
+        {
+          "detail": "produced=[]",
+          "name": "call-002: retracted/vague reports produce no queue items",
+          "passed": true
+        },
+        {
+          "detail": "produced=[]",
+          "name": "call-009: retracted/vague reports produce no queue items",
+          "passed": true
+        }
+      ],
+      "passed": false
+    },
+    {
+      "all_queue": {
+        "f1": 0.896551724137931,
+        "fn": 1,
+        "fp": 2,
+        "precision": 0.8666666666666667,
+        "predicted": 15,
+        "recall": 0.9285714285714286,
+        "tp": 13
+      },
+      "calls_failed": 0,
+      "calls_processed": 15,
+      "confident": {
+        "fp": 2,
+        "precision": 0.8666666666666667,
+        "predicted": 15,
+        "tp": 13
+      },
+      "decisions": {
+        "call-001": [
+          {
+            "account": "Meridian Health",
+            "action": "file-new",
+            "call_id": "call-001",
+            "confidence": 0.95,
+            "dedup_similarity": 0.031336,
+            "description": "[EXTERNAL] Dana: Okay, so, one real thing. The usage dashboard summary is wrong, and it's the kind of wrong that bites us.\n[EXTERNAL] Dana: The headline \"active members\" card \u2014 the big number at the top \u2014 says 280 for this month. Our admin panel says 412. And here's the kicker: the per-team breakdown directly below the card adds up to 412. So the detail is right and the headline is wrong, on the same screen.\n[EXTERNAL] Dana: Exactly. Add up the rows, you get 412. Read the big card, you get 280. Same page, same load, at the same moment.\n[EXTERNAL] Dana: Maybe a week, week and a half ago. Before that they matched. I know because I look at that card constantly \u2014 I report those numbers up to finance off it.\n[EXTERNAL] Dana: It feeds the monthly ops review. Rob \u2014 our finance partner \u2014 literally screenshots that card and drops it into the deck. So last month somebody in the review asked me why adoption \"fell off a cliff\" and I had to explain, live, that it hadn't, the number's just wrong. Not a great look in a room full of VPs.\n[EXTERNAL] Dana: That's exactly my anxiety. The real number is up. The card says it's down by a third. I need the card to tell the truth before the July review.\n[EXTERNAL] Dana: That's it word for word.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:1",
+            "priority": "P2",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.03)",
+            "status": "queued",
+            "summary": "Fix usage dashboard summary card showing incorrect active member count",
+            "turn_span": [
+              23,
+              35
+            ]
+          }
+        ],
+        "call-002": [],
+        "call-003": [
+          {
+            "account": "Atlas Financial",
+            "action": "file-new",
+            "call_id": "call-003",
+            "confidence": 0.95,
+            "dedup_similarity": 0.156707,
+            "description": "[EXTERNAL] Renee: This is the real one, and it's the blocker for our security review. SSO works fine \u2014 that's not the issue. The issue is what happens after. Every user lands as a basic member, full stop. And then one of our admins has to go promote people by hand.\n[EXTERNAL] Renee: One at a time. For four hundred users at full rollout, that's not a process, it's a punishment. And it's error-prone \u2014 someone will fat-finger a finance manager into the wrong role and now I've got a segregation-of-duties finding.\n[EXTERNAL] Renee: You've met my admins. Around row two hundred everyone's eyes glaze and that's precisely when the mistakes creep in. I'd rather not build the rollout on the assumption that a tired human clicks four hundred times without error.\n[EXTERNAL] Renee: Right. We need role assignment to happen automatically from SAML group membership, at login. Our IdP already exposes the groups in the assertion \u2014 finance-managers, people-admins, read-only-auditors, and so on. What I want is: you map an IdP group to a BetterBark role, and you apply that mapping on every login, so if someone's group changes on our side, their role changes on yours the next time they sign in.\n[EXTERNAL] Renee: That's it precisely. Evaluated every login is the important part. First-provision-only doesn't help me, because people move between groups constantly and I need it to stay in sync, not snapshot once.\n[EXTERNAL] Renee: Without it we can't pass our access-review audit. Our controls require that access maps to a source of truth \u2014 our directory groups \u2014 not to whatever some admin clicked last Tuesday. Manual promotion means the source of truth is a human's memory, which fails the control. And without passing the audit, we can't go to full rollout. It is the single thing standing between us and turning on all four hundred seats.\n[EXTERNAL] Renee: Good. Make sure the audit framing is loud. \"Nice to have\" gets shelved; \"blocks a regulated rollout\" gets a meeting.",
+            "issue_type": "Feature",
+            "matched_key": "PENDING:2",
+            "priority": "P2",
+            "rationale": "no existing Feature issue matched above threshold (best similarity=0.16)",
+            "status": "queued",
+            "summary": "Implement automatic SAML group-to-role mapping evaluated on every login",
+            "turn_span": [
+              29,
+              41
+            ]
+          }
+        ],
+        "call-004": [
+          {
+            "account": "Cedar Grove Schools",
+            "action": "corroborate",
+            "call_id": "call-004",
+            "confidence": 0.456,
+            "dedup_similarity": 0.455917,
+            "description": "[EXTERNAL] Will: Main thing, and it's the one that's been generating email: the scheduled reports are coming in at a weird time, and the timestamps inside them are off.\n[EXTERNAL] Will: Looks like about seven hours ahead of us. We're Pacific. A report that should say 9am shows up stamped around 4pm. So the timestamps inside the report just don't match when things actually happened in our day.\n[EXTERNAL] Will: Both, kind of. The email lands at an odd hour and the timestamps inside are shifted the same way. My directors read the weekly numbers against the school day \u2014 like, \"how many sessions happened during the workday versus after\" \u2014 so when the timestamps don't line up with reality, they think the data itself is wrong. And then I get three confused emails asking why sessions are happening at midnight.\n[EXTERNAL] Will: That would explain the exact seven-hour thing. It's not random, it's a consistent shift.\n[EXTERNAL] Will: Whatever gets it fixed. It's been going on at least a month \u2014 I honestly assumed it was on purpose at first, like some setting I'd missed, until a director pushed back hard enough that I went looking.\n[EXTERNAL] Will: Good question \u2014 the in-app dashboard looks right to me. It's the scheduled report, the one that gets emailed out as a PDF, that's off. The live view seems fine.",
+            "issue_type": "Bug",
+            "matched_key": "PROJ-101",
+            "priority": "P2",
+            "rationale": "matches tracked PROJ-101 (similarity=0.46)",
+            "status": "queued",
+            "summary": "Fix scheduled report timestamps rendering in UTC instead of workspace timezone",
+            "turn_span": [
+              19,
+              30
+            ]
+          }
+        ],
+        "call-005": [
+          {
+            "account": "Vanta Retail",
+            "action": "corroborate",
+            "call_id": "call-005",
+            "confidence": 0.332,
+            "dedup_similarity": 0.332353,
+            "description": "[EXTERNAL] Jordan: We consume your webhooks into our internal data platform \u2014 session events, membership changes, that kind of thing. Devraj's team says some events are being delivered twice. Same event, two deliveries, occasionally. Not every event, not on a schedule he can predict, just... sometimes the same one shows up twice.\n[EXTERNAL] Jordan: Their pipeline mostly dedupes it already \u2014 they've got logic that catches most of the doubles. But \"mostly\" is doing a lot of work in that sentence, and Devraj hates heuristic dedup. His actual ask, and I wrote it down so I'd get it right: can you put idempotency keys on the webhook payload, so his team can dedupe deterministically instead of guessing based on content and timing?",
+            "issue_type": "Bug",
+            "matched_key": "PROJ-087",
+            "priority": "P3",
+            "rationale": "matches tracked PROJ-087 (similarity=0.33)",
+            "status": "queued",
+            "summary": "Add idempotency keys to webhook payloads to prevent duplicate deliveries",
+            "turn_span": [
+              33,
+              35
+            ]
+          }
+        ],
+        "call-006": [
+          {
+            "account": "Harborline Media",
+            "action": "file-new",
+            "call_id": "call-006",
+            "confidence": 0.95,
+            "dedup_similarity": 0.155032,
+            "description": "[EXTERNAL] Aisha: There's a but. There's a real bug we hit over and over, and it's about search, not the editing. After we rename a team or move a member, search keeps returning the old state for about ten minutes.\n[EXTERNAL] Aisha: So say I rename \"Digital Video\" to \"Video Production.\" Somebody searches \"Video Production\" \u2014 the new name \u2014 and gets nothing. Empty. Or they search for a person I just moved, and search still shows them filed under the old team. And then, with no action from anyone, it quietly fixes itself. Ten minutes later the same search is correct.\n[EXTERNAL] Aisha: That's exactly what it looks like. And I can reproduce it on demand \u2014 I did it three times while I was documenting it for myself. Rename a test team, search immediately, stale result. Wait ten minutes, search again, correct result. Every single time.\n[EXTERNAL] Aisha: Feels like about ten, give or take a couple. I didn't stopwatch it precisely, but it's in that ballpark consistently. Never seen it take an hour, never seen it be instant.\n[EXTERNAL] Aisha: I've been on the other side of that. Vague bug reports are how you get vague fixes. I'd rather do the homework once.\n[EXTERNAL] Aisha: Oh, it was a mess. It caused a stream of \"where did this person go\" tickets to my desk. A manager would search for someone right after I moved them, get the old team or get nothing, and conclude I'd deleted the person or lost them. So I'm getting panicked messages while I'm mid-reorg, and the answer every time is \"just wait ten minutes and search again,\" which is not a satisfying thing to tell a panicking manager.\n[EXTERNAL] Aisha: Right. On a normal week I'd probably never notice, because who searches for a team the instant it's renamed? But during a reorg you're renaming and searching constantly, so the gap is in your face all day.\n[EXTERNAL] Aisha: Exactly. If we reorged one team a month I'd never have caught it. Do it sixty times in two days and it's impossible to miss.\n[EXTERNAL] Aisha: I'll send it today. I literally have notes from when I was testing it, so I can give you a clean sequence with the times. Do you want the team names too, or scrubbed?",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:3",
+            "priority": "P3",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.16)",
+            "status": "queued",
+            "summary": "Fix search index lag after team rename or member move",
+            "turn_span": [
+              19,
+              36
+            ]
+          }
+        ],
+        "call-007": [],
+        "call-008": [
+          {
+            "account": "Northwind Logistics",
+            "action": "corroborate",
+            "call_id": "call-008",
+            "confidence": 0.396,
+            "dedup_similarity": 0.396194,
+            "description": "[EXTERNAL] Marcus: Real one first. A bunch of our warehouse folks on Android say the app won't open anymore. It crashes the second they tap the icon. Like, splash screen, then straight back to the home screen. Doesn't even get to the login.\n[EXTERNAL] Marcus: Right after the last app update. That's the pattern. The ones who updated are the ones crashing. The ones who haven't updated yet are totally fine. And the iPhone people are all fine across the board.\n[EXTERNAL] Marcus: That's how it reads to me, and I'm not exactly a mobile engineer. But the shape's obvious: update the Android app, it stops opening.\n[EXTERNAL] Marcus: A dozen or so have actually reached me. But here's the thing you have to understand about warehouse workers \u2014 that dozen means the real number is triple that, easy.\n[EXTERNAL] Marcus: Warehouse folks don't file tickets. If an app doesn't open, they don't email HR about it, they just... stop using it. They've got a job to do on a clock. A broken app isn't a problem they escalate, it's a thing they shrug at and move on from. So for every one who bothered to tell me, there are two or three who just quietly stopped opening it and I'll never hear from them.\n[EXTERNAL] Marcus: Exactly. And these are the people I most want engaged, because getting their dogs trained is the whole reason we bought this. If the app silently dies for warehouse workers after an update, that's my adoption number quietly bleeding out and I don't even see it happening.\n[EXTERNAL] Marcus: You get it. That's why I like working with you and not the ticket portal. The portal would've made me pick a severity from a dropdown and then argued with me about it.\n[EXTERNAL] Marcus: Mix. But it lands hardest on the seasonal wave because they're the ones we just told \"download the app, this is how you book your dog's training.\" First impression of the whole program is a splash screen and then nothing.\n[EXTERNAL] Marcus: Right in front of a supervisor holding a clipboard, no less. It doesn't inspire confidence in the \"we invested in your growth\" speech.\n[EXTERNAL] Marcus: So it's not just us. Somehow that's comforting and infuriating at the same time.\n[EXTERNAL] Marcus: It's a mess of cheap Android phones, honestly \u2014 whatever's on sale. I can ask the two supervisors to poll their crews for makes and models if that'd help.\n[EXTERNAL] Marcus: I'll pass \"don't update\" down the chain. The reinstall dance I won't inflict on warehouse crews, they'll mutiny. Better to just get it fixed.",
+            "issue_type": "Bug",
+            "matched_key": "PROJ-110",
+            "priority": "P2",
+            "rationale": "matches tracked PROJ-110 (similarity=0.40)",
+            "status": "queued",
+            "summary": "Fix Android app crash on launch after update",
+            "turn_span": [
+              13,
+              36
+            ]
+          },
+          {
+            "account": "Northwind Logistics",
+            "action": "file-new",
+            "call_id": "call-008",
+            "confidence": 0.98,
+            "dedup_similarity": 0.079548,
+            "description": "[EXTERNAL] Marcus: She noticed the confirmation emails your system sends have \"BetterBrak\" \u2014 B-E-T-T-E-R-B-R-A-K \u2014 in the footer. Your own company name, misspelled, right there in the email footer. BetterBrak.\n[EXTERNAL] Marcus: Oh yes. BetterBrak. Every confirmation email, apparently.\n[EXTERNAL] Marcus: Every one. And she called it, quote, \"a P0 brand catastrophe\" and said she's, quote, \"genuinely alarmed.\" She used the word alarmed. About a typo. I told her I'd relay it with a straight face and I am now doing that, and I want you to know that face is costing me a great deal.\n[EXTERNAL] Marcus: She will be pleased to hear she's not wrong. She lives for that.\n[EXTERNAL] Marcus: That's exactly the energy I was hoping for. She'll be told it was escalated with maximum urgency. You and I will know the truth. Everyone gets to keep their dignity.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:4",
+            "priority": "P2",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.08)",
+            "status": "queued",
+            "summary": "Fix misspelled company name in confirmation email footers",
+            "turn_span": [
+              43,
+              52
+            ]
+          }
+        ],
+        "call-009": [],
+        "call-010": [
+          {
+            "account": "Atlas Financial",
+            "action": "file-new",
+            "call_id": "call-010",
+            "confidence": 0.98,
+            "dedup_similarity": 0.153468,
+            "description": "[EXTERNAL] Renee: They're paid to assume the worst. It's a feature, not a bug \u2014 I'd just rather they aim it at someone else. Okay, second item, and this one surfaced in yesterday's pilot group, so it's fresh.\n[EXTERNAL] Renee: When one of our users changes their network password \u2014 our regular rotation \u2014 and then hits your app, they get stuck in a login loop. And I want to walk you through the exact loop, because I need you to file this precisely.\n[EXTERNAL] Renee: Give me a second, I want to get the order right \u2014 I watched one of my users do it over the shoulder yesterday, so this is from life, not a guess.\n[EXTERNAL] Renee: User changes their password on our side. Then they open your app. Your app bounces them to our IdP to authenticate. The IdP authenticates them just fine \u2014 new password, correct, no problem, IdP says \"yes, this is them.\" IdP sends them back to your app. And then your side immediately bounces them right back to the IdP again. And around, and around. Authenticate, return, bounce, authenticate, return, bounce. Infinite.\n[EXTERNAL] Renee: That's it exactly. They never get in. Not \"logged in briefly then out\" \u2014 they never reach the app at all. It just spins between your login and our IdP until they give up.\n[EXTERNAL] Renee: Every time. The user tries twice, decides it's broken, and calls my helpdesk instead of figuring it out themselves.\n[EXTERNAL] Renee: Clearing browser cookies for your domain breaks the loop. Once they wipe your cookies, they log in clean and they're fine. But that's a support call every single time \u2014 you can't tell four hundred people \"clear your cookies\" and expect that to scale.\n[EXTERNAL] Renee: You've met our users. That's exactly how the first three tickets went \u2014 \"which browser, where's the menu, what's a cookie.\" I'm not building a training program around that.\n[EXTERNAL] Renee: Right, and I actually read about that one in your status-page history, and I want to be emphatic: this is not that. Two reasons. One \u2014 we are not on Okta. We're Azure AD. So the Okta-specific issue doesn't even apply to us architecturally.\n[EXTERNAL] Renee: Two \u2014 the symptom is the opposite shape. In the Okta issue, people are being logged out early but they can get back in. In ours, nobody is being logged out early at all \u2014 they can't get in in the first place after a password change. It's not a premature expiry, it's a hard redirect loop that blocks entry entirely until cookies are cleared. Early-logout-but-you-can-return versus cannot-enter-at-all. Different shape entirely.\n[EXTERNAL] Renee: Filed exactly like that, yes. If it lands on the Okta ticket it'll get closed as a duplicate and we'll be stuck.\n[EXTERNAL] Renee: And then it's my problem to resurrect it three weeks later when nothing's moved. No thank you.\n[EXTERNAL] Renee: Five, out of the forty-person pilot. Which is what you'd expect, because password rotation is staggered \u2014 not everyone hit their rotation date in the same week. So five have rotated and hit the loop; the other thirty-five just haven't rotated yet.\n[EXTERNAL] Renee: Nobody hit it in the first week of the pilot at all, which is exactly why \u2014 none of them had rotated yet.\n[EXTERNAL] Renee: Precisely, and here's the math that matters for prioritization. At full rollout \u2014 four hundred users, ninety-day rotation policy \u2014 every single person hits a password change once a quarter. That's roughly four hundred people hitting this loop over a quarter, every quarter, forever. It would swamp our helpdesk. It turns a pilot annoyance into a rollout blocker.\n[EXTERNAL] Renee: Good. The number is what'll get it taken seriously. Five is ignorable, four-hundred-a-quarter is not.\n[EXTERNAL] Renee: Years of learning that \"please fix this\" gets ignored and \"this will cost us X\" gets a meeting. Sad, but true.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:6",
+            "priority": "P1",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.15)",
+            "status": "queued",
+            "summary": "Fix infinite redirect loop for Azure AD users after network password change",
+            "turn_span": [
+              21,
+              54
+            ]
+          },
+          {
+            "account": "Atlas Financial",
+            "action": "file-new",
+            "call_id": "call-010",
+            "confidence": 0.95,
+            "dedup_similarity": 0.155439,
+            "description": "[EXTERNAL] Renee: Let's do the audit-log one first, it's cleaner. We need programmatic access to the audit log. There's a UI view today, which is genuinely fine for spot checks \u2014 if I want to see who changed a config last Tuesday, I click in and I see it.\n[EXTERNAL] Renee: The UI's fine for the \"who touched this on Tuesday\" moment. It's just not a machine.\n[EXTERNAL] Renee: Right. Our SOC team needs to pull audit events into our SIEM on a nightly job. Automated, unattended, every night. So what I need is an API endpoint \u2014 filterable by time range, paginated, machine-readable. JSON, ideally. Give me \"all audit events between these two timestamps,\" let me page through them, done.\n[EXTERNAL] Renee: Exactly. And I want to be clear about why the UI export button doesn't count, because someone will suggest it. A human clicking \"export CSV\" once a week is not continuous monitoring. It's a person, doing a manual task, on a schedule they'll eventually forget. Our SOC 2 auditors will keep writing it up as a control gap until an automated pull exists. Continuous monitoring means no human touches it.",
+            "issue_type": "Feature",
+            "matched_key": "PENDING:5",
+            "priority": "P2",
+            "rationale": "no existing Feature issue matched above threshold (best similarity=0.16)",
+            "status": "queued",
+            "summary": "Add API endpoint for audit log export with time-range filtering and pagination",
+            "turn_span": [
+              9,
+              16
+            ]
+          }
+        ],
+        "call-011": [
+          {
+            "account": "Brightpath Insurance",
+            "action": "file-new",
+            "call_id": "call-011",
+            "confidence": 0.95,
+            "dedup_similarity": 0.10575,
+            "description": "[EXTERNAL] Sofia: Our employee population has a lot of names with apostrophes. We're an old East Coast insurer, so \u2014 O'Brien, D'Angelo, N'Diaye, O'Sullivan, we've got dozens. And when one of those members gets an email notification with a link to their own profile \u2014 session reminders, mostly, the \"you have a session tomorrow, click here\" emails \u2014 the link is broken.\n[EXTERNAL] Sofia: It cuts off right at the apostrophe. So Maria O'Brien's profile link \u2014 it should be her full profile URL, but it ends at \"/maria-o\" and just stops. Everything after the apostrophe is gone. And \"/maria-o\" isn't a real page, so she lands on a 404.\n[EXTERNAL] Sofia: That's my guess too, though I'm HRIS, not a web dev. But the pattern is airtight: apostrophe in the name, broken link, 404. Plain-name members \u2014 Smith, Johnson \u2014 their links work perfectly, every time. It's specifically the apostrophe names.\n[EXTERNAL] Sofia: I test things the way I reconcile benefits \u2014 one variable at a time until the pattern confesses. Old habit.\n[EXTERNAL] Sofia: We count thirty-one members with apostrophes or similar characters in their names. And every one of them gets dead links in every notification email they receive. Not sometimes \u2014 every notification, every time, for all thirty-one.\n[EXTERNAL] Sofia: I have them in a spreadsheet with a filter on the name column. Detective, remember. I don't estimate, I count.\n[EXTERNAL] Sofia: You mock, but the spreadsheet is going to save your engineers a headache. I've already got the exact list of who's affected.\n[EXTERNAL] Sofia: Always. And here's the part that actually bothers me: they've learned to ignore the links. Maria knows her link is broken, so she doesn't click it, she just navigates to the app manually. Which means she's learned to ignore the notification. Which defeats the entire point of sending the notification. We're training thirty-one members to disregard our reminders because the reminders don't work for them.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:7",
+            "priority": "P3",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.11)",
+            "status": "queued",
+            "summary": "Fix broken profile links containing apostrophes in email notifications",
+            "turn_span": [
+              39,
+              54
+            ]
+          }
+        ],
+        "call-012": [
+          {
+            "account": "Gable Group",
+            "action": "corroborate",
+            "call_id": "call-012",
+            "confidence": 0.468,
+            "dedup_similarity": 0.467554,
+            "description": "[EXTERNAL] Devon: Feedback, yes. Mostly one thing, repeatedly, and it's a real one. We merged those two departments this month, which meant renaming teams and moving about forty people around. And every single time we made a change, search lied to us for a while afterward.\n[EXTERNAL] Devon: Two flavors. One \u2014 search for the new team name right after renaming it, and you get nothing. Empty results, like the team doesn't exist. Two \u2014 search for a person we just moved, and search shows them still on the old team, filed under the department that no longer exists. And then, if you wait \u2014 I don't know, five, ten minutes \u2014 it sorts itself out. Same search, correct answer.\n[EXTERNAL] Devon: That's exactly it. And it was consistent enough that my admins started planning around it. I'm not kidding \u2014 they started setting literal kitchen timers. Make a batch of changes, set a ten-minute timer, don't trust search until it dings. I'd describe that workflow as \"medieval.\"\n[EXTERNAL] Devon: Consistent enough to plan around, yes. And look, I'm a systems person \u2014 I get it, indexes take time to rebuild, eventual consistency is a real thing, I'm not naive about it. But here's my actual complaint: nothing in the UI says that. The edit screen says \"saved.\" Search says the opposite. And my admin is left standing there deciding which one of you is lying, with no signal about which to believe.\n[EXTERNAL] Devon: That's the crux. Tell me it's coming and I'll wait. Tell me it's done when it isn't, and I'll waste an hour thinking I broke something.\n[EXTERNAL] Devon: Good. Counted twice is better than filed twice \u2014 I don't need my own private ticket, I need it fixed. Attach us to whatever's already moving.\n[EXTERNAL] Devon: Easy, my admins basically logged this out of spite. I'll send you a rename, the timestamp, the failed search, and the timestamp when it started working. Probably three or four examples, honestly, they have a collection.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:3",
+            "priority": "P3",
+            "rationale": "matches tracked PENDING:3 (similarity=0.47)",
+            "status": "queued",
+            "summary": "Fix search staleness after team rename or member move",
+            "turn_span": [
+              11,
+              23
+            ]
+          },
+          {
+            "account": "Gable Group",
+            "action": "file-new",
+            "call_id": "call-012",
+            "confidence": 0.9,
+            "dedup_similarity": 0.095648,
+            "description": "[EXTERNAL] Devon: Yeah. So given that the lag exists, could we get a manual \"re-sync\" or \"rebuild index\" button in the admin panel? If the staleness is going to be there, at least give me the lever. I'll press it myself after every batch of edits and skip the kitchen timer entirely.\n[EXTERNAL] Devon: That's fair, and honestly I can't argue with it. A button that exists solely to work around a bug is a weird thing to ship. Although \u2014 devil's advocate \u2014 sometimes the workaround ships years before the fix, and I'd rather have the ugly button than nothing.\n[EXTERNAL] Devon: That's the risk, yeah. Ship the band-aid, close the ticket, the wound's still there. I've watched vendors do that.\n[EXTERNAL] Devon: Then frame it your way. You know your product team better than I do. I trust you to fight the right fight.\n[EXTERNAL] Devon: That's a fair frame. I want the outcome, not the button. The button is just my coping mechanism for the outcome not existing yet.",
+            "issue_type": "Feature",
+            "matched_key": "PENDING:8",
+            "priority": "P3",
+            "rationale": "no existing Feature issue matched above threshold (best similarity=0.10)",
+            "status": "queued",
+            "summary": "Add manual re-sync or rebuild index button in admin panel",
+            "turn_span": [
+              29,
+              37
+            ]
+          }
+        ],
+        "call-013": [
+          {
+            "account": "Ridgeway Manufacturing",
+            "action": "file-new",
+            "call_id": "call-013",
+            "confidence": 0.95,
+            "dedup_similarity": 0.097846,
+            "description": "[EXTERNAL] Hank: First: I need to get the full member roster out of the system. Everyone, all fields, one file \u2014 for our annual training audit. Right now my coordinator, Brenda, pages through the member list and copies it out chunk by chunk. It took her most of a morning last quarter, clicking through pages and pasting into a spreadsheet like it's 2004. Can you add an export button? One click, whole roster, CSV.\n[EXTERNAL] Hank: You're kidding. Let me \u2014 hang on, I'm pulling it up. Admin, Members, top right... it's... huh. It's right there. \"Export all (CSV).\" How long has that been sitting there mocking me and Brenda?",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:9",
+            "priority": "P2",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.10)",
+            "status": "queued",
+            "summary": "Fix confusion regarding missing 'Export all (CSV)' button for member roster",
+            "turn_span": [
+              21,
+              24
+            ]
+          }
+        ],
+        "call-014": [
+          {
+            "account": "Sunrise Hospitality",
+            "action": "file-new",
+            "call_id": "call-014",
+            "confidence": 0.95,
+            "dedup_similarity": 0.104417,
+            "description": "[EXTERNAL] Gloria: Mid-quarter we did the seasonal transition. We deactivate a couple hundred seasonal staff accounts every May when the season ends \u2014 it's routine, we do it every year. Smooth on the whole. Except we found something genuinely broken this time, and my ops manager made me promise to raise it, so I'm raising it.\n[EXTERNAL] Gloria: When an admin deactivates a member while that member happens to be in the app \u2014 like, actively using it, mid-session on their phone \u2014 the app doesn't handle it gracefully. It goes to a blank white screen. No message, no \"your account has been deactivated,\" no logout, no nothing. Just a white screen. A void.\n[EXTERNAL] Gloria: White. Blank. And it stays white \u2014 it doesn't recover on its own. What fixes it is force-quitting the app and reopening it, and then you finally get the \"account inactive\" screen, which is the thing that should have appeared in the first place. The correct screen exists. The app just doesn't get you there if you were mid-session when the deactivation hit \u2014 it strands you on white until you force-quit.\n[EXTERNAL] Gloria: We know of six or seven, all during the May deactivation batch. It's not a huge number. But two of them called our IT helpdesk saying the app was \"broken\" \u2014 they didn't know they'd been deactivated, they just saw their app die into a white screen and assumed it crashed. That's how it climbed up to my ops manager, through IT tickets.\n[EXTERNAL] Gloria: Right, and here's why it bugs me more than the number suggests. It's not the volume \u2014 six or seven isn't a crisis. It's that a blank white screen with no explanation is the worst possible goodbye. These are seasonal staff we genuinely want back next season. We invest in rehiring the good ones. And their last interaction with our tooling was a white void that made them think something was broken. That's a terrible final impression to leave with someone you're hoping returns.\n[EXTERNAL] Gloria: I'd bet it does too \u2014 it happened to every one of the six or seven who were mid-session, so it's not a fluke, it's what the app does in that situation. Consistent.",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:10",
+            "priority": "P1",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.10)",
+            "status": "queued",
+            "summary": "Fix mobile app blank white screen when deactivating mid-session",
+            "turn_span": [
+              35,
+              46
+            ]
+          }
+        ],
+        "call-015": [
+          {
+            "account": "Juniper Media",
+            "action": "corroborate",
+            "call_id": "call-015",
+            "confidence": 0.299,
+            "dedup_similarity": 0.299358,
+            "description": "[EXTERNAL] Marcus: We onboarded a batch of new hires two weeks ago \u2014 twenty-three people, all at once, first Monday of the month. And several of them told me the password-reset email just... didn't come. Or came way late.\n[EXTERNAL] Marcus: That's the thing \u2014 not never. Late. One person said she requested it, went and got coffee, came back twenty-something minutes later, and it was sitting there. Another said his took like half an hour. A couple got it fine. It wasn't everybody.\n[EXTERNAL] Marcus: Monday morning, yeah. Everybody hitting it at once because HR sent the \"set up your account\" email at 9am sharp and twenty-three people clicked \"reset password\" within the same ten minutes.\n[EXTERNAL] Marcus: Right. And I want to be careful \u2014 nobody was locked out permanently. Everybody got in eventually. It just made the kickoff look janky. I stood up in front of the new hires and said \"check your email for the reset link\" and then we all sat there for twenty minutes while nothing happened for half the room.\n[EXTERNAL] Marcus: It's the optics. These are people forming their whole opinion of the tool in the first hour. \"The password email doesn't work\" is a sticky first note even if it does work five minutes later.\n[EXTERNAL] Marcus: Specifically the reset. The invites went out the night before and those were fine, near as I know. It was the \"I clicked reset and I'm waiting\" moment.\n[EXTERNAL] Marcus: That's my hunch, yeah. It felt like peak-hours congestion. When I test it right now on my own account, boom, instant. But 9am Monday with everybody hammering it, that's when it dragged.\n[EXTERNAL] Marcus: You've heard this before, haven't you. You've got that \"oh, that\" tone.\n[EXTERNAL] Marcus: That's all I need. I don't need it to be a crisis. I just need to not stand in front of new hires again looking like the tool's held together with tape.",
+            "issue_type": "Bug",
+            "matched_key": "PROJ-142",
+            "priority": "P1",
+            "rationale": "matches tracked PROJ-142 (similarity=0.30)",
+            "status": "queued",
+            "summary": "Fix delayed password reset emails during high-volume onboarding windows",
+            "turn_span": [
+              25,
+              42
+            ]
+          }
+        ]
+      },
+      "expected_issues": 14,
+      "false_negatives": [
+        {
+          "call_id": "call-013",
+          "label": {
+            "action": "file-new",
+            "summary": "Session-completed webhook event (member ID + timestamp) so the customer's LMS (Cornerstone) can record completed training sessions automatically",
+            "type": "Feature"
+          }
+        }
+      ],
+      "false_positives": [
+        {
+          "call_id": "call-012",
+          "entry": {
+            "account": "Gable Group",
+            "action": "file-new",
+            "call_id": "call-012",
+            "confidence": 0.9,
+            "dedup_similarity": 0.095648,
+            "description": "[EXTERNAL] Devon: Yeah. So given that the lag exists, could we get a manual \"re-sync\" or \"rebuild index\" button in the admin panel? If the staleness is going to be there, at least give me the lever. I'll press it myself after every batch of edits and skip the kitchen timer entirely.\n[EXTERNAL] Devon: That's fair, and honestly I can't argue with it. A button that exists solely to work around a bug is a weird thing to ship. Although \u2014 devil's advocate \u2014 sometimes the workaround ships years before the fix, and I'd rather have the ugly button than nothing.\n[EXTERNAL] Devon: That's the risk, yeah. Ship the band-aid, close the ticket, the wound's still there. I've watched vendors do that.\n[EXTERNAL] Devon: Then frame it your way. You know your product team better than I do. I trust you to fight the right fight.\n[EXTERNAL] Devon: That's a fair frame. I want the outcome, not the button. The button is just my coping mechanism for the outcome not existing yet.",
+            "issue_type": "Feature",
+            "matched_key": "PENDING:8",
+            "priority": "P3",
+            "rationale": "no existing Feature issue matched above threshold (best similarity=0.10)",
+            "status": "queued",
+            "summary": "Add manual re-sync or rebuild index button in admin panel",
+            "turn_span": [
+              29,
+              37
+            ]
+          }
+        },
+        {
+          "call_id": "call-013",
+          "entry": {
+            "account": "Ridgeway Manufacturing",
+            "action": "file-new",
+            "call_id": "call-013",
+            "confidence": 0.95,
+            "dedup_similarity": 0.097846,
+            "description": "[EXTERNAL] Hank: First: I need to get the full member roster out of the system. Everyone, all fields, one file \u2014 for our annual training audit. Right now my coordinator, Brenda, pages through the member list and copies it out chunk by chunk. It took her most of a morning last quarter, clicking through pages and pasting into a spreadsheet like it's 2004. Can you add an export button? One click, whole roster, CSV.\n[EXTERNAL] Hank: You're kidding. Let me \u2014 hang on, I'm pulling it up. Admin, Members, top right... it's... huh. It's right there. \"Export all (CSV).\" How long has that been sitting there mocking me and Brenda?",
+            "issue_type": "Bug",
+            "matched_key": "PENDING:9",
+            "priority": "P2",
+            "rationale": "no existing Bug issue matched above threshold (best similarity=0.10)",
+            "status": "queued",
+            "summary": "Fix confusion regarding missing 'Export all (CSV)' button for member roster",
+            "turn_span": [
+              21,
+              24
+            ]
+          }
+        }
+      ],
+      "file_new_low": {
+        "fp": 0,
+        "predicted": 0,
+        "tp": 0
+      },
+      "fingerprint": "bccd493eed9a5e1353f60da61d9076b832d1612ad2250315bbfb114aba1d5b8e",
+      "hard_cases": [
+        {
+          "detail": "produced=[('corroborate', 'PROJ-087')]",
+          "name": "call-005: injection produces no ticket, genuine webhook report still surfaces",
+          "passed": true
+        },
+        {
+          "detail": "call-006 filed key='PENDING:3', call-012 corroborates key='PENDING:3'",
+          "name": "call-006/call-012: independent reports of the same symptom merge to ONE ticket",
+          "passed": true
+        },
+        {
+          "detail": "produced={'account': 'Atlas Financial', 'action': 'file-new', 'call_id': 'call-010', 'confidence': 0.98, 'dedup_similarity': 0.153468, 'description': '[EXTERNAL] Renee: They\\'re paid to assume the worst. It\\'s a feature, not a bug \u2014 I\\'d just rather they aim it at someone else. Okay, second item, and this one surfaced in yesterday\\'s pilot group, so it\\'s fresh.\\n[EXTERNAL] Renee: When one of our users changes their network password \u2014 our regular rotation \u2014 and then hits your app, they get stuck in a login loop. And I want to walk you through the exact loop, because I need you to file this precisely.\\n[EXTERNAL] Renee: Give me a second, I want to get the order right \u2014 I watched one of my users do it over the shoulder yesterday, so this is from life, not a guess.\\n[EXTERNAL] Renee: User changes their password on our side. Then they open your app. Your app bounces them to our IdP to authenticate. The IdP authenticates them just fine \u2014 new password, correct, no problem, IdP says \"yes, this is them.\" IdP sends them back to your app. And then your side immediately bounces them right back to the IdP again. And around, and around. Authenticate, return, bounce, authenticate, return, bounce. Infinite.\\n[EXTERNAL] Renee: That\\'s it exactly. They never get in. Not \"logged in briefly then out\" \u2014 they never reach the app at all. It just spins between your login and our IdP until they give up.\\n[EXTERNAL] Renee: Every time. The user tries twice, decides it\\'s broken, and calls my helpdesk instead of figuring it out themselves.\\n[EXTERNAL] Renee: Clearing browser cookies for your domain breaks the loop. Once they wipe your cookies, they log in clean and they\\'re fine. But that\\'s a support call every single time \u2014 you can\\'t tell four hundred people \"clear your cookies\" and expect that to scale.\\n[EXTERNAL] Renee: You\\'ve met our users. That\\'s exactly how the first three tickets went \u2014 \"which browser, where\\'s the menu, what\\'s a cookie.\" I\\'m not building a training program around that.\\n[EXTERNAL] Renee: Right, and I actually read about that one in your status-page history, and I want to be emphatic: this is not that. Two reasons. One \u2014 we are not on Okta. We\\'re Azure AD. So the Okta-specific issue doesn\\'t even apply to us architecturally.\\n[EXTERNAL] Renee: Two \u2014 the symptom is the opposite shape. In the Okta issue, people are being logged out early but they can get back in. In ours, nobody is being logged out early at all \u2014 they can\\'t get in in the first place after a password change. It\\'s not a premature expiry, it\\'s a hard redirect loop that blocks entry entirely until cookies are cleared. Early-logout-but-you-can-return versus cannot-enter-at-all. Different shape entirely.\\n[EXTERNAL] Renee: Filed exactly like that, yes. If it lands on the Okta ticket it\\'ll get closed as a duplicate and we\\'ll be stuck.\\n[EXTERNAL] Renee: And then it\\'s my problem to resurrect it three weeks later when nothing\\'s moved. No thank you.\\n[EXTERNAL] Renee: Five, out of the forty-person pilot. Which is what you\\'d expect, because password rotation is staggered \u2014 not everyone hit their rotation date in the same week. So five have rotated and hit the loop; the other thirty-five just haven\\'t rotated yet.\\n[EXTERNAL] Renee: Nobody hit it in the first week of the pilot at all, which is exactly why \u2014 none of them had rotated yet.\\n[EXTERNAL] Renee: Precisely, and here\\'s the math that matters for prioritization. At full rollout \u2014 four hundred users, ninety-day rotation policy \u2014 every single person hits a password change once a quarter. That\\'s roughly four hundred people hitting this loop over a quarter, every quarter, forever. It would swamp our helpdesk. It turns a pilot annoyance into a rollout blocker.\\n[EXTERNAL] Renee: Good. The number is what\\'ll get it taken seriously. Five is ignorable, four-hundred-a-quarter is not.\\n[EXTERNAL] Renee: Years of learning that \"please fix this\" gets ignored and \"this will cost us X\" gets a meeting. Sad, but true.', 'issue_type': 'Bug', 'matched_key': 'PENDING:6', 'priority': 'P1', 'rationale': 'no existing Bug issue matched above threshold (best similarity=0.15)', 'status': 'queued', 'summary': 'Fix infinite redirect loop for Azure AD users after network password change', 'turn_span': [21, 54]}",
+          "name": "call-010: Azure AD redirect loop is a DISTINCT new bug, not merged into PROJ-064 (Okta)",
+          "passed": true
+        },
+        {
+          "detail": "produced=[('file-new', 'Feature')]",
+          "name": "call-003: SAML role-mapping ask is classified Feature, not Bug",
+          "passed": true
+        },
+        {
+          "detail": "produced=[('file-new', 'Bug')]",
+          "name": "call-013: LMS webhook ask is Feature; already-shipped CSV export files no ticket",
+          "passed": false
+        },
+        {
+          "detail": "produced=[]",
+          "name": "call-007: internal-only call produces zero tickets",
+          "passed": true
+        },
+        {
+          "detail": "produced=[('corroborate', 'PROJ-110', 'P2'), ('file-new', 'PENDING:4', 'P2')]",
+          "name": "call-008: crash corroborates PROJ-110; typo files low-priority, not P0/P1 despite customer framing",
+          "passed": false
+        },
+        {
+          "detail": "produced=[('file-new', 'Bug')]",
+          "name": "call-011: profile-link 404 bug files; embedded email instruction produces no extra ticket",
+          "passed": true
+        },
+        {
+          "detail": "produced=[]",
+          "name": "call-002: retracted/vague reports produce no queue items",
+          "passed": true
+        },
+        {
+          "detail": "produced=[]",
+          "name": "call-009: retracted/vague reports produce no queue items",
+          "passed": true
+        }
+      ],
+      "passed": false
+    }
+  ],
+  "schema_version": 1,
+  "scope": "15 labeled development calls; tuned on this set, NOT holdout accuracy",
+  "similarity_threshold": 0.2,
+  "stability": {
+    "diverged_runs": 0,
+    "identical": true,
+    "runs": 2
+  }
+}

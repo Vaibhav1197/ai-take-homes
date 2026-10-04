@@ -1,0 +1,44 @@
+{
+  "call_id": "call-136",
+  "candidates": [
+    {
+      "account": "Portman Grand Hotels",
+      "call_id": "call-136",
+      "draft_title": "Fix bulk CSV import failure when header row contains trailing whitespace",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 17,
+      "provisional_priority": "P3",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Renata: Okay. So I build a CSV \u2014 I've done this dozens of times, I know the format. Columns for name, email, employee ID, property, the whole thing. I go to the admin panel, Members, the bulk import, I upload the file, and it just... rejects the whole thing. The entire file. It doesn't import a single row.\n[EXTERNAL] Renata: That's the maddening part. It gives me the most useless error I have ever seen. It says \u2014 let me read it exactly \u2014 \"An unknown error occurred. Please try again.\" That's it. That's the whole message. No line number, no field, no hint about what's wrong.\n[EXTERNAL] Renata: Because trying again does nothing! It's not a fluke, it's the same file failing the same way every time. I tried again probably fifteen times out of pure stubbornness. Same error every time. It is not a \"try again\" situation.\n[EXTERNAL] Renata: Yes! That's why it's driving me crazy. I've done this exact workflow probably fifty times. Same panel, same kind of file. It's always worked. Now suddenly this batch won't go.\n[EXTERNAL] Renata: Not that I can think of. I built it the same way I always do. Well \u2014 actually, this time I exported the starting template from a different system. Our new HRIS. We migrated HRIS platforms last month, and I pulled the roster out of the new one instead of the old one. But the columns look identical, I checked.\n[EXTERNAL] Renata: Okay, hold on... opening it in Notepad now. Ugh, it's all commas and no formatting, but okay, it's open.\n[EXTERNAL] Renata: The first line is: name comma email comma employee_id comma property comma start_date... and then... hm. There's a space after \"start_date\" before the line ends. There's like a trailing space at the end of the header row. Is that \u2014 that can't be it, can it?\n[EXTERNAL] Renata: Are you serious. Two days over a space.\n[EXTERNAL] Renata: Okay... deleting the space... saving... going back to the admin panel... uploading... and \u2014 it's importing! It's actually importing! All two hundred and thirty rows went through. You have got to be kidding me.\n[EXTERNAL] Renata: I am equal parts relieved and furious. Relieved it works, furious it was a space, and furious the error message told me absolutely nothing. If it had said \"there's a problem with your header row\" I'd have found it in five minutes instead of two days.\n[EXTERNAL] Renata: Please do. Because I'm not the only admin who imports rosters, and the next person who hits this is going to lose two days like I did.\n[EXTERNAL] Renata: That matches exactly. And I'd add \u2014 \"try again\" is actively misleading, because trying again with the same file will never work. It made me waste time re-uploading instead of investigating.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        17,
+        39
+      ]
+    },
+    {
+      "account": "Portman Grand Hotels",
+      "call_id": "call-136",
+      "draft_title": "Add pre-import validation or dry-run mode for CSV files",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 45,
+      "provisional_priority": "P3",
+      "raw_score": 3.6,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Renata: While we're at it \u2014 is there any way to validate a file before I commit the import? Like a dry-run that tells me it's clean without actually creating anyone?\n[EXTERNAL] Renata: Huh. That's a decent habit. I'll start doing a three-row canary import first.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        45,
+        48
+      ]
+    }
+  ],
+  "source_sha256": "5cff8924b1a13560447158ab948e766693c31e8a2ca6ad91389685f2a75f6551"
+}

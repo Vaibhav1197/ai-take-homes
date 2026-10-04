@@ -1,0 +1,25 @@
+{
+  "call_id": "call-003",
+  "candidates": [
+    {
+      "account": "Atlas Financial",
+      "call_id": "call-003",
+      "draft_title": "Implement automatic SAML group-to-role mapping evaluated on every login",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 29,
+      "provisional_priority": "P2",
+      "raw_score": 3.92,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Renee: This is the real one, and it's the blocker for our security review. SSO works fine \u2014 that's not the issue. The issue is what happens after. Every user lands as a basic member, full stop. And then one of our admins has to go promote people by hand.\n[EXTERNAL] Renee: One at a time. For four hundred users at full rollout, that's not a process, it's a punishment. And it's error-prone \u2014 someone will fat-finger a finance manager into the wrong role and now I've got a segregation-of-duties finding.\n[EXTERNAL] Renee: You've met my admins. Around row two hundred everyone's eyes glaze and that's precisely when the mistakes creep in. I'd rather not build the rollout on the assumption that a tired human clicks four hundred times without error.\n[EXTERNAL] Renee: Right. We need role assignment to happen automatically from SAML group membership, at login. Our IdP already exposes the groups in the assertion \u2014 finance-managers, people-admins, read-only-auditors, and so on. What I want is: you map an IdP group to a BetterBark role, and you apply that mapping on every login, so if someone's group changes on our side, their role changes on yours the next time they sign in.\n[EXTERNAL] Renee: That's it precisely. Evaluated every login is the important part. First-provision-only doesn't help me, because people move between groups constantly and I need it to stay in sync, not snapshot once.\n[EXTERNAL] Renee: Without it we can't pass our access-review audit. Our controls require that access maps to a source of truth \u2014 our directory groups \u2014 not to whatever some admin clicked last Tuesday. Manual promotion means the source of truth is a human's memory, which fails the control. And without passing the audit, we can't go to full rollout. It is the single thing standing between us and turning on all four hundred seats.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        29,
+        40
+      ]
+    }
+  ],
+  "source_sha256": "13888a8df0690f818d6b37805028c6f3fec685b6a3047fd350c28214f450dae4"
+}

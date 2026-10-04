@@ -1,0 +1,177 @@
+{
+  "annotation_source": "GitHub Copilot source-first annotation, 2026-10-01. Sample predictions not inspected before sealing. Same coding agent, not independent human ground truth.",
+  "cases": [
+    {
+      "call_id": "call-026",
+      "evidence": ["the Outlook invite doesn't update to the new time. It still shows the old time.", "Google's fine, Outlook's stale."],
+      "expected": [{"action": "corroborate", "issue_type": "Bug", "matched_key": "PROJ-138", "patterns": ["outlook", "reschedul", "old time|original time|stale"]}],
+      "reason": "External reports of stale Outlook reschedules match PROJ-138; no separate feature request or licensing issue.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-029",
+      "evidence": ["Twenty-nine missing. And no error. No warning.", "every single one has a name written in kanji or katakana in the name field. Non-Latin characters."],
+      "expected": [{"action": "file-new", "issue_type": "Bug", "patterns": ["import", "kanji|katakana|non.latin|japanese", "skip|missing|short|drop"]}],
+      "reason": "One import defect silently drops Japanese-name rows. Manual provisioning is remediation, dark mode is shipped, manager access is configuration.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-038",
+      "evidence": ["So it wasn't your platform at all. It was our security box mangling the websocket.", "zero drops since we made the change last Tuesday. A week clean."],
+      "expected": [],
+      "reason": "Customer confirms TLS-inspecting proxy root cause and successful customer-side remediation. Historical symptoms and prevention advice are not active product defects.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-054",
+      "evidence": ["Which is exactly why I want it renewed clean and fast, before anyone finds a reason to relitigate a thing that's working.", "Stability is a feature for my crowd."],
+      "expected": [],
+      "reason": "Renewal, pricing, contract paperwork and future seats only. Preference for stability and a hypothetical extra click do not specify a product change.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-056",
+      "evidence": ["Genuinely nothing. It does what I need", "If it needed a computer it'd be dead on arrival."],
+      "expected": [],
+      "reason": "Positive program review; hypothetical computer requirement is not an actual failure. Testimonial approval and future seats are not product requests.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-060",
+      "evidence": ["There's no way to do that in bulk.", "Bulk deactivate is there, bulk invite is there, but no bulk reassign.", "Oh, so it's fixable on our side. Great, I'll send the export."],
+      "expected": [{"action": "file-new", "issue_type": "Feature", "patterns": ["coach", "reassign", "bulk|batch|one at a time"]}],
+      "reason": "One missing bulk reassignment capability, including optional split and orphan prevention. Content length is content-team feedback; department codes are acknowledged import configuration, not a second Bug.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-066",
+      "evidence": ["Yeah, I'm now fairly convinced I imagined it.", "I can't point to a moment. There's no smoking gun, there's barely smoke."],
+      "expected": [],
+      "reason": "Retracted vague slowness without a reproducible screen, action or corroboration. Content-topic preference and printer chatter are not software issues.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-069",
+      "evidence": ["I would give a lot for an anonymized, aggregate, org-level read.", "The first is minimum aggregation thresholds", "Trend over time rather than point-in-time snapshots"],
+      "expected": [{"action": "file-new", "issue_type": "Feature", "patterns": ["aggregat|anonym|privacy", "trend|wellbeing", "org|executive|leadership"]}],
+      "reason": "One aggregate wellbeing-trend reporting request with anonymity, aggregation floors and opt-in provenance. Quarterly report/dashboard are phases of the same request, not separate tickets.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-074",
+      "evidence": ["Configurable threshold, posts to Slack, so we catch the drop early instead of a month late.", "let me set the threshold per segment, not one global number."],
+      "expected": [{"action": "corroborate", "issue_type": "Feature", "matched_key": "PROJ-120", "patterns": ["slack", "threshold|at.risk|engagement"]}],
+      "reason": "External participants explicitly endorse Slack alerts matching PROJ-120. Per-segment thresholds refine that issue; engagement coaching and email follow-up are services, not extra requests.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-076",
+      "evidence": ["It's not like anything freezes or errors.", "Let's blame the wifi provisionally.", "Okay, enough about my imaginary slowness."],
+      "expected": [],
+      "reason": "Vague unlocalized slowness, no reproducible issue, acknowledged possible rural wifi confound. Future location onboarding is supported already.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-077",
+      "evidence": ["Invoicing's fine, actually. Single invoice, we book it to the training budget, done.", "Simple is exactly what I want. One line, one budget code."],
+      "expected": [],
+      "reason": "Commercial renewal and engagement plan only. Internal mention of other customers wanting invoice splits is explicitly not this customer's request.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-079",
+      "evidence": ["Nope. Honestly it just works.", "If it were broken, I'd know", "It's fast, no complaints."],
+      "expected": [],
+      "reason": "Positive review including shipped dark mode and successful bulk provisioning. Hypothetical breakage, service ROI assistance and future seat adds are not product issues.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-082",
+      "evidence": ["the calendar invite on Hank's actual calendar still says 2pm. The old time. It didn't update.", "It's only Hank and the other Outlook people where the old time sticks."],
+      "expected": [{"action": "corroborate", "issue_type": "Bug", "matched_key": "PROJ-138", "patterns": ["outlook", "reschedul", "old time|original|update"]}],
+      "reason": "One repeated Outlook rescheduling-sync defect matching PROJ-138; workaround and client checks refine it, not separate requests.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-085",
+      "evidence": ["It opens a web page asking them to log in again. In the mobile browser.", "yours aren't doing it on iOS.", "Session reminders, coach notes, the weekly nudge. All of them drop to the browser login on iPhone."],
+      "expected": [{"action": "file-new", "issue_type": "Bug", "patterns": ["iphone|ios", "link|email", "browser|safari|universal"]}],
+      "reason": "Broken iOS universal-link handoff despite an installed signed-in app. Not the OS-update logout issue PROJ-160, and not Okta expiry. One defect across email categories.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-087",
+      "evidence": ["But that's a compliment disguised as a complaint.", "I genuinely can't find a problem for you to solve."],
+      "expected": [],
+      "reason": "Positive review; more reminder frequency is an existing setting, not missing product work. Testimonial handling, content and seat planning are not issues.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-088",
+      "evidence": ["We have never been on Okta. This is Ping.", "Our users get hard-locked out at exactly 24 hours.", "The hard lockout requiring a manual admin unlock is the killer."],
+      "expected": [{"action": "file-new", "issue_type": "Bug", "patterns": ["ping", "24", "lock"]}],
+      "reason": "One Ping-specific hard account lock after 24 hours requiring admin recovery. Explicitly distinct from self-recoverable Okta early expiry PROJ-064. Bulk unlock is interim relief for this incident, not independent feature scope.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-098",
+      "evidence": ["that's a \"get my managers to log in\" problem, not a platform problem.", "No complaints on that front"],
+      "expected": [],
+      "reason": "Commercial renewal and manager-enablement service. Customer explicitly attributes dashboard non-use to manager habits, not missing software capability.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-101",
+      "evidence": ["the goal-tracking feature sends reminder notifications", "The goal reminder buzzes at roughly three a.m. local.", "I have not heard a single complaint about session reminders."],
+      "expected": [{"action": "file-new", "issue_type": "Bug", "patterns": ["goal", "remind|notification", "three|3 a|3am|3 a.m|timezone|united states|american"]}],
+      "reason": "Goal reminder delivery ignores local APAC working hours. Not PROJ-101's displayed scheduled-report timestamps. Session reminders are explicitly working; workaround/update questions are not extra issues.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-112",
+      "evidence": ["Every time they hit back, the filters vanish.", "The back button is the trigger."],
+      "expected": [{"action": "file-new", "issue_type": "Bug", "patterns": ["coach", "filter", "back", "gone|reset|vanish|lost|disappear"]}],
+      "reason": "One coach-search navigation-state defect across devices. New-tab workaround, screenshots and already-available manager-coaching content are not separate software requests.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-115",
+      "evidence": ["They'd click it and get a page saying the link had expired. On a link they'd just received minutes ago.", "the scanner clicks the verification link before the human does.", "I don't have anything concrete on that yet, just vague mutterings."],
+      "expected": [{"action": "file-new", "issue_type": "Bug", "patterns": ["verif|token", "link", "expired|prefetch|scanner|scann"]}],
+      "reason": "One verification-token consumption bug triggered by Safe Links prefetch, with misleading expiry message. Unlike the resolved customer-proxy incident, product confirmation flow needs a change. Unspecified reset-link grumbles do not corroborate PROJ-142.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-123",
+      "evidence": ["Honestly? I think it's more shiny than real.", "I'm not shopping. But I have to let my CHRO feel heard."],
+      "expected": [],
+      "reason": "Competitor's 24/7 support claim is not adopted as a customer requirement. Value summary and re-onboarding are account services, not new product features.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-124",
+      "evidence": ["Round to ninety-five to cover the new cafe, keep everyone in.", "Give me the copy and I'll send it."],
+      "expected": [],
+      "reason": "Renewal pricing, seat count and human-delivered engagement campaign only. No software bug or new capability requested.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-130",
+      "evidence": ["Same session ID, same payload, just delivered multiple times.", "the clean fix is an idempotency key.", "If it's already tracked, great, add our voice to it."],
+      "expected": [{"action": "corroborate", "issue_type": "Bug", "matched_key": "PROJ-087", "patterns": ["webhook|event", "duplicate|more than once|multiple times|twice"]}],
+      "reason": "Duplicate delivery and requested stable idempotency keys are covered together by PROJ-087. Staging endpoints and CSV exports already exist; consumer mitigation does not resolve the provider's defect.",
+      "review_status": "reviewed"
+    },
+    {
+      "call_id": "call-136",
+      "evidence": ["There's like a trailing space at the end of the header row.", "No line number, no field, no hint about what's wrong.", "is there any way to validate a file before I commit the import? Like a dry-run that tells me it's clean without actually creating anyone?"],
+      "expected": [
+        {"action": "file-new", "issue_type": "Bug", "patterns": ["import", "header", "whitespace|trailing|space"]},
+        {"action": "file-new", "issue_type": "Feature", "patterns": ["import", "dry.run|validat", "before|without"]}
+      ],
+      "reason": "One importer defect combines whitespace rejection and opaque error; workaround is not a shipped fix. A separately actionable missing non-mutating dry-run is also explicitly requested. Granularity needs human confirmation: this annotation treats dry-run as independent because it remains useful after whitespace handling is fixed.",
+      "review_status": "reviewed"
+    }
+  ],
+  "human_confirmed": false
+}

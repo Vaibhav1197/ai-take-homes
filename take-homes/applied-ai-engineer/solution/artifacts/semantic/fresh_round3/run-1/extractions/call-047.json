@@ -1,0 +1,25 @@
+{
+  "call_id": "call-047",
+  "candidates": [
+    {
+      "account": "Kirkfield College",
+      "call_id": "call-047",
+      "draft_title": "Fix timestamp offset in engagement reports (UTC vs Central timezone)",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 26,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Alan: The times in it are wrong. Or \u2014 not wrong exactly, but off. When the report lists when sessions happened, or the timestamp on the report itself, the times are several hours ahead of when things actually occurred. A session I know was at two in the afternoon shows up listed as something like eight in the evening.\n[EXTERNAL] Alan: Now that you ask, yes. It's always the same gap. We're on Central time here, and everything in the report reads like it's been shifted forward by five or six hours. My colleague joked it's on London time.\n[EXTERNAL] Alan: That would explain the London joke, then. It's literally on London time.\n[EXTERNAL] Alan: Both, I think. The emailed PDF is where I noticed it because that's what I actually open. But when I've gone into the app to look at the schedule for the report it looked the same way. Shifted.\n[EXTERNAL] Alan: It's set to Central. I checked when I set up the report, because I'm the kind of person who checks. The workspace says Central, the report says London. That's why it's a nuisance and not just my own mistake \u2014 I already ruled out my own mistake.\n[EXTERNAL] Alan: Yes. And to be clear about impact \u2014 it's not catastrophic. I can do the mental subtraction. But I forwarded that report to my dean once and she asked why our faculty were all doing sessions at eight and nine at night, and I had to explain that no, that's not real, the report just reads funny. Which is not a great look for a tool I'm advocating we expand.\n[EXTERNAL] Alan: That's my worry, yes. Especially if I'm about to put it in front of adjunct coordinators to make the expansion case.\n[EXTERNAL] Alan: If it's already known, even better \u2014 means I'm not crazy and it's on someone's list.\n[EXTERNAL] Alan: There's a line at the top, \"report generated,\" with a time. And yes, now that I look at the copy I have open, that's shifted too. It says the report was generated at some hour that's five or six ahead of when I actually got the email. So it's not just the session data \u2014 the report's own timestamp is on London time as well.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        26,
+        43
+      ]
+    }
+  ],
+  "source_sha256": "a99c095ec3d23f659868dffab3b7f16a3119109f491b81964e35f21f4e2719f3"
+}

@@ -1,0 +1,3768 @@
+{
+  "demo": {
+    "first_apply": {
+      "corroborated": 1,
+      "failed": 0,
+      "filed": 1,
+      "rejected": 1
+    },
+    "manifest": {
+      "call-004#23#bug": {
+        "action": "corroborate",
+        "call_id": "call-004",
+        "decision": "approved",
+        "note": "Agent-reviewed demonstration only, not human sign-off. Scheduled reports have a consistent seven-hour shift: matches PROJ-101. Attach this account without filing another ticket."
+      },
+      "call-008#57#bug": {
+        "action": "file-new",
+        "call_id": "call-008",
+        "decision": "rejected",
+        "note": "Agent-reviewed demonstration only, not human sign-off. Real low-severity email typo; defer to a batched cosmetic change instead of filing a standalone ticket. This rejection demonstrates review policy, not a false-positive label."
+      },
+      "call-011#41#bug": {
+        "action": "file-new",
+        "call_id": "call-011",
+        "decision": "approved",
+        "note": "Agent-reviewed demonstration only, not human sign-off. Apostrophes truncate profile URLs, producing repeatable 404s for 31 members; approve the new Bug."
+      }
+    },
+    "manifest_sha256": "ef8c314a7f4211b9290e2a091100a7c9425c3797ef55942a2be21a4cfebe0315",
+    "outbox_counts_after_rerun": {
+      "jira": 1,
+      "slack": 2
+    },
+    "outbox_counts_before_rerun": {
+      "jira": 1,
+      "slack": 2
+    },
+    "outboxes_unchanged": true,
+    "passed": true,
+    "performed": true,
+    "scope": "Explicit agent-reviewed demonstration, NOT human sign-off or full-corpus approval",
+    "second_apply": {
+      "corroborated": 0,
+      "failed": 0,
+      "filed": 0,
+      "rejected": 0
+    }
+  },
+  "discovered_calls": 140,
+  "expected_calls": 140,
+  "first_review": {
+    "already_queued": 0,
+    "calls_discovered": 140,
+    "calls_failed": 0,
+    "calls_processed": 140,
+    "candidates_found": 228,
+    "candidates_suppressed": 128,
+    "collapsed_duplicates": 6,
+    "duration_seconds": 1.266,
+    "not_actionable": 0,
+    "queue_by_action": {
+      "corroborate": 22,
+      "file-new": 42,
+      "file-new-low": 30
+    },
+    "queued_for_review": 94,
+    "skipped_already_processed": 0
+  },
+  "health": {
+    "alerts": [
+      {
+        "code": "LOW_CONFIDENCE_BACKLOG",
+        "detail": {
+          "actions": {
+            "corroborate": 22,
+            "file-new": 42,
+            "file-new-low": 30
+          },
+          "max_fraction": 0.25
+        }
+      }
+    ],
+    "healthy": false,
+    "latest_review_run_id": "9a80649008b54efc86ce1849a27a2900",
+    "latest_summary": {
+      "already_queued": 94,
+      "calls_discovered": 140,
+      "calls_failed": 0,
+      "calls_processed": 140,
+      "candidates_found": 228,
+      "candidates_suppressed": 128,
+      "collapsed_duplicates": 0,
+      "duration_seconds": 0.922,
+      "event": "run_review_completed",
+      "not_actionable": 0,
+      "queue_by_action": {
+        "corroborate": 22,
+        "file-new": 42,
+        "file-new-low": 30
+      },
+      "queued_for_review": 0,
+      "run_id": "9a80649008b54efc86ce1849a27a2900",
+      "skipped_already_processed": 6,
+      "ts": "2026-10-01T07:08:35.866157+00:00"
+    },
+    "limits": {
+      "baseline_candidates_per_call": null,
+      "expected_calls": 140,
+      "max_age_seconds": 3600,
+      "max_low_fraction": 0.25
+    },
+    "review_state": "completed"
+  },
+  "passed": true,
+  "pending_apply": {
+    "corroborated": 0,
+    "failed": 0,
+    "filed": 0,
+    "rejected": 0
+  },
+  "pending_outbox_counts": {
+    "jira": 0,
+    "slack": 0
+  },
+  "per_call": [
+    {
+      "call_id": "call-001",
+      "ledger_keys": [
+        "call-001#23#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-001",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.662677+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-002",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-002",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.665700+00:00"
+      },
+      "queue_by_action": {},
+      "split": "dev"
+    },
+    {
+      "call_id": "call-003",
+      "ledger_keys": [
+        "call-003#31#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-003",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.677476+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-004",
+      "ledger_keys": [
+        "call-004#23#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-004",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.684481+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-005",
+      "ledger_keys": [
+        "call-005#33#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-005",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 4,
+        "candidates_suppressed": 3,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.695520+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-006",
+      "ledger_keys": [
+        "call-006#11#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-006",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.707296+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-007",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-007",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.708302+00:00"
+      },
+      "queue_by_action": {},
+      "split": "dev"
+    },
+    {
+      "call_id": "call-008",
+      "ledger_keys": [
+        "call-008#13#bug",
+        "call-008#57#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-008",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.721321+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1,
+        "file-new": 1
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-009",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-009",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.727340+00:00"
+      },
+      "queue_by_action": {},
+      "split": "dev"
+    },
+    {
+      "call_id": "call-010",
+      "ledger_keys": [
+        "call-010#13#feature",
+        "call-010#23#bug",
+        "call-010#39#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-010",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 4,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 1,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.748702+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 2
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-011",
+      "ledger_keys": [
+        "call-011#41#bug",
+        "call-011#55#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-011",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 4,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 1,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.766481+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-012",
+      "ledger_keys": [
+        "call-012#13#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-012",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 4,
+        "candidates_suppressed": 3,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.777359+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-013",
+      "ledger_keys": [
+        "call-013#39#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-013",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 4,
+        "candidates_suppressed": 3,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.791525+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-014",
+      "ledger_keys": [
+        "call-014#41#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-014",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.804386+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-015",
+      "ledger_keys": [
+        "call-015#31#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-015",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.810402+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "dev"
+    },
+    {
+      "call_id": "call-016",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-016",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.811908+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-017",
+      "ledger_keys": [
+        "call-017#13#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-017",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.822442+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-018",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-018",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.828478+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-019",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-019",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.831228+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-020",
+      "ledger_keys": [
+        "call-020#1#bug",
+        "call-020#27#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-020",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 1,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.843317+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-021",
+      "ledger_keys": [
+        "call-021#19#bug",
+        "call-021#49#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-021",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.856394+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 2
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-022",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-022",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.859842+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-023",
+      "ledger_keys": [
+        "call-023#19#bug",
+        "call-023#4#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-023",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.872407+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 2
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-024",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-024",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.875406+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-025",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-025",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.877492+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-026",
+      "ledger_keys": [
+        "call-026#23#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-026",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.885498+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-027",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-027",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.887513+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-028",
+      "ledger_keys": [
+        "call-028#33#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-028",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.898293+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-029",
+      "ledger_keys": [
+        "call-029#25#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-029",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.906379+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-030",
+      "ledger_keys": [
+        "call-030#19#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-030",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.915382+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-031",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-031",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.917500+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-032",
+      "ledger_keys": [
+        "call-032#20#bug",
+        "call-032#56#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-032",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.933540+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1,
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-033",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-033",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.937558+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-034",
+      "ledger_keys": [
+        "call-034#21#bug",
+        "call-034#53#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-034",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.953822+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 2
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-035",
+      "ledger_keys": [
+        "call-035#31#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-035",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.963975+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-036",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-036",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 4,
+        "candidates_suppressed": 4,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.970486+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-037",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-037",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.975486+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-038",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-038",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 3,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.983269+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-039",
+      "ledger_keys": [
+        "call-039#26#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-039",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.990316+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-040",
+      "ledger_keys": [
+        "call-040#27#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-040",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:33.997614+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-041",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-041",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.000125+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-042",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-042",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.003258+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-043",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-043",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.005263+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-044",
+      "ledger_keys": [
+        "call-044#19#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-044",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.015571+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-045",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-045",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.018676+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-046",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-046",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.022678+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-047",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-047",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.025676+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-048",
+      "ledger_keys": [
+        "call-048#3#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-048",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.035726+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-049",
+      "ledger_keys": [
+        "call-049#21#feature",
+        "call-049#37#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-049",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.058777+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 2
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-050",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-050",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.063154+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-051",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-051",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 3,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.075665+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-052",
+      "ledger_keys": [
+        "call-052#29#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-052",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.094969+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-053",
+      "ledger_keys": [
+        "call-053#38#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-053",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.115630+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-054",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-054",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.119447+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-055",
+      "ledger_keys": [
+        "call-055#38#bug",
+        "call-055#51#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-055",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.137403+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1,
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-056",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-056",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.138988+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-057",
+      "ledger_keys": [
+        "call-057#23#bug",
+        "call-057#34#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-057",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.152506+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1,
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-058",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-058",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.155500+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-059",
+      "ledger_keys": [
+        "call-059#21#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-059",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.165583+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-060",
+      "ledger_keys": [
+        "call-060#27#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-060",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.180691+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-061",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-061",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.181691+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-062",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-062",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.182691+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-063",
+      "ledger_keys": [
+        "call-063#21#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-063",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.192237+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-064",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-064",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 3,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.198776+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-065",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-065",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.202754+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-066",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-066",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.206270+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-067",
+      "ledger_keys": [
+        "call-067#39#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-067",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.220325+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-068",
+      "ledger_keys": [
+        "call-068#7#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-068",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.231378+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-069",
+      "ledger_keys": [
+        "call-069#21#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-069",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.241989+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-070",
+      "ledger_keys": [
+        "call-070#17#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-070",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.254212+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-071",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-071",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.257720+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-072",
+      "ledger_keys": [
+        "call-072#28#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-072",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.265415+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-073",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-073",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.268717+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-074",
+      "ledger_keys": [
+        "call-074#30#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-074",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.275678+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-075",
+      "ledger_keys": [
+        "call-075#10#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-075",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.290869+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-076",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-076",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.292354+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-077",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-077",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.295342+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-078",
+      "ledger_keys": [
+        "call-078#33#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-078",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.305300+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-079",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-079",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.307306+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-080",
+      "ledger_keys": [
+        "call-080#26#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-080",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.318772+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-081",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-081",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.321767+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-082",
+      "ledger_keys": [
+        "call-082#9#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-082",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.329364+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-083",
+      "ledger_keys": [
+        "call-083#42#feature",
+        "call-083#5#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-083",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.346395+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 2
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-084",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-084",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.348413+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-085",
+      "ledger_keys": [
+        "call-085#25#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-085",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.356909+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-086",
+      "ledger_keys": [
+        "call-086#22#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-086",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.363333+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-087",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-087",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.365871+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-088",
+      "ledger_keys": [
+        "call-088#12#bug",
+        "call-088#38#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-088",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.384450+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 2
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-089",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-089",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.386498+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-090",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-090",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.387497+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-091",
+      "ledger_keys": [
+        "call-091#9#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-091",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.397946+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-092",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-092",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.399240+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-093",
+      "ledger_keys": [
+        "call-093#28#feature",
+        "call-093#50#bug",
+        "call-093#8#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-093",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 3,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.425291+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1,
+        "file-new": 1,
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-094",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-094",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.430346+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-095",
+      "ledger_keys": [
+        "call-095#27#bug",
+        "call-095#57#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-095",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.457541+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1,
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-096",
+      "ledger_keys": [
+        "call-096#25#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-096",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.470579+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-097",
+      "ledger_keys": [
+        "call-097#26#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-097",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.482624+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-098",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-098",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.486290+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-099",
+      "ledger_keys": [
+        "call-099#18#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-099",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.501470+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-100",
+      "ledger_keys": [
+        "call-100#31#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-100",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.519371+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-101",
+      "ledger_keys": [
+        "call-101#27#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-101",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.536456+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-102",
+      "ledger_keys": [
+        "call-102#40#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-102",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.549498+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-103",
+      "ledger_keys": [
+        "call-103#15#bug",
+        "call-103#5#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-103",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.574529+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1,
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-104",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-104",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.578552+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-105",
+      "ledger_keys": [
+        "call-105#19#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-105",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.590608+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-106",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-106",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.591608+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-107",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-107",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 3,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.600353+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-108",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-108",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.604353+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-109",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-109",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.606390+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-110",
+      "ledger_keys": [
+        "call-110#35#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-110",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.619452+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-111",
+      "ledger_keys": [
+        "call-111#17#bug",
+        "call-111#26#bug",
+        "call-111#36#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-111",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 3,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.646733+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1,
+        "file-new-low": 2
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-112",
+      "ledger_keys": [
+        "call-112#18#bug",
+        "call-112#27#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-112",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 1,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.663746+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-113",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-113",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.668318+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-114",
+      "ledger_keys": [
+        "call-114#21#bug",
+        "call-114#35#feature",
+        "call-114#53#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-114",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 4,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 3,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.698787+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 2,
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-115",
+      "ledger_keys": [
+        "call-115#11#bug",
+        "call-115#33#bug",
+        "call-115#47#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-115",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 1,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.730939+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1,
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-116",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-116",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.733937+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-117",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-117",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.735443+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-118",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-118",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.738449+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-119",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-119",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.741448+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-120",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-120",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.745450+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-121",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-121",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.746637+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-122",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-122",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.749633+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-123",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-123",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.752651+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-124",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-124",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.755635+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-125",
+      "ledger_keys": [
+        "call-125#19#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-125",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.772732+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-126",
+      "ledger_keys": [
+        "call-126#21#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-126",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.785740+00:00"
+      },
+      "queue_by_action": {
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-127",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-127",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.789314+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-128",
+      "ledger_keys": [
+        "call-128#27#bug",
+        "call-128#56#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-128",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 2,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.806702+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1,
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-129",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-129",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.808754+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-130",
+      "ledger_keys": [
+        "call-130#27#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-130",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.823777+00:00"
+      },
+      "queue_by_action": {
+        "corroborate": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-131",
+      "ledger_keys": [
+        "call-131#20#bug",
+        "call-131#32#bug"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-131",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 1,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 1,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.843596+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-132",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-132",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.848548+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-133",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-133",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.851546+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-134",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-134",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.860565+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-135",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-135",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.861564+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-136",
+      "ledger_keys": [
+        "call-136#19#bug",
+        "call-136#35#bug",
+        "call-136#45#feature"
+      ],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-136",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 3,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 3,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.895639+00:00"
+      },
+      "queue_by_action": {
+        "file-new": 2,
+        "file-new-low": 1
+      },
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-137",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-137",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.898515+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-138",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-138",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 1,
+        "candidates_suppressed": 1,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.901512+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-139",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-139",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 0,
+        "candidates_suppressed": 0,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.903533+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    },
+    {
+      "call_id": "call-140",
+      "ledger_keys": [],
+      "outcome": {
+        "already_queued": 0,
+        "call_id": "call-140",
+        "calls_discovered": 0,
+        "calls_failed": 0,
+        "calls_processed": 1,
+        "candidates_found": 2,
+        "candidates_suppressed": 2,
+        "collapsed_duplicates": 0,
+        "event": "call_completed",
+        "not_actionable": 0,
+        "queued_for_review": 0,
+        "run_id": "3bba1947cc744b14a7e16280c0319058",
+        "skipped_already_processed": 0,
+        "ts": "2026-10-01T07:08:34.907575+00:00"
+      },
+      "queue_by_action": {},
+      "split": "unlabeled_holdout"
+    }
+  ],
+  "provenance": {
+    "generated_at": "2026-10-01T07:08:33.622274+00:00",
+    "input_sha256": {
+      "call-001.md": "92fe1b860aa80a2c238b8dbd7ff348fc89bc3d6612625409b1a51aca1ca42b4d",
+      "call-002.md": "8dff64453d1ce1a52f61fb86be9a85a248b77a2055c34bd868225e0783f2d777",
+      "call-003.md": "13888a8df0690f818d6b37805028c6f3fec685b6a3047fd350c28214f450dae4",
+      "call-004.md": "62f7bed5fced3db674eb2d0df8244a99f0778ebfc763eea7d2a7268f82a3fe59",
+      "call-005.md": "222b62ad084cd3b669cf46820d5c15ff92fc5c030c002abd238bf6934137a3e0",
+      "call-006.md": "bf7e89668d7fcd709d43c22cfda338a8ec4c75f8c7bbd9103d885260d248418a",
+      "call-007.md": "261b0f1b7f3c17b3613ade95b60a918721fe011fa2f39e9afce9cf1d4be8c8ed",
+      "call-008.md": "d22896f37454951a97410dd0920affd939b7286b056fdf6796ba79e2116bf602",
+      "call-009.md": "1d02aced4f4dc37daa4a5cc8bd6bfd7e98317006ccef89b16bc9d0b9d6951a10",
+      "call-010.md": "df7de2285a3a7740767240747c3065578d073cf2911e4cb727d27516d0e9d3be",
+      "call-011.md": "cfe24a02e4a3623d817644f94b5ed6729fd390470b287594ff10a61588a7e4d2",
+      "call-012.md": "9e0316c2157cb212ba68223ad59f4b7666a942f610ac661028de62468813f5fc",
+      "call-013.md": "5ff74066a97204fe8b3ca7f8e1916014f7c0ad2bc174428465b805a8972eceb8",
+      "call-014.md": "13e43316d957a3a3da53dc5d5c002439e70031598f144065ebfa2bb4fd9a4f75",
+      "call-015.md": "3930388bb830cdb6b7f171130185c5eba796599aa6de9b29d159f498404bb2ec",
+      "call-016.md": "5efb2b37f08158c586f5e8205c07398122490114f7c2449e3dd82827bf97abf8",
+      "call-017.md": "f4456ac8c677689c0b704500a5ae1d0305bd120dc445122bf3d29c2529a08a9e",
+      "call-018.md": "9f04eaaab7dc77eca2d4be98096d59cf312bf7ca3c04990c6ed0556a9beb8958",
+      "call-019.md": "cc3b7a4ddedc53ae177749345c9c5adb2105611afbaec8da5fbc10e40217a45a",
+      "call-020.md": "9322588c6825b808145f52893db650801f9294dd862ea787595e63c8ae7be03f",
+      "call-021.md": "30247d933a474cc1998673ae7d1ecd12e5808dd9a604a11d81cb52f24d8fa43f",
+      "call-022.md": "715a5430d380d7feec6f6631c7734f519cf04409bd4d2c62a27701571ca0b3d4",
+      "call-023.md": "823366ae3f067e9bdb1d0ced18fccb62a30286babc93c6a6738a55efe3862ccc",
+      "call-024.md": "db58efa0eaf329300e2a588181a5bf348a028240a775a08769aa09447514dca4",
+      "call-025.md": "626a2d2b0caf2a08ce939f5c9eb6a976309937634015d914b332080a65c5f360",
+      "call-026.md": "1e561b4a61ad980afebe2e2e32e883c819d448c45185f768274e0aa0f0746215",
+      "call-027.md": "4013da2ec19c47ae60308e68e88ec4e4a14e60b82ebabd0a4dbfb6e635e5c434",
+      "call-028.md": "834830f9ed7d172371237a3e6c335eb7f8dfa75237c5c6922534b0db9cbbe85b",
+      "call-029.md": "080f7a23da8fba73a8c3c7ceb2481b525a5c8197637fb7620e6c175379fb226a",
+      "call-030.md": "ebd260d60b25e175bb08179a34ceca4da52e069f099008fa2caadf042329f2ee",
+      "call-031.md": "f99c31df9d657fce72b6694468bcec4c0181e56aa2508783419c3fddac4d6e1f",
+      "call-032.md": "203d22dbbac1f6c61f83c7cb2bb9e2983fdb1089bf58ce1b085e346791f0406e",
+      "call-033.md": "458b587cf8118a9510f519927139d644e590ad9d1d971bb57cad67061cecd409",
+      "call-034.md": "02936a635048ec0ccb35f9b1edcd63fdc5387543ef35bbccbd21b03c558a8c0c",
+      "call-035.md": "b9d38d01b3cec780bebeaa4ba625c6085d77bb28222c9e8e7700f111aa9c0a8b",
+      "call-036.md": "04da3b45b5322d6be971d1068cea4145a32d13c1c200b2520e67670816913047",
+      "call-037.md": "b7a062baf58cc12f11210e641d72009df8bb523fe7e5b6afbb256f097ed4088c",
+      "call-038.md": "0cbbe0a6613b12142a3bc1c810527af2ca2d0749eccce2d34627e865719c738a",
+      "call-039.md": "e924202466801755962b88b854463f1742e6602ae72b13f6e8cecb68a1903098",
+      "call-040.md": "aef7447182addbb9c54643fe7d26b9f87ac0b643e7b2bad7d0c7c094cf92a1d5",
+      "call-041.md": "bfb654242e2370681c77f0e41254a5e0e35da58ad01ae1cd73af336fbd96b1f9",
+      "call-042.md": "c2f9f92e5ef8fdc33ff2343575c8e88d550a59b5153b268c19246525287ee100",
+      "call-043.md": "7fc2f0454a2b40c32fc24846e604b33e3834ef7db68cb2e76053e48d7583b637",
+      "call-044.md": "df4fbe14020be50be30a58ca7d3e04175e98811433652726c03a56d042a3d66f",
+      "call-045.md": "d6b30d7ccffc504db58b7944152d51842d78b5a427d11d16c5c98d1d5fa45b10",
+      "call-046.md": "5f314a9dd4898fc9331ba2ef9309c4ca5080317d8e9b75dbfbaa4c993d09dbaa",
+      "call-047.md": "a99c095ec3d23f659868dffab3b7f16a3119109f491b81964e35f21f4e2719f3",
+      "call-048.md": "9d3017e402653141b0d0c1a7f5c2d8b3d869053801c9fbc14c474071259cc38d",
+      "call-049.md": "dc30915daf00b7b0b0dfef661ebb0e99150fce911185ffc5e7273738e75c8fb3",
+      "call-050.md": "931766ab229334c50377e1b04fdd14bab09c12b74ab50154cd29b1edca0a4519",
+      "call-051.md": "36f1ed2f6e7b1de28572288687037709a55797f70579b85ee73342411dc1614b",
+      "call-052.md": "7bec8f60b78a17db398babc9dc936ce6279c4ab772e7ca776b9e7339d338ad69",
+      "call-053.md": "a50f086af0deeb2dfa36cd881496be6344babb7149436d46f52627fcfd3bb730",
+      "call-054.md": "5df49ce03836952a1082cb6ebb6882ca0c2ae28d6e8351bc1e268f4db128b647",
+      "call-055.md": "9aa46a83669b2f778f7847fd9af1eee5507ec0bd54c356251ee521ee76ad799b",
+      "call-056.md": "2c6e17f9c1cd253f5526d1de8e8fccc6e44d0fc4c414c7793a648c8db6fc978f",
+      "call-057.md": "01d67573a34ee832981bb0a9841e3d4fcafd8226ca678ee92d2e951228994645",
+      "call-058.md": "5b273f8e3e7a20b80e2aa8daa8ecb6fd9f3e19b7efbd81e48bd8c00d7d29d82a",
+      "call-059.md": "5af907a5ff67dd74ecd96e0d49858450fc8e77e5da8d73eafe8ad5a20d6fa1df",
+      "call-060.md": "510a5def473c51ea45ed43f97c01bb316aef7bf31f49a4c68fad9843b7fcce5f",
+      "call-061.md": "c6309f19c9864ff4e78a7a831e468f34a343031562ab0727c8997a69e4f1bd71",
+      "call-062.md": "7cbcfcce96e0be85790159d43df12a4e1bb1946f49df40ce1f096251e7d33e97",
+      "call-063.md": "746f89fb77ffb2d1b9f1b2e2285edf2fc23368f8916026c3a79dc57ce10c16e6",
+      "call-064.md": "4c308e638d2d7586bcb58529920d6fd24b6003974c91c5ef8e99d72e47e73d0f",
+      "call-065.md": "7a2a1df9fcedb5d491f5ba453c9125e6acaacfd96a230904757eede6a328de16",
+      "call-066.md": "c0cdbff159d1c494562ac87d8d123192056588549765c316d4498fb54b0c05a2",
+      "call-067.md": "a26382128c2721f51b87d7a3f2321c60184e0543599cb22e461dc1f4f1bf4ec0",
+      "call-068.md": "344679c300f94090ccef5a64444c972e890930d61dc1a3f124e4a982aa3b0a26",
+      "call-069.md": "93138494357a6c867f326ddb9a6cf64c08489f3b2c2a362fd137eaa884390298",
+      "call-070.md": "c5c70ce645af5ed9d38557eb5e36a27e78c90f98b62e6d74a8380ec5db82507a",
+      "call-071.md": "d7b0b7187dedacb4400498a85da30bb2c25eea36b0ac78e1dfe04bbf08d63cc3",
+      "call-072.md": "3a86237d6ade2579142eda0d748815679a982208c1bd0438abd2325cbe220f35",
+      "call-073.md": "1d9e788e0a2d3b955f8df2859672a302b0f57a57d8a0b0bfb794491b29a0ad57",
+      "call-074.md": "5066771db2d7ae92ebc6cb3d2535ce19f8a2be6e37d2a8d18180a34ae6259fdf",
+      "call-075.md": "901cbc861750681b2936eac1e3cd75bb1dc95d07c61f4e5f4fa037c854a85e64",
+      "call-076.md": "649e14457ff42c1268f85155f566fc39c0e1b98d2fa97688942ed32a78bb6983",
+      "call-077.md": "4c84d421e19ff561688bc6ea8303f8d2d636b4db8af2b4c00c63ac639e9ca9a2",
+      "call-078.md": "8e6a71559609a84a7578225ec41ef697396412ff5f2569bed48f9d39bb38c158",
+      "call-079.md": "ca721b32228352cea12dc1d94ffa36e93cab68341cae4f7607fda5beddb3a168",
+      "call-080.md": "1e6110101d4005f966b1f1cef69fa3160352cdfb3f99320b4e6719c6d9415b8f",
+      "call-081.md": "6b7129f33edf83a5da5c148341784ec7a33375abb8e021d6ab3bf129698b4ff4",
+      "call-082.md": "254636d3a80a006450fca2df8e24c4c6db4c4b1d042ba9773196537a286bda96",
+      "call-083.md": "cc4b5dc8ef1bf3339750a83f1a7620dd7dcd9ccc8d2a807d61fbff3761d9a5a9",
+      "call-084.md": "987501239a1b2a1e00ee741cb47b154c768515116e170badf673ad0f96903057",
+      "call-085.md": "7d860f356a31a1bed6d7e8a2142a94f673edc3ee1bc746959b7a8552da11b4ff",
+      "call-086.md": "1e5d31f4ebd78452c8bd22d59d6015d832f4aecfe3f70f483a582f2e2f451b05",
+      "call-087.md": "1ce8d6e26449bd0a6f81d5beb05afed9a2eb2fabd04c2b9cc178b2230219ac5b",
+      "call-088.md": "1e41512f1fa1a66dd1b324c7ce86726c95a481f17208d54497fece5505188f97",
+      "call-089.md": "c7e3cb27c2fb52f41a6d999209e09397ee5af128ac670dbd19ec07c6c08a22db",
+      "call-090.md": "e764e360596fcea77af9b90e46f67e5737430b9c010ba40e1c1ac01d4cba0568",
+      "call-091.md": "b3d0c255f460f0fd4d47dc72cb503a7942d2250ffe68adb0d4bb7ee0f8f4d984",
+      "call-092.md": "3a560a7b336dfadec6ec5412075716814276875c32c9863a8ed2d1fd04ee72a9",
+      "call-093.md": "fbefa2a46650e5819fe3b9f6eb470a4a3c1b02d5792d3aa53c53b36fc5b620ba",
+      "call-094.md": "c4204694c80c19a3f77db611e9e3ded484e086a5d6283d3390fe59ba31974410",
+      "call-095.md": "b03c9eb00d4abdd34a1b1551f1c1a12d589005484cf317ae89a39a8113f338a9",
+      "call-096.md": "3f8f9e187da663deb0d136d54c6dc0482e6d13ff88dae629a30d8d4721a11a45",
+      "call-097.md": "616bd49858ac901d97f3ed26c982036b0b851a4f97646e9e08dc96b03d5eae98",
+      "call-098.md": "dee06525c72e0a1fb9f57c5fc8e9a8cd24b82f65ab816b0f2fb04c5a88a4c1a3",
+      "call-099.md": "b228ddcf53a722050ca78a8e85531f9c7c14af2383e4025a70f25bf8718b9590",
+      "call-100.md": "b959b28879a265d445782a91ce73d06e90ff59faefedea477c93bde385880af7",
+      "call-101.md": "e2dfd5d35ac6818a8b0ee7a464e5a4addae1bd895ab3a39e52f6ac1109356fe0",
+      "call-102.md": "4bfcb83ae1e65c4fb400022c61a2e3a3a67e576e7212ac43ec3ee6c07678cf59",
+      "call-103.md": "97cae09b2fe36df99db7b748cf6741bc994e3b26be38cbaa562333a1dfb34d0e",
+      "call-104.md": "ad0bd7894dd87c1903997444659716f52074a888abd26f5ab1b44a71d267df65",
+      "call-105.md": "ec706bb7e3eceb6ea4cbd7474d36069436f449ebb4be66f81155783a7f389872",
+      "call-106.md": "1907cd5888bee5d354cc5c3052b0bc86736a53f3c7a7ce4c15108fd15216d7d7",
+      "call-107.md": "bea1c72bb4c000ac4908235deafbcf90d1a273ba2acd6b979655cab032c2ba71",
+      "call-108.md": "fef005c48de85f3616be9be3f25d3788d85f634e0e56efee34361fa6579e3fc1",
+      "call-109.md": "ae31acf7d7517004025da22f0282a6691ea3949d5b6369a1c022b8777bf388a4",
+      "call-110.md": "10bbe91655906a483af1f71a3ef44327aa7fccf53cece896dc3f5444262ad899",
+      "call-111.md": "2d2e8c5c2e460d3ea5e86d48f04e857ad69b01cc163ad4d5f7527f5551e70fcc",
+      "call-112.md": "0fde21407339f313bf62cd0bdfea08febec127316ef790e1339a59bdb7617b68",
+      "call-113.md": "15c1814f36d577a0111d5fe4577b3fca15adc2c8007bb04932dd5db2a8f5046c",
+      "call-114.md": "54e2dd6d627d688703ea3f122391a07e598523bd3bb53889c6f80200f5bb658c",
+      "call-115.md": "56bf65ef9f9d79124c4c518f65e30b3c404fbdfaacdfcf60f4c545f8b907deb0",
+      "call-116.md": "41cdf3685c066bdb71214150dd2afe2aa086f606378e8e2b92b269e8538e5645",
+      "call-117.md": "f76c82902cb2e4aecea896e692193a03662a6fcf72bb612df0832ed683ca95d8",
+      "call-118.md": "5117230aba0522fe7a7d341dace97a1198e7b5187912cfedfe6e1237aa056d22",
+      "call-119.md": "9c0282ccc0a0621722244fe598b138551c778559827e9964ec80ddc409600070",
+      "call-120.md": "3da2dc2c90fb8ffb32975fa063076e8ff79d2d1cefd6b46cc64c7d67e3da7d39",
+      "call-121.md": "59aaf1d7b5981c3a878e99c34ee4f7e8ea5092cde06f4a4eec7c5f06f2362b0c",
+      "call-122.md": "47e2fbd99e569eb3d024f30adf72b46143b6f1279f33204d90e9ae8bc184e416",
+      "call-123.md": "95cbdc50869d68f6410896fc7b46ea79e95401e914c162a765b243cc2746ec99",
+      "call-124.md": "d29083defb6337995c5e6213462f945e56e76d3b9fd925e4cd97c34e4d7b7145",
+      "call-125.md": "a2d253c8bf9df5260363b50d2fefa78db49dd1deb2a2dd01fb16dcfce7f5ae59",
+      "call-126.md": "ae95ad1f573134bf21dacc4641882119e6281b90258639ffbbefbd285d862990",
+      "call-127.md": "9475ffea292a0255bbb0041009e458279c3ae598e6b5d4599f7caa566c897674",
+      "call-128.md": "39d241f3fdb464581641d7888e9e206c797869d812db9dda19da1f28cfed6441",
+      "call-129.md": "387d51ccfda429e9c3f2e5456bd62f902980e46ae06bab3259b35eebac0a3402",
+      "call-130.md": "895310fa8abbfe851ba53aca7a8826e43b9e29e15124e9c7f625ec2180842af9",
+      "call-131.md": "ac733b852ea9c5f3669643e8340ae6e8a699605de887df5c6dd4e2e3f58e5a84",
+      "call-132.md": "dc9ab9983b06ce9a698ebd74f089529ec813fad9b8ffab68756ea8fb2626f14f",
+      "call-133.md": "57ccab9f2d45742bd249020ddc59b4f1bb0c17b4eece579ac424aaf6ea8e906a",
+      "call-134.md": "69016a88af82481030e36525adcf4cbb39be41f3722191e97c9ce4244e6264cb",
+      "call-135.md": "dd11ed8bcc901a37d41f06bca75a700439fecb135e10f45b79a9b18f4d9347e1",
+      "call-136.md": "5cff8924b1a13560447158ab948e766693c31e8a2ca6ad91389685f2a75f6551",
+      "call-137.md": "3576465ff2d02a485a42737e57a98e568dc857e95241a02099b9beea4f6da516",
+      "call-138.md": "246f4c42c8feaeb2caf88362bb0b401cfb8d46b39ebd2d37b2713abc6c9da087",
+      "call-139.md": "eb2fa89d3c7dec12a0f57e834b9fcee6d93e740c5d6b077381fe63561c21a793",
+      "call-140.md": "91f797e950688cabbd1c56e03358e97427527f8b733c80c2ec187312b7685fe1",
+      "dev_labels.json": "be136bf252da0d9f3a11eb3c0a0dd405155e4865e4fda1d5aabf96c293cdd5b3",
+      "existing_issues.json": "1d8a2b02ce15267cd0ccfbf9e783cbab36a1dd1e0f3b820610e0262cd0ad9304"
+    },
+    "judge": "heuristic",
+    "python": "3.11.9",
+    "similarity_threshold": 0.2,
+    "source_sha256": {
+      "__init__.py": "ddb764045f2823ddb2f01b3679743f691f9d21c83ab514ec92b05bcc4dce02af",
+      "__main__.py": "761c4a4386723155dbbf1122d176461bfede39be09431144be1b25727f3b459a",
+      "cli.py": "47fd6794614aa3aaad3e2b9443b82bcfbf32dffcfa98e59403c0b9d1f903c004",
+      "eval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "eval/run_corpus.py": "e3798b1fcfd3426e5388e52653aa328ad5a349f1974eb7b56a2699387e92f1dd",
+      "eval/run_eval.py": "c4de5a3005c1d6c10b7f71cc4ec13df7bdca71ef9f068089171849123216f1f5",
+      "eval/run_holdout.py": "805f7253f42ab84f8e4683f6feb597958bc3cd46c46f694245dcdd8aae62111f",
+      "pipeline/__init__.py": "5dc450afd0f9e5884155b0cfde0e480f111038433de2483bf4425784a5900943",
+      "pipeline/config.py": "753bcd87d53e9397b7ed4cfde07a11c3eba7234b8aee1e38f12347c13db2a454",
+      "pipeline/dedup.py": "6041120bb464cde170c56b4ef511a55313a327691115bab72a6facaccc1afdbe",
+      "pipeline/heuristic_judge.py": "144c7b91f251ae777ca697ae3c7617ef5b5b7f347f9c13f25188b33115ace12c",
+      "pipeline/ingest.py": "19e60280981012fa07abc4d4a10f9987b62f5b40415c7df924a5bcf7dcd019b1",
+      "pipeline/judge_base.py": "160a0b4e425a7aefd58a1fdd23dbe5cd230185820ef1610661897ed548879218",
+      "pipeline/keywords.py": "e29e855b63ec490b73dc6764ba591c85a870f07c112faad929091be69c3e9342",
+      "pipeline/llm_judge.py": "1c54fe5b65d99f67dd26e4104abaccbb9f65f7225ae5e04110f71ed8afe4005b",
+      "pipeline/logging_utils.py": "641cbbc12293aa0b269b96ea4a7181f0b616e1e40014a42697dfa591beb13ad7",
+      "pipeline/models.py": "904493c121387caefbda9fa3424a217c836704231ae5458cb1498baf3f1fc53f",
+      "pipeline/orchestrator.py": "29926d87feecf46455c839a6cf6fe26dd4854faadbc0962edd555861046a5540",
+      "pipeline/payloads.py": "2b9edba2856efc54b3cb1dab8c98233477d018b67eca15b5faceb83a6de979a7",
+      "pipeline/review.py": "e0ffc348f55389bb227ca071773a0ba99551914848e2149c44e92079f825b7ee",
+      "pipeline/state_store.py": "a9cc06a6e6e690f35ea1e72764c9ab50ef42b8b572d6b79f054477500039e98e",
+      "pipeline/text_utils.py": "b423db592a4dfae8a62721e0e0d13089bbb643bc4e9b2d4c194103ed63bdcd34",
+      "tests/__init__.py": "35f7d95d9a4a6a36c82e6f1d0c1eb64ff349bc3705f4b9dd5cdad02f3f3430ba",
+      "tests/test_cli.py": "8815085604e4febc2b0399fbd95952fbae95cd8d1cd98299045eb3e39089b85b",
+      "tests/test_config.py": "f410f5079147ad05c1cc8b608069f23b5c9739e042f6202fcfab89f188cf6d09",
+      "tests/test_dedup.py": "9817b61440325ef5e5b5ea084d4582bb5a789838bf45d3bf3d10ea4e58a49a2a",
+      "tests/test_eval.py": "0783a1a681db8b34f076b7b2915b7b8de848e632bfae66fdad098f86dc0fb13a",
+      "tests/test_heuristic_judge.py": "c3f4ccc568294ac29a03d8983e042af1d860f04905d6b71d85a7e37051064957",
+      "tests/test_ingest.py": "5e5547c5d252ea52984397635f6c60300290005daeba732f80777b70af1df265",
+      "tests/test_llm_judge.py": "573d47e397f776ed2e4dc1a1f8fb3e17467d5477de3909534bbc8e4ff3edd0c1",
+      "tests/test_logging_utils.py": "97c914116d3e052bff18fb24a3b40647f28c4b2b90246e5bcb9910ca2bd026be",
+      "tests/test_orchestrator.py": "09d3b0386fc7344465f1c7f529ea33ca47cb504ff319b37abba50cac8e4e9e8c",
+      "tests/test_payloads.py": "9dbe38d47e247164a28641f779cdb5e9c3471d951774832d5cc39acc9ae1aab8",
+      "tests/test_review.py": "e08e6967870005c70a8a6799be04d7d66fd5d86b6bd691dff76320f2c59ab396",
+      "tests/test_state_store.py": "2faeb634db4661941995a897a527da6df94d1829717da5624ef348fe509c95bf",
+      "tests/test_text_utils.py": "b0b935ef532ce5db584742888a39425b06bca19a7e94f8f82241d09e4e5482ea"
+    }
+  },
+  "rerun_diff": {
+    "added_keys": [],
+    "changed_keys": [],
+    "ledger_after_sha256": "efe613d7e3cd434be6c247f01be78deb4b1b92700e296363f0f4b617d17e8d5e",
+    "ledger_before_sha256": "efe613d7e3cd434be6c247f01be78deb4b1b92700e296363f0f4b617d17e8d5e",
+    "newly_queued": 0,
+    "removed_keys": [],
+    "review_decisions_identical": true
+  },
+  "schema_version": 1,
+  "scope": "Coverage and repeatability over 140 supplied calls, NOT measured accuracy on the 125 unlabeled holdout calls.",
+  "second_review": {
+    "already_queued": 94,
+    "calls_discovered": 140,
+    "calls_failed": 0,
+    "calls_processed": 140,
+    "candidates_found": 228,
+    "candidates_suppressed": 128,
+    "collapsed_duplicates": 0,
+    "duration_seconds": 0.922,
+    "not_actionable": 0,
+    "queue_by_action": {
+      "corroborate": 22,
+      "file-new": 42,
+      "file-new-low": 30
+    },
+    "queued_for_review": 0,
+    "skipped_already_processed": 6
+  },
+  "split_counts": {
+    "dev": {
+      "calls": 15,
+      "queue_by_action": {
+        "corroborate": 5,
+        "file-new": 8,
+        "file-new-low": 1
+      }
+    },
+    "unlabeled_holdout": {
+      "calls": 125,
+      "queue_by_action": {
+        "corroborate": 17,
+        "file-new": 34,
+        "file-new-low": 29
+      }
+    }
+  }
+}

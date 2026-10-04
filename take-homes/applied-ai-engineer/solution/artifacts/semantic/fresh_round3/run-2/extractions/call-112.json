@@ -1,0 +1,25 @@
+{
+  "call_id": "call-112",
+  "candidates": [
+    {
+      "account": "Onyx Apparel",
+      "call_id": "call-112",
+      "draft_title": "Fix coach search filters resetting on browser back navigation",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 12,
+      "provisional_priority": "P2",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Trevor: Working: the coaching itself, once they're in it, they like it. The store managers especially, because retail management is lonely and stressful and having someone in their corner helps. The complaints I get are almost all about the getting-started part, the picking-a-coach part. And there's one specific thing I've heard enough times now that I wrote it down to bring today.\n[EXTERNAL] Trevor: Okay. So when someone's picking a coach, they use the coach search \u2014 the directory where you filter by specialty, language, timezone, all that. And our people are picky, reasonably, they want a coach who fits. So they'll set up their filters carefully. Specialty they want, say leadership; language, we've got some Spanish-preferring managers; timezone so the coach's hours overlap with theirs. They dial it all in, they get a filtered list, and they start clicking into coach profiles to read the bios.\n[EXTERNAL] Trevor: Right. So they click into a coach's profile to read the bio, decide \"eh, not quite,\" and then they hit the browser back button to go back to their filtered list and look at the next one. And when they hit back \u2014 the filters are gone. All of them. Reset. They're back to the full unfiltered list of every coach, and they have to set up specialty, language, timezone all over again from scratch.\n[EXTERNAL] Trevor: Exactly. Every time they hit back, the filters vanish. So if someone wants to compare five coaches, they're re-entering their filters five times. And these are busy store managers doing this on their phone browser between customers. By the third time they've had to re-pick \"leadership, Spanish, Pacific time,\" they give up and just take whoever's at the top of the unfiltered list, which defeats the whole point of matching.\n[EXTERNAL] Trevor: That's it word for word. The back button is the trigger. If they use some in-page \"back to results\" link instead \u2014 if there is one, I'm not even sure \u2014 maybe it's fine? But the natural instinct on a phone is to hit the browser back button, and that's what kills it.\n[EXTERNAL] Trevor: Across the board as far as I can tell. I've had it reported on phones and on desktop. The store managers are mostly on their phone browsers, but a couple of my district managers work off laptops and they've hit it too. So it doesn't seem browser-specific \u2014 it's the back-button behavior itself.\n[EXTERNAL] Trevor: That's the real cost. It's not just annoying, it's making people pick worse coaches. And a bad coach match is the number one reason someone disengages early, which I know because Simone drills that into me constantly.\n[EXTERNAL] Simone: I do, because it's true. Coach fit is everything at the start. A bad first match and they're gone. So anything that nudges people toward a random coach instead of a fitted one is actively working against retention in the program.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        12,
+        26
+      ]
+    }
+  ],
+  "source_sha256": "0fde21407339f313bf62cd0bdfea08febec127316ef790e1339a59bdb7617b68"
+}

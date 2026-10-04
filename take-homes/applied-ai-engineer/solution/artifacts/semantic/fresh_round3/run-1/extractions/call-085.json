@@ -1,0 +1,25 @@
+{
+  "call_id": "call-085",
+  "candidates": [
+    {
+      "account": "Cardinal Couriers",
+      "call_id": "call-085",
+      "draft_title": "Fix iOS notification email links to open installed app instead of web login",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 25,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Marcus: Right, yeah. So this is a little in the weeds but it's been bugging a bunch of our people. When someone gets one of the notification emails, like a session reminder or a \"your coach sent you a note\" email, and they tap the link on their phone.\n[EXTERNAL] Marcus: It opens a web page asking them to log in again. In the mobile browser. Even though they've got the app installed and they're already signed into the app.\n[EXTERNAL] Marcus: Exactly. And these are people who are already logged into the app right there on the same phone. So they tap the link, get the login wall in Safari, get annoyed, and half of them just give up instead of typing their password again on a tiny keyboard.\n[EXTERNAL] Marcus: It's specifically our iPhone people as far as I can tell. I asked around and the Android folks say tapping the link just opens the app for them, lands them right on the session or the note. On iPhone it never does that, always the browser.\n[EXTERNAL] Marcus: Yes. My IT guy called it something, uh, universal links? He said those are supposed to route to the app if it's installed and yours aren't doing it on iOS.\n[EXTERNAL] Marcus: You got it. It's not blocking anybody, they can log in on the web if they really want to. But it defeats the whole point of the reminder. The reminder is supposed to make it easy and it makes it annoying instead.\n[EXTERNAL] Marcus: Honestly a spread. My own is on the latest, 18-point-whatever. But I've seen it complained about by people on older phones too. It's not version-specific from what I can tell, it's just all iPhones.\n[EXTERNAL] Marcus: Every one I've tested. Session reminders, coach notes, the weekly nudge. All of them drop to the browser login on iPhone.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        25,
+        40
+      ]
+    }
+  ],
+  "source_sha256": "7d860f356a31a1bed6d7e8a2142a94f673edc3ee1bc746959b7a8552da11b4ff"
+}

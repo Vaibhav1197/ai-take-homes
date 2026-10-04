@@ -1,0 +1,14 @@
+{
+  "coverage_and_rerun_passed": true,
+  "generated_at": "2026-10-02T07:20:54.190777+00:00",
+  "human_confirmed_annotations": false,
+  "meaning": "Automated evidence gates only; not human approval, private-label certification or operational all-clear",
+  "operational_health_clear": false,
+  "passed": false,
+  "regression_audit_passed": true,
+  "regression_suite_passed": false,
+  "regression_suite_scope": "Earlier sample now used for tuning; confirms no regression only, NOT an unbiased generalization claim",
+  "schema_version": 2,
+  "semantic_assessment_passed": false,
+  "semantic_assessment_scope": "Fresh sample never used to tune the pipeline; the real generalization gate"
+}

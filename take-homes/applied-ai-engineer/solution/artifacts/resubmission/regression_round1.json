@@ -1,0 +1,2167 @@
+{
+  "annotation_source": "GitHub Copilot source-first annotation, 2026-10-01. Sample predictions not inspected before sealing. Same coding agent, not independent human ground truth.",
+  "assessment_mode": "regression",
+  "certifies_generalization": false,
+  "eligible_calls": 119,
+  "generated_at": "2026-10-02T07:20:58.230638+00:00",
+  "human_confirmed": false,
+  "interval_caveat": "Wilson intervals are descriptive binomial approximations; issue clustering, selection exclusions and annotation error are not captured. Thresholds use point estimates, not lower bounds.",
+  "passed": false,
+  "provenance": {
+    "config": {
+      "judge": "heuristic",
+      "llm_api_url": "https://api.openai.com/v1/chat/completions",
+      "llm_timeout_seconds": 60.0,
+      "openai_model": "gpt-4o-mini",
+      "similarity_threshold": 0.2
+    },
+    "input_sha256": {
+      "call-001.md": "92fe1b860aa80a2c238b8dbd7ff348fc89bc3d6612625409b1a51aca1ca42b4d",
+      "call-002.md": "8dff64453d1ce1a52f61fb86be9a85a248b77a2055c34bd868225e0783f2d777",
+      "call-003.md": "13888a8df0690f818d6b37805028c6f3fec685b6a3047fd350c28214f450dae4",
+      "call-004.md": "62f7bed5fced3db674eb2d0df8244a99f0778ebfc763eea7d2a7268f82a3fe59",
+      "call-005.md": "222b62ad084cd3b669cf46820d5c15ff92fc5c030c002abd238bf6934137a3e0",
+      "call-006.md": "bf7e89668d7fcd709d43c22cfda338a8ec4c75f8c7bbd9103d885260d248418a",
+      "call-007.md": "261b0f1b7f3c17b3613ade95b60a918721fe011fa2f39e9afce9cf1d4be8c8ed",
+      "call-008.md": "d22896f37454951a97410dd0920affd939b7286b056fdf6796ba79e2116bf602",
+      "call-009.md": "1d02aced4f4dc37daa4a5cc8bd6bfd7e98317006ccef89b16bc9d0b9d6951a10",
+      "call-010.md": "df7de2285a3a7740767240747c3065578d073cf2911e4cb727d27516d0e9d3be",
+      "call-011.md": "cfe24a02e4a3623d817644f94b5ed6729fd390470b287594ff10a61588a7e4d2",
+      "call-012.md": "9e0316c2157cb212ba68223ad59f4b7666a942f610ac661028de62468813f5fc",
+      "call-013.md": "5ff74066a97204fe8b3ca7f8e1916014f7c0ad2bc174428465b805a8972eceb8",
+      "call-014.md": "13e43316d957a3a3da53dc5d5c002439e70031598f144065ebfa2bb4fd9a4f75",
+      "call-015.md": "3930388bb830cdb6b7f171130185c5eba796599aa6de9b29d159f498404bb2ec",
+      "call-016.md": "5efb2b37f08158c586f5e8205c07398122490114f7c2449e3dd82827bf97abf8",
+      "call-017.md": "f4456ac8c677689c0b704500a5ae1d0305bd120dc445122bf3d29c2529a08a9e",
+      "call-018.md": "9f04eaaab7dc77eca2d4be98096d59cf312bf7ca3c04990c6ed0556a9beb8958",
+      "call-019.md": "cc3b7a4ddedc53ae177749345c9c5adb2105611afbaec8da5fbc10e40217a45a",
+      "call-020.md": "9322588c6825b808145f52893db650801f9294dd862ea787595e63c8ae7be03f",
+      "call-021.md": "30247d933a474cc1998673ae7d1ecd12e5808dd9a604a11d81cb52f24d8fa43f",
+      "call-022.md": "715a5430d380d7feec6f6631c7734f519cf04409bd4d2c62a27701571ca0b3d4",
+      "call-023.md": "823366ae3f067e9bdb1d0ced18fccb62a30286babc93c6a6738a55efe3862ccc",
+      "call-024.md": "db58efa0eaf329300e2a588181a5bf348a028240a775a08769aa09447514dca4",
+      "call-025.md": "626a2d2b0caf2a08ce939f5c9eb6a976309937634015d914b332080a65c5f360",
+      "call-026.md": "1e561b4a61ad980afebe2e2e32e883c819d448c45185f768274e0aa0f0746215",
+      "call-027.md": "4013da2ec19c47ae60308e68e88ec4e4a14e60b82ebabd0a4dbfb6e635e5c434",
+      "call-028.md": "834830f9ed7d172371237a3e6c335eb7f8dfa75237c5c6922534b0db9cbbe85b",
+      "call-029.md": "080f7a23da8fba73a8c3c7ceb2481b525a5c8197637fb7620e6c175379fb226a",
+      "call-030.md": "ebd260d60b25e175bb08179a34ceca4da52e069f099008fa2caadf042329f2ee",
+      "call-031.md": "f99c31df9d657fce72b6694468bcec4c0181e56aa2508783419c3fddac4d6e1f",
+      "call-032.md": "203d22dbbac1f6c61f83c7cb2bb9e2983fdb1089bf58ce1b085e346791f0406e",
+      "call-033.md": "458b587cf8118a9510f519927139d644e590ad9d1d971bb57cad67061cecd409",
+      "call-034.md": "02936a635048ec0ccb35f9b1edcd63fdc5387543ef35bbccbd21b03c558a8c0c",
+      "call-035.md": "b9d38d01b3cec780bebeaa4ba625c6085d77bb28222c9e8e7700f111aa9c0a8b",
+      "call-036.md": "04da3b45b5322d6be971d1068cea4145a32d13c1c200b2520e67670816913047",
+      "call-037.md": "b7a062baf58cc12f11210e641d72009df8bb523fe7e5b6afbb256f097ed4088c",
+      "call-038.md": "0cbbe0a6613b12142a3bc1c810527af2ca2d0749eccce2d34627e865719c738a",
+      "call-039.md": "e924202466801755962b88b854463f1742e6602ae72b13f6e8cecb68a1903098",
+      "call-040.md": "aef7447182addbb9c54643fe7d26b9f87ac0b643e7b2bad7d0c7c094cf92a1d5",
+      "call-041.md": "bfb654242e2370681c77f0e41254a5e0e35da58ad01ae1cd73af336fbd96b1f9",
+      "call-042.md": "c2f9f92e5ef8fdc33ff2343575c8e88d550a59b5153b268c19246525287ee100",
+      "call-043.md": "7fc2f0454a2b40c32fc24846e604b33e3834ef7db68cb2e76053e48d7583b637",
+      "call-044.md": "df4fbe14020be50be30a58ca7d3e04175e98811433652726c03a56d042a3d66f",
+      "call-045.md": "d6b30d7ccffc504db58b7944152d51842d78b5a427d11d16c5c98d1d5fa45b10",
+      "call-046.md": "5f314a9dd4898fc9331ba2ef9309c4ca5080317d8e9b75dbfbaa4c993d09dbaa",
+      "call-047.md": "a99c095ec3d23f659868dffab3b7f16a3119109f491b81964e35f21f4e2719f3",
+      "call-048.md": "9d3017e402653141b0d0c1a7f5c2d8b3d869053801c9fbc14c474071259cc38d",
+      "call-049.md": "dc30915daf00b7b0b0dfef661ebb0e99150fce911185ffc5e7273738e75c8fb3",
+      "call-050.md": "931766ab229334c50377e1b04fdd14bab09c12b74ab50154cd29b1edca0a4519",
+      "call-051.md": "36f1ed2f6e7b1de28572288687037709a55797f70579b85ee73342411dc1614b",
+      "call-052.md": "7bec8f60b78a17db398babc9dc936ce6279c4ab772e7ca776b9e7339d338ad69",
+      "call-053.md": "a50f086af0deeb2dfa36cd881496be6344babb7149436d46f52627fcfd3bb730",
+      "call-054.md": "5df49ce03836952a1082cb6ebb6882ca0c2ae28d6e8351bc1e268f4db128b647",
+      "call-055.md": "9aa46a83669b2f778f7847fd9af1eee5507ec0bd54c356251ee521ee76ad799b",
+      "call-056.md": "2c6e17f9c1cd253f5526d1de8e8fccc6e44d0fc4c414c7793a648c8db6fc978f",
+      "call-057.md": "01d67573a34ee832981bb0a9841e3d4fcafd8226ca678ee92d2e951228994645",
+      "call-058.md": "5b273f8e3e7a20b80e2aa8daa8ecb6fd9f3e19b7efbd81e48bd8c00d7d29d82a",
+      "call-059.md": "5af907a5ff67dd74ecd96e0d49858450fc8e77e5da8d73eafe8ad5a20d6fa1df",
+      "call-060.md": "510a5def473c51ea45ed43f97c01bb316aef7bf31f49a4c68fad9843b7fcce5f",
+      "call-061.md": "c6309f19c9864ff4e78a7a831e468f34a343031562ab0727c8997a69e4f1bd71",
+      "call-062.md": "7cbcfcce96e0be85790159d43df12a4e1bb1946f49df40ce1f096251e7d33e97",
+      "call-063.md": "746f89fb77ffb2d1b9f1b2e2285edf2fc23368f8916026c3a79dc57ce10c16e6",
+      "call-064.md": "4c308e638d2d7586bcb58529920d6fd24b6003974c91c5ef8e99d72e47e73d0f",
+      "call-065.md": "7a2a1df9fcedb5d491f5ba453c9125e6acaacfd96a230904757eede6a328de16",
+      "call-066.md": "c0cdbff159d1c494562ac87d8d123192056588549765c316d4498fb54b0c05a2",
+      "call-067.md": "a26382128c2721f51b87d7a3f2321c60184e0543599cb22e461dc1f4f1bf4ec0",
+      "call-068.md": "344679c300f94090ccef5a64444c972e890930d61dc1a3f124e4a982aa3b0a26",
+      "call-069.md": "93138494357a6c867f326ddb9a6cf64c08489f3b2c2a362fd137eaa884390298",
+      "call-070.md": "c5c70ce645af5ed9d38557eb5e36a27e78c90f98b62e6d74a8380ec5db82507a",
+      "call-071.md": "d7b0b7187dedacb4400498a85da30bb2c25eea36b0ac78e1dfe04bbf08d63cc3",
+      "call-072.md": "3a86237d6ade2579142eda0d748815679a982208c1bd0438abd2325cbe220f35",
+      "call-073.md": "1d9e788e0a2d3b955f8df2859672a302b0f57a57d8a0b0bfb794491b29a0ad57",
+      "call-074.md": "5066771db2d7ae92ebc6cb3d2535ce19f8a2be6e37d2a8d18180a34ae6259fdf",
+      "call-075.md": "901cbc861750681b2936eac1e3cd75bb1dc95d07c61f4e5f4fa037c854a85e64",
+      "call-076.md": "649e14457ff42c1268f85155f566fc39c0e1b98d2fa97688942ed32a78bb6983",
+      "call-077.md": "4c84d421e19ff561688bc6ea8303f8d2d636b4db8af2b4c00c63ac639e9ca9a2",
+      "call-078.md": "8e6a71559609a84a7578225ec41ef697396412ff5f2569bed48f9d39bb38c158",
+      "call-079.md": "ca721b32228352cea12dc1d94ffa36e93cab68341cae4f7607fda5beddb3a168",
+      "call-080.md": "1e6110101d4005f966b1f1cef69fa3160352cdfb3f99320b4e6719c6d9415b8f",
+      "call-081.md": "6b7129f33edf83a5da5c148341784ec7a33375abb8e021d6ab3bf129698b4ff4",
+      "call-082.md": "254636d3a80a006450fca2df8e24c4c6db4c4b1d042ba9773196537a286bda96",
+      "call-083.md": "cc4b5dc8ef1bf3339750a83f1a7620dd7dcd9ccc8d2a807d61fbff3761d9a5a9",
+      "call-084.md": "987501239a1b2a1e00ee741cb47b154c768515116e170badf673ad0f96903057",
+      "call-085.md": "7d860f356a31a1bed6d7e8a2142a94f673edc3ee1bc746959b7a8552da11b4ff",
+      "call-086.md": "1e5d31f4ebd78452c8bd22d59d6015d832f4aecfe3f70f483a582f2e2f451b05",
+      "call-087.md": "1ce8d6e26449bd0a6f81d5beb05afed9a2eb2fabd04c2b9cc178b2230219ac5b",
+      "call-088.md": "1e41512f1fa1a66dd1b324c7ce86726c95a481f17208d54497fece5505188f97",
+      "call-089.md": "c7e3cb27c2fb52f41a6d999209e09397ee5af128ac670dbd19ec07c6c08a22db",
+      "call-090.md": "e764e360596fcea77af9b90e46f67e5737430b9c010ba40e1c1ac01d4cba0568",
+      "call-091.md": "b3d0c255f460f0fd4d47dc72cb503a7942d2250ffe68adb0d4bb7ee0f8f4d984",
+      "call-092.md": "3a560a7b336dfadec6ec5412075716814276875c32c9863a8ed2d1fd04ee72a9",
+      "call-093.md": "fbefa2a46650e5819fe3b9f6eb470a4a3c1b02d5792d3aa53c53b36fc5b620ba",
+      "call-094.md": "c4204694c80c19a3f77db611e9e3ded484e086a5d6283d3390fe59ba31974410",
+      "call-095.md": "b03c9eb00d4abdd34a1b1551f1c1a12d589005484cf317ae89a39a8113f338a9",
+      "call-096.md": "3f8f9e187da663deb0d136d54c6dc0482e6d13ff88dae629a30d8d4721a11a45",
+      "call-097.md": "616bd49858ac901d97f3ed26c982036b0b851a4f97646e9e08dc96b03d5eae98",
+      "call-098.md": "dee06525c72e0a1fb9f57c5fc8e9a8cd24b82f65ab816b0f2fb04c5a88a4c1a3",
+      "call-099.md": "b228ddcf53a722050ca78a8e85531f9c7c14af2383e4025a70f25bf8718b9590",
+      "call-100.md": "b959b28879a265d445782a91ce73d06e90ff59faefedea477c93bde385880af7",
+      "call-101.md": "e2dfd5d35ac6818a8b0ee7a464e5a4addae1bd895ab3a39e52f6ac1109356fe0",
+      "call-102.md": "4bfcb83ae1e65c4fb400022c61a2e3a3a67e576e7212ac43ec3ee6c07678cf59",
+      "call-103.md": "97cae09b2fe36df99db7b748cf6741bc994e3b26be38cbaa562333a1dfb34d0e",
+      "call-104.md": "ad0bd7894dd87c1903997444659716f52074a888abd26f5ab1b44a71d267df65",
+      "call-105.md": "ec706bb7e3eceb6ea4cbd7474d36069436f449ebb4be66f81155783a7f389872",
+      "call-106.md": "1907cd5888bee5d354cc5c3052b0bc86736a53f3c7a7ce4c15108fd15216d7d7",
+      "call-107.md": "bea1c72bb4c000ac4908235deafbcf90d1a273ba2acd6b979655cab032c2ba71",
+      "call-108.md": "fef005c48de85f3616be9be3f25d3788d85f634e0e56efee34361fa6579e3fc1",
+      "call-109.md": "ae31acf7d7517004025da22f0282a6691ea3949d5b6369a1c022b8777bf388a4",
+      "call-110.md": "10bbe91655906a483af1f71a3ef44327aa7fccf53cece896dc3f5444262ad899",
+      "call-111.md": "2d2e8c5c2e460d3ea5e86d48f04e857ad69b01cc163ad4d5f7527f5551e70fcc",
+      "call-112.md": "0fde21407339f313bf62cd0bdfea08febec127316ef790e1339a59bdb7617b68",
+      "call-113.md": "15c1814f36d577a0111d5fe4577b3fca15adc2c8007bb04932dd5db2a8f5046c",
+      "call-114.md": "54e2dd6d627d688703ea3f122391a07e598523bd3bb53889c6f80200f5bb658c",
+      "call-115.md": "56bf65ef9f9d79124c4c518f65e30b3c404fbdfaacdfcf60f4c545f8b907deb0",
+      "call-116.md": "41cdf3685c066bdb71214150dd2afe2aa086f606378e8e2b92b269e8538e5645",
+      "call-117.md": "f76c82902cb2e4aecea896e692193a03662a6fcf72bb612df0832ed683ca95d8",
+      "call-118.md": "5117230aba0522fe7a7d341dace97a1198e7b5187912cfedfe6e1237aa056d22",
+      "call-119.md": "9c0282ccc0a0621722244fe598b138551c778559827e9964ec80ddc409600070",
+      "call-120.md": "3da2dc2c90fb8ffb32975fa063076e8ff79d2d1cefd6b46cc64c7d67e3da7d39",
+      "call-121.md": "59aaf1d7b5981c3a878e99c34ee4f7e8ea5092cde06f4a4eec7c5f06f2362b0c",
+      "call-122.md": "47e2fbd99e569eb3d024f30adf72b46143b6f1279f33204d90e9ae8bc184e416",
+      "call-123.md": "95cbdc50869d68f6410896fc7b46ea79e95401e914c162a765b243cc2746ec99",
+      "call-124.md": "d29083defb6337995c5e6213462f945e56e76d3b9fd925e4cd97c34e4d7b7145",
+      "call-125.md": "a2d253c8bf9df5260363b50d2fefa78db49dd1deb2a2dd01fb16dcfce7f5ae59",
+      "call-126.md": "ae95ad1f573134bf21dacc4641882119e6281b90258639ffbbefbd285d862990",
+      "call-127.md": "9475ffea292a0255bbb0041009e458279c3ae598e6b5d4599f7caa566c897674",
+      "call-128.md": "39d241f3fdb464581641d7888e9e206c797869d812db9dda19da1f28cfed6441",
+      "call-129.md": "387d51ccfda429e9c3f2e5456bd62f902980e46ae06bab3259b35eebac0a3402",
+      "call-130.md": "895310fa8abbfe851ba53aca7a8826e43b9e29e15124e9c7f625ec2180842af9",
+      "call-131.md": "ac733b852ea9c5f3669643e8340ae6e8a699605de887df5c6dd4e2e3f58e5a84",
+      "call-132.md": "dc9ab9983b06ce9a698ebd74f089529ec813fad9b8ffab68756ea8fb2626f14f",
+      "call-133.md": "57ccab9f2d45742bd249020ddc59b4f1bb0c17b4eece579ac424aaf6ea8e906a",
+      "call-134.md": "69016a88af82481030e36525adcf4cbb39be41f3722191e97c9ce4244e6264cb",
+      "call-135.md": "dd11ed8bcc901a37d41f06bca75a700439fecb135e10f45b79a9b18f4d9347e1",
+      "call-136.md": "5cff8924b1a13560447158ab948e766693c31e8a2ca6ad91389685f2a75f6551",
+      "call-137.md": "3576465ff2d02a485a42737e57a98e568dc857e95241a02099b9beea4f6da516",
+      "call-138.md": "246f4c42c8feaeb2caf88362bb0b401cfb8d46b39ebd2d37b2713abc6c9da087",
+      "call-139.md": "eb2fa89d3c7dec12a0f57e834b9fcee6d93e740c5d6b077381fe63561c21a793",
+      "call-140.md": "91f797e950688cabbd1c56e03358e97427527f8b733c80c2ec187312b7685fe1",
+      "dev_labels.json": "be136bf252da0d9f3a11eb3c0a0dd405155e4865e4fda1d5aabf96c293cdd5b3",
+      "existing_issues.json": "1d8a2b02ce15267cd0ccfbf9e783cbab36a1dd1e0f3b820610e0262cd0ad9304"
+    },
+    "pipeline_sha256": {
+      "cli.py": "40fa7cfda8d7c60b31a229a07d5f415903a9e35ba88c27620bf27c27640b91c2",
+      "pipeline/__init__.py": "5dc450afd0f9e5884155b0cfde0e480f111038433de2483bf4425784a5900943",
+      "pipeline/config.py": "2dbc27e13d55f45e6efec3fc1a7d17286e76e1ce787bb6a697fa44e525683285",
+      "pipeline/dedup.py": "6041120bb464cde170c56b4ef511a55313a327691115bab72a6facaccc1afdbe",
+      "pipeline/heuristic_judge.py": "144c7b91f251ae777ca697ae3c7617ef5b5b7f347f9c13f25188b33115ace12c",
+      "pipeline/ingest.py": "19e60280981012fa07abc4d4a10f9987b62f5b40415c7df924a5bcf7dcd019b1",
+      "pipeline/judge_base.py": "160a0b4e425a7aefd58a1fdd23dbe5cd230185820ef1610661897ed548879218",
+      "pipeline/keywords.py": "e29e855b63ec490b73dc6764ba591c85a870f07c112faad929091be69c3e9342",
+      "pipeline/llm_judge.py": "6b6ae1265cb5fe4af1d6f7bc4e15c6d7d52a7d413b7bf366b8721d8a4e702e87",
+      "pipeline/logging_utils.py": "641cbbc12293aa0b269b96ea4a7181f0b616e1e40014a42697dfa591beb13ad7",
+      "pipeline/models.py": "904493c121387caefbda9fa3424a217c836704231ae5458cb1498baf3f1fc53f",
+      "pipeline/orchestrator.py": "54c4bac4cd1c6a94694fb3b0bbc4eaa8e7de320a53eeea97b2bb5e8daea379bb",
+      "pipeline/payloads.py": "2b9edba2856efc54b3cb1dab8c98233477d018b67eca15b5faceb83a6de979a7",
+      "pipeline/review.py": "96994fc9c9c1103c431b7abe756ae5311a869fda9356444c125d60d42d263dd6",
+      "pipeline/state_store.py": "dc5d47062db0631550dfbc1637e96e07719b38d54fff22a211d0d5b3b6716968",
+      "pipeline/text_utils.py": "b423db592a4dfae8a62721e0e0d13089bbb643bc4e9b2d4c194103ed63bdcd34",
+      "pipeline/triage.py": "7543eacfe56fea1c5f3b5d40e28ef0f9bde399ed73132577af9c68543e72bc56"
+    }
+  },
+  "runs": [
+    {
+      "cases": [
+        {
+          "call_id": "call-026",
+          "evidence": [
+            "the Outlook invite doesn't update to the new time. It still shows the old time.",
+            "Google's fine, Outlook's stale."
+          ],
+          "expected": [
+            {
+              "action": "corroborate",
+              "issue_type": "Bug",
+              "matched_key": "PROJ-138",
+              "patterns": [
+                "outlook",
+                "reschedul",
+                "old time|original time|stale"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Berkfield University",
+                "action": "corroborate",
+                "call_id": "call-026",
+                "confidence": 0.54,
+                "dedup_similarity": 0.539789,
+                "description": "[EXTERNAL] Rosa: Right. So when a faculty member books a coaching session, they get a calendar invite that lands in their Outlook. Fine. The problem is rescheduling. When someone reschedules a session \u2014 moves it to a new time, which faculty do constantly because their schedules are chaos \u2014 the Outlook invite doesn't update to the new time. It still shows the old time.\n[EXTERNAL] Rosa: Exactly. The session genuinely moves \u2014 in your system it's at the new time, the coach shows up at the new time \u2014 but the faculty member's Outlook calendar is still sitting there displaying the old time. So they get a reminder for the old slot, show up expecting the old time, and it's a mess.\n[EXTERNAL] Rosa: The calendar is God to a professor. If Outlook says 2pm, they believe 2pm, even if the platform says 3pm. I had a department chair miss a session entirely last week because he rescheduled it to later in the day, but his Outlook still pinged him for the original time, he assumed that was right, showed up, and the coach wasn't there yet because the coach was going by the actual new time.\n[EXTERNAL] Rosa: You've got it exactly. And here's a detail that might matter \u2014 we have a handful of faculty who use Google Calendar instead, personal preference, and one of them mentioned that when SHE reschedules, her Google Calendar updates fine, shows the new time immediately. So it seems specific to the Outlook side. Google's fine, Outlook's stale.\n[EXTERNAL] Rosa: Right. And since ninety-something percent of our faculty are on Outlook, the fact that Google works fine doesn't help me much. My whole population is on the broken one.\n[EXTERNAL] Rosa: That's precisely it. Word for word.\n[EXTERNAL] Rosa: I can get that. Chair's name, the session he rescheduled, old time versus new time, and yes he's on Outlook like everyone else. I'll have it to you this afternoon.",
+                "issue_type": "Bug",
+                "ledger_key": "call-026#23#bug",
+                "matched_key": "PROJ-138",
+                "priority": "P3",
+                "rationale": "matches tracked PROJ-138 (similarity=0.54)",
+                "status": "queued",
+                "summary": "Right. So when a faculty member books a coaching session, they get a calendar invite that lands...",
+                "turn_span": [
+                  22,
+                  36
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "External reports of stale Outlook reschedules match PROJ-138; no separate feature request or licensing issue.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-029",
+          "evidence": [
+            "Twenty-nine missing. And no error. No warning.",
+            "every single one has a name written in kanji or katakana in the name field. Non-Latin characters."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "import",
+                "kanji|katakana|non.latin|japanese",
+                "skip|missing|short|drop"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Hanamura Trading",
+                "action": "file-new",
+                "call_id": "call-029",
+                "confidence": 0.5,
+                "dedup_similarity": 0.112156,
+                "description": "[EXTERNAL] Kenji: And then two weeks later people started emailing me saying they never got their welcome email and they can't find their account. At first I assumed they were in the wrong, you know, they typed their email wrong or they're looking in spam.\n[EXTERNAL] Kenji: The usual suspects. So I tell my coordinator to check. And she goes into the members list and counts. And we're short. We uploaded 320 rows. There are 291 members in the system.\n[EXTERNAL] Kenji: Twenty-nine missing. And no error. No warning. Nothing said \"29 rows failed.\" The import just... quietly did 291 of them and told us it was done.\n[EXTERNAL] Kenji: Exactly. And here's the part that took us a while to see. My coordinator, she's sharp, she pulled the 29 missing ones into a separate list to see what they had in common. And it's the names.\n[EXTERNAL] Kenji: The 29 that got skipped \u2014 every single one has a name written in kanji or katakana in the name field. Non-Latin characters. The ones that came through, either they had Latin-alphabet names, or the coordinator happened to have romanized them \u2014 Watanabe instead of \u6e21\u8fba, that kind of thing.",
+                "issue_type": "Bug",
+                "ledger_key": "call-029#25#bug",
+                "matched_key": "PENDING:16",
+                "priority": "P2",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.11)",
+                "status": "queued",
+                "summary": "And then two weeks later people started emailing me saying they never got their welcome email...",
+                "turn_span": [
+                  24,
+                  34
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "One import defect silently drops Japanese-name rows. Manual provisioning is remediation, dark mode is shipped, manager access is configuration.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-038",
+          "evidence": [
+            "So it wasn't your platform at all. It was our security box mangling the websocket.",
+            "zero drops since we made the change last Tuesday. A week clean."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Customer confirms TLS-inspecting proxy root cause and successful customer-side remediation. Historical symptoms and prevention advice are not active product defects.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-054",
+          "evidence": [
+            "Which is exactly why I want it renewed clean and fast, before anyone finds a reason to relitigate a thing that's working.",
+            "Stability is a feature for my crowd."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Renewal, pricing, contract paperwork and future seats only. Preference for stability and a hypothetical extra click do not specify a product change.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-056",
+          "evidence": [
+            "Genuinely nothing. It does what I need",
+            "If it needed a computer it'd be dead on arrival."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Positive program review; hypothetical computer requirement is not an actual failure. Testimonial approval and future seats are not product requests.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-060",
+          "evidence": [
+            "There's no way to do that in bulk.",
+            "Bulk deactivate is there, bulk invite is there, but no bulk reassign.",
+            "Oh, so it's fixable on our side. Great, I'll send the export."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Feature",
+              "patterns": [
+                "coach",
+                "reassign",
+                "bulk|batch|one at a time"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Harlow Health",
+                "action": "file-new",
+                "call_id": "call-060",
+                "confidence": 0.75,
+                "dedup_similarity": 0.133641,
+                "description": "[EXTERNAL] Gwen: None that I could find. And Tobias looked too.\n[EXTERNAL] Tobias: I looked. There's no \"select all of Coach X's members and reassign to Coach Y\" anywhere. I even checked the admin bulk-actions menu because that's where bulk stuff usually lives. Bulk deactivate is there, bulk invite is there, but no bulk reassign.\n[EXTERNAL] Tobias: I even checked the help docs assuming I was just missing a button. Nothing there either.\n[EXTERNAL] Gwen: Exactly. And ideally I could split them \u2014 like, put fifteen with Coach A and fifteen with Coach B, because you don't always want to dump one coach's entire caseload on a single replacement. But even a straight \"move all of Coach X's people to Coach Y\" would have saved me the afternoon.\n[EXTERNAL] Gwen: There's a big risk angle, and this is the part that actually worries me more than my afternoon. When you're doing thirty of these by hand, you will miss one. I'm almost certain I missed at least one member for a day or two \u2014 they were sitting there assigned to a coach who no longer exists on the platform, and they had no active coach until I caught it. For a burnout-prevention program, a clinician falling through the cracks because of a manual reassignment error is exactly the failure mode we can't have.\n[EXTERNAL] Gwen: Please. That's the fear. These are people we're specifically trying to catch before they fall, and the tooling made me the weak link.\n[EXTERNAL] Gwen: That's fair. I don't expect a date. I just want it in the system with the right weight, because it's going to happen again \u2014 coaches leave, that's normal, and every time one does, I'm back to the afternoon.",
+                "issue_type": "Feature",
+                "ledger_key": "call-060#27#feature",
+                "matched_key": "PENDING:32",
+                "priority": "P3",
+                "rationale": "no existing Feature issue matched above threshold (best similarity=0.13)",
+                "status": "queued",
+                "summary": "There's a big risk angle, and this is the part that actually worries me more than my afternoon....",
+                "turn_span": [
+                  20,
+                  32
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "One missing bulk reassignment capability, including optional split and orphan prevention. Content length is content-team feedback; department codes are acknowledged import configuration, not a second Bug.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-066",
+          "evidence": [
+            "Yeah, I'm now fairly convinced I imagined it.",
+            "I can't point to a moment. There's no smoking gun, there's barely smoke."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Retracted vague slowness without a reproducible screen, action or corroboration. Content-topic preference and printer chatter are not software issues.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-069",
+          "evidence": [
+            "I would give a lot for an anonymized, aggregate, org-level read.",
+            "The first is minimum aggregation thresholds",
+            "Trend over time rather than point-in-time snapshots"
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Feature",
+              "patterns": [
+                "aggregat|anonym|privacy",
+                "trend|wellbeing",
+                "org|executive|leadership"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Corvus Media",
+                "action": "file-new-low",
+                "call_id": "call-069",
+                "confidence": 0.25,
+                "dedup_similarity": 0.089045,
+                "description": "[EXTERNAL] Aisha: I would give a lot for an anonymized, aggregate, org-level read. Something like: \"program participation across the org trended down 8% this quarter, concentrated in these broad functions.\" Trends, not individuals. Direction, not detail.\n[EXTERNAL] Aisha: Exactly that. And the \"by design\" part is load-bearing. I don't want a report that's technically aggregate but could be reverse-engineered down to a person because a team only has three people in it. It has to be privacy-preserving in a way I can stand up in front of my workforce and defend. If I can't tell my people \"leadership can see the org is stressed but literally cannot see you,\" it's worthless to me \u2014 worse than worthless, it's a liability.\n[EXTERNAL] Nathan: A few things. The first is minimum aggregation thresholds \u2014 no cell shown below, say, some floor like fifty people, so nothing's re-identifiable.",
+                "issue_type": "Feature",
+                "ledger_key": "call-069#21#feature",
+                "matched_key": "PENDING:36",
+                "priority": "P2",
+                "rationale": "no existing Feature issue matched above threshold (best similarity=0.09)",
+                "status": "queued",
+                "summary": "I would give a lot for an anonymized, aggregate, org-level read. Something like: \"program...",
+                "turn_span": [
+                  20,
+                  26
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "One aggregate wellbeing-trend reporting request with anonymity, aggregation floors and opt-in provenance. Quarterly report/dashboard are phases of the same request, not separate tickets.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-074",
+          "evidence": [
+            "Configurable threshold, posts to Slack, so we catch the drop early instead of a month late.",
+            "let me set the threshold per segment, not one global number."
+          ],
+          "expected": [
+            {
+              "action": "corroborate",
+              "issue_type": "Feature",
+              "matched_key": "PROJ-120",
+              "patterns": [
+                "slack",
+                "threshold|at.risk|engagement"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Windmark Insurance",
+                "action": "corroborate",
+                "call_id": "call-074",
+                "confidence": 0.363,
+                "dedup_similarity": 0.362742,
+                "description": "[EXTERNAL] Lorraine Petty: Yes. Exactly that. I don't want to hunt for problems, I want the problems to find me.\n[EXTERNAL] Neil Ashby: And ideally not another email I'll ignore. We live in Slack. If it hit our Slack, I'd actually see it.\n[EXTERNAL] Neil Ashby: We've got a #people-ops channel. If an at-risk alert dropped there when a team's engagement fell below a threshold we set, the right three people would see it within minutes.\n[EXTERNAL] Lorraine Petty: That would genuinely change how fast we react. Right now it's monthly. That could be same-day.",
+                "issue_type": "Feature",
+                "ledger_key": "call-074#30#feature",
+                "matched_key": "PROJ-120",
+                "priority": "P3",
+                "rationale": "matches tracked PROJ-120 (similarity=0.36)",
+                "status": "queued",
+                "summary": "Yes. Exactly that. I don't want to hunt for problems, I want the problems to find me.",
+                "turn_span": [
+                  29,
+                  35
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "External participants explicitly endorse Slack alerts matching PROJ-120. Per-segment thresholds refine that issue; engagement coaching and email follow-up are services, not extra requests.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-076",
+          "evidence": [
+            "It's not like anything freezes or errors.",
+            "Let's blame the wifi provisionally.",
+            "Okay, enough about my imaginary slowness."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Vague unlocalized slowness, no reproducible issue, acknowledged possible rural wifi confound. Future location onboarding is supported already.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-077",
+          "evidence": [
+            "Invoicing's fine, actually. Single invoice, we book it to the training budget, done.",
+            "Simple is exactly what I want. One line, one budget code."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Commercial renewal and engagement plan only. Internal mention of other customers wanting invoice splits is explicitly not this customer's request.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-079",
+          "evidence": [
+            "Nope. Honestly it just works.",
+            "If it were broken, I'd know",
+            "It's fast, no complaints."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Positive review including shipped dark mode and successful bulk provisioning. Hypothetical breakage, service ROI assistance and future seat adds are not product issues.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-082",
+          "evidence": [
+            "the calendar invite on Hank's actual calendar still says 2pm. The old time. It didn't update.",
+            "It's only Hank and the other Outlook people where the old time sticks."
+          ],
+          "expected": [
+            {
+              "action": "corroborate",
+              "issue_type": "Bug",
+              "matched_key": "PROJ-138",
+              "patterns": [
+                "outlook",
+                "reschedul",
+                "old time|original|update"
+              ]
+            }
+          ],
+          "extra": [
+            {
+              "account": "Twin Pines Farms",
+              "action": "corroborate",
+              "call_id": "call-082",
+              "confidence": 0.204,
+              "dedup_similarity": 0.203629,
+              "description": "[EXTERNAL] Hank Brubaker: In my defense, I run a farm. Weather votes on my calendar.\n[EXTERNAL] Lacey Dunn: He's not wrong. Anyway \u2014 the problem is what happens after I reschedule a session.\n[EXTERNAL] Lacey Dunn: Okay. So Hank had a coaching session booked for, say, 2pm. Something comes up, I go into the platform and move it to 4pm. The reschedule goes through fine, the platform shows 4pm, the coach sees 4pm.\n[EXTERNAL] Lacey Dunn: Right. But then the calendar invite on Hank's actual calendar still says 2pm. The old time. It didn't update.\n[EXTERNAL] Lacey Dunn: Exactly. So Hank sees 2pm on his calendar, shows up to nothing, because the coach is expecting him at 4pm. Twice now he's sat there confused.\n[EXTERNAL] Hank Brubaker: I logged in early like a good boy and nobody was there. Felt like a fool.\n[EXTERNAL] Lacey Dunn: At least four or five reschedules that I know of. Two ended with someone showing up to an empty session. The rest I caught before they did.",
+              "issue_type": "Bug",
+              "ledger_key": "call-082#9#bug",
+              "matched_key": "PROJ-138",
+              "priority": "P2",
+              "rationale": "matches tracked PROJ-138 (similarity=0.20)",
+              "status": "queued",
+              "summary": "He's not wrong. Anyway \u2014 the problem is what happens after I reschedule a session.",
+              "turn_span": [
+                8,
+                18
+              ]
+            }
+          ],
+          "matched": [],
+          "missing": [
+            {
+              "action": "corroborate",
+              "issue_type": "Bug",
+              "matched_key": "PROJ-138",
+              "patterns": [
+                "outlook",
+                "reschedul",
+                "old time|original|update"
+              ]
+            }
+          ],
+          "passed": false,
+          "reason": "One repeated Outlook rescheduling-sync defect matching PROJ-138; workaround and client checks refine it, not separate requests.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-085",
+          "evidence": [
+            "It opens a web page asking them to log in again. In the mobile browser.",
+            "yours aren't doing it on iOS.",
+            "Session reminders, coach notes, the weekly nudge. All of them drop to the browser login on iPhone."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "iphone|ios",
+                "link|email",
+                "browser|safari|universal"
+              ]
+            }
+          ],
+          "extra": [
+            {
+              "account": "Cardinal Couriers",
+              "action": "file-new-low",
+              "call_id": "call-085",
+              "confidence": 0.25,
+              "dedup_similarity": 0.167797,
+              "description": "[EXTERNAL] Marcus: Right, yeah. So this is a little in the weeds but it's been bugging a bunch of our people. When someone gets one of the notification emails, like a session reminder or a \"your coach sent you a note\" email, and they tap the link on their phone.\n[EXTERNAL] Marcus: It opens a web page asking them to log in again. In the mobile browser. Even though they've got the app installed and they're already signed into the app.\n[EXTERNAL] Marcus: Exactly. And these are people who are already logged into the app right there on the same phone. So they tap the link, get the login wall in Safari, get annoyed, and half of them just give up instead of typing their password again on a tiny keyboard.",
+              "issue_type": "Bug",
+              "ledger_key": "call-085#25#bug",
+              "matched_key": "PENDING:43",
+              "priority": "P2",
+              "rationale": "no existing Bug issue matched above threshold (best similarity=0.17)",
+              "status": "queued",
+              "summary": "Right, yeah. So this is a little in the weeds but it's been bugging a bunch of our people. When...",
+              "turn_span": [
+                24,
+                30
+              ]
+            }
+          ],
+          "matched": [],
+          "missing": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "iphone|ios",
+                "link|email",
+                "browser|safari|universal"
+              ]
+            }
+          ],
+          "passed": false,
+          "reason": "Broken iOS universal-link handoff despite an installed signed-in app. Not the OS-update logout issue PROJ-160, and not Okta expiry. One defect across email categories.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-087",
+          "evidence": [
+            "But that's a compliment disguised as a complaint.",
+            "I genuinely can't find a problem for you to solve."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Positive review; more reminder frequency is an existing setting, not missing product work. Testimonial handling, content and seat planning are not issues.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-088",
+          "evidence": [
+            "We have never been on Okta. This is Ping.",
+            "Our users get hard-locked out at exactly 24 hours.",
+            "The hard lockout requiring a manual admin unlock is the killer."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "ping",
+                "24",
+                "lock"
+              ]
+            }
+          ],
+          "extra": [
+            {
+              "account": "Beaumont Insurance",
+              "action": "file-new-low",
+              "call_id": "call-088",
+              "confidence": 0.25,
+              "dedup_similarity": 0.112646,
+              "description": "[EXTERNAL] Susan: A bulk unlock would at least make the daily pain survivable while you fix the root cause. Right now there's no bulk option that I can find, it's user by user.\n[EXTERNAL] Harold: How fast can we expect movement? I need something to tell our CISO, this is affecting our claims adjusters who need daily access.\n[EXTERNAL] Harold: That's what I need. One business day for a real status, not a ticket number and silence.",
+              "issue_type": "Feature",
+              "ledger_key": "call-088#38#feature",
+              "matched_key": "PENDING:45",
+              "priority": "P2",
+              "rationale": "no existing Feature issue matched above threshold (best similarity=0.11)",
+              "status": "queued",
+              "summary": "A bulk unlock would at least make the daily pain survivable while you fix the root cause. Right...",
+              "turn_span": [
+                37,
+                43
+              ]
+            }
+          ],
+          "matched": [
+            {
+              "actual": {
+                "account": "Beaumont Insurance",
+                "action": "file-new-low",
+                "call_id": "call-088",
+                "confidence": 0.25,
+                "dedup_similarity": 0.14247,
+                "description": "[EXTERNAL] Susan: Our users get hard-locked out at exactly 24 hours. And I mean exactly. If someone logs in at 9am Monday, at 9am Tuesday they are locked out. Not \"asked to re-authenticate.\" Locked out.\n[EXTERNAL] Susan: That's the part that's killing us. They cannot get back in. They hit the login, it bounces to Ping, Ping authenticates them fine, they come back to BetterBark, and BetterBark rejects them. It says something like account locked or access denied. They cannot self-recover. The only way back in is for me or one of my admins to go into the admin console and manually unlock that user's account.\n[EXTERNAL] Susan: Exactly that. And it's every federated user, on a rolling 24-hour clock from their last login. So every day I've got a fresh batch of people I have to manually unlock. Yesterday I unlocked 40-something accounts one at a time. It's untenable.\n[EXTERNAL] Harold: This is why I escalated. It's not a papercut, it's a daily operational tax on Susan's team and a wall for our users.",
+                "issue_type": "Bug",
+                "ledger_key": "call-088#12#bug",
+                "matched_key": "PENDING:44",
+                "priority": "P1",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.14)",
+                "status": "queued",
+                "summary": "Our users get hard-locked out at exactly 24 hours. And I mean exactly. If someone logs in at 9am...",
+                "turn_span": [
+                  11,
+                  17
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": false,
+          "reason": "One Ping-specific hard account lock after 24 hours requiring admin recovery. Explicitly distinct from self-recoverable Okta early expiry PROJ-064. Bulk unlock is interim relief for this incident, not independent feature scope.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-098",
+          "evidence": [
+            "that's a \"get my managers to log in\" problem, not a platform problem.",
+            "No complaints on that front"
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Commercial renewal and manager-enablement service. Customer explicitly attributes dashboard non-use to manager habits, not missing software capability.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-101",
+          "evidence": [
+            "the goal-tracking feature sends reminder notifications",
+            "The goal reminder buzzes at roughly three a.m. local.",
+            "I have not heard a single complaint about session reminders."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "goal",
+                "remind|notification",
+                "three|3 a|3am|3 a.m|timezone|united states|american"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Taro Logistics",
+                "action": "file-new",
+                "call_id": "call-101",
+                "confidence": 0.5,
+                "dedup_similarity": 0.140343,
+                "description": "[EXTERNAL] Aiko: I am a logistics person. Timezone math is my entire life. We route freight across twelve zones. When something fires at the \"wrong\" time, my first instinct is always \"whose clock is it actually on?\" And it looks very much like these reminders are on someone's clock in the middle of the United States, not ours.\n[EXTERNAL] Kenji: That is our theory as well. The reminders behave as if we are all in America. We are, I assure you, not.\n[EXTERNAL] Aiko: That was my worry \u2014 that it is not just us. If it is tuned for American hours, then every customer in Asia has members getting woken up at three in the morning by a goal reminder, and most of them are probably just turning notifications off, like Kenji did, and not telling you why.\n[EXTERNAL] Aiko: Thank you. I will feel much better knowing it is filed. Even if the fix takes a while, at least I can tell members \"we reported it, it is a known issue, please just mute it for now\" instead of \"the app is broken and we don't know why.\"\n[EXTERNAL] Aiko: Good. I will send that guidance to the cohort leads.\n[EXTERNAL] Kenji: Sam, while we are on notifications \u2014 the session reminders, the ones for actual coaching appointments, those are fine? Correct time?\n[EXTERNAL] Kenji: The second one. I have not heard a single complaint about session reminders. They seem to arrive when they should. I only ask because if goals are on the wrong clock, I wonder if sessions are at risk too.\n[EXTERNAL] Kenji: Good. Then I will not worry about sessions.\n[EXTERNAL] Aiko: We will tell you. We are, as you can see, a data-gathering people.",
+                "issue_type": "Bug",
+                "ledger_key": "call-101#27#bug",
+                "matched_key": "PENDING:54",
+                "priority": "P3",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.14)",
+                "status": "queued",
+                "summary": "I am a logistics person. Timezone math is my entire life. We route freight across twelve zones....",
+                "turn_span": [
+                  26,
+                  43
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "Goal reminder delivery ignores local APAC working hours. Not PROJ-101's displayed scheduled-report timestamps. Session reminders are explicitly working; workaround/update questions are not extra issues.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-112",
+          "evidence": [
+            "Every time they hit back, the filters vanish.",
+            "The back button is the trigger."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "coach",
+                "filter",
+                "back",
+                "gone|reset|vanish|lost|disappear"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Onyx Apparel",
+                "action": "file-new-low",
+                "call_id": "call-112",
+                "confidence": 0.25,
+                "dedup_similarity": 0.123105,
+                "description": "[EXTERNAL] Trevor: Exactly. Every time they hit back, the filters vanish. So if someone wants to compare five coaches, they're re-entering their filters five times. And these are busy store managers doing this on their phone browser between customers. By the third time they've had to re-pick \"leadership, Spanish, Pacific time,\" they give up and just take whoever's at the top of the unfiltered list, which defeats the whole point of matching.\n[EXTERNAL] Trevor: That's it word for word. The back button is the trigger. If they use some in-page \"back to results\" link instead \u2014 if there is one, I'm not even sure \u2014 maybe it's fine? But the natural instinct on a phone is to hit the browser back button, and that's what kills it.\n[EXTERNAL] Trevor: Across the board as far as I can tell. I've had it reported on phones and on desktop. The store managers are mostly on their phone browsers, but a couple of my district managers work off laptops and they've hit it too. So it doesn't seem browser-specific \u2014 it's the back-button behavior itself.",
+                "issue_type": "Bug",
+                "ledger_key": "call-112#18#bug",
+                "matched_key": "PENDING:60",
+                "priority": "P2",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.12)",
+                "status": "queued",
+                "summary": "Exactly. Every time they hit back, the filters vanish. So if someone wants to compare five...",
+                "turn_span": [
+                  17,
+                  23
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "One coach-search navigation-state defect across devices. New-tab workaround, screenshots and already-available manager-coaching content are not separate software requests.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-115",
+          "evidence": [
+            "They'd click it and get a page saying the link had expired. On a link they'd just received minutes ago.",
+            "the scanner clicks the verification link before the human does.",
+            "I don't have anything concrete on that yet, just vague mutterings."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "verif|token",
+                "link",
+                "expired|prefetch|scanner|scann"
+              ]
+            }
+          ],
+          "extra": [
+            {
+              "account": "Crane & Whitfield",
+              "action": "file-new-low",
+              "call_id": "call-115",
+              "confidence": 0.25,
+              "dedup_similarity": 0.197104,
+              "description": "[EXTERNAL] Nadia Okonkwo: So what do we do? Because I've got another cohort starting in three weeks and I can't have half of them locked out.\n[EXTERNAL] Nadia Okonkwo: I can raise that with our security team, though they're touchy about exclusions.\n[EXTERNAL] Nadia Okonkwo: That makes sense to me even as a non-engineer.",
+              "issue_type": "Bug",
+              "ledger_key": "call-115#33#bug",
+              "matched_key": "PENDING:65",
+              "priority": "P2",
+              "rationale": "no existing Bug issue matched above threshold (best similarity=0.20)",
+              "status": "queued",
+              "summary": "So what do we do? Because I've got another cohort starting in three weeks and I can't have half...",
+              "turn_span": [
+                32,
+                38
+              ]
+            }
+          ],
+          "matched": [
+            {
+              "actual": {
+                "account": "Crane & Whitfield",
+                "action": "file-new",
+                "call_id": "call-115",
+                "confidence": 0.5,
+                "dedup_similarity": 0.160716,
+                "description": "[EXTERNAL] Nadia Okonkwo: A chunk of my new associates were telling me the link didn't work. They'd click it and get a page saying the link had expired. On a link they'd just received minutes ago.\n[EXTERNAL] Nadia Okonkwo: Immediately. Some of them clicked within a minute of the email landing. \"Expired.\"\n[EXTERNAL] Nadia Okonkwo: A subset, but a big one. And that's the clue, I think. Let me keep going because I did some digging and I have a theory that I'd love you to shoot down or confirm.\n[EXTERNAL] Nadia Okonkwo: The people it happened to \u2014 they'd click the link, get \"expired.\" But then if they went and requested a fresh link and clicked THAT one fast, sometimes it worked, sometimes it didn't. Totally inconsistent. Which drove me up a wall.\n[EXTERNAL] Nadia Okonkwo: So I got nerdy about it. I noticed the affected people all had one thing in common. They're the ones on Outlook. Our firm runs Microsoft 365, and the associates are all in Outlook. But a handful of our contractors and a couple of partners use other mail clients, personal Gmail forwarding, that kind of thing, and THOSE people never had the problem.\n[EXTERNAL] Nadia Okonkwo: As far as I can tell, yes. Outlook people: broken. Everyone else: fine.\n[EXTERNAL] Nadia Okonkwo: Here's my theory, and I'm not an email engineer so tell me if I'm being an idiot. We have a security layer on our email \u2014 the Microsoft safe-links thing. It scans URLs in incoming mail. My understanding is it actually visits the links to check if they're malicious before it lets the user click.\n[EXTERNAL] Nadia Okonkwo: Right. So my theory is: the scanner clicks the verification link before the human does. And if your verification link is one-time-use, the scanner burns it. So by the time the human clicks, the token's already been spent, and they see \"expired.\"\n[EXTERNAL] Nadia Okonkwo: Take your time. I've been sitting with it for a week.\n[EXTERNAL] Nadia Okonkwo: That's exactly my theory. And it explains the inconsistency too \u2014 sometimes the scanner is slow and the human beats it, sometimes the scanner wins the race.",
+                "issue_type": "Bug",
+                "ledger_key": "call-115#11#bug",
+                "matched_key": "PENDING:64",
+                "priority": "P3",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.16)",
+                "status": "queued",
+                "summary": "A chunk of my new associates were telling me the link didn't work. They'd click it and get a...",
+                "turn_span": [
+                  10,
+                  30
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": false,
+          "reason": "One verification-token consumption bug triggered by Safe Links prefetch, with misleading expiry message. Unlike the resolved customer-proxy incident, product confirmation flow needs a change. Unspecified reset-link grumbles do not corroborate PROJ-142.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-123",
+          "evidence": [
+            "Honestly? I think it's more shiny than real.",
+            "I'm not shopping. But I have to let my CHRO feel heard."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Competitor's 24/7 support claim is not adopted as a customer requirement. Value summary and re-onboarding are account services, not new product features.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-124",
+          "evidence": [
+            "Round to ninety-five to cover the new cafe, keep everyone in.",
+            "Give me the copy and I'll send it."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Renewal pricing, seat count and human-delivered engagement campaign only. No software bug or new capability requested.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-130",
+          "evidence": [
+            "Same session ID, same payload, just delivered multiple times.",
+            "the clean fix is an idempotency key.",
+            "If it's already tracked, great, add our voice to it."
+          ],
+          "expected": [
+            {
+              "action": "corroborate",
+              "issue_type": "Bug",
+              "matched_key": "PROJ-087",
+              "patterns": [
+                "webhook|event",
+                "duplicate|more than once|multiple times|twice"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Ryecroft Analytics",
+                "action": "corroborate",
+                "call_id": "call-130",
+                "confidence": 0.234,
+                "dedup_similarity": 0.234036,
+                "description": "[EXTERNAL] Nadia: We do. Every inbound webhook gets its signature verified before we process it. If it doesn't verify, we drop it and log it. I'm paranoid about accepting spoofed events into the warehouse.\n[EXTERNAL] Nadia: Perfect. That's the easy one done. Okay \u2014 the reliability thing, which is the one I actually care about.\n[EXTERNAL] Nadia: We've been noticing that we sometimes get the same event more than once. Like, the exact same session-completed event will land in our queue twice, occasionally three times. Same session ID, same payload, just delivered multiple times.\n[EXTERNAL] Nadia: It's not constant, which is what makes it annoying. Most events come through exactly once. But maybe \u2014 I'd estimate a few out of every thousand? \u2014 show up as duplicates. Enough that it's not noise, but not so much that it's every event.\n[EXTERNAL] Nadia: That's a good question and I actually checked. The event payload is identical. Same session ID, same completion timestamp, same everything in the body. The delivery envelope has a different delivery timestamp because it arrives a few seconds or minutes later, but the actual event content is byte-for-byte the same. It's clearly the same underlying event being sent again, not a new event.\n[EXTERNAL] Nadia: Right now we've built our own dedup layer to catch it, so it's not breaking anything today. But it's fragile. We're keying off the session ID plus event type and dropping anything we've already seen. The problem is that's our hack, and it means every consumer of your webhooks has to independently reinvent this. And if two duplicates race through our pipeline at the same time before the first one commits, our dedup can miss it and we double-count a session. Which for an analytics company is genuinely bad \u2014 we're literally in the business of accurate counts.\n[EXTERNAL] Nadia: Honestly, the clean fix is an idempotency key. If every webhook delivery carried a stable, unique identifier for the event itself \u2014 not the delivery, the event \u2014 then we could dedup reliably on that key instead of guessing based on payload contents. Send the same event twice, same idempotency key, we drop the second one with confidence. That's the industry-standard pattern and it would let us throw away our hacky dedup layer.\n[EXTERNAL] Nadia: Right? I'd much rather trust a key you guarantee than fingerprint the body myself and hope you never change the schema.\n[EXTERNAL] Nadia: Exactly. So that's the flag. I don't need it fixed tomorrow, but I want it on your radar as the direction, because we're going to keep leaning on webhooks and this only gets more important as our volume grows.\n[EXTERNAL] Nadia: That's fine by me. If it's already tracked, great, add our voice to it. I'd just want to be looped in if there's a solution so we can adopt the key when it exists.\n[EXTERNAL] Nadia: Perfect. And in the meantime, is there anything I should know about the current delivery behavior \u2014 like, is a duplicate ever a signal that the first one failed, or is it purely spurious?\n[EXTERNAL] Nadia: Good, that's what I assumed but I wanted to hear it from you. I was slightly worried we were dropping legitimate re-sends.\n[EXTERNAL] Tim: Can I ask a dumb question from the cheap seats?\n[EXTERNAL] Tim: Ha. So does this mean our analytics numbers have been wrong this whole time?\n[EXTERNAL] Nadia: No, Tim, our dedup has been catching almost all of them. I flagged the risk, not an actual known miscount. If we'd been double-counting sessions, the numbers would look insane and someone would've screamed by now.\n[EXTERNAL] Tim: Okay, good. I don't want to explain wrong numbers to the CFO.\n[EXTERNAL] Nadia: Exactly. It works today, I just don't want it to be load-bearing forever.\n[EXTERNAL] Nadia: That's a clean summary. Nailed it.\n[EXTERNAL] Nadia: Perfect. The staging endpoint's the quick win; the idempotency key is the one I'll be nagging you about at every sync.\n[EXTERNAL] Nadia: That's my list. Tim?\n[EXTERNAL] Tim: Nothing from me. I understood maybe sixty percent of that and I'm at peace with it.\n[EXTERNAL] Nadia: Thanks, Ravi. Talk soon.\n[EXTERNAL] Tim: Cheers. Oh \u2014 one non-webhook thing, Ravi, quick. Do the standard engagement reports come as CSV or just the dashboard? My analytics people asked.\n[EXTERNAL] Tim: Great, that'll make them happy. That's genuinely all. Thanks both.",
+                "issue_type": "Bug",
+                "ledger_key": "call-130#27#bug",
+                "matched_key": "PROJ-087",
+                "priority": "P2",
+                "rationale": "matches tracked PROJ-087 (similarity=0.23)",
+                "status": "queued",
+                "summary": "Right now we've built our own dedup layer to catch it, so it's not breaking anything today. But...",
+                "turn_span": [
+                  16,
+                  60
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "Duplicate delivery and requested stable idempotency keys are covered together by PROJ-087. Staging endpoints and CSV exports already exist; consumer mitigation does not resolve the provider's defect.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-136",
+          "evidence": [
+            "There's like a trailing space at the end of the header row.",
+            "No line number, no field, no hint about what's wrong.",
+            "is there any way to validate a file before I commit the import? Like a dry-run that tells me it's clean without actually creating anyone?"
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "import",
+                "header",
+                "whitespace|trailing|space"
+              ]
+            },
+            {
+              "action": "file-new",
+              "issue_type": "Feature",
+              "patterns": [
+                "import",
+                "dry.run|validat",
+                "before|without"
+              ]
+            }
+          ],
+          "extra": [
+            {
+              "account": "Portman Grand Hotels",
+              "action": "file-new",
+              "call_id": "call-136",
+              "confidence": 1.0,
+              "dedup_similarity": 0.123592,
+              "description": "[EXTERNAL] Renata: It all funnels through me, by design. The GMs are great at running hotels and terrible at data hygiene, so I don't let them touch the roster. Learned that the hard way when a GM once uploaded a spreadsheet with everyone's names in the wrong columns.\n[EXTERNAL] Renata: That's my whole philosophy. I'm a control freak about the data because the data is the one thing that has to be right. Which is why this import failure has been driving me up a wall \u2014 I do everything correctly and it still broke.\n[EXTERNAL] Renata: Right. And with fourteen properties and turnover being what it is in hospitality \u2014 which is brutal, people come and go constantly \u2014 I'm doing roster imports all the time. New hires in, departures out. It's a weekly job at minimum.\n[EXTERNAL] Renata: Okay. So I build a CSV \u2014 I've done this dozens of times, I know the format. Columns for name, email, employee ID, property, the whole thing. I go to the admin panel, Members, the bulk import, I upload the file, and it just... rejects the whole thing. The entire file. It doesn't import a single row.\n[EXTERNAL] Renata: That's the maddening part. It gives me the most useless error I have ever seen. It says \u2014 let me read it exactly \u2014 \"An unknown error occurred. Please try again.\" That's it. That's the whole message. No line number, no field, no hint about what's wrong.\n[EXTERNAL] Renata: Because trying again does nothing! It's not a fluke, it's the same file failing the same way every time. I tried again probably fifteen times out of pure stubbornness. Same error every time. It is not a \"try again\" situation.\n[EXTERNAL] Renata: Yes! That's why it's driving me crazy. I've done this exact workflow probably fifty times. Same panel, same kind of file. It's always worked. Now suddenly this batch won't go.\n[EXTERNAL] Renata: Not that I can think of. I built it the same way I always do. Well \u2014 actually, this time I exported the starting template from a different system. Our new HRIS. We migrated HRIS platforms last month, and I pulled the roster out of the new one instead of the old one. But the columns look identical, I checked.",
+              "issue_type": "Bug",
+              "ledger_key": "call-136#19#bug",
+              "matched_key": "PENDING:70",
+              "priority": "P3",
+              "rationale": "no existing Bug issue matched above threshold (best similarity=0.12)",
+              "status": "queued",
+              "summary": "That's the maddening part. It gives me the most useless error I have ever seen. It says \u2014 let me...",
+              "turn_span": [
+                10,
+                26
+              ]
+            }
+          ],
+          "matched": [
+            {
+              "actual": {
+                "account": "Portman Grand Hotels",
+                "action": "file-new",
+                "call_id": "call-136",
+                "confidence": 0.5,
+                "dedup_similarity": 0.182534,
+                "description": "[EXTERNAL] Renata: I am equal parts relieved and furious. Relieved it works, furious it was a space, and furious the error message told me absolutely nothing. If it had said \"there's a problem with your header row\" I'd have found it in five minutes instead of two days.\n[EXTERNAL] Renata: Please do. Because I'm not the only admin who imports rosters, and the next person who hits this is going to lose two days like I did.\n[EXTERNAL] Renata: That matches exactly. And I'd add \u2014 \"try again\" is actively misleading, because trying again with the same file will never work. It made me waste time re-uploading instead of investigating.",
+                "issue_type": "Bug",
+                "ledger_key": "call-136#35#bug",
+                "matched_key": "PENDING:71",
+                "priority": "P3",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.18)",
+                "status": "queued",
+                "summary": "I am equal parts relieved and furious. Relieved it works, furious it was a space, and furious...",
+                "turn_span": [
+                  34,
+                  40
+                ]
+              },
+              "expected_index": 0
+            },
+            {
+              "actual": {
+                "account": "Portman Grand Hotels",
+                "action": "file-new-low",
+                "call_id": "call-136",
+                "confidence": 0.25,
+                "dedup_similarity": 0.066309,
+                "description": "[EXTERNAL] Renata: While we're at it \u2014 is there any way to validate a file before I commit the import? Like a dry-run that tells me it's clean without actually creating anyone?\n[EXTERNAL] Renata: Huh. That's a decent habit. I'll start doing a three-row canary import first.\n[EXTERNAL] Renata: Perfect. Belt and suspenders \u2014 canary import plus stripping the header space. I'll do both religiously now.",
+                "issue_type": "Feature",
+                "ledger_key": "call-136#45#feature",
+                "matched_key": "PENDING:72",
+                "priority": "P3",
+                "rationale": "no existing Feature issue matched above threshold (best similarity=0.07)",
+                "status": "queued",
+                "summary": "While we're at it \u2014 is there any way to validate a file before I commit the import? Like a...",
+                "turn_span": [
+                  44,
+                  50
+                ]
+              },
+              "expected_index": 1
+            }
+          ],
+          "missing": [],
+          "passed": false,
+          "reason": "One importer defect combines whitespace rejection and opaque error; workaround is not a shipped fix. A separately actionable missing non-mutating dry-run is also explicitly requested. Granularity needs human confirmation: this annotation treats dry-run as independent because it remains useful after whitespace handling is fixed.",
+          "review_status": "reviewed"
+        }
+      ],
+      "coverage": {
+        "already_queued": 0,
+        "calls_discovered": 140,
+        "calls_failed": 0,
+        "calls_processed": 140,
+        "candidates_found": 228,
+        "candidates_suppressed": 128,
+        "collapsed_duplicates": 6,
+        "duration_seconds": 1.235,
+        "not_actionable": 0,
+        "queue_by_action": {
+          "corroborate": 22,
+          "file-new": 42,
+          "file-new-low": 30
+        },
+        "queued_for_review": 94,
+        "skipped_already_processed": 0
+      },
+      "exact_call_accuracy": {
+        "denominator": 24,
+        "numerator": 19,
+        "value": 0.7916666666666666,
+        "wilson_95": [
+          0.5952954674681133,
+          0.9075517464714814
+        ]
+      },
+      "false_negatives": 2,
+      "false_positives": 5,
+      "fingerprint": "591933c85bacaf9d9ea9b33aed45dbd719022e520e411927acd802935bdf5475",
+      "negative_call_accuracy": {
+        "denominator": 11,
+        "numerator": 11,
+        "value": 1.0,
+        "wilson_95": [
+          0.7411670330319684,
+          1
+        ]
+      },
+      "passed": false,
+      "precision": {
+        "denominator": 17,
+        "numerator": 12,
+        "value": 0.7058823529411765,
+        "wilson_95": [
+          0.4686688993346016,
+          0.8672001038970478
+        ]
+      },
+      "precision_by_tier": {
+        "confident": {
+          "denominator": 10,
+          "numerator": 8,
+          "value": 0.8,
+          "wilson_95": [
+            0.49016247153664183,
+            0.9433178485456247
+          ]
+        },
+        "low_confidence": {
+          "denominator": 7,
+          "numerator": 4,
+          "value": 0.5714285714285714,
+          "wilson_95": [
+            0.2504583645276572,
+            0.8417801447485302
+          ]
+        }
+      },
+      "recall": {
+        "denominator": 14,
+        "numerator": 12,
+        "value": 0.8571428571428571,
+        "wilson_95": [
+          0.6005862050302965,
+          0.9599060787285351
+        ]
+      },
+      "run": 1,
+      "true_positives": 12
+    },
+    {
+      "cases": [
+        {
+          "call_id": "call-026",
+          "evidence": [
+            "the Outlook invite doesn't update to the new time. It still shows the old time.",
+            "Google's fine, Outlook's stale."
+          ],
+          "expected": [
+            {
+              "action": "corroborate",
+              "issue_type": "Bug",
+              "matched_key": "PROJ-138",
+              "patterns": [
+                "outlook",
+                "reschedul",
+                "old time|original time|stale"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Berkfield University",
+                "action": "corroborate",
+                "call_id": "call-026",
+                "confidence": 0.54,
+                "dedup_similarity": 0.539789,
+                "description": "[EXTERNAL] Rosa: Right. So when a faculty member books a coaching session, they get a calendar invite that lands in their Outlook. Fine. The problem is rescheduling. When someone reschedules a session \u2014 moves it to a new time, which faculty do constantly because their schedules are chaos \u2014 the Outlook invite doesn't update to the new time. It still shows the old time.\n[EXTERNAL] Rosa: Exactly. The session genuinely moves \u2014 in your system it's at the new time, the coach shows up at the new time \u2014 but the faculty member's Outlook calendar is still sitting there displaying the old time. So they get a reminder for the old slot, show up expecting the old time, and it's a mess.\n[EXTERNAL] Rosa: The calendar is God to a professor. If Outlook says 2pm, they believe 2pm, even if the platform says 3pm. I had a department chair miss a session entirely last week because he rescheduled it to later in the day, but his Outlook still pinged him for the original time, he assumed that was right, showed up, and the coach wasn't there yet because the coach was going by the actual new time.\n[EXTERNAL] Rosa: You've got it exactly. And here's a detail that might matter \u2014 we have a handful of faculty who use Google Calendar instead, personal preference, and one of them mentioned that when SHE reschedules, her Google Calendar updates fine, shows the new time immediately. So it seems specific to the Outlook side. Google's fine, Outlook's stale.\n[EXTERNAL] Rosa: Right. And since ninety-something percent of our faculty are on Outlook, the fact that Google works fine doesn't help me much. My whole population is on the broken one.\n[EXTERNAL] Rosa: That's precisely it. Word for word.\n[EXTERNAL] Rosa: I can get that. Chair's name, the session he rescheduled, old time versus new time, and yes he's on Outlook like everyone else. I'll have it to you this afternoon.",
+                "issue_type": "Bug",
+                "ledger_key": "call-026#23#bug",
+                "matched_key": "PROJ-138",
+                "priority": "P3",
+                "rationale": "matches tracked PROJ-138 (similarity=0.54)",
+                "status": "queued",
+                "summary": "Right. So when a faculty member books a coaching session, they get a calendar invite that lands...",
+                "turn_span": [
+                  22,
+                  36
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "External reports of stale Outlook reschedules match PROJ-138; no separate feature request or licensing issue.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-029",
+          "evidence": [
+            "Twenty-nine missing. And no error. No warning.",
+            "every single one has a name written in kanji or katakana in the name field. Non-Latin characters."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "import",
+                "kanji|katakana|non.latin|japanese",
+                "skip|missing|short|drop"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Hanamura Trading",
+                "action": "file-new",
+                "call_id": "call-029",
+                "confidence": 0.5,
+                "dedup_similarity": 0.112156,
+                "description": "[EXTERNAL] Kenji: And then two weeks later people started emailing me saying they never got their welcome email and they can't find their account. At first I assumed they were in the wrong, you know, they typed their email wrong or they're looking in spam.\n[EXTERNAL] Kenji: The usual suspects. So I tell my coordinator to check. And she goes into the members list and counts. And we're short. We uploaded 320 rows. There are 291 members in the system.\n[EXTERNAL] Kenji: Twenty-nine missing. And no error. No warning. Nothing said \"29 rows failed.\" The import just... quietly did 291 of them and told us it was done.\n[EXTERNAL] Kenji: Exactly. And here's the part that took us a while to see. My coordinator, she's sharp, she pulled the 29 missing ones into a separate list to see what they had in common. And it's the names.\n[EXTERNAL] Kenji: The 29 that got skipped \u2014 every single one has a name written in kanji or katakana in the name field. Non-Latin characters. The ones that came through, either they had Latin-alphabet names, or the coordinator happened to have romanized them \u2014 Watanabe instead of \u6e21\u8fba, that kind of thing.",
+                "issue_type": "Bug",
+                "ledger_key": "call-029#25#bug",
+                "matched_key": "PENDING:16",
+                "priority": "P2",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.11)",
+                "status": "queued",
+                "summary": "And then two weeks later people started emailing me saying they never got their welcome email...",
+                "turn_span": [
+                  24,
+                  34
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "One import defect silently drops Japanese-name rows. Manual provisioning is remediation, dark mode is shipped, manager access is configuration.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-038",
+          "evidence": [
+            "So it wasn't your platform at all. It was our security box mangling the websocket.",
+            "zero drops since we made the change last Tuesday. A week clean."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Customer confirms TLS-inspecting proxy root cause and successful customer-side remediation. Historical symptoms and prevention advice are not active product defects.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-054",
+          "evidence": [
+            "Which is exactly why I want it renewed clean and fast, before anyone finds a reason to relitigate a thing that's working.",
+            "Stability is a feature for my crowd."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Renewal, pricing, contract paperwork and future seats only. Preference for stability and a hypothetical extra click do not specify a product change.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-056",
+          "evidence": [
+            "Genuinely nothing. It does what I need",
+            "If it needed a computer it'd be dead on arrival."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Positive program review; hypothetical computer requirement is not an actual failure. Testimonial approval and future seats are not product requests.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-060",
+          "evidence": [
+            "There's no way to do that in bulk.",
+            "Bulk deactivate is there, bulk invite is there, but no bulk reassign.",
+            "Oh, so it's fixable on our side. Great, I'll send the export."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Feature",
+              "patterns": [
+                "coach",
+                "reassign",
+                "bulk|batch|one at a time"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Harlow Health",
+                "action": "file-new",
+                "call_id": "call-060",
+                "confidence": 0.75,
+                "dedup_similarity": 0.133641,
+                "description": "[EXTERNAL] Gwen: None that I could find. And Tobias looked too.\n[EXTERNAL] Tobias: I looked. There's no \"select all of Coach X's members and reassign to Coach Y\" anywhere. I even checked the admin bulk-actions menu because that's where bulk stuff usually lives. Bulk deactivate is there, bulk invite is there, but no bulk reassign.\n[EXTERNAL] Tobias: I even checked the help docs assuming I was just missing a button. Nothing there either.\n[EXTERNAL] Gwen: Exactly. And ideally I could split them \u2014 like, put fifteen with Coach A and fifteen with Coach B, because you don't always want to dump one coach's entire caseload on a single replacement. But even a straight \"move all of Coach X's people to Coach Y\" would have saved me the afternoon.\n[EXTERNAL] Gwen: There's a big risk angle, and this is the part that actually worries me more than my afternoon. When you're doing thirty of these by hand, you will miss one. I'm almost certain I missed at least one member for a day or two \u2014 they were sitting there assigned to a coach who no longer exists on the platform, and they had no active coach until I caught it. For a burnout-prevention program, a clinician falling through the cracks because of a manual reassignment error is exactly the failure mode we can't have.\n[EXTERNAL] Gwen: Please. That's the fear. These are people we're specifically trying to catch before they fall, and the tooling made me the weak link.\n[EXTERNAL] Gwen: That's fair. I don't expect a date. I just want it in the system with the right weight, because it's going to happen again \u2014 coaches leave, that's normal, and every time one does, I'm back to the afternoon.",
+                "issue_type": "Feature",
+                "ledger_key": "call-060#27#feature",
+                "matched_key": "PENDING:32",
+                "priority": "P3",
+                "rationale": "no existing Feature issue matched above threshold (best similarity=0.13)",
+                "status": "queued",
+                "summary": "There's a big risk angle, and this is the part that actually worries me more than my afternoon....",
+                "turn_span": [
+                  20,
+                  32
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "One missing bulk reassignment capability, including optional split and orphan prevention. Content length is content-team feedback; department codes are acknowledged import configuration, not a second Bug.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-066",
+          "evidence": [
+            "Yeah, I'm now fairly convinced I imagined it.",
+            "I can't point to a moment. There's no smoking gun, there's barely smoke."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Retracted vague slowness without a reproducible screen, action or corroboration. Content-topic preference and printer chatter are not software issues.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-069",
+          "evidence": [
+            "I would give a lot for an anonymized, aggregate, org-level read.",
+            "The first is minimum aggregation thresholds",
+            "Trend over time rather than point-in-time snapshots"
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Feature",
+              "patterns": [
+                "aggregat|anonym|privacy",
+                "trend|wellbeing",
+                "org|executive|leadership"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Corvus Media",
+                "action": "file-new-low",
+                "call_id": "call-069",
+                "confidence": 0.25,
+                "dedup_similarity": 0.089045,
+                "description": "[EXTERNAL] Aisha: I would give a lot for an anonymized, aggregate, org-level read. Something like: \"program participation across the org trended down 8% this quarter, concentrated in these broad functions.\" Trends, not individuals. Direction, not detail.\n[EXTERNAL] Aisha: Exactly that. And the \"by design\" part is load-bearing. I don't want a report that's technically aggregate but could be reverse-engineered down to a person because a team only has three people in it. It has to be privacy-preserving in a way I can stand up in front of my workforce and defend. If I can't tell my people \"leadership can see the org is stressed but literally cannot see you,\" it's worthless to me \u2014 worse than worthless, it's a liability.\n[EXTERNAL] Nathan: A few things. The first is minimum aggregation thresholds \u2014 no cell shown below, say, some floor like fifty people, so nothing's re-identifiable.",
+                "issue_type": "Feature",
+                "ledger_key": "call-069#21#feature",
+                "matched_key": "PENDING:36",
+                "priority": "P2",
+                "rationale": "no existing Feature issue matched above threshold (best similarity=0.09)",
+                "status": "queued",
+                "summary": "I would give a lot for an anonymized, aggregate, org-level read. Something like: \"program...",
+                "turn_span": [
+                  20,
+                  26
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "One aggregate wellbeing-trend reporting request with anonymity, aggregation floors and opt-in provenance. Quarterly report/dashboard are phases of the same request, not separate tickets.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-074",
+          "evidence": [
+            "Configurable threshold, posts to Slack, so we catch the drop early instead of a month late.",
+            "let me set the threshold per segment, not one global number."
+          ],
+          "expected": [
+            {
+              "action": "corroborate",
+              "issue_type": "Feature",
+              "matched_key": "PROJ-120",
+              "patterns": [
+                "slack",
+                "threshold|at.risk|engagement"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Windmark Insurance",
+                "action": "corroborate",
+                "call_id": "call-074",
+                "confidence": 0.363,
+                "dedup_similarity": 0.362742,
+                "description": "[EXTERNAL] Lorraine Petty: Yes. Exactly that. I don't want to hunt for problems, I want the problems to find me.\n[EXTERNAL] Neil Ashby: And ideally not another email I'll ignore. We live in Slack. If it hit our Slack, I'd actually see it.\n[EXTERNAL] Neil Ashby: We've got a #people-ops channel. If an at-risk alert dropped there when a team's engagement fell below a threshold we set, the right three people would see it within minutes.\n[EXTERNAL] Lorraine Petty: That would genuinely change how fast we react. Right now it's monthly. That could be same-day.",
+                "issue_type": "Feature",
+                "ledger_key": "call-074#30#feature",
+                "matched_key": "PROJ-120",
+                "priority": "P3",
+                "rationale": "matches tracked PROJ-120 (similarity=0.36)",
+                "status": "queued",
+                "summary": "Yes. Exactly that. I don't want to hunt for problems, I want the problems to find me.",
+                "turn_span": [
+                  29,
+                  35
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "External participants explicitly endorse Slack alerts matching PROJ-120. Per-segment thresholds refine that issue; engagement coaching and email follow-up are services, not extra requests.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-076",
+          "evidence": [
+            "It's not like anything freezes or errors.",
+            "Let's blame the wifi provisionally.",
+            "Okay, enough about my imaginary slowness."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Vague unlocalized slowness, no reproducible issue, acknowledged possible rural wifi confound. Future location onboarding is supported already.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-077",
+          "evidence": [
+            "Invoicing's fine, actually. Single invoice, we book it to the training budget, done.",
+            "Simple is exactly what I want. One line, one budget code."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Commercial renewal and engagement plan only. Internal mention of other customers wanting invoice splits is explicitly not this customer's request.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-079",
+          "evidence": [
+            "Nope. Honestly it just works.",
+            "If it were broken, I'd know",
+            "It's fast, no complaints."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Positive review including shipped dark mode and successful bulk provisioning. Hypothetical breakage, service ROI assistance and future seat adds are not product issues.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-082",
+          "evidence": [
+            "the calendar invite on Hank's actual calendar still says 2pm. The old time. It didn't update.",
+            "It's only Hank and the other Outlook people where the old time sticks."
+          ],
+          "expected": [
+            {
+              "action": "corroborate",
+              "issue_type": "Bug",
+              "matched_key": "PROJ-138",
+              "patterns": [
+                "outlook",
+                "reschedul",
+                "old time|original|update"
+              ]
+            }
+          ],
+          "extra": [
+            {
+              "account": "Twin Pines Farms",
+              "action": "corroborate",
+              "call_id": "call-082",
+              "confidence": 0.204,
+              "dedup_similarity": 0.203629,
+              "description": "[EXTERNAL] Hank Brubaker: In my defense, I run a farm. Weather votes on my calendar.\n[EXTERNAL] Lacey Dunn: He's not wrong. Anyway \u2014 the problem is what happens after I reschedule a session.\n[EXTERNAL] Lacey Dunn: Okay. So Hank had a coaching session booked for, say, 2pm. Something comes up, I go into the platform and move it to 4pm. The reschedule goes through fine, the platform shows 4pm, the coach sees 4pm.\n[EXTERNAL] Lacey Dunn: Right. But then the calendar invite on Hank's actual calendar still says 2pm. The old time. It didn't update.\n[EXTERNAL] Lacey Dunn: Exactly. So Hank sees 2pm on his calendar, shows up to nothing, because the coach is expecting him at 4pm. Twice now he's sat there confused.\n[EXTERNAL] Hank Brubaker: I logged in early like a good boy and nobody was there. Felt like a fool.\n[EXTERNAL] Lacey Dunn: At least four or five reschedules that I know of. Two ended with someone showing up to an empty session. The rest I caught before they did.",
+              "issue_type": "Bug",
+              "ledger_key": "call-082#9#bug",
+              "matched_key": "PROJ-138",
+              "priority": "P2",
+              "rationale": "matches tracked PROJ-138 (similarity=0.20)",
+              "status": "queued",
+              "summary": "He's not wrong. Anyway \u2014 the problem is what happens after I reschedule a session.",
+              "turn_span": [
+                8,
+                18
+              ]
+            }
+          ],
+          "matched": [],
+          "missing": [
+            {
+              "action": "corroborate",
+              "issue_type": "Bug",
+              "matched_key": "PROJ-138",
+              "patterns": [
+                "outlook",
+                "reschedul",
+                "old time|original|update"
+              ]
+            }
+          ],
+          "passed": false,
+          "reason": "One repeated Outlook rescheduling-sync defect matching PROJ-138; workaround and client checks refine it, not separate requests.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-085",
+          "evidence": [
+            "It opens a web page asking them to log in again. In the mobile browser.",
+            "yours aren't doing it on iOS.",
+            "Session reminders, coach notes, the weekly nudge. All of them drop to the browser login on iPhone."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "iphone|ios",
+                "link|email",
+                "browser|safari|universal"
+              ]
+            }
+          ],
+          "extra": [
+            {
+              "account": "Cardinal Couriers",
+              "action": "file-new-low",
+              "call_id": "call-085",
+              "confidence": 0.25,
+              "dedup_similarity": 0.167797,
+              "description": "[EXTERNAL] Marcus: Right, yeah. So this is a little in the weeds but it's been bugging a bunch of our people. When someone gets one of the notification emails, like a session reminder or a \"your coach sent you a note\" email, and they tap the link on their phone.\n[EXTERNAL] Marcus: It opens a web page asking them to log in again. In the mobile browser. Even though they've got the app installed and they're already signed into the app.\n[EXTERNAL] Marcus: Exactly. And these are people who are already logged into the app right there on the same phone. So they tap the link, get the login wall in Safari, get annoyed, and half of them just give up instead of typing their password again on a tiny keyboard.",
+              "issue_type": "Bug",
+              "ledger_key": "call-085#25#bug",
+              "matched_key": "PENDING:43",
+              "priority": "P2",
+              "rationale": "no existing Bug issue matched above threshold (best similarity=0.17)",
+              "status": "queued",
+              "summary": "Right, yeah. So this is a little in the weeds but it's been bugging a bunch of our people. When...",
+              "turn_span": [
+                24,
+                30
+              ]
+            }
+          ],
+          "matched": [],
+          "missing": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "iphone|ios",
+                "link|email",
+                "browser|safari|universal"
+              ]
+            }
+          ],
+          "passed": false,
+          "reason": "Broken iOS universal-link handoff despite an installed signed-in app. Not the OS-update logout issue PROJ-160, and not Okta expiry. One defect across email categories.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-087",
+          "evidence": [
+            "But that's a compliment disguised as a complaint.",
+            "I genuinely can't find a problem for you to solve."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Positive review; more reminder frequency is an existing setting, not missing product work. Testimonial handling, content and seat planning are not issues.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-088",
+          "evidence": [
+            "We have never been on Okta. This is Ping.",
+            "Our users get hard-locked out at exactly 24 hours.",
+            "The hard lockout requiring a manual admin unlock is the killer."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "ping",
+                "24",
+                "lock"
+              ]
+            }
+          ],
+          "extra": [
+            {
+              "account": "Beaumont Insurance",
+              "action": "file-new-low",
+              "call_id": "call-088",
+              "confidence": 0.25,
+              "dedup_similarity": 0.112646,
+              "description": "[EXTERNAL] Susan: A bulk unlock would at least make the daily pain survivable while you fix the root cause. Right now there's no bulk option that I can find, it's user by user.\n[EXTERNAL] Harold: How fast can we expect movement? I need something to tell our CISO, this is affecting our claims adjusters who need daily access.\n[EXTERNAL] Harold: That's what I need. One business day for a real status, not a ticket number and silence.",
+              "issue_type": "Feature",
+              "ledger_key": "call-088#38#feature",
+              "matched_key": "PENDING:45",
+              "priority": "P2",
+              "rationale": "no existing Feature issue matched above threshold (best similarity=0.11)",
+              "status": "queued",
+              "summary": "A bulk unlock would at least make the daily pain survivable while you fix the root cause. Right...",
+              "turn_span": [
+                37,
+                43
+              ]
+            }
+          ],
+          "matched": [
+            {
+              "actual": {
+                "account": "Beaumont Insurance",
+                "action": "file-new-low",
+                "call_id": "call-088",
+                "confidence": 0.25,
+                "dedup_similarity": 0.14247,
+                "description": "[EXTERNAL] Susan: Our users get hard-locked out at exactly 24 hours. And I mean exactly. If someone logs in at 9am Monday, at 9am Tuesday they are locked out. Not \"asked to re-authenticate.\" Locked out.\n[EXTERNAL] Susan: That's the part that's killing us. They cannot get back in. They hit the login, it bounces to Ping, Ping authenticates them fine, they come back to BetterBark, and BetterBark rejects them. It says something like account locked or access denied. They cannot self-recover. The only way back in is for me or one of my admins to go into the admin console and manually unlock that user's account.\n[EXTERNAL] Susan: Exactly that. And it's every federated user, on a rolling 24-hour clock from their last login. So every day I've got a fresh batch of people I have to manually unlock. Yesterday I unlocked 40-something accounts one at a time. It's untenable.\n[EXTERNAL] Harold: This is why I escalated. It's not a papercut, it's a daily operational tax on Susan's team and a wall for our users.",
+                "issue_type": "Bug",
+                "ledger_key": "call-088#12#bug",
+                "matched_key": "PENDING:44",
+                "priority": "P1",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.14)",
+                "status": "queued",
+                "summary": "Our users get hard-locked out at exactly 24 hours. And I mean exactly. If someone logs in at 9am...",
+                "turn_span": [
+                  11,
+                  17
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": false,
+          "reason": "One Ping-specific hard account lock after 24 hours requiring admin recovery. Explicitly distinct from self-recoverable Okta early expiry PROJ-064. Bulk unlock is interim relief for this incident, not independent feature scope.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-098",
+          "evidence": [
+            "that's a \"get my managers to log in\" problem, not a platform problem.",
+            "No complaints on that front"
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Commercial renewal and manager-enablement service. Customer explicitly attributes dashboard non-use to manager habits, not missing software capability.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-101",
+          "evidence": [
+            "the goal-tracking feature sends reminder notifications",
+            "The goal reminder buzzes at roughly three a.m. local.",
+            "I have not heard a single complaint about session reminders."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "goal",
+                "remind|notification",
+                "three|3 a|3am|3 a.m|timezone|united states|american"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Taro Logistics",
+                "action": "file-new",
+                "call_id": "call-101",
+                "confidence": 0.5,
+                "dedup_similarity": 0.140343,
+                "description": "[EXTERNAL] Aiko: I am a logistics person. Timezone math is my entire life. We route freight across twelve zones. When something fires at the \"wrong\" time, my first instinct is always \"whose clock is it actually on?\" And it looks very much like these reminders are on someone's clock in the middle of the United States, not ours.\n[EXTERNAL] Kenji: That is our theory as well. The reminders behave as if we are all in America. We are, I assure you, not.\n[EXTERNAL] Aiko: That was my worry \u2014 that it is not just us. If it is tuned for American hours, then every customer in Asia has members getting woken up at three in the morning by a goal reminder, and most of them are probably just turning notifications off, like Kenji did, and not telling you why.\n[EXTERNAL] Aiko: Thank you. I will feel much better knowing it is filed. Even if the fix takes a while, at least I can tell members \"we reported it, it is a known issue, please just mute it for now\" instead of \"the app is broken and we don't know why.\"\n[EXTERNAL] Aiko: Good. I will send that guidance to the cohort leads.\n[EXTERNAL] Kenji: Sam, while we are on notifications \u2014 the session reminders, the ones for actual coaching appointments, those are fine? Correct time?\n[EXTERNAL] Kenji: The second one. I have not heard a single complaint about session reminders. They seem to arrive when they should. I only ask because if goals are on the wrong clock, I wonder if sessions are at risk too.\n[EXTERNAL] Kenji: Good. Then I will not worry about sessions.\n[EXTERNAL] Aiko: We will tell you. We are, as you can see, a data-gathering people.",
+                "issue_type": "Bug",
+                "ledger_key": "call-101#27#bug",
+                "matched_key": "PENDING:54",
+                "priority": "P3",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.14)",
+                "status": "queued",
+                "summary": "I am a logistics person. Timezone math is my entire life. We route freight across twelve zones....",
+                "turn_span": [
+                  26,
+                  43
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "Goal reminder delivery ignores local APAC working hours. Not PROJ-101's displayed scheduled-report timestamps. Session reminders are explicitly working; workaround/update questions are not extra issues.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-112",
+          "evidence": [
+            "Every time they hit back, the filters vanish.",
+            "The back button is the trigger."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "coach",
+                "filter",
+                "back",
+                "gone|reset|vanish|lost|disappear"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Onyx Apparel",
+                "action": "file-new-low",
+                "call_id": "call-112",
+                "confidence": 0.25,
+                "dedup_similarity": 0.123105,
+                "description": "[EXTERNAL] Trevor: Exactly. Every time they hit back, the filters vanish. So if someone wants to compare five coaches, they're re-entering their filters five times. And these are busy store managers doing this on their phone browser between customers. By the third time they've had to re-pick \"leadership, Spanish, Pacific time,\" they give up and just take whoever's at the top of the unfiltered list, which defeats the whole point of matching.\n[EXTERNAL] Trevor: That's it word for word. The back button is the trigger. If they use some in-page \"back to results\" link instead \u2014 if there is one, I'm not even sure \u2014 maybe it's fine? But the natural instinct on a phone is to hit the browser back button, and that's what kills it.\n[EXTERNAL] Trevor: Across the board as far as I can tell. I've had it reported on phones and on desktop. The store managers are mostly on their phone browsers, but a couple of my district managers work off laptops and they've hit it too. So it doesn't seem browser-specific \u2014 it's the back-button behavior itself.",
+                "issue_type": "Bug",
+                "ledger_key": "call-112#18#bug",
+                "matched_key": "PENDING:60",
+                "priority": "P2",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.12)",
+                "status": "queued",
+                "summary": "Exactly. Every time they hit back, the filters vanish. So if someone wants to compare five...",
+                "turn_span": [
+                  17,
+                  23
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "One coach-search navigation-state defect across devices. New-tab workaround, screenshots and already-available manager-coaching content are not separate software requests.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-115",
+          "evidence": [
+            "They'd click it and get a page saying the link had expired. On a link they'd just received minutes ago.",
+            "the scanner clicks the verification link before the human does.",
+            "I don't have anything concrete on that yet, just vague mutterings."
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "verif|token",
+                "link",
+                "expired|prefetch|scanner|scann"
+              ]
+            }
+          ],
+          "extra": [
+            {
+              "account": "Crane & Whitfield",
+              "action": "file-new-low",
+              "call_id": "call-115",
+              "confidence": 0.25,
+              "dedup_similarity": 0.197104,
+              "description": "[EXTERNAL] Nadia Okonkwo: So what do we do? Because I've got another cohort starting in three weeks and I can't have half of them locked out.\n[EXTERNAL] Nadia Okonkwo: I can raise that with our security team, though they're touchy about exclusions.\n[EXTERNAL] Nadia Okonkwo: That makes sense to me even as a non-engineer.",
+              "issue_type": "Bug",
+              "ledger_key": "call-115#33#bug",
+              "matched_key": "PENDING:65",
+              "priority": "P2",
+              "rationale": "no existing Bug issue matched above threshold (best similarity=0.20)",
+              "status": "queued",
+              "summary": "So what do we do? Because I've got another cohort starting in three weeks and I can't have half...",
+              "turn_span": [
+                32,
+                38
+              ]
+            }
+          ],
+          "matched": [
+            {
+              "actual": {
+                "account": "Crane & Whitfield",
+                "action": "file-new",
+                "call_id": "call-115",
+                "confidence": 0.5,
+                "dedup_similarity": 0.160716,
+                "description": "[EXTERNAL] Nadia Okonkwo: A chunk of my new associates were telling me the link didn't work. They'd click it and get a page saying the link had expired. On a link they'd just received minutes ago.\n[EXTERNAL] Nadia Okonkwo: Immediately. Some of them clicked within a minute of the email landing. \"Expired.\"\n[EXTERNAL] Nadia Okonkwo: A subset, but a big one. And that's the clue, I think. Let me keep going because I did some digging and I have a theory that I'd love you to shoot down or confirm.\n[EXTERNAL] Nadia Okonkwo: The people it happened to \u2014 they'd click the link, get \"expired.\" But then if they went and requested a fresh link and clicked THAT one fast, sometimes it worked, sometimes it didn't. Totally inconsistent. Which drove me up a wall.\n[EXTERNAL] Nadia Okonkwo: So I got nerdy about it. I noticed the affected people all had one thing in common. They're the ones on Outlook. Our firm runs Microsoft 365, and the associates are all in Outlook. But a handful of our contractors and a couple of partners use other mail clients, personal Gmail forwarding, that kind of thing, and THOSE people never had the problem.\n[EXTERNAL] Nadia Okonkwo: As far as I can tell, yes. Outlook people: broken. Everyone else: fine.\n[EXTERNAL] Nadia Okonkwo: Here's my theory, and I'm not an email engineer so tell me if I'm being an idiot. We have a security layer on our email \u2014 the Microsoft safe-links thing. It scans URLs in incoming mail. My understanding is it actually visits the links to check if they're malicious before it lets the user click.\n[EXTERNAL] Nadia Okonkwo: Right. So my theory is: the scanner clicks the verification link before the human does. And if your verification link is one-time-use, the scanner burns it. So by the time the human clicks, the token's already been spent, and they see \"expired.\"\n[EXTERNAL] Nadia Okonkwo: Take your time. I've been sitting with it for a week.\n[EXTERNAL] Nadia Okonkwo: That's exactly my theory. And it explains the inconsistency too \u2014 sometimes the scanner is slow and the human beats it, sometimes the scanner wins the race.",
+                "issue_type": "Bug",
+                "ledger_key": "call-115#11#bug",
+                "matched_key": "PENDING:64",
+                "priority": "P3",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.16)",
+                "status": "queued",
+                "summary": "A chunk of my new associates were telling me the link didn't work. They'd click it and get a...",
+                "turn_span": [
+                  10,
+                  30
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": false,
+          "reason": "One verification-token consumption bug triggered by Safe Links prefetch, with misleading expiry message. Unlike the resolved customer-proxy incident, product confirmation flow needs a change. Unspecified reset-link grumbles do not corroborate PROJ-142.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-123",
+          "evidence": [
+            "Honestly? I think it's more shiny than real.",
+            "I'm not shopping. But I have to let my CHRO feel heard."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Competitor's 24/7 support claim is not adopted as a customer requirement. Value summary and re-onboarding are account services, not new product features.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-124",
+          "evidence": [
+            "Round to ninety-five to cover the new cafe, keep everyone in.",
+            "Give me the copy and I'll send it."
+          ],
+          "expected": [],
+          "extra": [],
+          "matched": [],
+          "missing": [],
+          "passed": true,
+          "reason": "Renewal pricing, seat count and human-delivered engagement campaign only. No software bug or new capability requested.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-130",
+          "evidence": [
+            "Same session ID, same payload, just delivered multiple times.",
+            "the clean fix is an idempotency key.",
+            "If it's already tracked, great, add our voice to it."
+          ],
+          "expected": [
+            {
+              "action": "corroborate",
+              "issue_type": "Bug",
+              "matched_key": "PROJ-087",
+              "patterns": [
+                "webhook|event",
+                "duplicate|more than once|multiple times|twice"
+              ]
+            }
+          ],
+          "extra": [],
+          "matched": [
+            {
+              "actual": {
+                "account": "Ryecroft Analytics",
+                "action": "corroborate",
+                "call_id": "call-130",
+                "confidence": 0.234,
+                "dedup_similarity": 0.234036,
+                "description": "[EXTERNAL] Nadia: We do. Every inbound webhook gets its signature verified before we process it. If it doesn't verify, we drop it and log it. I'm paranoid about accepting spoofed events into the warehouse.\n[EXTERNAL] Nadia: Perfect. That's the easy one done. Okay \u2014 the reliability thing, which is the one I actually care about.\n[EXTERNAL] Nadia: We've been noticing that we sometimes get the same event more than once. Like, the exact same session-completed event will land in our queue twice, occasionally three times. Same session ID, same payload, just delivered multiple times.\n[EXTERNAL] Nadia: It's not constant, which is what makes it annoying. Most events come through exactly once. But maybe \u2014 I'd estimate a few out of every thousand? \u2014 show up as duplicates. Enough that it's not noise, but not so much that it's every event.\n[EXTERNAL] Nadia: That's a good question and I actually checked. The event payload is identical. Same session ID, same completion timestamp, same everything in the body. The delivery envelope has a different delivery timestamp because it arrives a few seconds or minutes later, but the actual event content is byte-for-byte the same. It's clearly the same underlying event being sent again, not a new event.\n[EXTERNAL] Nadia: Right now we've built our own dedup layer to catch it, so it's not breaking anything today. But it's fragile. We're keying off the session ID plus event type and dropping anything we've already seen. The problem is that's our hack, and it means every consumer of your webhooks has to independently reinvent this. And if two duplicates race through our pipeline at the same time before the first one commits, our dedup can miss it and we double-count a session. Which for an analytics company is genuinely bad \u2014 we're literally in the business of accurate counts.\n[EXTERNAL] Nadia: Honestly, the clean fix is an idempotency key. If every webhook delivery carried a stable, unique identifier for the event itself \u2014 not the delivery, the event \u2014 then we could dedup reliably on that key instead of guessing based on payload contents. Send the same event twice, same idempotency key, we drop the second one with confidence. That's the industry-standard pattern and it would let us throw away our hacky dedup layer.\n[EXTERNAL] Nadia: Right? I'd much rather trust a key you guarantee than fingerprint the body myself and hope you never change the schema.\n[EXTERNAL] Nadia: Exactly. So that's the flag. I don't need it fixed tomorrow, but I want it on your radar as the direction, because we're going to keep leaning on webhooks and this only gets more important as our volume grows.\n[EXTERNAL] Nadia: That's fine by me. If it's already tracked, great, add our voice to it. I'd just want to be looped in if there's a solution so we can adopt the key when it exists.\n[EXTERNAL] Nadia: Perfect. And in the meantime, is there anything I should know about the current delivery behavior \u2014 like, is a duplicate ever a signal that the first one failed, or is it purely spurious?\n[EXTERNAL] Nadia: Good, that's what I assumed but I wanted to hear it from you. I was slightly worried we were dropping legitimate re-sends.\n[EXTERNAL] Tim: Can I ask a dumb question from the cheap seats?\n[EXTERNAL] Tim: Ha. So does this mean our analytics numbers have been wrong this whole time?\n[EXTERNAL] Nadia: No, Tim, our dedup has been catching almost all of them. I flagged the risk, not an actual known miscount. If we'd been double-counting sessions, the numbers would look insane and someone would've screamed by now.\n[EXTERNAL] Tim: Okay, good. I don't want to explain wrong numbers to the CFO.\n[EXTERNAL] Nadia: Exactly. It works today, I just don't want it to be load-bearing forever.\n[EXTERNAL] Nadia: That's a clean summary. Nailed it.\n[EXTERNAL] Nadia: Perfect. The staging endpoint's the quick win; the idempotency key is the one I'll be nagging you about at every sync.\n[EXTERNAL] Nadia: That's my list. Tim?\n[EXTERNAL] Tim: Nothing from me. I understood maybe sixty percent of that and I'm at peace with it.\n[EXTERNAL] Nadia: Thanks, Ravi. Talk soon.\n[EXTERNAL] Tim: Cheers. Oh \u2014 one non-webhook thing, Ravi, quick. Do the standard engagement reports come as CSV or just the dashboard? My analytics people asked.\n[EXTERNAL] Tim: Great, that'll make them happy. That's genuinely all. Thanks both.",
+                "issue_type": "Bug",
+                "ledger_key": "call-130#27#bug",
+                "matched_key": "PROJ-087",
+                "priority": "P2",
+                "rationale": "matches tracked PROJ-087 (similarity=0.23)",
+                "status": "queued",
+                "summary": "Right now we've built our own dedup layer to catch it, so it's not breaking anything today. But...",
+                "turn_span": [
+                  16,
+                  60
+                ]
+              },
+              "expected_index": 0
+            }
+          ],
+          "missing": [],
+          "passed": true,
+          "reason": "Duplicate delivery and requested stable idempotency keys are covered together by PROJ-087. Staging endpoints and CSV exports already exist; consumer mitigation does not resolve the provider's defect.",
+          "review_status": "reviewed"
+        },
+        {
+          "call_id": "call-136",
+          "evidence": [
+            "There's like a trailing space at the end of the header row.",
+            "No line number, no field, no hint about what's wrong.",
+            "is there any way to validate a file before I commit the import? Like a dry-run that tells me it's clean without actually creating anyone?"
+          ],
+          "expected": [
+            {
+              "action": "file-new",
+              "issue_type": "Bug",
+              "patterns": [
+                "import",
+                "header",
+                "whitespace|trailing|space"
+              ]
+            },
+            {
+              "action": "file-new",
+              "issue_type": "Feature",
+              "patterns": [
+                "import",
+                "dry.run|validat",
+                "before|without"
+              ]
+            }
+          ],
+          "extra": [
+            {
+              "account": "Portman Grand Hotels",
+              "action": "file-new",
+              "call_id": "call-136",
+              "confidence": 1.0,
+              "dedup_similarity": 0.123592,
+              "description": "[EXTERNAL] Renata: It all funnels through me, by design. The GMs are great at running hotels and terrible at data hygiene, so I don't let them touch the roster. Learned that the hard way when a GM once uploaded a spreadsheet with everyone's names in the wrong columns.\n[EXTERNAL] Renata: That's my whole philosophy. I'm a control freak about the data because the data is the one thing that has to be right. Which is why this import failure has been driving me up a wall \u2014 I do everything correctly and it still broke.\n[EXTERNAL] Renata: Right. And with fourteen properties and turnover being what it is in hospitality \u2014 which is brutal, people come and go constantly \u2014 I'm doing roster imports all the time. New hires in, departures out. It's a weekly job at minimum.\n[EXTERNAL] Renata: Okay. So I build a CSV \u2014 I've done this dozens of times, I know the format. Columns for name, email, employee ID, property, the whole thing. I go to the admin panel, Members, the bulk import, I upload the file, and it just... rejects the whole thing. The entire file. It doesn't import a single row.\n[EXTERNAL] Renata: That's the maddening part. It gives me the most useless error I have ever seen. It says \u2014 let me read it exactly \u2014 \"An unknown error occurred. Please try again.\" That's it. That's the whole message. No line number, no field, no hint about what's wrong.\n[EXTERNAL] Renata: Because trying again does nothing! It's not a fluke, it's the same file failing the same way every time. I tried again probably fifteen times out of pure stubbornness. Same error every time. It is not a \"try again\" situation.\n[EXTERNAL] Renata: Yes! That's why it's driving me crazy. I've done this exact workflow probably fifty times. Same panel, same kind of file. It's always worked. Now suddenly this batch won't go.\n[EXTERNAL] Renata: Not that I can think of. I built it the same way I always do. Well \u2014 actually, this time I exported the starting template from a different system. Our new HRIS. We migrated HRIS platforms last month, and I pulled the roster out of the new one instead of the old one. But the columns look identical, I checked.",
+              "issue_type": "Bug",
+              "ledger_key": "call-136#19#bug",
+              "matched_key": "PENDING:70",
+              "priority": "P3",
+              "rationale": "no existing Bug issue matched above threshold (best similarity=0.12)",
+              "status": "queued",
+              "summary": "That's the maddening part. It gives me the most useless error I have ever seen. It says \u2014 let me...",
+              "turn_span": [
+                10,
+                26
+              ]
+            }
+          ],
+          "matched": [
+            {
+              "actual": {
+                "account": "Portman Grand Hotels",
+                "action": "file-new",
+                "call_id": "call-136",
+                "confidence": 0.5,
+                "dedup_similarity": 0.182534,
+                "description": "[EXTERNAL] Renata: I am equal parts relieved and furious. Relieved it works, furious it was a space, and furious the error message told me absolutely nothing. If it had said \"there's a problem with your header row\" I'd have found it in five minutes instead of two days.\n[EXTERNAL] Renata: Please do. Because I'm not the only admin who imports rosters, and the next person who hits this is going to lose two days like I did.\n[EXTERNAL] Renata: That matches exactly. And I'd add \u2014 \"try again\" is actively misleading, because trying again with the same file will never work. It made me waste time re-uploading instead of investigating.",
+                "issue_type": "Bug",
+                "ledger_key": "call-136#35#bug",
+                "matched_key": "PENDING:71",
+                "priority": "P3",
+                "rationale": "no existing Bug issue matched above threshold (best similarity=0.18)",
+                "status": "queued",
+                "summary": "I am equal parts relieved and furious. Relieved it works, furious it was a space, and furious...",
+                "turn_span": [
+                  34,
+                  40
+                ]
+              },
+              "expected_index": 0
+            },
+            {
+              "actual": {
+                "account": "Portman Grand Hotels",
+                "action": "file-new-low",
+                "call_id": "call-136",
+                "confidence": 0.25,
+                "dedup_similarity": 0.066309,
+                "description": "[EXTERNAL] Renata: While we're at it \u2014 is there any way to validate a file before I commit the import? Like a dry-run that tells me it's clean without actually creating anyone?\n[EXTERNAL] Renata: Huh. That's a decent habit. I'll start doing a three-row canary import first.\n[EXTERNAL] Renata: Perfect. Belt and suspenders \u2014 canary import plus stripping the header space. I'll do both religiously now.",
+                "issue_type": "Feature",
+                "ledger_key": "call-136#45#feature",
+                "matched_key": "PENDING:72",
+                "priority": "P3",
+                "rationale": "no existing Feature issue matched above threshold (best similarity=0.07)",
+                "status": "queued",
+                "summary": "While we're at it \u2014 is there any way to validate a file before I commit the import? Like a...",
+                "turn_span": [
+                  44,
+                  50
+                ]
+              },
+              "expected_index": 1
+            }
+          ],
+          "missing": [],
+          "passed": false,
+          "reason": "One importer defect combines whitespace rejection and opaque error; workaround is not a shipped fix. A separately actionable missing non-mutating dry-run is also explicitly requested. Granularity needs human confirmation: this annotation treats dry-run as independent because it remains useful after whitespace handling is fixed.",
+          "review_status": "reviewed"
+        }
+      ],
+      "coverage": {
+        "already_queued": 0,
+        "calls_discovered": 140,
+        "calls_failed": 0,
+        "calls_processed": 140,
+        "candidates_found": 228,
+        "candidates_suppressed": 128,
+        "collapsed_duplicates": 6,
+        "duration_seconds": 1.235,
+        "not_actionable": 0,
+        "queue_by_action": {
+          "corroborate": 22,
+          "file-new": 42,
+          "file-new-low": 30
+        },
+        "queued_for_review": 94,
+        "skipped_already_processed": 0
+      },
+      "exact_call_accuracy": {
+        "denominator": 24,
+        "numerator": 19,
+        "value": 0.7916666666666666,
+        "wilson_95": [
+          0.5952954674681133,
+          0.9075517464714814
+        ]
+      },
+      "false_negatives": 2,
+      "false_positives": 5,
+      "fingerprint": "591933c85bacaf9d9ea9b33aed45dbd719022e520e411927acd802935bdf5475",
+      "negative_call_accuracy": {
+        "denominator": 11,
+        "numerator": 11,
+        "value": 1.0,
+        "wilson_95": [
+          0.7411670330319684,
+          1
+        ]
+      },
+      "passed": false,
+      "precision": {
+        "denominator": 17,
+        "numerator": 12,
+        "value": 0.7058823529411765,
+        "wilson_95": [
+          0.4686688993346016,
+          0.8672001038970478
+        ]
+      },
+      "precision_by_tier": {
+        "confident": {
+          "denominator": 10,
+          "numerator": 8,
+          "value": 0.8,
+          "wilson_95": [
+            0.49016247153664183,
+            0.9433178485456247
+          ]
+        },
+        "low_confidence": {
+          "denominator": 7,
+          "numerator": 4,
+          "value": 0.5714285714285714,
+          "wilson_95": [
+            0.2504583645276572,
+            0.8417801447485302
+          ]
+        }
+      },
+      "recall": {
+        "denominator": 14,
+        "numerator": 12,
+        "value": 0.8571428571428571,
+        "wilson_95": [
+          0.6005862050302965,
+          0.9599060787285351
+        ]
+      },
+      "run": 2,
+      "true_positives": 12
+    }
+  ],
+  "sample": [
+    "call-026",
+    "call-029",
+    "call-038",
+    "call-054",
+    "call-056",
+    "call-060",
+    "call-066",
+    "call-069",
+    "call-074",
+    "call-076",
+    "call-077",
+    "call-079",
+    "call-082",
+    "call-085",
+    "call-087",
+    "call-088",
+    "call-098",
+    "call-101",
+    "call-112",
+    "call-115",
+    "call-123",
+    "call-124",
+    "call-130",
+    "call-136"
+  ],
+  "schema_version": 1,
+  "scope": "Previously inspected labels on current code; regression only, NEVER fresh generalization",
+  "seal": {
+    "evaluator_sha256": "7608313fb2ae17068caee037a37e172af42ae152c740a3af84ece07040dc7f18",
+    "files_sha256": {
+      "annotations.json": "5a630de5c55c7ec17d5ce713799569aa92d14e806fd2795e356f046266d8aba5",
+      "manifest.json": "f3d645cc80a10824fd85419b2f945b0045eb1e253be095f8874738866b633a32"
+    },
+    "purpose": "Integrity checkpoint before first score, not cryptographic proof of independent annotation",
+    "sealed_at": "2026-10-01T05:49:03.595372+00:00"
+  },
+  "stability": {
+    "identical": true,
+    "repetitions": 2
+  },
+  "thresholds": {
+    "negative_call_accuracy": 0.85,
+    "precision": 0.85,
+    "recall": 0.85
+  },
+  "unassessed_eligible_calls": 95
+}

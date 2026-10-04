@@ -1,0 +1,10 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "message": {
+        "content": "```json\n{\n  \"issues\": [\n    {\n      \"start_turn\": 23,\n      \"end_turn\": 35,\n      \"signal_type\": \"bug\",\n      \"draft_title\": \"Fix usage dashboard summary card showing incorrect active member count\",\n      \"rationale\": \"The customer reported a specific data mismatch where the dashboard summary card (280) disagreed with the per-team breakdown (412) and admin panel, causing inaccurate finance reporting.\",\n      \"confidence\": 0.95\n    }\n  ]\n}\n```\n"
+      }
+    }
+  ]
+}

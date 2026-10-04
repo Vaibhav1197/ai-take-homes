@@ -1,0 +1,25 @@
+{
+  "call_id": "call-028",
+  "candidates": [
+    {
+      "account": "Quill Publishing",
+      "call_id": "call-028",
+      "draft_title": "Add bulk archive action to Members list",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 51,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Deborah: When I archive people going forward, is there a bulk way to do it, or is it one at a time? Because I did those 220 one by one last week and it took forever, which is partly why I forgot I'd done it \u2014 my brain melted.\n[EXTERNAL] Deborah: You're telling me I archived 220 people individually when I could have selected them all and done it once.\n[EXTERNAL] Deborah: Small consolation for my clicking finger, but I'll take it. Bulk archive. Noted, next to \"archive is not delete\" on the sticky note.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        51,
+        55
+      ]
+    }
+  ],
+  "source_sha256": "834830f9ed7d172371237a3e6c335eb7f8dfa75237c5c6922534b0db9cbbe85b"
+}

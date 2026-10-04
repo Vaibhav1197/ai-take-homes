@@ -1,0 +1,25 @@
+{
+  "call_id": "call-069",
+  "candidates": [
+    {
+      "account": "Corvus Media",
+      "call_id": "call-069",
+      "draft_title": "Add defensible, anonymized org-level wellbeing trend dashboard",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 21,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Aisha: I would give a lot for an anonymized, aggregate, org-level read. Something like: \"program participation across the org trended down 8% this quarter, concentrated in these broad functions.\" Trends, not individuals. Direction, not detail.\n[EXTERNAL] Aisha: Exactly that. And the \"by design\" part is load-bearing. I don't want a report that's technically aggregate but could be reverse-engineered down to a person because a team only has three people in it. It has to be privacy-preserving in a way I can stand up in front of my workforce and defend. If I can't tell my people \"leadership can see the org is stressed but literally cannot see you,\" it's worthless to me \u2014 worse than worthless, it's a liability.\n[EXTERNAL] Nathan: A few things. The first is minimum aggregation thresholds \u2014 no cell shown below, say, some floor like fifty people, so nothing's re-identifiable.\n[EXTERNAL] Nathan: Trend over time rather than point-in-time snapshots, because the direction is what matters more than any single number.\n[EXTERNAL] Nathan: The big one \u2014 ideally it's derived from something the members opt into knowing is aggregated, not scraped silently from private training-session content. The provenance has to be clean or I won't put my name on it.\n[EXTERNAL] Nathan: Right. There's a version of this that's an ethical disaster \u2014 mining private training-session notes for executive dashboards \u2014 and there's a version that's genuinely valuable and defensible. We only want the second one. If it can only be built the first way, we don't want it at all.\n[EXTERNAL] Aisha: I'm glad you hear it that way. I was half-braced for you to just say \"sure, we can pull sentiment from sessions!\" and I'd have had to talk you down.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        21,
+        34
+      ]
+    }
+  ],
+  "source_sha256": "93138494357a6c867f326ddb9a6cf64c08489f3b2c2a362fd137eaa884390298"
+}

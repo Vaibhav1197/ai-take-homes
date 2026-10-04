@@ -1,0 +1,63 @@
+{
+  "call_id": "call-053",
+  "candidates": [
+    {
+      "account": "Redgate Systems",
+      "call_id": "call-053",
+      "draft_title": "Fix intermittent duplicate webhook deliveries causing event double-counting",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 11,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Marcus: Duplicates. We're getting the same event delivered more than once. Not constantly \u2014 it's intermittent \u2014 but often enough that it's causing real problems downstream. A session-completed event fires, we process it, and then some minutes later the exact same event shows up again with the same payload.\n[EXTERNAL] Marcus: I'd estimate low single-digit percent of deliveries. So not a flood, but at our volume that's dozens a week, and every one of them is a potential double-count downstream. It's frequent enough that I had to build defenses rather than just eat the occasional bad number.\n[EXTERNAL] Marcus: Because the payload is byte-for-byte identical. Same event, same member, same session, same timestamps in the body. If it were two real events they'd differ somewhere. These are just the same message arriving twice. Sometimes three times.\n[EXTERNAL] Marcus: It depends on the event, but the bad one is session completions, because that feeds a usage counter that some of our internal reporting keys off. A duplicated completion double-counts, and then our numbers drift from yours, and someone in finance asks why. We've had to build defensive dedup logic on our side just to survive it.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        11,
+        17
+      ]
+    },
+    {
+      "account": "Redgate Systems",
+      "call_id": "call-053",
+      "draft_title": "Add stable idempotency key to webhook payloads for retry safety",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 23,
+      "provisional_priority": "P3",
+      "raw_score": 3.92,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Marcus: That's the frustrating part, and it's really the crux of my ask. There's no stable unique identifier on the delivery itself that I can reliably dedup against. I'm having to hash the payload and remember hashes for a window, which is fragile and ugly. What I actually want \u2014 what would solve this cleanly \u2014 is an idempotency key. A unique delivery ID on each webhook that stays constant across retries, so if I see the same key twice I just discard the second one. That's the standard pattern and it's the thing that's missing.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        23,
+        23
+      ]
+    },
+    {
+      "account": "Redgate Systems",
+      "call_id": "call-053",
+      "draft_title": "Fix payload-based deduplication false positives causing event loss",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 46,
+      "provisional_priority": "P3",
+      "raw_score": 3.6,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Marcus: It's holding, barely. It breaks if two genuinely-distinct events happen to hash the same, which is rare but I've seen it once, and it costs me memory to keep the hash window. It's a band-aid. It works until it doesn't.\n[EXTERNAL] Marcus: It dropped a legitimate session-completed event because my dedup thought it was a repeat. So a session that actually happened didn't get counted, which is the opposite error but just as bad. That's the fundamental problem with hashing payloads \u2014 you can't distinguish a true duplicate from two events that legitimately look alike. A real delivery ID would.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        46,
+        48
+      ]
+    }
+  ],
+  "source_sha256": "a50f086af0deeb2dfa36cd881496be6344babb7149436d46f52627fcfd3bb730"
+}

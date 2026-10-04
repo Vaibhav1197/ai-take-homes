@@ -1,0 +1,32 @@
+{
+  "call-005": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "message": {
+          "content": "```json\n{\n  \"topics\": [\n    {\n      \"summary\": \"Duplicate webhook deliveries\",\n      \"disposition\": \"enablement\",\n      \"reason\": \"The customer confirmed the issue is a known problem and requested idempotency keys as the correct fix, which the internal team will handle directly.\"\n    }\n  ],\n  \"issues\": []\n}\n```\n"
+        }
+      }
+    ]
+  },
+  "call-008": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "message": {
+          "content": "```json\n{\n  \"topics\": [\n    {\n      \"summary\": \"Android app crash on launch after update\",\n      \"disposition\": \"bug\",\n      \"reason\": \"Confirmed as a genuine bug affecting Android users post-update, causing silent failures that undermine onboarding, which the customer explicitly requested be prioritized over the footer typo.\"\n    },\n    {\n      \"summary\": \"Spelling error in confirmation email footer\",\n      \"disposition\": \"enablement\",\n      \"reason\": \"Identified as a non-critical copy fix (typo) rather than a functional defect, agreed to be handled as low-priority housekeeping work.\"\n    }\n  ],\n  \"issues\": [\n    {\n      \"start_turn\": 13,\n      \"end_turn\": 36,\n      \"signal_type\": \"bug\",\n      \"draft_title\": \"Fix Android app crash on launch after update\",\n      \"rationale\": \"The customer reported a specific, reproducible defect where the Android app crashes immediately upon launch following a recent update, affecting a significant portion of their seasonal workforce who are unlikely to report silent failures.\",\n      \"confidence\": 0.95\n    }\n  ]\n}\n```\n"
+        }
+      }
+    ]
+  },
+  "call-012": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "message": {
+          "content": "```json\n{\n  \"topics\": [\n    {\n      \"summary\": \"Search results remain stale for up to ten minutes after team renames or member moves before auto-correcting.\",\n      \"disposition\": \"bug\",\n      \"reason\": \"The customer confirmed the behavior is consistent across multiple instances and explicitly requested it be tracked as a single issue rather than filed separately.\"\n    },\n    {\n      \"summary\": \"Request for a manual 're-sync' or 'rebuild index' button in the admin panel to bypass the search latency.\",\n      \"disposition\": \"feature\",\n      \"reason\": \"The customer explicitly requested this button as a workaround for the search staleness, which the internal team agreed to carry alongside the bug fix request.\"\n    },\n    {\n      \"summary\": \"Praise for the bulk-move tool which successfully moved forty people with zero errors.\",\n      \"disposition\": \"enablement\",\n      \"reason\": \"The customer explicitly stated this should not be filed as a ticket, only relayed as a thank-you message to the engineering team.\"\n    }\n  ],\n  \"issues\": [\n    {\n      \"start_turn\": 11,\n      \"end_turn\": 23,\n      \"signal_type\": \"bug\",\n      \"draft_title\": \"Fix search results remaining stale for up to ten minutes after team rename or member move\",\n      \"rationale\": \"The customer reported consistent search latency after edits, confirmed by multiple logged instances, and explicitly requested the issue be tracked once with both parties attached.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"start_turn\": 29,\n      \"end_turn\": 37,\n      \"signal_type\": \"feature\",\n      \"draft_title\": \"Add manual 're-sync' or 'rebuild index' button in admin panel to force search updates\",\n      \"rationale\": \"The customer explicitly requested a manual lever to bypass the search staleness after batches of edits, which the internal team agreed to carry alongside the bug fix request.\",\n      \"confidence\": 0.90\n    }\n  ]\n}\n```\n"
+        }
+      }
+    ]
+  }
+}

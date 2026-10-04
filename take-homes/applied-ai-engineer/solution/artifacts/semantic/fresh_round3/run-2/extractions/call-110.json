@@ -1,0 +1,25 @@
+{
+  "call_id": "call-110",
+  "candidates": [
+    {
+      "account": "Standish & Gray",
+      "call_id": "call-110",
+      "draft_title": "Add dedicated leadership track for Project Managers",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 35,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Eleanor: There's a next tier I'm considering, and it's a bit unusual. Our project managers \u2014 not the architects, the PMs who run budgets and schedules and client relationships. They're a different discipline entirely, often not architects at all, and they've been asking why coaching is only for the design side. They feel like second-class citizens, and honestly they have a point. A PM managing a fraught client relationship on a delayed project needs coaching as much as anyone.\n[EXTERNAL] Eleanor: That's my instinct too. It's as much a cultural signal as a development investment. The design side has always been the glamour side and the PMs quietly hold everything together, and giving them the same tool says \"we see you.\"\n[EXTERNAL] Eleanor: And it addresses a real friction \u2014 the PMs feel invisible. The architects get their names on the buildings; the PMs get blamed when a project's late and thanked by nobody when it's on time.\n[EXTERNAL] Eleanor: I've watched it happen at other firms. A great PM burns out, walks, and suddenly three projects wobble because nobody realized how much she was quietly managing. I don't want to learn that lesson the expensive way.\n[EXTERNAL] Eleanor: Maybe twenty-five across the three studios. Not a huge number. I'd want to do it properly \u2014 not tack them onto the architect cohort but give them a track that fits their actual job, which is more client and delivery management than design leadership.\n[EXTERNAL] Eleanor: Yes, but not urgently. My fiscal year turns in the fall and I'd add them as part of next year's budget, so I don't need it tomorrow. Sometime in the next month or so, so I can socialize it with the other partners before budget season.\n[EXTERNAL] Eleanor: That's exactly the timing I need. And Derek \u2014 send it in a form I can forward to skeptical partners. Some of them are Rolands who haven't had their crisis yet. The proposal has to sell itself to someone with their arms crossed.\n[EXTERNAL] Eleanor: Anonymized, yes \u2014 don't name Roland, he'd be mortified to be a case study. But the pattern is fair game and it's the most persuasive thing you've got. Use it.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        35,
+        48
+      ]
+    }
+  ],
+  "source_sha256": "10bbe91655906a483af1f71a3ef44327aa7fccf53cece896dc3f5444262ad899"
+}

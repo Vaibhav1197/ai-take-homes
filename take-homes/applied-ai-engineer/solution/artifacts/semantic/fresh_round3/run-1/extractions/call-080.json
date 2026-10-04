@@ -1,0 +1,25 @@
+{
+  "call_id": "call-080",
+  "candidates": [
+    {
+      "account": "Granite Peak Outfitters",
+      "call_id": "call-080",
+      "draft_title": "Add per-department line items to invoices using existing department assignments",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 29,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Fiona Delacroix: Honestly? If the invoice itself broke out the cost by department. So instead of one line \"600 seats, X dollars,\" it'd say \"retail: 200 seats, this much; warehouse: 150 seats, this much; corporate; guiding; each on its own line.\"\n[EXTERNAL] Fiona Delacroix: Yes. That's it precisely. Then I just forward each line to the right cost center and I'm done. No manual apportioning, no spreadsheet cross-referencing.\n[EXTERNAL] Fiona Delacroix: Right \u2014 Wes already tags everyone to a department in your system for the org chart. That data exists. It just doesn't flow to the invoice.\n[EXTERNAL] Wes Hartland: That's the frustrating part. The department structure is already in there. It's just not connected to billing.\n[EXTERNAL] Fiona Delacroix: Please.\n[EXTERNAL] Fiona Delacroix: That is exactly right. You said it better than I did.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        29,
+        38
+      ]
+    }
+  ],
+  "source_sha256": "1e6110101d4005f966b1f1cef69fa3160352cdfb3f99320b4e6719c6d9415b8f"
+}

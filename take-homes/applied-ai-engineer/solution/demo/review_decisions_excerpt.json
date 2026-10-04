@@ -1,0 +1,20 @@
+{
+  "call-004#23#bug": {
+    "action": "corroborate",
+    "call_id": "call-004",
+    "decision": "approved",
+    "note": "Agent-reviewed demonstration only, not human sign-off. Scheduled reports have a consistent seven-hour shift: matches PROJ-101. Attach this account without filing another ticket."
+  },
+  "call-011#41#bug": {
+    "action": "file-new",
+    "call_id": "call-011",
+    "decision": "approved",
+    "note": "Agent-reviewed demonstration only, not human sign-off. Apostrophes truncate profile URLs, producing repeatable 404s for 31 members; approve the new Bug."
+  },
+  "call-008#57#bug": {
+    "action": "file-new",
+    "call_id": "call-008",
+    "decision": "rejected",
+    "note": "Agent-reviewed demonstration only, not human sign-off. Real low-severity email typo; defer to a batched cosmetic change instead of filing a standalone ticket. This rejection demonstrates review policy, not a false-positive label."
+  }
+}

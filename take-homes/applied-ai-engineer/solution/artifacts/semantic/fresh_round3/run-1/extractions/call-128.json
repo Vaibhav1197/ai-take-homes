@@ -1,0 +1,25 @@
+{
+  "call_id": "call-128",
+  "candidates": [
+    {
+      "account": "Kestrel Airlines",
+      "call_id": "call-128",
+      "draft_title": "Fix video feed freezing to still frame at 40-minute mark in Chrome browser sessions",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 27,
+      "provisional_priority": "P2",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Raj: So our ops-center folks \u2014 the ones on laptops \u2014 have started reporting that during longer coaching sessions, the video just freezes. Like the coach's video image locks up, a still frame, but you can still hear them talking. Audio keeps going fine. It's just the picture that dies.\n[EXTERNAL] Raj: That's the pattern I finally noticed. It's not random. It's around the forty-minute mark. Our sessions run fifty, sixty minutes for the reactive-dog rehabilitation track, and it's like clockwork \u2014 you get to roughly forty minutes and the coach's face turns into a photograph.\n[EXTERNAL] Raj: They refresh the page. Reload the browser tab and the video comes back. It's annoying because you lose a couple seconds reconnecting, but it works every time. Refresh and you're back in business.\n[EXTERNAL] Raj: Good question. Let me think \u2014 the reports I've gotten are all Chrome. We're a Chrome shop on the corporate side, so that might just be selection bias, but everyone who's mentioned it was in Chrome.\n[EXTERNAL] Raj: No, the app's been fine. It's specifically the in-browser sessions on laptops. The crew folks on their phones never mention it.\n[EXTERNAL] Raj: Recent. I'd put it at maybe five, six weeks ago? It wasn't a thing before that. Somebody in the ops center actually asked me if we'd \"changed something\" because it started suddenly.\n[EXTERNAL] Deborah: I remember you mentioning it. It lined up roughly with \u2014 was there an update on your side around then?\n[EXTERNAL] Raj: I was worried you'd tell me it was our network. Our IT loves to blame the network.\n[EXTERNAL] Raj: That's what bugged me too. It's too consistent to be flaky wifi.\n[EXTERNAL] Raj: I've had it come up from at least five or six different people, and those are just the ones who bothered to tell me. My guess is it's happening to anyone on the corporate side who runs a long session in Chrome.\n[EXTERNAL] Raj: Somewhere in between. One coach reads body language a lot, apparently, and losing the video mid-session throws off the flow. People deal with it, but it's not a great experience, and for a rehabilitation program where the whole point is reading the dog's body language in real time, staring at a frozen face is a bad look.\n[EXTERNAL] Raj: That's it exactly. You said it better than I did.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        27,
+        48
+      ]
+    }
+  ],
+  "source_sha256": "39d241f3fdb464581641d7888e9e206c797869d812db9dda19da1f28cfed6441"
+}

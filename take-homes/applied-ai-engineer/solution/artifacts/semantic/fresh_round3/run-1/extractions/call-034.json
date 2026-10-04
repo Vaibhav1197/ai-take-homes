@@ -1,0 +1,25 @@
+{
+  "call_id": "call-034",
+  "candidates": [
+    {
+      "account": "Pemrose Insurance",
+      "call_id": "call-034",
+      "draft_title": "Fix coach search filters resetting on browser back navigation",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 9,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Gloria: Okay. So when a member wants to find or change their coach, they go to the coach-search page. And they filter \u2014 we've got people who want a coach who speaks Spanish, people who want a specific specialty like conflict management, people who care about the coach's timezone because they work odd hours.\n[EXTERNAL] Gloria: Right. So they set their filters, they get a list of coaches, they click into one to read the full profile \u2014 the bio, the credentials, the whole thing. And then they decide \"eh, not quite,\" and they hit the browser back button to go back to their filtered list.\n[EXTERNAL] Gloria: The filters are gone. Completely reset. They're back to the full unfiltered list of every coach, and they have to re-select Spanish, re-select the specialty, re-select the timezone, all over again.\n[EXTERNAL] Gloria: Every single time. So imagine you're comparing four coaches. You filter, you click coach one, you read, you hit back \u2014 filters gone. You re-filter, click coach two, read, hit back \u2014 filters gone. It's maddening. People are just giving up and picking whoever's at the top of the unfiltered list, which defeats the entire point of filtering.\n[EXTERNAL] Gloria: The actual browser back button, correct. That's what people instinctively use.\n[EXTERNAL] Gloria: Exactly that. Cleared. Every filter, back to default.\n[EXTERNAL] Gloria: There might be, but nobody uses it. When you've been on the internet for twenty years your thumb goes to the back button automatically. You don't hunt for an in-page link.\n[EXTERNAL] Gloria: Thank you. That's exactly how I'd put it. It's not that the feature doesn't work, it's that it doesn't persist.\n[EXTERNAL] Gloria: As far as I can tell it's everyone on our end. It's not one person's browser. I reproduced it myself on Chrome, and one of my colleagues saw the same thing on hers. It's just how the page behaves.\n[EXTERNAL] Gloria: Chrome, current version. My colleague was also on Chrome I think. I didn't test other browsers, to be honest \u2014 Chrome is what we're standardized on company-wide.\n[EXTERNAL] Gloria: No, totally vanilla. Regular Chrome window, logged in normally, on our corporate network. Nothing exotic.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        9,
+        30
+      ]
+    }
+  ],
+  "source_sha256": "02936a635048ec0ccb35f9b1edcd63fdc5387543ef35bbccbd21b03c558a8c0c"
+}

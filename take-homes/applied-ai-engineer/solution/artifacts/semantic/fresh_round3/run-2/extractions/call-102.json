@@ -1,0 +1,25 @@
+{
+  "call_id": "call-102",
+  "candidates": [
+    {
+      "account": "Basil & Sage Catering",
+      "call_id": "call-102",
+      "draft_title": "Add 'Manager' role and reporting layer for captains",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 45,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Dominic: Funny you ask. We're being courted for a third campus, and if we land it we're going to need to promote another wave of captains and probably a level of management above them that we don't currently have \u2014 someone to run captains, a floor of leadership we've never had because we were too small to need it.\n[EXTERNAL] Dominic: That's what scares me about it, honestly. I know how to run a company of ninety where I still know everyone's name. I don't know how to run one where there's a layer between me and the floor. I've never done it.\n[EXTERNAL] Dominic: That's the fear in one sentence. I built this on being the guy who knows everyone and tastes every sauce. I don't know how to be the guy who trusts a layer of managers to taste the sauce for me.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        45,
+        50
+      ]
+    }
+  ],
+  "source_sha256": "4bfcb83ae1e65c4fb400022c61a2e3a3a67e576e7212ac43ec3ee6c07678cf59"
+}

@@ -1,0 +1,25 @@
+{
+  "call_id": "call-060",
+  "candidates": [
+    {
+      "account": "Harlow Health",
+      "call_id": "call-060",
+      "draft_title": "Add bulk reassignment of members to new coaches when a coach leaves",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 16,
+      "provisional_priority": "P3",
+      "raw_score": 3.8,
+      "signal_type": "feature",
+      "snippet": "[EXTERNAL] Gwen: It's not ominous, it's operational, but it's been a genuine headache and I want to talk it through. Here's the situation. We had a coach \u2014 a really good one, our clinicians loved her \u2014 leave the platform last month. She had, I think, thirty-something of our members assigned to her.\n[EXTERNAL] Gwen: Right. And here's the problem. There's no way to do that in bulk. When she left, I had to go in and reassign each of those thirty-some members to a new coach one at a time. Click into the member, change the coach, save, next member, over and over. It took me most of an afternoon.\n[EXTERNAL] Gwen: None that I could find. And Tobias looked too.\n[EXTERNAL] Tobias: I looked. There's no \"select all of Coach X's members and reassign to Coach Y\" anywhere. I even checked the admin bulk-actions menu because that's where bulk stuff usually lives. Bulk deactivate is there, bulk invite is there, but no bulk reassign.\n[EXTERNAL] Tobias: I even checked the help docs assuming I was just missing a button. Nothing there either.\n[EXTERNAL] Gwen: Exactly. And ideally I could split them \u2014 like, put fifteen with Coach A and fifteen with Coach B, because you don't always want to dump one coach's entire caseload on a single replacement. But even a straight \"move all of Coach X's people to Coach Y\" would have saved me the afternoon.\n[EXTERNAL] Gwen: There's a big risk angle, and this is the part that actually worries me more than my afternoon. When you're doing thirty of these by hand, you will miss one. I'm almost certain I missed at least one member for a day or two \u2014 they were sitting there assigned to a coach who no longer exists on the platform, and they had no active coach until I caught it. For a burnout-prevention program, a clinician falling through the cracks because of a manual reassignment error is exactly the failure mode we can't have.\n[EXTERNAL] Gwen: Please. That's the fear. These are people we're specifically trying to catch before they fall, and the tooling made me the weak link.\n[EXTERNAL] Gwen: That's fair. I don't expect a date. I just want it in the system with the right weight, because it's going to happen again \u2014 coaches leave, that's normal, and every time one does, I'm back to the afternoon.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        16,
+        31
+      ]
+    }
+  ],
+  "source_sha256": "510a5def473c51ea45ed43f97c01bb316aef7bf31f49a4c68fad9843b7fcce5f"
+}

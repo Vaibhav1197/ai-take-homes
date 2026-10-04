@@ -1,0 +1,25 @@
+{
+  "call_id": "call-001",
+  "candidates": [
+    {
+      "account": "Meridian Health",
+      "call_id": "call-001",
+      "draft_title": "Fix 'Active Members' summary card discrepancy with team breakdown totals",
+      "flags": [],
+      "keyword_hits": [],
+      "needs_human_priority_call": false,
+      "primary_turn_index": 23,
+      "provisional_priority": "P2",
+      "raw_score": 3.92,
+      "signal_type": "bug",
+      "snippet": "[EXTERNAL] Dana: Okay, so, one real thing. The usage dashboard summary is wrong, and it's the kind of wrong that bites us.\n[EXTERNAL] Dana: The headline \"active members\" card \u2014 the big number at the top \u2014 says 280 for this month. Our admin panel says 412. And here's the kicker: the per-team breakdown directly below the card adds up to 412. So the detail is right and the headline is wrong, on the same screen.\n[EXTERNAL] Dana: Exactly. Add up the rows, you get 412. Read the big card, you get 280. Same page, same load, at the same moment.\n[EXTERNAL] Dana: Maybe a week, week and a half ago. Before that they matched. I know because I look at that card constantly \u2014 I report those numbers up to finance off it.\n[EXTERNAL] Dana: It feeds the monthly ops review. Rob \u2014 our finance partner \u2014 literally screenshots that card and drops it into the deck. So last month somebody in the review asked me why adoption \"fell off a cliff\" and I had to explain, live, that it hadn't, the number's just wrong. Not a great look in a room full of VPs.\n[EXTERNAL] Dana: That's exactly my anxiety. The real number is up. The card says it's down by a third. I need the card to tell the truth before the July review.\n[EXTERNAL] Dana: That's it word for word.\n[EXTERNAL] Dana: I'll send it right after this. I've already got one saved from when Rob asked about the cliff.",
+      "suppressed": false,
+      "suppression_reason": "",
+      "turn_span": [
+        23,
+        37
+      ]
+    }
+  ],
+  "source_sha256": "92fe1b860aa80a2c238b8dbd7ff348fc89bc3d6612625409b1a51aca1ca42b4d"
+}
